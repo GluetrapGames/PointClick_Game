@@ -11,7 +11,9 @@ public class GridMovement : MonoBehaviour
 	private Grid m_Grid;
 	[SerializeField]
 	private Tilemap m_Tilemap;
-	[SerializeField]
+    [SerializeField]
+    private Tilemap m_ObsticalTilemap;
+    [SerializeField]
 	private Color m_HighlightColor = new(0.788f, 0.788f, 0.788f);
 	[SerializeField]
 	private float m_MoveSpeed = 2f;
@@ -43,12 +45,12 @@ public class GridMovement : MonoBehaviour
 			ResetTileColor(_previousTilePosition.Value);
 
 		// Highlight the current tile if it exists in the Tilemap.
-		if (m_Tilemap.HasTile(tilePosition))
+		if (m_Tilemap.HasTile(tilePosition) && !m_ObsticalTilemap.HasTile(tilePosition))
 			HighlightTile(tilePosition);
 
 		// Start pathfinding when the left mouse button is clicked.
 		if (Input.GetMouseButtonDown(0))
-			if (m_Tilemap.HasTile(tilePosition))
+			if (m_Tilemap.HasTile(tilePosition) && !m_ObsticalTilemap.HasTile(tilePosition))
 			{
 				_path = FindPath(m_Grid.WorldToCell(transform.position), tilePosition);
 				_currentPathIndex = 0;
@@ -66,7 +68,7 @@ public class GridMovement : MonoBehaviour
 	private void HighlightTile(Vector3Int tilePosition)
 	{
 		if (!m_Tilemap.HasTile(tilePosition)) return;
-
+		
 		m_Tilemap.SetTileFlags(tilePosition, TileFlags.None); //< Allow colour modification.
 		m_Tilemap.SetColor(tilePosition, m_HighlightColor);
 	}
@@ -104,7 +106,8 @@ public class GridMovement : MonoBehaviour
 
 			foreach (var neighbor in GetNeighbors(current))
 			{
-				if (closedList.Contains(neighbor)) continue;
+				if (closedList.Contains(neighbor) || 
+					m_ObsticalTilemap.HasTile(neighbor)) continue;
 
 				var tentativeGScore = gScore[current] + 1;
 
