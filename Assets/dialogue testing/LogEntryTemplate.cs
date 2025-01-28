@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using PixelCrushers.DialogueSystem;
+using UnityEngine.U2D;
 
 /// <summary>
 /// This class is the UI template for a single subtitle in the back log.
@@ -10,6 +11,7 @@ public class LogEntryTemplate : MonoBehaviour
     public Text speakerName;
     public Text dialogueText;
     public Button hornButton;
+    public Image characterImage;
 
     public void Assign(Subtitle subtitle)
     {
@@ -21,5 +23,6 @@ public class LogEntryTemplate : MonoBehaviour
                 subtitle.speakerInfo.transform, subtitle.listenerInfo.transform, 
                 false, true, subtitle.entrytag);
         });
+        characterImage.sprite = subtitle.GetSpeakerPortrait();
     }
 }
