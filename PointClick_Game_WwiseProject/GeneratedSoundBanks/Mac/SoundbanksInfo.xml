@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Mac</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E566EC84-7B81-D666-DFEE-7D14A9602471}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="2880817584" Name="Loud sound"/>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+				<Bus Id="3930136735" Name="Dialogue"/>
+				<Bus Id="3991942870" Name="Music"/>
+			</Busses>
+			<GameParameters>
+				<GameParameter Id="1004648580" Name="vol_music"/>
+				<GameParameter Id="3391499625" Name="vol_master"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C0954B72-8144-AD1C-6C8A-FAE4EC459FBB}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="73779194" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>track_menu.wav</ShortName>
+					<CachePath>SFX/track_menu_818F3B66.wem</CachePath>
+				</File>
+				<File Id="490080538" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>dial_alMcGuig_blab.wav</ShortName>
+					<CachePath>SFX/dial_alMcGuig_blab_27A55BAE.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="3706611725" Name="Albert_Blab" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="490080538"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2607556080" Name="menu" DurationType="OneShot" DurationMin="183.48619" DurationMax="183.48619">
+					<MediaRefs>
+						<MediaRef Id="73779194"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{68CF98FC-20B0-77A5-3874-7A514BE1612E}</FileHash>
+</SoundBanksInfo>
