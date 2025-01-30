@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Pixel Crushers. All rights reserved.
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace PixelCrushers.DialogueSystem.Wrappers
@@ -13,6 +14,12 @@ namespace PixelCrushers.DialogueSystem.Wrappers
     [AddComponentMenu("Pixel Crushers/Dialogue System/Misc/Dialogue System Controller")]
     public class DialogueSystemController : PixelCrushers.DialogueSystem.DialogueSystemController
     {
+        private bool autoplay = false;
+        public void AutoplayMode()
+        {
+            autoplay = !autoplay;
+            SetContinueMode(autoplay);
+        }
     }
 
 }

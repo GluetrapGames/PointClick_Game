@@ -1525,6 +1525,8 @@ namespace PixelCrushers.DialogueSystem
             Sequencer.SetContinueMode(value);
         }
 
+  
+
         /// <summary>
         /// Sets continue button mode.
         /// Before changing, records current mode so you can use
