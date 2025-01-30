@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using Unity.VisualScripting;
 #if USE_ADDRESSABLES
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -1656,7 +1657,7 @@ namespace PixelCrushers.DialogueSystem
                 UpdateLocalizationOnConversation(record);
             }
         }
-
+        
         private void UpdateLocalizationOnConversation(ActiveConversationRecord record)
         {
             if (record == null || record.conversationView == null || record.conversationView.dialogueUI == null) return;

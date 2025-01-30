@@ -27,6 +27,5 @@ namespace PixelCrushers.DialogueSystem
                 typewriter.StartTyping(text, 1);
             }
         }
-
     }
 }

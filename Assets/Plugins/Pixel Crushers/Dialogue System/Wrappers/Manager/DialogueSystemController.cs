@@ -1,6 +1,8 @@
-﻿// Copyright (c) Pixel Crushers. All rights reserved.
+﻿// Copyright (c) Adam. All rights reserved.
 
+using PixelCrushers.DialogueSystem.UnityGUI;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 namespace PixelCrushers.DialogueSystem.Wrappers
@@ -14,12 +16,6 @@ namespace PixelCrushers.DialogueSystem.Wrappers
     [AddComponentMenu("Pixel Crushers/Dialogue System/Misc/Dialogue System Controller")]
     public class DialogueSystemController : PixelCrushers.DialogueSystem.DialogueSystemController
     {
-        private bool autoplay = false;
-        public void AutoplayMode()
-        {
-            autoplay = !autoplay;
-            SetContinueMode(autoplay);
-        }
     }
 
 }
