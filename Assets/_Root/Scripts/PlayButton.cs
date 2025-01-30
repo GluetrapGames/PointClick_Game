@@ -18,5 +18,12 @@ public class PlayButton : MonoBehaviour
         Debug.LogError("Game quit");
         Application.Quit();
     }
+
+    public void ReturnToMainMenu()
+    {
+        
+        SceneManager.LoadScene(0);
+        
+    }
     
 }
