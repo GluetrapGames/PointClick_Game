@@ -45,6 +45,11 @@ public class GridMovement : MonoBehaviour
 
 	private void Update()
 	{
+		//HandleMovement();
+	}
+
+	public void HandleMovement()
+	{
 		_usingController = Gamepad.current != null;
 
 		// Change movement controls based on input device used.

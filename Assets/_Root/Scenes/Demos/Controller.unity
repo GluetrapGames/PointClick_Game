@@ -29358,6 +29358,51 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &783735585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783735587}
+  - component: {fileID: 783735586}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &783735586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783735585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe2572d9704f4a49b21159b39cf2253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GridMovement: {fileID: 2022756023}
+--- !u!4 &783735587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783735585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1642193788
 GameObject:
   m_ObjectHideFlags: 0
@@ -29415,6 +29460,10 @@ PrefabInstance:
     - target: {fileID: 125852, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: m_Name
       value: Dialogue Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 125852, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 425660, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29643,9 +29692,11 @@ MonoBehaviour:
   m_StartingGridPosition: {x: 0, y: 0, z: 0}
   m_Grid: {fileID: 1642193790}
   m_Tilemap: {fileID: 634442470}
-  m_ObsticalTilemap: {fileID: 64781997}
+  m_ObstacleTilemap: {fileID: 64781997}
   m_HighlightColor: {r: 0.788, g: 0.788, b: 0.788, a: 1}
+  m_Debug: 0
   m_MoveSpeed: 5
+  m_InputCooldown: 0.2
 --- !u!50 &2022756024
 Rigidbody2D:
   serializedVersion: 4
@@ -29858,3 +29909,4 @@ SceneRoots:
   - {fileID: 536507219}
   - {fileID: 2022756027}
   - {fileID: 1739821187}
+  - {fileID: 783735587}
