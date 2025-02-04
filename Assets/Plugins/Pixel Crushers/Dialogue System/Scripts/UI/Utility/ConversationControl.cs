@@ -88,6 +88,10 @@ namespace PixelCrushers.DialogueSystem
         public virtual void OnConversationEnd(Transform actor)
         {
             if (stopSkipAllOnConversationEnd) skipAll = false;
+
+            DialogueManager.displaySettings.subtitleSettings.continueButton = DisplaySettings.SubtitleSettings.ContinueButtonMode.Always;
+
+            Debug.Log("auto play is: " + DialogueManager.displaySettings.subtitleSettings.continueButton.ToString());
         }
 
     }

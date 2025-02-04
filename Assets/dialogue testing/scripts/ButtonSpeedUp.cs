@@ -35,8 +35,6 @@ namespace PixelCrushers.DialogueSystem
 
         public override void OnFastForward()
         {
-
-
             if ((typewriterEffect != null) && typewriterEffect.isPlaying)
             {
                 var completeText = DialogueManager.currentConversationState.subtitle.formattedText.text;
