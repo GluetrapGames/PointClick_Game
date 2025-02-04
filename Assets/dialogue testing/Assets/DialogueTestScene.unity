@@ -565,11 +565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actor: 
+  actor: Detective
   persistentDataName: 
   portrait: {fileID: 0}
   spritePortrait: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1473466117}
   barkUISettings:
     barkUI: {fileID: 11453294, guid: d5a18ab9ec93e0d4284d6fbae4f557e0, type: 3}
     barkUIOffset: {x: 0, y: 1, z: 0}
@@ -1327,6 +1327,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf59e9c601bf0354baa2d3daac7d491e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1473466117 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8352070086874622671, guid: 1219a18d192c9ff4cb160f6e931945bb, type: 3}
+  m_PrefabInstance: {fileID: 3398104130725595813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1617402263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,6 +1677,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 198075633661672187, guid: 1219a18d192c9ff4cb160f6e931945bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -14.54657
+      objectReference: {fileID: 0}
     - target: {fileID: 567344960770524526, guid: 1219a18d192c9ff4cb160f6e931945bb, type: 3}
       propertyPath: m_Enabled
       value: 0
