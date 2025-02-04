@@ -5,12 +5,14 @@ using UnityEngine;
 public class pickUpScript : MonoBehaviour
 {
     public bool isClicked;
+    public bool activateVariable;
 
     // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(true);
         isClicked = false;
+        activateVariable = false;
     }
 
     // Update is called once per frame
@@ -39,7 +41,7 @@ public class pickUpScript : MonoBehaviour
         { 
             //Debug.Log("Item collected");
             PixelCrushers.DialogueSystem.DialogueManager.ShowAlert(gameObject.name + " has been collected!");
-            gameObject.SetActive(false); 
+            activateVariable = true;
         }
     }
 }
