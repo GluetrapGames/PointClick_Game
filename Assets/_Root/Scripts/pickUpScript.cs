@@ -52,6 +52,7 @@ public class pickUpScript : MonoBehaviour
                     itemPrefab.GetComponent<Image>().sprite = sprite;
                     GameObject.Instantiate(itemPrefab, itemSlots[i].transform);
                     _slotFound = true;
+                    itemSlots[i].item = itemPrefab.GetComponent<InventoryItem>();
                     Debug.Log("Added " + itemType + " to slot " + itemSlots[i].name + " - Type Validation: " + itemPrefab.GetComponent<InventoryItem>().itemType);
                 }
                 

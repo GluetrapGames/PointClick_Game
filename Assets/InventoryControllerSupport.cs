@@ -15,6 +15,7 @@ public class InventoryControllerSupport : MonoBehaviour
 
     public List<InventorySlot> itemSlots;
     public InventorySlot heldItemSlot;
+    public HeldItemSlot heldItemSlot2;
     
     private bool _isOpen = false;
     
@@ -86,8 +87,11 @@ public class InventoryControllerSupport : MonoBehaviour
             if (slot.item != null)
             {
                 slot.item.transform.SetParent(heldItemSlot.transform);
+                heldItemSlot2.playerHeldItem = slot.item.itemType;
                 
                 Debug.Log("Transferred " + slot.item.name + " to the HeldItemSlot.");
+                
+                slot.item = null;
             }
             else
             {
@@ -100,12 +104,20 @@ public class InventoryControllerSupport : MonoBehaviour
             {
                 Debug.Log("Item in held slot");
                 InventorySlot previousSlot = slot;
+                
                 Transform currentHeldItemTransform = heldItemSlot.transform.GetChild(0);
                 InventoryItem currentHeldItem = currentHeldItemTransform.GetComponent<InventoryItem>();
-            
-                currentHeldItem.transform.SetParent(previousSlot.transform);
+                
+                currentHeldItem.transform.SetParent(slot.transform);
                 slot.item.transform.SetParent(heldItemSlot.transform);
+                
                 slot.item = currentHeldItem;
+                
+                Transform newHeldItemTransform = heldItemSlot.transform.GetChild(0);
+                InventoryItem newHeldItem = newHeldItemTransform.GetComponent<InventoryItem>();
+
+                heldItemSlot.item = newHeldItem;
+                heldItemSlot2.playerHeldItem = newHeldItem.itemType;
             
                 Debug.Log("Held item new parent = " + currentHeldItem.transform.parent.name);
                 Debug.Log("Transferred " + slot.item.name + " to the HeldItemSlot.");
