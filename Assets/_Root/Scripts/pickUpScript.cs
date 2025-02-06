@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class pickUpScript : MonoBehaviour
 {
-    public bool isClicked;
     public bool activateVariable;
+    [Range(0f, 2f)]
+    public float colliderRadius;
+
+    private bool isClicked;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +24,7 @@ public class pickUpScript : MonoBehaviour
     {
 
         // When mouse is clicked, Ray cast to check if the game object space was clicked.
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -28,7 +32,7 @@ public class pickUpScript : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject == gameObject)
                 isClicked = true;
-            else 
+            else
                 isClicked = false;
         }
     }
