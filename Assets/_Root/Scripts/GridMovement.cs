@@ -11,9 +11,9 @@ public class GridMovement : MonoBehaviour
 	private Grid m_Grid;
 	[SerializeField]
 	private Tilemap m_Tilemap;
-    [SerializeField]
-    private Tilemap m_ObsticalTilemap;
-    [SerializeField]
+	[SerializeField]
+	private Tilemap m_ObsticalTilemap;
+	[SerializeField]
 	private Color m_HighlightColor = new(0.788f, 0.788f, 0.788f);
 	[SerializeField]
 	private float m_MoveSpeed = 2f;
@@ -35,41 +35,54 @@ public class GridMovement : MonoBehaviour
 
 	private void Update()
 	{
-		var mouseWorldPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 mouseWorldPosition =
+			_camera.ScreenToWorldPoint(Input.mousePosition);
 
 		// Convert the world position to a grid position.
-		var tilePosition = m_Grid.WorldToCell(mouseWorldPosition);
+		Vector3Int tilePosition = m_Grid.WorldToCell(mouseWorldPosition);
 
 		// If the tile position is different, update the highlight.
-		if (_previousTilePosition.HasValue && _previousTilePosition.Value != tilePosition)
+		if (_previousTilePosition.HasValue &&
+		    _previousTilePosition.Value != tilePosition)
 			ResetTileColor(_previousTilePosition.Value);
 
 		// Highlight the current tile if it exists in the Tilemap.
-		if (m_Tilemap.HasTile(tilePosition) && !m_ObsticalTilemap.HasTile(tilePosition))
+		if (m_Tilemap.HasTile(tilePosition) &&
+		    !m_ObsticalTilemap.HasTile(tilePosition))
 			HighlightTile(tilePosition);
 
-		// Start pathfinding when the left mouse button is clicked.
-		if (Input.GetMouseButtonDown(0))
-			if (m_Tilemap.HasTile(tilePosition) && !m_ObsticalTilemap.HasTile(tilePosition))
-			{
-				_path = FindPath(m_Grid.WorldToCell(transform.position), tilePosition);
-				_currentPathIndex = 0;
-				_isMoving = true;
-			}
-
-		// Move the player towards the next tile on the path.
-		if (_isMoving && _path != null && _currentPathIndex < _path.Count)
-			MovePlayerAlongPath();
+		MoveToTile(tilePosition);
 
 		// Store the current tile position.
 		_previousTilePosition = tilePosition;
 	}
 
+	public void MoveToTile(Vector3Int tilePosition)
+	{
+		// Start pathfinding when the left mouse button is clicked.
+		if (Input.GetMouseButtonDown(0))
+		{
+			if (m_Tilemap.HasTile(tilePosition) &&
+			    !m_ObsticalTilemap.HasTile(tilePosition))
+			{
+				_path = FindPath(m_Grid.WorldToCell(transform.position),
+					tilePosition);
+				_currentPathIndex = 0;
+				_isMoving = true;
+			}
+		}
+
+		// Move the player towards the next tile on the path.
+		if (_isMoving && _path != null && _currentPathIndex < _path.Count)
+			MovePlayerAlongPath();
+	}
+
 	private void HighlightTile(Vector3Int tilePosition)
 	{
 		if (!m_Tilemap.HasTile(tilePosition)) return;
-		
-		m_Tilemap.SetTileFlags(tilePosition, TileFlags.None); //< Allow colour modification.
+
+		m_Tilemap.SetTileFlags(tilePosition,
+			TileFlags.None); //< Allow colour modification.
 		m_Tilemap.SetColor(tilePosition, m_HighlightColor);
 	}
 
@@ -77,7 +90,8 @@ public class GridMovement : MonoBehaviour
 	{
 		if (!m_Tilemap.HasTile(tilePosition)) return;
 
-		m_Tilemap.SetTileFlags(tilePosition, TileFlags.None); //< Allow colour modification.
+		m_Tilemap.SetTileFlags(tilePosition,
+			TileFlags.None); //< Allow colour modification.
 		m_Tilemap.SetColor(tilePosition, Color.white);
 	}
 
@@ -87,8 +101,10 @@ public class GridMovement : MonoBehaviour
 		var openList = new List<Vector3Int>();
 		var closedList = new HashSet<Vector3Int>();
 		var cameFrom = new Dictionary<Vector3Int, Vector3Int>();
-		var gScore = new Dictionary<Vector3Int, float>(); //< Cost from start to current.
-		var fScore = new Dictionary<Vector3Int, float>(); //< Estimated cost to goal.
+		var gScore =
+			new Dictionary<Vector3Int, float>(); //< Cost from start to current.
+		var fScore =
+			new Dictionary<Vector3Int, float>(); //< Estimated cost to goal.
 
 		openList.Add(start);
 		gScore[start] = 0;
@@ -97,17 +113,17 @@ public class GridMovement : MonoBehaviour
 		while (openList.Count > 0)
 		{
 			// Get the node with the lowest fScore.
-			var current = GetLowestFScoreNode(openList, fScore);
+			Vector3Int current = GetLowestFScoreNode(openList, fScore);
 			if (current == goal)
 				return ReconstructPath(cameFrom, current);
 
 			openList.Remove(current);
 			closedList.Add(current);
 
-			foreach (var neighbor in GetNeighbors(current))
+			foreach (Vector3Int neighbor in GetNeighbors(current))
 			{
-				if (closedList.Contains(neighbor) || 
-					m_ObsticalTilemap.HasTile(neighbor)) continue;
+				if (closedList.Contains(neighbor) ||
+				    m_ObsticalTilemap.HasTile(neighbor)) continue;
 
 				var tentativeGScore = gScore[current] + 1;
 
@@ -128,8 +144,8 @@ public class GridMovement : MonoBehaviour
 	private static Vector3Int GetLowestFScoreNode(List<Vector3Int> openList,
 		Dictionary<Vector3Int, float> fScore)
 	{
-		var lowest = openList[0];
-		foreach (var node in openList.Where(node =>
+		Vector3Int lowest = openList[0];
+		foreach (Vector3Int node in openList.Where(node =>
 			         fScore[node] < fScore[lowest])) lowest = node;
 
 		return lowest;
@@ -169,17 +185,16 @@ public class GridMovement : MonoBehaviour
 	{
 		if (_currentPathIndex < _path.Count)
 		{
-			var targetTile = _path[_currentPathIndex];
-			var targetPosition = m_Grid.GetCellCenterWorld(targetTile);
+			Vector3Int targetTile = _path[_currentPathIndex];
+			Vector3 targetPosition = m_Grid.GetCellCenterWorld(targetTile);
 			var step = m_MoveSpeed * Time.deltaTime;
 
-			transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+			transform.position =
+				Vector3.MoveTowards(transform.position, targetPosition, step);
 
 			if (transform.position == targetPosition) _currentPathIndex++;
 		}
 		else
-		{
 			_isMoving = false;
-		}
 	}
 }
