@@ -18,7 +18,7 @@ PlayerSettings:
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
-  m_ShowUnitySplashLogo: 1
+  m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
   m_SplashScreenLogoStyle: 1
@@ -82,7 +82,7 @@ PlayerSettings:
   androidApplicationEntry: 2
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-  runInBackground: 0
+  runInBackground: 1
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -799,8 +799,8 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   scriptingDefineSymbols:
     Android: TMP_PRESENT;USE_NEW_INPUT;USE_CINEMACHINE
-    Standalone: TMP_PRESENT;USE_NEW_INPUT;USE_CINEMACHINE;USE_PHYSICS2D
-    WebGL: TMP_PRESENT;USE_NEW_INPUT;USE_CINEMACHINE;USE_PHYSICS2D
+    Standalone: TMP_PRESENT;USE_NEW_INPUT;USE_CINEMACHINE;WWISE_ADDRESSABLES_23_1_OR_LATER
+    WebGL: TMP_PRESENT;USE_NEW_INPUT;USE_CINEMACHINE
     Windows Store Apps: TMP_PRESENT;USE_NEW_INPUT;USE_CINEMACHINE
     iPhone: TMP_PRESENT;USE_NEW_INPUT;USE_CINEMACHINE
     tvOS: TMP_PRESENT;USE_NEW_INPUT;USE_CINEMACHINE
@@ -828,7 +828,7 @@ PlayerSettings:
     tvOS: 1
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
-  allowUnsafeCode: 1
+  allowUnsafeCode: 0
   useDeterministicCompilation: 1
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
@@ -886,7 +886,23 @@ PlayerSettings:
   XboxOneIsContentPackage: 0
   XboxOneEnhancedXboxCompatibilityMode: 0
   XboxOneEnableGPUVariability: 1
-  XboxOneSockets: {}
+  XboxOneSockets:
+    WwiseCommandSocket:
+      m_Name: WwiseCommandSocket
+      m_Port: 24025
+      m_Protocol: 0
+      m_Usages: 00000000010000000400000007000000
+      m_TemplateName: WwiseCommand
+      m_SessionRequirment: 0
+      m_DeviceUsages: 00000000
+    WwiseDiscoverySocket:
+      m_Name: WwiseDiscoverySocket
+      m_Port: 24024
+      m_Protocol: 1
+      m_Usages: 00000000010000000400000007000000
+      m_TemplateName: WwiseDiscovery
+      m_SessionRequirment: 0
+      m_DeviceUsages: 00000000
   XboxOneSplashScreen: {fileID: 0}
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0

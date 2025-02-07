@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}" SchemaVersion="119">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Dialogue" ID="{6DE5B0DF-CED9-431C-8965-B8BB163EB5F8}" ShortID="134794571">
+					<ChildrenList>
+						<Folder Name="Albert" ID="{3E1D30FE-FCBF-4B9A-821C-49C4B734ABB3}" ShortID="564298064">
+							<ChildrenList>
+								<Sound Name="dial_alMcGuig_blab" ID="{D3E43BE5-8A62-4A5B-AC2F-F2BC120E39F3}" ShortID="901929745">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{C882D3B5-CE21-423D-AA7E-EEDFBE06B82E}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Dialogue" ID="{A2F95FD2-F817-4976-812E-CF88B31FC6BA}" WorkUnitID="{2304B8A9-891D-419F-9534-12F2540B9583}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dial_alMcGuig_blab" ID="{E9C30576-D662-4B2A-9DAC-173B4AD60B86}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.353933823529412"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>dial_alMcGuig_blab.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="490080538"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dial_alMcGuig_blab" ID="{E9C30576-D662-4B2A-9DAC-173B4AD60B86}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Music" ID="{69C00287-B7D0-4968-943C-630B00590A23}" ShortID="562242880">
+					<ChildrenList>
+						<Sound Name="track_menu" ID="{ED11B60F-8CD0-4EA9-AFF5-8FC5C9BCEAE7}" ShortID="383738174">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Music" ID="{63318C09-D053-4466-8A60-D845636291E6}" WorkUnitID="{2304B8A9-891D-419F-9534-12F2540B9583}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="track_menu" ID="{20C6532E-AC75-4E48-B11F-4E4A6EC743D4}">
+									<Language>SFX</Language>
+									<AudioFile>track_menu.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="73779194"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="track_menu" ID="{20C6532E-AC75-4E48-B11F-4E4A6EC743D4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
