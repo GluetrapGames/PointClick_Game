@@ -18,7 +18,6 @@ public class PickUpScript : MonoBehaviour
 
 	private Camera _camera;
 
-
 	private void Awake()
 	{
 		_camera = Camera.main;
@@ -35,8 +34,8 @@ public class PickUpScript : MonoBehaviour
 
 	private void Update()
 	{
-		// When mouse is clicked, Ray cast to check if the game object space was clicked.
-		if (!Input.GetMouseButtonDown(0)) return;
+		if (!Input.GetMouseButtonDown(0))
+			return;
 
 		Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
 		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
@@ -52,44 +51,45 @@ public class PickUpScript : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		// If the game object has been clicked and the player is within the
-		// trigger then hide the object and display alert message.
-		if (!isClicked) return;
+		if (!isClicked)
+			return;
 
 		Debug.Log("Item collected");
-
 		activateVariable = true;
 		gameObject.SetActive(false);
 	}
 
-	// Handle functionality for wall items.
+	// Handles wall item functionality.
 	private void HandleWallFunction()
 	{
-		if (!m_IsWallItem) return;
+		if (!m_IsWallItem)
+			return;
 
-		Vector3Int cellPosition =
-			m_Ground.WorldToCell(transform.position);
+		Vector3Int cellPosition = m_Ground.WorldToCell(transform.position);
 
-		if (m_Log) Debug.Log($"Before Loop: {cellPosition}");
-		// Continue searching down until a valid tile has been foudn.
+		if (m_Log)
+			Debug.Log($"Before Loop: {cellPosition}");
+
 		while (!m_Ground.HasTile(cellPosition) && cellPosition.y > -100)
 		{
 			cellPosition.y--;
-			if (m_Log) Debug.Log($"In Loop: {cellPosition}");
+			if (m_Log)
+				Debug.Log($"In Loop: {cellPosition}");
 		}
 
-		if (!m_Ground.HasTile(cellPosition)) return;
+		if (!m_Ground.HasTile(cellPosition))
+			return;
 
 		if (m_Log)
 		{
 			Debug.Log($"After Loop: {cellPosition}");
 			m_Ground.SetTileFlags(cellPosition,
-				TileFlags.None); //< Allow colour modification.
+				TileFlags.None); // Allow colour modification.
 			m_Ground.SetColor(cellPosition, Color.green);
 		}
 
-		// Move the player to that tile.
+		// Move the player to the target tile.
 		m_Player.SetDestination(cellPosition);
-		m_Player.MoveToTile();
+		StartCoroutine(m_Player.MoveAlongPathCoroutine(5f));
 	}
 }

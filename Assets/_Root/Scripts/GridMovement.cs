@@ -1,70 +1,102 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class GridMovement : MonoBehaviour
 {
-	public Vector3Int m_StartingGridPosition;
 	public int m_CurrentPathIndex;
 	public bool m_IsMoving;
-	public List<Vector3Int> m_Path;
+	public List<Vector3Int> m_Path = new();
 	public Grid m_Grid;
-	public Tilemap m_Tilemap;
+	public Tilemap m_NavMesh;
 	public Tilemap m_ObstacleTilemap;
-
-	[SerializeField]
-	private bool m_Debug;
-
-	private Vector3 _targetPosition;
 	public Vector3Int? m_PreviousTilePosition;
 
 
-	private void Start()
+	private void Awake()
 	{
-		// Set the object's initial position to a starting tile.
-		_targetPosition = m_Grid.GetCellCenterWorld(m_StartingGridPosition);
-		transform.position = _targetPosition;
+		m_Grid = FindFirstObjectByType<Grid>();
+
+		// Loop through the children of the Grid object to assign the tilemaps.
+		foreach (Transform child in m_Grid.transform)
+			if (child.CompareTag("NavMesh"))
+				m_NavMesh = child.GetComponent<Tilemap>();
+			else if (!m_ObstacleTilemap)
+				m_ObstacleTilemap = child.GetComponent<Tilemap>();
+
+		// Ensure both tilemaps were assigned correctly.
+		if (!m_NavMesh) Debug.LogError("NavMesh Tilemap not assigned.");
+		if (!m_ObstacleTilemap)
+			Debug.LogError("Obstacle Tilemap not assigned.");
 	}
 
-	// Move the object towards the next tile on the path.
-	public void MoveToTile(float speed = 5f)
+#if UNITY_EDITOR
+	private void Reset()
 	{
-		if (m_IsMoving && m_Path != null && m_CurrentPathIndex < m_Path.Count)
-			MoveAlongPath(speed);
+		Awake();
+	}
+#endif
+
+	public void TeleportToTile(Vector3Int tilePosition)
+	{
+		// Set the object's initial position to the starting tile.
+		Vector3 startPos = m_Grid.GetCellCenterWorld(tilePosition);
+		transform.position = startPos;
 	}
 
-	// Set the destination tile and calculate path.
+	// Sets the destination tile and calculates an A* path.
 	public void SetDestination(Vector3Int tilePosition)
 	{
-		if (!m_Tilemap.HasTile(tilePosition) ||
-		    m_ObstacleTilemap.HasTile(tilePosition)) return;
+		if (!m_NavMesh.HasTile(tilePosition) ||
+		    m_ObstacleTilemap.HasTile(tilePosition))
+			return;
 
 		m_Path = AStar.FindPath(m_Grid.WorldToCell(transform.position),
-			tilePosition, m_Tilemap, m_ObstacleTilemap);
+			tilePosition, m_NavMesh, m_ObstacleTilemap);
+		if (m_Path is { Count: > 0 })
+		{
+			Vector3Int currentCell = m_Grid.WorldToCell(transform.position);
+			if (m_Path[0] == currentCell)
+				m_Path.RemoveAt(0);
+		}
+
 		m_CurrentPathIndex = 0;
 		m_IsMoving = true;
 	}
 
-	public void MoveAlongPath(float speed)
+	// Moves the object along the precomputed path.
+	public void MoveToTile(float speed = 5f)
 	{
-		if (m_Path == null || m_Path.Count == 0)
+		if (!m_IsMoving || m_Path == null || m_CurrentPathIndex >= m_Path.Count)
 		{
 			m_IsMoving = false;
 			return;
 		}
 
-		if (m_CurrentPathIndex < m_Path.Count)
-		{
-			Vector3Int targetTile = m_Path[m_CurrentPathIndex];
-			Vector3 targetPosition = m_Grid.GetCellCenterWorld(targetTile);
-			var step = speed * Time.deltaTime;
+		Vector3Int targetTile = m_Path[m_CurrentPathIndex];
+		Vector3 targetPosition = m_Grid.GetCellCenterWorld(targetTile);
+		var step = speed * Time.deltaTime;
+		transform.position =
+			Vector3.MoveTowards(transform.position, targetPosition, step);
 
-			transform.position =
-				Vector3.MoveTowards(transform.position, targetPosition, step);
+		// Use a threshold to account for floating point imprecision.
+		if (!(Vector3.Distance(transform.position, targetPosition) < 0.01f))
+			return;
 
-			if (transform.position == targetPosition) m_CurrentPathIndex++;
-		}
-		else
+		transform.position = targetPosition;
+		m_CurrentPathIndex++;
+		if (m_CurrentPathIndex >= m_Path.Count)
 			m_IsMoving = false;
+	}
+
+	// Coroutine that calls MoveToTile until the path is complete.
+	public IEnumerator MoveAlongPathCoroutine(float speed)
+	{
+		while (m_IsMoving)
+		{
+			MoveToTile(speed);
+			yield return null;
+		}
 	}
 }
