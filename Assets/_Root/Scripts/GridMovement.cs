@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.Tilemaps;
 
 public class GridMovement : MonoBehaviour
@@ -12,18 +14,26 @@ public class GridMovement : MonoBehaviour
 	[SerializeField]
 	private Tilemap m_Tilemap;
 	[SerializeField]
-	private Tilemap m_ObsticalTilemap;
+	private Tilemap m_ObstacleTilemap;
 	[SerializeField]
 	private Color m_HighlightColor = new(0.788f, 0.788f, 0.788f);
 	[SerializeField]
-	private float m_MoveSpeed = 2f;
+	private bool m_Debug;
+	[SerializeField]
+	private float m_MoveSpeed = 5f;
+	[SerializeField]
+	[Range(0f, 0.5f)]
+	private float m_InputCooldown = 0.2f;
+
 	private Camera _camera;
 	private int _currentPathIndex;
+	private Vector2 _inputDirection;
 	private bool _isMoving;
-
+	private float _lastMoveTime;
 	private List<Vector3Int> _path;
 	private Vector3Int? _previousTilePosition;
 	private Vector3 _targetPosition;
+	private bool _usingController;
 
 	private void Start()
 	{
@@ -34,6 +44,23 @@ public class GridMovement : MonoBehaviour
 	}
 
 	private void Update()
+	{
+		//HandleMovement();
+	}
+
+	public void HandleMovement()
+	{
+		_usingController = Gamepad.current != null;
+
+		// Change movement controls based on input device used.
+		if (_usingController)
+			HandleControllerMovement();
+		else
+			MouseMovement();
+	}
+
+	// Grid-based movement through a mouse using A*.
+	private void MouseMovement()
 	{
 		Vector3 mouseWorldPosition =
 			_camera.ScreenToWorldPoint(Input.mousePosition);
@@ -48,22 +75,14 @@ public class GridMovement : MonoBehaviour
 
 		// Highlight the current tile if it exists in the Tilemap.
 		if (m_Tilemap.HasTile(tilePosition) &&
-		    !m_ObsticalTilemap.HasTile(tilePosition))
+		    !m_ObstacleTilemap.HasTile(tilePosition))
 			HighlightTile(tilePosition);
 
-		MoveToTile(tilePosition);
-
-		// Store the current tile position.
-		_previousTilePosition = tilePosition;
-	}
-
-	public void MoveToTile(Vector3Int tilePosition)
-	{
 		// Start pathfinding when the left mouse button is clicked.
 		if (Input.GetMouseButtonDown(0))
 		{
 			if (m_Tilemap.HasTile(tilePosition) &&
-			    !m_ObsticalTilemap.HasTile(tilePosition))
+			    !m_ObstacleTilemap.HasTile(tilePosition))
 			{
 				_path = FindPath(m_Grid.WorldToCell(transform.position),
 					tilePosition);
@@ -75,7 +94,51 @@ public class GridMovement : MonoBehaviour
 		// Move the player towards the next tile on the path.
 		if (_isMoving && _path != null && _currentPathIndex < _path.Count)
 			MovePlayerAlongPath();
+
+		// Store the current tile position.
+		_previousTilePosition = tilePosition;
 	}
+
+	// Direct grid-based movement through a controller.
+	private void HandleControllerMovement()
+	{
+		// Read left stick and D-pad input.
+		Vector2 moveInput =
+			Gamepad.current?.leftStick.ReadValue() ?? Vector2.zero;
+		DpadControl dpad = Gamepad.current?.dpad;
+
+		// Determine movement direction.
+		Vector3Int direction = Vector3Int.zero;
+		if (moveInput.x > 0.5f || (dpad?.right.isPressed ?? false))
+			direction = Vector3Int.right;
+		else if (moveInput.x < -0.5f || (dpad?.left.isPressed ?? false))
+			direction = Vector3Int.left;
+		else if (moveInput.y > 0.5f || (dpad?.up.isPressed ?? false))
+			direction = Vector3Int.up;
+		else if (moveInput.y < -0.5f || (dpad?.down.isPressed ?? false))
+			direction = Vector3Int.down;
+
+		// Ensure movement only happens after a small delay.
+		if (direction != Vector3Int.zero &&
+		    Time.time - _lastMoveTime >= m_InputCooldown)
+		{
+			// Move towards to tile in the desired direction.
+			Vector3Int targetTile =
+				m_Grid.WorldToCell(transform.position) + direction;
+			if (m_Tilemap.HasTile(targetTile) &&
+			    !m_ObstacleTilemap.HasTile(targetTile))
+			{
+				_path = new List<Vector3Int> { targetTile };
+				_currentPathIndex = 0;
+				_isMoving = true;
+				_lastMoveTime = Time.time;
+			}
+		}
+
+		if (_isMoving)
+			MovePlayerAlongPath();
+	}
+
 
 	private void HighlightTile(Vector3Int tilePosition)
 	{
@@ -123,7 +186,7 @@ public class GridMovement : MonoBehaviour
 			foreach (Vector3Int neighbor in GetNeighbors(current))
 			{
 				if (closedList.Contains(neighbor) ||
-				    m_ObsticalTilemap.HasTile(neighbor)) continue;
+				    m_ObstacleTilemap.HasTile(neighbor)) continue;
 
 				var tentativeGScore = gScore[current] + 1;
 
@@ -183,6 +246,12 @@ public class GridMovement : MonoBehaviour
 
 	private void MovePlayerAlongPath()
 	{
+		if (_path == null || _path.Count == 0)
+		{
+			_isMoving = false;
+			return;
+		}
+
 		if (_currentPathIndex < _path.Count)
 		{
 			Vector3Int targetTile = _path[_currentPathIndex];
