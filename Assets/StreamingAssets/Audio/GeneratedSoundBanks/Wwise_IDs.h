@@ -15,6 +15,9 @@ namespace AK
     {
         static const AkUniqueID ALBERT_BLAB = 3706611725U;
         static const AkUniqueID MENU = 2607556080U;
+        static const AkUniqueID MENU_BACK = 3063554414U;
+        static const AkUniqueID MENU_HOVER = 309439191U;
+        static const AkUniqueID MENU_SELECT = 4203375351U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS

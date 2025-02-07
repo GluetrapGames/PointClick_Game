@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: fef77f58d05ca5478965ec9b4d689c75
     GuidInternal: 
-    m_lastTime: -8584626763691637677
+    m_lastTime: -8584626755201249320
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: a9b804231d899f41953412f2540b9583
     GuidInternal: 
-    m_lastTime: -8584626763693955409
+    m_lastTime: -8584626755203567436
     List:
     - name: Dialogue
       guid: d25ff9a217f87649812ecf88b31fc6ba
@@ -117,7 +117,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: dfa78218bb9ccb488547d0db7a6388f6
     GuidInternal: 
-    m_lastTime: -8584626763691662814
+    m_lastTime: -8584626667754152272
     List:
     - name: Main
       guid: b22d1ec26d3d8e4dbda8bb15e5ce13b6
@@ -145,7 +145,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 88a7ec9024ef6d4b8978b29fc7fc9c44
     GuidInternal: 
-    m_lastTime: -8584626763698017422
+    m_lastTime: -8584626667753202715
     List:
     - name: Albert
       guid: ab8bc469affd554b9b05611293794592
@@ -188,8 +188,8 @@ MonoBehaviour:
         guid: 04e0865e4e24654f8b2c252b50ee0bf5
       Path: Events\Default Work Unit\Dialogue\Albert\Albert_Blab
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.39727727
+      minDuration: 0.334069
     - name: Dialogue
       guid: 8d2cfd8d5e4231489ec231fa5bd373c7
       id: 3930136735
@@ -227,6 +227,95 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 183.48619
       minDuration: 183.48619
+    - name: Menu
+      guid: f67a8649d19881419498699cfc730bfa
+      id: 2607556080
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 88a7ec9024ef6d4b8978b29fc7fc9c44
+      - ElementName: UI
+        ObjectType: 4
+        guid: 6a91ebafe6476a48811bcc0e179e739e
+      - ElementName: Menu
+        ObjectType: 4
+        guid: f67a8649d19881419498699cfc730bfa
+      Path: Events\Default Work Unit\UI\Menu
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: menu_back
+      guid: cfe79e073aa63546880f7d219d8f99aa
+      id: 3063554414
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 88a7ec9024ef6d4b8978b29fc7fc9c44
+      - ElementName: UI
+        ObjectType: 4
+        guid: 6a91ebafe6476a48811bcc0e179e739e
+      - ElementName: Menu
+        ObjectType: 4
+        guid: f67a8649d19881419498699cfc730bfa
+      - ElementName: menu_back
+        ObjectType: 3
+        guid: cfe79e073aa63546880f7d219d8f99aa
+      Path: Events\Default Work Unit\UI\Menu\menu_back
+      maxAttenuation: 0
+      maxDuration: 0.39407054
+      minDuration: 0.39407054
+    - name: menu_hover
+      guid: c98c62f049016b4c873b62701bdf697b
+      id: 309439191
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 88a7ec9024ef6d4b8978b29fc7fc9c44
+      - ElementName: UI
+        ObjectType: 4
+        guid: 6a91ebafe6476a48811bcc0e179e739e
+      - ElementName: Menu
+        ObjectType: 4
+        guid: f67a8649d19881419498699cfc730bfa
+      - ElementName: menu_hover
+        ObjectType: 3
+        guid: c98c62f049016b4c873b62701bdf697b
+      Path: Events\Default Work Unit\UI\Menu\menu_hover
+      maxAttenuation: 0
+      maxDuration: 0.036299303
+      minDuration: 0.036299303
+    - name: menu_select
+      guid: 9cdd2178fb75a143b2bec4c0e0d1ba9b
+      id: 4203375351
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 88a7ec9024ef6d4b8978b29fc7fc9c44
+      - ElementName: UI
+        ObjectType: 4
+        guid: 6a91ebafe6476a48811bcc0e179e739e
+      - ElementName: Menu
+        ObjectType: 4
+        guid: f67a8649d19881419498699cfc730bfa
+      - ElementName: menu_select
+        ObjectType: 3
+        guid: 9cdd2178fb75a143b2bec4c0e0d1ba9b
+      Path: Events\Default Work Unit\UI\Menu\menu_select
+      maxAttenuation: 0
+      maxDuration: 0.36712962
+      minDuration: 0.36712962
     - name: Music
       guid: 36f56fedc8d94a42bc19343da358c678
       id: 3991942870
@@ -244,6 +333,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: UI
+      guid: 6a91ebafe6476a48811bcc0e179e739e
+      id: 1551306167
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 88a7ec9024ef6d4b8978b29fc7fc9c44
+      - ElementName: UI
+        ObjectType: 4
+        guid: 6a91ebafe6476a48811bcc0e179e739e
+      Path: Events\Default Work Unit\UI
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -256,7 +362,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: d6aeeb749b6f304bade781b8a08057d1
     GuidInternal: 
-    m_lastTime: -8584626763698012320
+    m_lastTime: -8584626755207922820
     List:
     - name: vol_master
       guid: 60dd6a63a850294695a3953db570b216
@@ -318,7 +424,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: d23b657042f3e74faeee8086be6d4bda
     GuidInternal: 
-    m_lastTime: -8584626763691652811
+    m_lastTime: -8584626755201259293
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -332,7 +438,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 4521a74e7f15eb46ab71394d0a32a12a
     GuidInternal: 
-    m_lastTime: -8584626763691647749
+    m_lastTime: -8584626755201259293
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -346,10 +452,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: ac4eb6d511fba54b9ad4308ad4625b31
     GuidInternal: 
-    m_lastTime: -8584626763691647749
+    m_lastTime: -8584626755201249320
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0600000007000000080000000a0000000b0000000c0000000d000000190000001a000000200000003cd41400
+  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000190000001a0000001c000000200000003cd41400
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

@@ -37,6 +37,47 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="UI" ID="{AFEB916A-47E6-486A-811B-CC0E179E739E}" ShortID="129391906">
+					<ChildrenList>
+						<Folder Name="Menu" ID="{49867AF6-98D1-4181-9498-699CFC730BFA}" ShortID="75111565">
+							<ChildrenList>
+								<Event Name="menu_select" ID="{7821DD9C-75FB-43A1-B2BE-C4C0E0D1BA9B}">
+									<ChildrenList>
+										<Action Name="" ID="{63E34920-143F-494C-874E-73C352D1E696}" ShortID="231635807">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="ui_menu_select" ID="{AAD1FAC7-9AF4-43C8-A85A-A30BC3F6FECB}" WorkUnitID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="menu_hover" ID="{F0628CC9-0149-4C6B-873B-62701BDF697B}">
+									<ChildrenList>
+										<Action Name="" ID="{B2015781-A748-410C-A431-3416769ACCB7}" ShortID="815219816">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="ui_menu_hover" ID="{CE976F2A-AA84-470C-8170-00DC83C16177}" WorkUnitID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="menu_back" ID="{079EE7CF-A63A-4635-880F-7D219D8F99AA}">
+									<ChildrenList>
+										<Action Name="" ID="{E1408423-2398-4699-9C07-4AE668E99E50}" ShortID="658848044">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="ui_menu_back" ID="{762F6080-617F-4FCF-A6B7-81BAE905B97E}" WorkUnitID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

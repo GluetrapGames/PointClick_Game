@@ -29,7 +29,7 @@
 				<GameParameter Id="3391499625" Name="vol_master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C0954B72-8144-AD1C-6C8A-FAE4EC459FBB}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{48257026-9476-C22A-75C8-E11EF344CC91}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -37,13 +37,25 @@
 					<ShortName>track_menu.wav</ShortName>
 					<CachePath>SFX/track_menu_818F3B66.wem</CachePath>
 				</File>
+				<File Id="277770706" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_menu_select.wav</ShortName>
+					<CachePath>SFX/ui_menu_select_96B2DC09.wem</CachePath>
+				</File>
 				<File Id="490080538" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_alMcGuig_blab.wav</ShortName>
-					<CachePath>SFX/dial_alMcGuig_blab_27A55BAE.wem</CachePath>
+					<CachePath>SFX/dial_alMcGuig_blab_DF79E40E.wem</CachePath>
+				</File>
+				<File Id="604374767" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_menu_back.wav</ShortName>
+					<CachePath>SFX/ui_menu_back_E5CD0102.wem</CachePath>
+				</File>
+				<File Id="976753790" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_menu_hover.wav</ShortName>
+					<CachePath>SFX/ui_menu_hover_1FB1B41B.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3706611725" Name="Albert_Blab" DurationType="Infinite">
+				<Event Id="3706611725" Name="Albert_Blab" DurationType="OneShot" DurationMin="0.334069" DurationMax="0.39727727">
 					<MediaRefs>
 						<MediaRef Id="490080538"/>
 					</MediaRefs>
@@ -53,8 +65,23 @@
 						<MediaRef Id="73779194"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3063554414" Name="menu_back" DurationType="OneShot" DurationMin="0.39407054" DurationMax="0.39407054">
+					<MediaRefs>
+						<MediaRef Id="604374767"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="309439191" Name="menu_hover" DurationType="OneShot" DurationMin="0.036299303" DurationMax="0.036299303">
+					<MediaRefs>
+						<MediaRef Id="976753790"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4203375351" Name="menu_select" DurationType="OneShot" DurationMin="0.36712962" DurationMax="0.36712962">
+					<MediaRefs>
+						<MediaRef Id="277770706"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{BF8C100F-F24E-A636-7F3D-5331C88B7D28}</FileHash>
+	<FileHash>{1E221E06-4418-640A-4EC3-5A33A7B05799}</FileHash>
 </SoundBanksInfo>
