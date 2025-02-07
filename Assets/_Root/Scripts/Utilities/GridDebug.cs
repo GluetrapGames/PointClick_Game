@@ -12,8 +12,8 @@ public class GridDebug : MonoBehaviour
 	private Tilemap m_GroundTilemap;
 	[SerializeField]
 	private Color m_DebugColour = Color.cyan;
-
-	private readonly Color _defaultColour = new(1f, 1f, 1f, 0.01f);
+	[SerializeField]
+	private Color m_DefaultColour = new(1f, 1f, 1f, 0.00f);
 
 	private void Update()
 	{
@@ -33,6 +33,6 @@ public class GridDebug : MonoBehaviour
 	private void ApplyDebugColours()
 	{
 		if (m_GroundTilemap == null) return;
-		m_GroundTilemap.color = m_ToggleDebug ? m_DebugColour : _defaultColour;
+		m_GroundTilemap.color = m_ToggleDebug ? m_DebugColour : m_DefaultColour;
 	}
 }

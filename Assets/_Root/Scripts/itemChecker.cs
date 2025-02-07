@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class itemChecker : MonoBehaviour
+public class ItemChecker : MonoBehaviour
 {
     public HeldItemSlot heldItem;
     public SpriteRenderer renderer;

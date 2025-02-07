@@ -89,6 +89,7 @@ public class PickUpScript : MonoBehaviour
 		}
 
 		// Move the player to that tile.
-		m_Player.MoveToTile(cellPosition);
+		m_Player.SetDestination(cellPosition);
+		m_Player.MoveToTile();
 	}
 }

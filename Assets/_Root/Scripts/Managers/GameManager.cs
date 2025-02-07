@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField]
-	private GridMovement m_GridMovement;
+	private PlayerGridController m_Player;
 	private States _currentState = States.Moving;
 
 	private void Update()
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 		switch (_currentState)
 		{
 			case States.Moving:
-				m_GridMovement.HandleMovement();
+				m_Player.HandleMovement();
 				break;
 			case States.Talking:
 				break;
