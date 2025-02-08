@@ -27424,7 +27424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2056535660054850627}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &536507219
@@ -29519,7 +29519,7 @@ Transform:
   m_GameObject: {fileID: 891039750}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.13, y: 5.95, z: 0}
+  m_LocalPosition: {x: 0.05, y: 1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31339,7 +31339,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.554717, g: 0.554717, b: 0.554717, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -31780,13 +31780,19 @@ MonoBehaviour:
   inputDevice: 0
   joystickKeyCodesToCheck: 4a0100004b0100004c01000051010000
   joystickButtonsToCheck: []
-  joystickAxesToCheck: []
+  joystickAxesToCheck:
+  - JoystickAxis1
+  - JoystickAxis2
+  - JoystickAxis3
+  - JoystickAxis4
+  - JoystickAxis6
+  - JoystickAxis7
   joystickAxisThreshold: 0.5
   keyButtonsToCheck: []
   keyCodesToCheck: 1b000000
   keyInputSwitchesModeTo: 1
   alwaysAutoFocus: 0
-  detectMouseControl: 1
+  detectMouseControl: 0
   mouseMoveThreshold: 0.1
   controlCursorState: 1
   enforceCursorOnPause: 0
@@ -32784,7 +32790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a9540f98bb79346b296ec5feb51073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSelected: {fileID: 2056535660054850627}
+  firstSelected: {fileID: 0}
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
