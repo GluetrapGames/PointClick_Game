@@ -53,18 +53,12 @@ public class GridMovement : MonoBehaviour
 		CalculateObstacleTiles();
 	}
 
-#if UNITY_EDITOR
-	private void Reset()
-	{
-		Awake();
-	}
-
-	/*private void OnValidate()
+	private void Update()
 	{
 		if (_debug)
 		{
 			_gridDebug.m_ToggleDebug = true;
-			foreach (Vector3Int cellPos in _obstaclesPositions)
+			foreach (Vector3Int cellPos in m_ObstaclesPositions)
 			{
 				m_NavMesh.SetTileFlags(cellPos, TileFlags.None);
 				m_NavMesh.SetColor(cellPos, Color.red);
@@ -72,16 +66,10 @@ public class GridMovement : MonoBehaviour
 		}
 		else
 		{
-			_gridDebug.m_ToggleDebug = false;
-			foreach (Vector3Int cellPos in _obstaclesPositions)
-				m_NavMesh.SetColor(cellPos, Color.cyan);
+			foreach (Vector3Int cellPos in m_ObstaclesPositions)
+				m_NavMesh.SetColor(cellPos, _gridDebug.m_DebugColour);
 		}
-	}*/
 
-#endif
-
-	private void Update()
-	{
 		if (ShouldUpdateObstacle())
 			UpdateObstacles();
 	}
@@ -247,7 +235,7 @@ public class GridMovement : MonoBehaviour
 	}
 
 	// Coroutine that calls MoveToTile until the path is complete.
-	public IEnumerator MoveAlongPathCoroutine(float speed)
+	public IEnumerator MoveAlongPathCoroutine(float speed = 1f)
 	{
 		while (m_IsMoving)
 		{
@@ -255,4 +243,16 @@ public class GridMovement : MonoBehaviour
 			yield return null;
 		}
 	}
+
+#if UNITY_EDITOR
+	private void Reset()
+	{
+		//Awake();
+	}
+
+	private void OnValidate()
+	{
+	}
+
+#endif
 }

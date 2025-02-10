@@ -27,7 +27,7 @@ public class ItemCollectionChangeVariable : MonoBehaviour
 	// Update is called once per frame
 	private void Update()
 	{
-		isCollected = pickUpScript.activateVariable;
+		isCollected = pickUpScript.m_ActivateVariable;
 
 		if (isCollected)
 		{

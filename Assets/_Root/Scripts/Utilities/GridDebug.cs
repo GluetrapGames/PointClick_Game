@@ -7,13 +7,13 @@ using UnityEditor;
 public class GridDebug : MonoBehaviour
 {
 	public bool m_ToggleDebug;
+	public Color m_DebugColour = Color.cyan;
 
 	[SerializeField]
-	private Tilemap m_GroundTilemap;
+	private Tilemap _groundTilemap;
 	[SerializeField]
-	private Color m_DebugColour = Color.cyan;
-	[SerializeField]
-	private Color m_DefaultColour = new(1f, 1f, 1f, 0.00f);
+	private Color _defaultColour = new(1f, 1f, 1f, 0.00f);
+
 
 	private void Update()
 	{
@@ -32,7 +32,7 @@ public class GridDebug : MonoBehaviour
 
 	private void ApplyDebugColours()
 	{
-		if (m_GroundTilemap == null) return;
-		m_GroundTilemap.color = m_ToggleDebug ? m_DebugColour : m_DefaultColour;
+		if (_groundTilemap == null) return;
+		_groundTilemap.color = m_ToggleDebug ? m_DebugColour : _defaultColour;
 	}
 }
