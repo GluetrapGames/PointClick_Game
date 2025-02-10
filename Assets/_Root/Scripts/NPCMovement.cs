@@ -14,8 +14,9 @@ public class NPCMovement : MonoBehaviour
 	[SerializeField]
 	[Tooltip("Enables viewing of transformed path nodes.")]
 	private bool m_Debug;
+	[SerializeField]
+	private List<Vector3Int> _cellPath = new();
 
-	private readonly List<Vector3Int> _cellPath = new();
 	private Grid _grid;
 	private GridMovement _gridMovement;
 

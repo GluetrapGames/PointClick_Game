@@ -6,16 +6,16 @@ using UnityEngine.Tilemaps;
 public static class AStar
 {
 	public static List<Vector3Int> FindPath(Vector3Int start, Vector3Int goal,
-		Tilemap groundMap, Tilemap obstacleMap)
+		Tilemap map, List<Vector3Int> obstacles)
 	{
 		// A* algorithm to find the path.
 		var openList = new List<Vector3Int>();
 		var closedList = new HashSet<Vector3Int>();
 		var cameFrom = new Dictionary<Vector3Int, Vector3Int>();
 		var gScore =
-			new Dictionary<Vector3Int, float>(); //< Cost from start to current.
+			new Dictionary<Vector3Int, float>(); // Cost from start to current.
 		var fScore =
-			new Dictionary<Vector3Int, float>(); //< Estimated cost to goal.
+			new Dictionary<Vector3Int, float>(); // Estimated cost to goal.
 
 		openList.Add(start);
 		gScore[start] = 0;
@@ -31,10 +31,12 @@ public static class AStar
 			openList.Remove(current);
 			closedList.Add(current);
 
-			foreach (Vector3Int neighbor in GetNeighbors(current, groundMap))
+			foreach (Vector3Int neighbor in GetNeighbors(current, map))
 			{
+				// Skip if neighbor is already evaluated or is an obstacle.
 				if (closedList.Contains(neighbor) ||
-				    obstacleMap.HasTile(neighbor)) continue;
+				    (obstacles != null && obstacles.Contains(neighbor)))
+					continue;
 
 				var tentativeGScore = gScore[current] + 1;
 
@@ -57,13 +59,14 @@ public static class AStar
 	{
 		Vector3Int lowest = openList[0];
 		foreach (Vector3Int node in openList.Where(node =>
-			         fScore[node] < fScore[lowest])) lowest = node;
+			         fScore[node] < fScore[lowest]))
+			lowest = node;
 
 		return lowest;
 	}
 
-	public static List<Vector3Int> ReconstructPath(Dictionary<Vector3Int,
-		Vector3Int> cameFrom, Vector3Int current)
+	public static List<Vector3Int> ReconstructPath(
+		Dictionary<Vector3Int, Vector3Int> cameFrom, Vector3Int current)
 	{
 		var path = new List<Vector3Int> { current };
 		while (cameFrom.ContainsKey(current))
@@ -76,7 +79,7 @@ public static class AStar
 	}
 
 	public static List<Vector3Int> GetNeighbors(Vector3Int tilePosition,
-		Tilemap groundMap)
+		Tilemap map)
 	{
 		// Check for four possible neighbors (up, down, left, right).
 		Vector3Int[] directions =
@@ -85,7 +88,7 @@ public static class AStar
 		};
 
 		return directions.Select(dir => tilePosition + dir)
-			.Where(groundMap.HasTile)
+			.Where(map.HasTile)
 			.ToList();
 	}
 

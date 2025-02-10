@@ -8,14 +8,14 @@ using UnityEngine.InputSystem.Controls;
 public class PlayerGridController : MonoBehaviour
 {
 	[SerializeField]
-	private float m_MoveSpeed = 5f;
+	private float _moveSpeed = 5f;
 	[SerializeField]
 	[Range(0f, 0.5f)]
-	private float m_InputCooldown = 0.2f;
+	private float _inputCooldown = 0.15f;
 	[SerializeField]
-	private GameObject m_HighlightPrefab;
+	private GameObject _highlightPrefab;
 	[SerializeField]
-	private Vector3Int m_StartingGridPosition;
+	private Vector3Int _startingGridPosition;
 
 	private Camera _camera;
 	private GameObject _highlight;
@@ -30,13 +30,13 @@ public class PlayerGridController : MonoBehaviour
 	{
 		_camera = Camera.main;
 		_movement = GetComponent<GridMovement>();
-		_highlight = Instantiate(m_HighlightPrefab);
+		_highlight = Instantiate(_highlightPrefab);
 		_highlight.SetActive(false);
 	}
 
 	private void Start()
 	{
-		_movement.TeleportToTile(m_StartingGridPosition);
+		_movement.TeleportToTile(_startingGridPosition);
 	}
 
 	public void HandleMovement()
@@ -58,12 +58,14 @@ public class PlayerGridController : MonoBehaviour
 		Vector3Int tilePosition =
 			_movement.m_Grid.WorldToCell(mouseWorldPosition);
 
+		// Un-highlight the tile when moving onto another tile.
 		if (_movement.m_PreviousTilePosition.HasValue &&
 		    _movement.m_PreviousTilePosition.Value != tilePosition)
 			_highlight.SetActive(false);
 
+		// Highlight tile if valid and has no obstacle on it.
 		if (_movement.m_NavMesh.HasTile(tilePosition) &&
-		    !_movement.m_ObstacleTilemap.HasTile(tilePosition))
+		    !_movement.m_ObstaclesPositions.Contains(tilePosition))
 		{
 			_highlight.transform.position = tilePosition;
 			_highlight.SetActive(true);
@@ -97,15 +99,17 @@ public class PlayerGridController : MonoBehaviour
 		else if (moveInput.y < -0.5f || (dpad?.down.isPressed ?? false))
 			direction = Vector3Int.down;
 
+		// If no movement detected or cooldown still active, return.
 		if (direction == Vector3Int.zero ||
-		    !(Time.time - _lastMoveTime >= m_InputCooldown)) return;
+		    !(Time.time - _lastMoveTime >= _inputCooldown)) return;
 
 		Vector3Int targetTile =
 			_movement.m_Grid.WorldToCell(_movement.transform.position) +
 			direction;
 
+		// Prevent movement if tile not part of NavMesh or has an obstacle in it.
 		if (!_movement.m_NavMesh.HasTile(targetTile) ||
-		    _movement.m_ObstacleTilemap.HasTile(targetTile)) return;
+		    _movement.m_ObstaclesPositions.Contains(targetTile)) return;
 
 		_movement.m_Path = new List<Vector3Int> { targetTile };
 		_movement.m_CurrentPathIndex = 0;
@@ -119,7 +123,7 @@ public class PlayerGridController : MonoBehaviour
 	{
 		while (_movement.m_IsMoving)
 		{
-			_movement.MoveToTile(m_MoveSpeed);
+			_movement.MoveToTile(_moveSpeed);
 			yield return null;
 		}
 

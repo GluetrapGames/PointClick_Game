@@ -10,19 +10,21 @@ public class PickUpScript : MonoBehaviour
 	public bool activateVariable;
 
 	[SerializeField]
-	private bool m_IsWallItem;
+	private bool _isWallItem;
 	[SerializeField]
-	private GridMovement m_Player;
+	private GridMovement _player;
 	[SerializeField]
-	private Tilemap m_Ground;
+	private Tilemap _navMesh;
 
 	private Camera _camera;
+
 
 	private void Awake()
 	{
 		_camera = Camera.main;
-		m_Player = GameObject.FindWithTag("Player")
+		_player = GameObject.FindWithTag("Player")
 			?.GetComponent<GridMovement>();
+		_navMesh = GameObject.FindWithTag("NavMesh").GetComponent<Tilemap>();
 	}
 
 	private void Start()
@@ -43,7 +45,7 @@ public class PickUpScript : MonoBehaviour
 		if (hit.collider && hit.collider.gameObject == gameObject)
 		{
 			isClicked = true;
-			HandleWallFunction();
+			HandleItemInteraction();
 		}
 		else
 			isClicked = false;
@@ -59,37 +61,51 @@ public class PickUpScript : MonoBehaviour
 		gameObject.SetActive(false);
 	}
 
+	private void HandleItemInteraction()
+	{
+		if (_isWallItem)
+			HandleWallFunction();
+		else
+			HandleGroundFunction();
+	}
+
+	private void HandleGroundFunction()
+	{
+		Vector3Int cellPosition = _navMesh.WorldToCell(transform.position);
+
+		// Move the player to the target tile.
+		_player.SetDestination(cellPosition);
+		StartCoroutine(_player.MoveAlongPathCoroutine(5f));
+	}
+
 	// Handles wall item functionality.
 	private void HandleWallFunction()
 	{
-		if (!m_IsWallItem)
-			return;
-
-		Vector3Int cellPosition = m_Ground.WorldToCell(transform.position);
+		Vector3Int cellPosition = _navMesh.WorldToCell(transform.position);
 
 		if (m_Log)
 			Debug.Log($"Before Loop: {cellPosition}");
 
-		while (!m_Ground.HasTile(cellPosition) && cellPosition.y > -100)
+		while (!_navMesh.HasTile(cellPosition) && cellPosition.y > -100)
 		{
 			cellPosition.y--;
 			if (m_Log)
 				Debug.Log($"In Loop: {cellPosition}");
 		}
 
-		if (!m_Ground.HasTile(cellPosition))
+		if (!_navMesh.HasTile(cellPosition))
 			return;
 
 		if (m_Log)
 		{
 			Debug.Log($"After Loop: {cellPosition}");
-			m_Ground.SetTileFlags(cellPosition,
+			_navMesh.SetTileFlags(cellPosition,
 				TileFlags.None); // Allow colour modification.
-			m_Ground.SetColor(cellPosition, Color.green);
+			_navMesh.SetColor(cellPosition, Color.green);
 		}
 
 		// Move the player to the target tile.
-		m_Player.SetDestination(cellPosition);
-		StartCoroutine(m_Player.MoveAlongPathCoroutine(5f));
+		_player.SetDestination(cellPosition);
+		StartCoroutine(_player.MoveAlongPathCoroutine(5f));
 	}
 }
