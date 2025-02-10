@@ -74,6 +74,7 @@ public class GridMovement : MonoBehaviour
 			UpdateObstacles();
 	}
 
+
 	private void UpdateObstacles()
 	{
 		var addedTags = _obstacleTags.Except(_oldObstacleTags).ToList();

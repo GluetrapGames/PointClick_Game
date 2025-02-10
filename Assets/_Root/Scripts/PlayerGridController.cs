@@ -39,6 +39,7 @@ public class PlayerGridController : MonoBehaviour
 		_movement.TeleportToTile(_startingGridPosition);
 	}
 
+
 	public void HandleMovement()
 	{
 		_usingController = Gamepad.current != null;
