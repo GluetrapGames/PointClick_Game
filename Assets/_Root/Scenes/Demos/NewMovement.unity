@@ -2716,7 +2716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &891039751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,9 +3040,8 @@ MonoBehaviour:
   m_IsMoving: 0
   m_Path: []
   m_Grid: {fileID: 1642193790}
-  m_NavMesh: {fileID: 634442470}
-  _obstacleTags:
-  - Item
+  m_NavMesh: {fileID: 0}
+  _obstacleTags: []
   _obstacles: []
   _debug: 0
   _obstacleBoundsOffset: 0.15
@@ -3388,9 +3387,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ToggleDebug: 0
-  m_GroundTilemap: {fileID: 634442470}
   m_DebugColour: {r: 0.41585082, g: 0.82336366, b: 0.8396226, a: 1}
-  m_DefaultColour: {r: 1, g: 1, b: 1, a: 0}
+  _groundTilemap: {fileID: 0}
+  _defaultColour: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &1730822923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,7 +3927,7 @@ MonoBehaviour:
   m_IsMoving: 0
   m_Path: []
   m_Grid: {fileID: 1642193790}
-  m_NavMesh: {fileID: 634442470}
+  m_NavMesh: {fileID: 0}
   _obstacleTags:
   - Item
   _obstacles: []
@@ -3943,7 +3942,7 @@ Transform:
   m_GameObject: {fileID: 5677388263722371322}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.9, y: 3.93, z: 0}
+  m_LocalPosition: {x: 6.37, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4104,11 +4103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Log: 0
-  isClicked: 0
-  activateVariable: 0
-  _isWallItem: 1
-  _player: {fileID: 0}
-  _navMesh: {fileID: 0}
+  m_IsClicked: 0
+  m_ActivateVariable: 0
+  m_InteractionDirection: 0
+  m_PickUpDistance: 1
+  _isWallItem: 0
+  _player: {fileID: 2022756030}
+  _navMesh: {fileID: 634442470}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
