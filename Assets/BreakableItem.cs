@@ -1,17 +1,37 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.PlayerLoop;
 
 public class BreakableItem : MonoBehaviour
 {
-	public static InventoryItem PlayerHeldItem;
+	public HeldItemSlot playerHeldItem;
 
 	public int itemHp;
 	public CollideCheck itemCollision;
-	//private string _heldItemType = PlayerHeldItem.itemType;
+	private string _heldItemType;
 	public string effectiveItemType;
+
+	public PlayerInput playerInput;
+	private InputAction _breakableAction;
+
+	private void Awake()
+	{
+		_breakableAction = playerInput.actions["Break"];
+		if (_breakableAction == null)
+		{
+			Debug.LogError("No break action found");
+		}
+	}
+
+	private void FixedUpdate()
+	{
+		_heldItemType = playerHeldItem.playerHeldItem;
+	}
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.E) && itemCollision.IsCollided)
+		if (_breakableAction.WasPressedThisFrame() && itemCollision.IsCollided)
 		{
 			Debug.Log("Damage Called");
 			Damage();
