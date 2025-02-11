@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -86,6 +87,9 @@ public class PickUpScript : MonoBehaviour
 
 	private void Collected()
 	{
+
+		DialogueManager.ShowAlert($"{name} has been collected!");
+
 		while (!_slotFound)
 		{
 			Debug.Log("Finding Slot");
