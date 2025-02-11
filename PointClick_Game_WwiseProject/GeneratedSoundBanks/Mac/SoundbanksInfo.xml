@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E566EC84-7B81-D666-DFEE-7D14A9602471}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C0042AF8-2612-E843-C8B6-F61733BA509B}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -19,17 +19,21 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="393239870" Name="SFX"/>
 				<Bus Id="2880817584" Name="Loud sound"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 				<Bus Id="3930136735" Name="Dialogue"/>
 				<Bus Id="3991942870" Name="Music"/>
 			</Busses>
 			<GameParameters>
+				<GameParameter Id="223679447" Name="vol_loud"/>
 				<GameParameter Id="1004648580" Name="vol_music"/>
+				<GameParameter Id="2119574057" Name="vol_dialogue"/>
+				<GameParameter Id="3273357900" Name="vol_sfx"/>
 				<GameParameter Id="3391499625" Name="vol_master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{48257026-9476-C22A-75C8-E11EF344CC91}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{9D3848C1-267A-3F97-D566-60853449DBFE}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -39,7 +43,7 @@
 				</File>
 				<File Id="277770706" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_select.wav</ShortName>
-					<CachePath>SFX/ui_menu_select_96B2DC09.wem</CachePath>
+					<CachePath>SFX/ui_menu_select_3198CB9C.wem</CachePath>
 				</File>
 				<File Id="490080538" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_alMcGuig_blab.wav</ShortName>
@@ -47,17 +51,26 @@
 				</File>
 				<File Id="604374767" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_back.wav</ShortName>
-					<CachePath>SFX/ui_menu_back_E5CD0102.wem</CachePath>
+					<CachePath>SFX/ui_menu_back_831DFFC4.wem</CachePath>
+				</File>
+				<File Id="718177124" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>dial_lawyer_blab.wav</ShortName>
+					<CachePath>SFX/dial_lawyer_blab_7C5B904E.wem</CachePath>
 				</File>
 				<File Id="976753790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_hover.wav</ShortName>
-					<CachePath>SFX/ui_menu_hover_1FB1B41B.wem</CachePath>
+					<CachePath>SFX/ui_menu_hover_8447143A.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
 				<Event Id="3706611725" Name="Albert_Blab" DurationType="OneShot" DurationMin="0.334069" DurationMax="0.39727727">
 					<MediaRefs>
 						<MediaRef Id="490080538"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3849916683" Name="Lawyer_Blab" DurationType="OneShot" DurationMin="0.18300436" DurationMax="0.25880724">
+					<MediaRefs>
+						<MediaRef Id="718177124"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2607556080" Name="menu" DurationType="OneShot" DurationMin="183.48619" DurationMax="183.48619">
@@ -83,5 +96,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{9622293E-9EFE-A6DE-6BF7-6F47A93219AA}</FileHash>
+	<FileHash>{37591B5D-1808-86C8-D72F-318B8AAD70BE}</FileHash>
 </SoundBanksInfo>

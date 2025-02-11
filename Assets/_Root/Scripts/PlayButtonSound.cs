@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class ButtonSound : MonoBehaviour
     {
         AkSoundEngine.PostEvent("menu_select", gameObject);
     }
-        
+
     // Play sound when button is hovered
     public void onHover()
     {
@@ -28,4 +28,9 @@ public class ButtonSound : MonoBehaviour
     {
         AkSoundEngine.PostEvent("Albert_Blab", gameObject);
     }
-}*/
+
+    public void otherLogoOnClick()
+    {
+        AkSoundEngine.PostEvent("Lawyer_Blab", gameObject);
+    }
+}

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{90ECA788-EF24-4B6D-8978-B29FC7FC9C44}" SchemaVersion="119">
+<WwiseDocument Type="WorkUnit" ID="{F221C97C-A34A-4757-AF5B-B83F091DFCC7}" SchemaVersion="119">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{90ECA788-EF24-4B6D-8978-B29FC7FC9C44}" PersistMode="Standalone">
+		<WorkUnit Name="Default Work Unit" ID="{F221C97C-A34A-4757-AF5B-B83F091DFCC7}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="Music" ID="{ED6FF536-D9C8-424A-BC19-343DA358C678}" ShortID="341061155">
+				<Folder Name="Music" ID="{460DFC57-8F3D-4C84-9422-7605840AA6C2}" ShortID="341061156">
 					<ChildrenList>
-						<Event Name="menu" ID="{0E9CE0D0-0462-4E49-9857-5C151B20F164}">
+						<Event Name="menu" ID="{A86B29B5-B6C7-4B34-A936-6F214D6F43F5}">
 							<ChildrenList>
-								<Action Name="" ID="{A27F0AC6-9EFE-46D1-9197-C35CEEF9597C}" ShortID="436221502">
+								<Action Name="" ID="{6830FD54-FD5D-4CD4-AF0A-A190C0E633CE}" ShortID="436221503">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="track_menu" ID="{ED11B60F-8CD0-4EA9-AFF5-8FC5C9BCEAE7}" WorkUnitID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}"/>
+											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -18,16 +18,27 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Dialogue" ID="{8DFD2C8D-425E-4831-9EC2-31FA5BD373C7}" ShortID="1032286016">
+				<Folder Name="Dialogue" ID="{E8B75A1A-DD6B-49F5-9262-CD911481F821}" ShortID="1032286017">
 					<ChildrenList>
-						<Folder Name="Albert" ID="{69C48BAB-FDAF-4B55-9B05-611293794592}" ShortID="1017367363">
+						<Folder Name="Albert" ID="{AA8EBA32-422A-4B91-AD35-3B902F972236}" ShortID="1017367364">
 							<ChildrenList>
-								<Event Name="Albert_Blab" ID="{5E86E004-244E-4F65-8B2C-252B50EE0BF5}">
+								<Event Name="Albert_Blab" ID="{C4D3E88F-D96E-4B4E-991E-2125D38664E6}">
 									<ChildrenList>
-										<Action Name="" ID="{2A7E0174-AB83-4144-B35F-486206DC45E6}" ShortID="298936322">
+										<Action Name="" ID="{FEEF9811-A7E0-42CD-97B1-10B8A7E605FC}" ShortID="298936323">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="dial_alMcGuig_blab" ID="{D3E43BE5-8A62-4A5B-AC2F-F2BC120E39F3}" WorkUnitID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}"/>
+													<ObjectRef Name="dial_alMcGuig_blab" ID="{536F0CC8-EA5E-42F9-9047-4DC29ED2CDD1}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Lawyer_Blab" ID="{91A72292-0903-42C2-84C2-809A70DDAEF7}">
+									<ChildrenList>
+										<Action Name="" ID="{6C31AA9D-69AA-44F6-8110-B56666B1AB9F}" ShortID="983491334">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="dial_lawyer_blab" ID="{95189BF6-10FA-4745-AE37-7789528ED798}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -37,38 +48,38 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="UI" ID="{AFEB916A-47E6-486A-811B-CC0E179E739E}" ShortID="129391906">
+				<Folder Name="UI" ID="{5F4503BA-CD55-4750-9640-3D3470DD40B1}" ShortID="129391907">
 					<ChildrenList>
-						<Folder Name="Menu" ID="{49867AF6-98D1-4181-9498-699CFC730BFA}" ShortID="75111565">
+						<Folder Name="Menu" ID="{F0CCD692-1B75-4DD0-B8C5-E79C04A49F67}" ShortID="75111566">
 							<ChildrenList>
-								<Event Name="menu_select" ID="{7821DD9C-75FB-43A1-B2BE-C4C0E0D1BA9B}">
+								<Event Name="menu_select" ID="{2A11CCDA-64E2-49E2-BADD-C1A5F0FFBF7C}">
 									<ChildrenList>
-										<Action Name="" ID="{63E34920-143F-494C-874E-73C352D1E696}" ShortID="231635807">
+										<Action Name="" ID="{2CA64705-7868-444D-ABFE-4FF29E852F92}" ShortID="231635808">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="ui_menu_select" ID="{AAD1FAC7-9AF4-43C8-A85A-A30BC3F6FECB}" WorkUnitID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}"/>
+													<ObjectRef Name="ui_menu_select" ID="{68249D70-9FEA-41EA-97D2-90A6578D3304}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="menu_hover" ID="{F0628CC9-0149-4C6B-873B-62701BDF697B}">
+								<Event Name="menu_hover" ID="{6DE221EC-E7A3-4184-ACF2-9A72A3DCC952}">
 									<ChildrenList>
-										<Action Name="" ID="{B2015781-A748-410C-A431-3416769ACCB7}" ShortID="815219816">
+										<Action Name="" ID="{5E1BD10D-5819-4B38-AF53-15D29F4B1D39}" ShortID="815219817">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="ui_menu_hover" ID="{CE976F2A-AA84-470C-8170-00DC83C16177}" WorkUnitID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}"/>
+													<ObjectRef Name="ui_menu_hover" ID="{98AD834A-90FF-4B56-92C0-8786EADBA18E}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="menu_back" ID="{079EE7CF-A63A-4635-880F-7D219D8F99AA}">
+								<Event Name="menu_back" ID="{C83C4F29-8C86-4B67-8E3B-98ADD6800E8F}">
 									<ChildrenList>
-										<Action Name="" ID="{E1408423-2398-4699-9C07-4AE668E99E50}" ShortID="658848044">
+										<Action Name="" ID="{6CC4A75D-C7DB-4298-B6C3-33CD1EC9737F}" ShortID="658848045">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="ui_menu_back" ID="{762F6080-617F-4FCF-A6B7-81BAE905B97E}" WorkUnitID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}"/>
+													<ObjectRef Name="ui_menu_back" ID="{91971A2A-9664-48C3-96D4-3A77B9F40F78}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

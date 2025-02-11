@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}" SchemaVersion="119">
+<WwiseDocument Type="WorkUnit" ID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}" SchemaVersion="119">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{E17C7A8D-DF99-43D7-AF83-D764A278B174}" PersistMode="Standalone">
+		<WorkUnit Name="Default Work Unit" ID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="Dialogue" ID="{6DE5B0DF-CED9-431C-8965-B8BB163EB5F8}" ShortID="134794571">
+				<Folder Name="Dialogue" ID="{D6C997ED-22D7-46B1-942B-43AE938C2E58}" ShortID="134794572">
 					<ChildrenList>
-						<Folder Name="Albert" ID="{3E1D30FE-FCBF-4B9A-821C-49C4B734ABB3}" ShortID="564298064">
+						<Folder Name="Albert" ID="{9887B967-D88D-4848-89B0-A738124B2F30}" ShortID="564298065">
 							<ChildrenList>
-								<Sound Name="dial_alMcGuig_blab" ID="{D3E43BE5-8A62-4A5B-AC2F-F2BC120E39F3}" ShortID="901929745">
+								<Sound Name="dial_alMcGuig_blab" ID="{536F0CC8-EA5E-42F9-9047-4DC29ED2CDD1}" ShortID="901929746">
 									<PropertyList>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
-													<Modifier Name="" ID="{C882D3B5-CE21-423D-AA7E-EEDFBE06B82E}">
+													<Modifier Name="" ID="{17CECCC7-3C58-44F2-9D6E-0B557F3FC22F}">
 														<PropertyList>
 															<Property Name="Enabled" Type="bool" Value="True"/>
 															<Property Name="Max" Type="Real64" Value="100"/>
@@ -28,11 +28,11 @@
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Dialogue" ID="{A2F95FD2-F817-4976-812E-CF88B31FC6BA}" WorkUnitID="{2304B8A9-891D-419F-9534-12F2540B9583}"/>
+											<ObjectRef Name="Dialogue" ID="{F3F7D513-AC4E-45E1-936F-BB7376E25110}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="dial_alMcGuig_blab" ID="{E9C30576-D662-4B2A-9DAC-173B4AD60B86}">
+										<AudioFileSource Name="dial_alMcGuig_blab" ID="{969897BB-AFA2-4A01-8D0A-3800AB26A0F0}">
 											<PropertyList>
 												<Property Name="LoopBegin" Type="Real64" Value="0"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
@@ -46,26 +46,79 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="dial_alMcGuig_blab" ID="{E9C30576-D662-4B2A-9DAC-173B4AD60B86}" Platform="Linked"/>
+										<ActiveSource Name="dial_alMcGuig_blab" ID="{969897BB-AFA2-4A01-8D0A-3800AB26A0F0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Lawyer" ID="{7356F788-FBBD-4510-BA9E-E4A3A7170D63}" ShortID="923783363">
+							<ChildrenList>
+								<Sound Name="dial_lawyer_blab" ID="{95189BF6-10FA-4745-AE37-7789528ED798}" ShortID="527194575">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{4BAACE2C-D53E-4D68-A3D8-CB4201595318}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="300"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Dialogue" ID="{F3F7D513-AC4E-45E1-936F-BB7376E25110}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dial_lawyer_blab" ID="{745B3E95-44C5-459F-AF94-41C643E2E6C0}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.217630083514887"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>dial_lawyer_blab.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="718177124"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dial_lawyer_blab" ID="{745B3E95-44C5-459F-AF94-41C643E2E6C0}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Music" ID="{69C00287-B7D0-4968-943C-630B00590A23}" ShortID="562242880">
+				<Folder Name="Music" ID="{C2F290B6-76C2-4E17-88F7-FC83B585C1F8}" ShortID="562242881">
 					<ChildrenList>
-						<Sound Name="track_menu" ID="{ED11B60F-8CD0-4EA9-AFF5-8FC5C9BCEAE7}" ShortID="383738174">
+						<Sound Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" ShortID="383738175">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Music" ID="{63318C09-D053-4466-8A60-D845636291E6}" WorkUnitID="{2304B8A9-891D-419F-9534-12F2540B9583}"/>
+									<ObjectRef Name="Music" ID="{96053996-9044-4A92-9418-CA532BC62BE7}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="track_menu" ID="{20C6532E-AC75-4E48-B11F-4E4A6EC743D4}">
+								<AudioFileSource Name="track_menu" ID="{A6402FF1-5D0C-4C9B-AD11-890505193377}">
 									<Language>SFX</Language>
 									<AudioFile>track_menu.wav</AudioFile>
 									<MediaIDList>
@@ -74,26 +127,33 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="track_menu" ID="{20C6532E-AC75-4E48-B11F-4E4A6EC743D4}" Platform="Linked"/>
+								<ActiveSource Name="track_menu" ID="{A6402FF1-5D0C-4C9B-AD11-890505193377}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="UI" ID="{C0C0BCCA-C679-4E4A-8019-D5415CD700EB}" ShortID="196889043">
+				<Folder Name="UI" ID="{23671A75-F7D6-433B-BF69-A0291BF83DC9}" ShortID="196889044">
 					<ChildrenList>
-						<Folder Name="Menu" ID="{E08884B1-E5E9-4376-BC41-72BF9AE6FB64}" ShortID="350053211">
+						<Folder Name="Menu" ID="{F4A5327E-BE46-44E0-A488-F731E0C47627}" ShortID="350053212">
 							<ChildrenList>
-								<Sound Name="ui_menu_back" ID="{762F6080-617F-4FCF-A6B7-81BAE905B97E}" ShortID="403603540">
+								<Sound Name="ui_menu_back" ID="{91971A2A-9664-48C3-96D4-3A77B9F40F78}" ShortID="403603541">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2304B8A9-891D-419F-9534-12F2540B9583}"/>
+											<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="ui_menu_back" ID="{A9C8E97E-3F8D-44EC-9268-1414AB8ED16C}">
+										<AudioFileSource Name="ui_menu_back" ID="{F5978574-A0E0-431D-8416-48167C80C945}">
 											<PropertyList>
 												<Property Name="LoopBegin" Type="Real64" Value="0"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
@@ -107,20 +167,27 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="ui_menu_back" ID="{A9C8E97E-3F8D-44EC-9268-1414AB8ED16C}" Platform="Linked"/>
+										<ActiveSource Name="ui_menu_back" ID="{F5978574-A0E0-431D-8416-48167C80C945}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="ui_menu_hover" ID="{CE976F2A-AA84-470C-8170-00DC83C16177}" ShortID="233175326">
+								<Sound Name="ui_menu_hover" ID="{98AD834A-90FF-4B56-92C0-8786EADBA18E}" ShortID="233175327">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2304B8A9-891D-419F-9534-12F2540B9583}"/>
+											<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="ui_menu_hover" ID="{0101A8B7-7F08-4625-83EF-95C83857014B}">
+										<AudioFileSource Name="ui_menu_hover" ID="{76A91C8B-5B27-41BB-AC89-0858F30D9713}">
 											<PropertyList>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.0124226576065443"/>
@@ -134,20 +201,27 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="ui_menu_hover" ID="{0101A8B7-7F08-4625-83EF-95C83857014B}" Platform="Linked"/>
+										<ActiveSource Name="ui_menu_hover" ID="{76A91C8B-5B27-41BB-AC89-0858F30D9713}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="ui_menu_select" ID="{AAD1FAC7-9AF4-43C8-A85A-A30BC3F6FECB}" ShortID="585793684">
+								<Sound Name="ui_menu_select" ID="{68249D70-9FEA-41EA-97D2-90A6578D3304}" ShortID="585793685">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2304B8A9-891D-419F-9534-12F2540B9583}"/>
+											<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="ui_menu_select" ID="{82ECF97D-9554-4D00-81F5-950A0E4691D2}">
+										<AudioFileSource Name="ui_menu_select" ID="{A2D0C30B-149B-4377-8AB6-D51E4E508A87}">
 											<PropertyList>
 												<Property Name="LoopBegin" Type="Real64" Value="0"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
@@ -161,7 +235,7 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="ui_menu_select" ID="{82ECF97D-9554-4D00-81F5-950A0E4691D2}" Platform="Linked"/>
+										<ActiveSource Name="ui_menu_select" ID="{A2D0C30B-149B-4377-8AB6-D51E4E508A87}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

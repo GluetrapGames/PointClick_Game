@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID ALBERT_BLAB = 3706611725U;
+        static const AkUniqueID LAWYER_BLAB = 3849916683U;
         static const AkUniqueID MENU = 2607556080U;
         static const AkUniqueID MENU_BACK = 3063554414U;
         static const AkUniqueID MENU_HOVER = 309439191U;
@@ -22,8 +23,11 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID VOL_DIALOGUE = 2119574057U;
+        static const AkUniqueID VOL_LOUD = 223679447U;
         static const AkUniqueID VOL_MASTER = 3391499625U;
         static const AkUniqueID VOL_MUSIC = 1004648580U;
+        static const AkUniqueID VOL_SFX = 3273357900U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
@@ -38,6 +42,7 @@ namespace AK
         static const AkUniqueID LOUD_SOUND = 2880817584U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUSIC = 3991942870U;
+        static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES

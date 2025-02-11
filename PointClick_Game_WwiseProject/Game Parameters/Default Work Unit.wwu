@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{74EBAED6-6F9B-4B30-ADE7-81B8A08057D1}" SchemaVersion="119">
+<WwiseDocument Type="WorkUnit" ID="{D9B69C2E-AC0A-4B23-B9DF-D552A0729065}" SchemaVersion="119">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{74EBAED6-6F9B-4B30-ADE7-81B8A08057D1}" PersistMode="Standalone">
+		<WorkUnit Name="Default Work Unit" ID="{D9B69C2E-AC0A-4B23-B9DF-D552A0729065}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="Volume" ID="{0539D51F-7F12-4F30-906B-FF322D9779E0}" ShortID="968805391">
+				<Folder Name="Volume" ID="{CB0628C0-2F7E-4D82-B404-0F8D72F554BD}" ShortID="968805392">
 					<ChildrenList>
-						<GameParameter Name="vol_master" ID="{636ADD60-50A8-4629-95A3-953DB570B216}"/>
-						<GameParameter Name="vol_music" ID="{F2C6B686-94B1-485D-B683-DDCC85BF19E7}"/>
+						<GameParameter Name="vol_master" ID="{261B1C06-4D67-4EB2-9A82-9456DC1D1299}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="5"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="vol_music" ID="{28E57633-195D-469C-BF6B-023C226E979D}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="5"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="vol_sfx" ID="{5AAA31F0-86D2-471A-A78B-0DCB27718FA4}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="5"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="vol_dialogue" ID="{07C475D3-A90C-4AA5-A883-E10FFF410998}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="5"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="vol_loud" ID="{EC35BB8D-279F-4BB0-99F4-685C961DCE5F}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="5"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
