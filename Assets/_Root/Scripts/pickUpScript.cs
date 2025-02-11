@@ -1,8 +1,10 @@
 using System;
-using PixelCrushers.DialogueSystem;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class PickUpScript : MonoBehaviour
 {
@@ -30,9 +32,21 @@ public class PickUpScript : MonoBehaviour
 	[SerializeField]
 	private GridMovement _player;
 	[SerializeField]
+	private float _playerSpeed = 1f;
+	[SerializeField]
 	private Tilemap _navMesh;
+	[SerializeField]
+	private Transform _inventory;
+	[SerializeField]
+	private string _itemType;
+	[SerializeField]
+	private GameObject _itemPrefab;
+	[SerializeField]
+	private List<InventorySlot> _itemSlots;
 
 	private Camera _camera;
+	private bool _slotFound;
+	private Sprite _sprite;
 
 
 	private void Awake()
@@ -41,10 +55,14 @@ public class PickUpScript : MonoBehaviour
 		_player = GameObject.FindWithTag("Player")
 			?.GetComponent<GridMovement>();
 		_navMesh = GameObject.FindWithTag("NavMesh").GetComponent<Tilemap>();
+		_sprite = GetComponent<SpriteRenderer>().sprite;
 	}
 
 	private void Start()
 	{
+		foreach (Transform child in _inventory)
+			_itemSlots.Add(child.GetComponent<InventorySlot>());
+
 		gameObject.SetActive(true);
 		m_IsClicked = false;
 		m_ActivateVariable = false;
@@ -66,11 +84,42 @@ public class PickUpScript : MonoBehaviour
 		Collected();
 	}
 
-
 	private void Collected()
 	{
+		while (!_slotFound)
+		{
+			Debug.Log("Finding Slot");
+			foreach (InventorySlot itemSlot in _itemSlots)
+			{
+				if (itemSlot.transform.childCount == 0 && !_slotFound)
+				{
+					Debug.Log($"Slot {itemSlot.name} is empty");
+					// Create inventory item instance.
+					GameObject itemInstance =
+						Instantiate(_itemPrefab, itemSlot.transform);
+					itemInstance.TryGetComponent(out InventoryItem item);
+					itemInstance.GetComponent<Image>().sprite = _sprite;
+
+					item.itemType = _itemType;
+					_slotFound = true;
+					itemSlot.item = item;
+
+					Debug.Log(
+						$"Added <{_itemType}> to slot {itemSlot.name} - " +
+						$"Type Validation:<{item.itemType}>");
+				}
+
+				if (itemSlot != _itemSlots.Last() || _slotFound) continue;
+				Debug.LogWarning(
+					$"Inventory full while attempting {_itemType} " +
+					"spawning, exiting while loop");
+				_slotFound = true;
+			}
+		}
+
+		_slotFound = false;
+
 		Debug.Log("Item collected");
-		DialogueManager.ShowAlert($"{name} has been collected!");
 		m_ActivateVariable = true;
 		gameObject.SetActive(false);
 	}
@@ -158,7 +207,7 @@ public class PickUpScript : MonoBehaviour
 
 		// Move the player to the target tile.
 		_player.SetDestination(cellPosition);
-		StartCoroutine(_player.MoveAlongPathCoroutine());
+		StartCoroutine(_player.MoveAlongPathCoroutine(_playerSpeed));
 	}
 
 	// Handle wall item functionality.
@@ -194,7 +243,7 @@ public class PickUpScript : MonoBehaviour
 
 		// Move the player to the target tile.
 		_player.SetDestination(cellPosition);
-		StartCoroutine(_player.MoveAlongPathCoroutine(5f));
+		StartCoroutine(_player.MoveAlongPathCoroutine(_playerSpeed));
 	}
 
 #if UNITY_EDITOR
