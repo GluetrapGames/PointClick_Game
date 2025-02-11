@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -5,181 +6,254 @@ using UnityEngine.Tilemaps;
 
 public class GridMovement : MonoBehaviour
 {
-	public Vector3Int m_StartingGridPosition;
+	public int m_CurrentPathIndex;
+	public bool m_IsMoving;
+	public List<Vector3Int> m_Path = new();
+	public Grid m_Grid;
+	public Tilemap m_NavMesh;
 
 	[SerializeField]
-	private Grid m_Grid;
+	private List<string> _obstacleTags = new();
 	[SerializeField]
-	private Tilemap m_Tilemap;
-    [SerializeField]
-    private Tilemap m_ObsticalTilemap;
-    [SerializeField]
-	private Color m_HighlightColor = new(0.788f, 0.788f, 0.788f);
+	private List<Transform> _obstacles = new();
 	[SerializeField]
-	private float m_MoveSpeed = 2f;
-	private Camera _camera;
-	private int _currentPathIndex;
-	private bool _isMoving;
+	private bool _debug;
+	[SerializeField]
+	[Range(0f, 1f)]
+	private float _obstacleBoundsOffset = 0.15f;
+	public readonly List<Vector3Int> m_ObstaclesPositions = new();
 
-	private List<Vector3Int> _path;
-	private Vector3Int? _previousTilePosition;
-	private Vector3 _targetPosition;
+	private GridDebug _gridDebug;
+	private Dictionary<Transform, bool> _obstacleStates = new();
+	private List<string> _oldObstacleTags;
+	public Vector3Int? m_PreviousTilePosition;
 
-	private void Start()
+
+	private void Awake()
 	{
-		_camera = Camera.main;
-		// Set the player's initial position to the center tile.
-		_targetPosition = m_Grid.GetCellCenterWorld(m_StartingGridPosition);
-		transform.position = _targetPosition;
+		m_Grid = FindFirstObjectByType<Grid>();
+		// If grid doesn't have debug script, add it.
+		if (!m_Grid.TryGetComponent(out _gridDebug))
+			_gridDebug = m_Grid.gameObject.AddComponent<GridDebug>();
+
+		// Loop through the children of the Grid object to assign the Navmesh.
+		foreach (Transform child in m_Grid.transform)
+			if (child.CompareTag("NavMesh"))
+				m_NavMesh = child.GetComponent<Tilemap>();
+
+		// Ensure both tilemaps were assigned correctly.
+		if (!m_NavMesh) Debug.LogError("NavMesh Tilemap not assigned.");
+
+		// Store current tag list.
+		_oldObstacleTags = _obstacleTags;
+
+		// Ignore if no tags provided.
+		if (_obstacleTags.Count == 0) return;
+		AddObstacles(_obstacleTags);
+		CalculateObstacleTiles();
 	}
 
 	private void Update()
 	{
-		var mouseWorldPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-
-		// Convert the world position to a grid position.
-		var tilePosition = m_Grid.WorldToCell(mouseWorldPosition);
-
-		// If the tile position is different, update the highlight.
-		if (_previousTilePosition.HasValue && _previousTilePosition.Value != tilePosition)
-			ResetTileColor(_previousTilePosition.Value);
-
-		// Highlight the current tile if it exists in the Tilemap.
-		if (m_Tilemap.HasTile(tilePosition) && !m_ObsticalTilemap.HasTile(tilePosition))
-			HighlightTile(tilePosition);
-
-		// Start pathfinding when the left mouse button is clicked.
-		if (Input.GetMouseButtonDown(0))
-			if (m_Tilemap.HasTile(tilePosition) && !m_ObsticalTilemap.HasTile(tilePosition))
+		if (_debug)
+		{
+			_gridDebug.m_ToggleDebug = true;
+			foreach (Vector3Int cellPos in m_ObstaclesPositions)
 			{
-				_path = FindPath(m_Grid.WorldToCell(transform.position), tilePosition);
-				_currentPathIndex = 0;
-				_isMoving = true;
+				m_NavMesh.SetTileFlags(cellPos, TileFlags.None);
+				m_NavMesh.SetColor(cellPos, Color.red);
 			}
-
-		// Move the player towards the next tile on the path.
-		if (_isMoving && _path != null && _currentPathIndex < _path.Count)
-			MovePlayerAlongPath();
-
-		// Store the current tile position.
-		_previousTilePosition = tilePosition;
-	}
-
-	private void HighlightTile(Vector3Int tilePosition)
-	{
-		if (!m_Tilemap.HasTile(tilePosition)) return;
-		
-		m_Tilemap.SetTileFlags(tilePosition, TileFlags.None); //< Allow colour modification.
-		m_Tilemap.SetColor(tilePosition, m_HighlightColor);
-	}
-
-	private void ResetTileColor(Vector3Int tilePosition)
-	{
-		if (!m_Tilemap.HasTile(tilePosition)) return;
-
-		m_Tilemap.SetTileFlags(tilePosition, TileFlags.None); //< Allow colour modification.
-		m_Tilemap.SetColor(tilePosition, Color.white);
-	}
-
-	private List<Vector3Int> FindPath(Vector3Int start, Vector3Int goal)
-	{
-		// A* algorithm to find the path.
-		var openList = new List<Vector3Int>();
-		var closedList = new HashSet<Vector3Int>();
-		var cameFrom = new Dictionary<Vector3Int, Vector3Int>();
-		var gScore = new Dictionary<Vector3Int, float>(); //< Cost from start to current.
-		var fScore = new Dictionary<Vector3Int, float>(); //< Estimated cost to goal.
-
-		openList.Add(start);
-		gScore[start] = 0;
-		fScore[start] = Heuristic(start, goal);
-
-		while (openList.Count > 0)
-		{
-			// Get the node with the lowest fScore.
-			var current = GetLowestFScoreNode(openList, fScore);
-			if (current == goal)
-				return ReconstructPath(cameFrom, current);
-
-			openList.Remove(current);
-			closedList.Add(current);
-
-			foreach (var neighbor in GetNeighbors(current))
-			{
-				if (closedList.Contains(neighbor) || 
-					m_ObsticalTilemap.HasTile(neighbor)) continue;
-
-				var tentativeGScore = gScore[current] + 1;
-
-				if (!openList.Contains(neighbor))
-					openList.Add(neighbor);
-				else if (tentativeGScore >= gScore[neighbor])
-					continue;
-
-				cameFrom[neighbor] = current;
-				gScore[neighbor] = tentativeGScore;
-				fScore[neighbor] = gScore[neighbor] + Heuristic(neighbor, goal);
-			}
-		}
-
-		return null;
-	}
-
-	private static Vector3Int GetLowestFScoreNode(List<Vector3Int> openList,
-		Dictionary<Vector3Int, float> fScore)
-	{
-		var lowest = openList[0];
-		foreach (var node in openList.Where(node =>
-			         fScore[node] < fScore[lowest])) lowest = node;
-
-		return lowest;
-	}
-
-	private static List<Vector3Int> ReconstructPath(Dictionary<Vector3Int,
-		Vector3Int> cameFrom, Vector3Int current)
-	{
-		var path = new List<Vector3Int> { current };
-		while (cameFrom.ContainsKey(current))
-		{
-			current = cameFrom[current];
-			path.Insert(0, current);
-		}
-
-		return path;
-	}
-
-	private List<Vector3Int> GetNeighbors(Vector3Int tilePosition)
-	{
-		// Check for four possible neighbors (up, down, left, right).
-		Vector3Int[] directions =
-		{
-			Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right
-		};
-
-		return directions.Select(dir => tilePosition + dir)
-			.Where(neighbor => m_Tilemap.HasTile(neighbor)).ToList();
-	}
-
-	private static float Heuristic(Vector3Int a, Vector3Int b)
-	{
-		return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
-	}
-
-	private void MovePlayerAlongPath()
-	{
-		if (_currentPathIndex < _path.Count)
-		{
-			var targetTile = _path[_currentPathIndex];
-			var targetPosition = m_Grid.GetCellCenterWorld(targetTile);
-			var step = m_MoveSpeed * Time.deltaTime;
-
-			transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-
-			if (transform.position == targetPosition) _currentPathIndex++;
 		}
 		else
 		{
-			_isMoving = false;
+			foreach (Vector3Int cellPos in m_ObstaclesPositions)
+				m_NavMesh.SetColor(cellPos, _gridDebug.m_DebugColour);
+		}
+
+		if (ShouldUpdateObstacle())
+			UpdateObstacles();
+	}
+
+
+	private void UpdateObstacles()
+	{
+		var addedTags = _obstacleTags.Except(_oldObstacleTags).ToList();
+		var removedTags = _oldObstacleTags.Except(_obstacleTags).ToList();
+
+		if (_debug)
+		{
+			Debug.Log(
+				$"Adding {addedTags.Count} obstacles: {string.Join(", ", addedTags)}.");
+			Debug.Log(
+				$"Removing {removedTags.Count} obstacles: {string.Join(", ", removedTags)}.");
+		}
+
+		AddObstacles(addedTags);
+		RemoveObstacles(removedTags);
+		// Remove only destroyed obstacles.
+		_obstacles.RemoveAll(obstacle => !obstacle);
+		_obstacleStates =
+			_obstacles.ToDictionary(o => o,
+				o => o.gameObject.activeInHierarchy);
+
+		// Recalculate the obstacle tile positions.
+		CalculateObstacleTiles();
+
+		_oldObstacleTags = new List<string>(_obstacleTags);
+	}
+
+	private bool ShouldUpdateObstacle()
+	{
+		if (!_oldObstacleTags.SequenceEqual(_obstacleTags)) return true;
+
+		// Check if any obstacle's active state has changed.
+		var anyStateChanged = false;
+		foreach (Transform obstacle in _obstacles)
+		{
+			if (!obstacle) continue; //< Continue if NULL.
+
+			var isActive = obstacle.gameObject.activeInHierarchy;
+			// Continue if no change.
+			if (_obstacleStates.TryGetValue(obstacle, out var lastState) &&
+			    lastState == isActive) continue;
+
+			// Update object state.
+			_obstacleStates[obstacle] = isActive;
+			anyStateChanged = true;
+		}
+
+		return anyStateChanged;
+	}
+
+	// Add obstacles to the list.
+	private void AddObstacles(List<string> tags)
+	{
+		var newObstacles = tags
+			.SelectMany(GameObject.FindGameObjectsWithTag)
+			.Select(obj => obj.transform)
+			.Where(obstacle => !_obstacles.Contains(obstacle));
+
+		_obstacles.AddRange(newObstacles);
+	}
+
+	// Remove obstacles from the list.
+	private void RemoveObstacles(List<string> tags)
+	{
+		// Remove obstacles that belong to the removed tags.
+		var removedTags = tags.ToHashSet();
+		_obstacles.RemoveAll(obstacle => removedTags.Contains(obstacle.tag));
+	}
+
+	// Calculate the amount of tile that count as obstacles, based on the
+	// size of the obstacle.
+	private void CalculateObstacleTiles()
+	{
+		// For each obstacle, add every cell it occupies.
+		m_ObstaclesPositions.Clear();
+		foreach (Transform obstacle in _obstacles.Where(obstacle =>
+			         obstacle && obstacle.gameObject.activeInHierarchy))
+		{
+			if (!obstacle.TryGetComponent(out Renderer obstacleRenderer))
+			{
+				// Fallback: use the obstacle's transform position.
+				Vector3Int cellPos = m_Grid.WorldToCell(obstacle.position);
+				if (m_NavMesh.HasTile(cellPos) &&
+				    !m_ObstaclesPositions.Contains(cellPos))
+					m_ObstaclesPositions.Add(cellPos);
+				continue;
+			}
+
+			Bounds bounds = obstacleRenderer.bounds;
+
+			// Create an offset for the bounding box.
+			var offset = new Vector3(
+				_obstacleBoundsOffset, _obstacleBoundsOffset, 0f);
+			// Convert bounds to grid positions.
+			Vector3Int minCell = m_Grid.WorldToCell(bounds.min + offset);
+			Vector3Int maxCell = m_Grid.WorldToCell(bounds.max - offset);
+
+			// Loop over every cell in the bounding rectangle.
+			for (var x = minCell.x; x <= maxCell.x; x++)
+			for (var y = minCell.y; y <= maxCell.y; y++)
+			{
+				var cell = new Vector3Int(x, y, 0);
+				// Add the cell if it's a valid NavMesh tile.
+				if (m_NavMesh.HasTile(cell) &&
+				    !m_ObstaclesPositions.Contains(cell))
+					m_ObstaclesPositions.Add(cell);
+			}
 		}
 	}
+
+	public void TeleportToTile(Vector3Int tilePosition)
+	{
+		// Set the object's initial position to the starting tile.
+		Vector3 startPos = m_Grid.GetCellCenterWorld(tilePosition);
+		transform.position = startPos;
+	}
+
+	// Sets the destination tile and calculates an A* path.
+	public void SetDestination(Vector3Int tilePosition)
+	{
+		if (!m_NavMesh.HasTile(tilePosition)) return;
+
+		m_Path = AStar.FindPath(m_Grid.WorldToCell(transform.position),
+			tilePosition, m_NavMesh, m_ObstaclesPositions);
+		if (m_Path is { Count: > 0 })
+		{
+			Vector3Int currentCell = m_Grid.WorldToCell(transform.position);
+			if (m_Path[0] == currentCell)
+				m_Path.RemoveAt(0);
+		}
+
+		m_CurrentPathIndex = 0;
+		m_IsMoving = true;
+	}
+
+	// Moves the object along the precomputed path.
+	public void MoveToTile(float speed = 5f)
+	{
+		if (!m_IsMoving || m_Path == null || m_CurrentPathIndex >= m_Path.Count)
+		{
+			m_IsMoving = false;
+			return;
+		}
+
+		Vector3Int targetTile = m_Path[m_CurrentPathIndex];
+		Vector3 targetPosition = m_Grid.GetCellCenterWorld(targetTile);
+		var step = speed * Time.deltaTime;
+		transform.position =
+			Vector3.MoveTowards(transform.position, targetPosition, step);
+
+		// Use a threshold to account for floating point imprecision.
+		if (!(Vector3.Distance(transform.position, targetPosition) < 0.01f))
+			return;
+
+		transform.position = targetPosition;
+		m_CurrentPathIndex++;
+		if (m_CurrentPathIndex >= m_Path.Count)
+			m_IsMoving = false;
+	}
+
+	// Coroutine that calls MoveToTile until the path is complete.
+	public IEnumerator MoveAlongPathCoroutine(float speed = 1f)
+	{
+		while (m_IsMoving)
+		{
+			MoveToTile(speed);
+			yield return null;
+		}
+	}
+
+#if UNITY_EDITOR
+	private void Reset()
+	{
+		//Awake();
+	}
+
+	private void OnValidate()
+	{
+	}
+
+#endif
 }
