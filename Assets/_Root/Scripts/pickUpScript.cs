@@ -125,7 +125,6 @@ public class PickUpScript : MonoBehaviour
 
 		Debug.Log("Item collected");
 		m_ActivateVariable = true;
-		gameObject.SetActive(false);
 	}
 
 	private void HandleItemFunction()
