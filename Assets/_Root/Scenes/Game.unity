@@ -11469,7 +11469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actor: Albert
+  actor: NPC
   persistentDataName: 
   portrait: {fileID: 0}
   spritePortrait: {fileID: 0}
@@ -11576,7 +11576,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: Simply NPC
+  conversation: NPC Conversation
   conversationConversant: {fileID: 891039757}
   conversationActor: {fileID: 1167512476}
   startConversationEntryID: -1
@@ -11603,7 +11603,7 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: 7f0ef259e67ce214ba252f613cd60e1a, type: 2}
+  selectedDatabase: {fileID: 11400000, guid: 9bf518aabc2c85441adce0cde7aa76e6, type: 2}
 --- !u!114 &891039754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12798,6 +12798,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7048399639721328092, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
+      propertyPath: initialDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 9bf518aabc2c85441adce0cde7aa76e6, type: 2}
     - target: {fileID: 7055386754589854473, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
