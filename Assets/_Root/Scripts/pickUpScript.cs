@@ -47,7 +47,7 @@ public class PickUpScript : MonoBehaviour
 
 	private Camera _camera;
 	private bool _slotFound;
-	private Sprite _sprite;
+	public Sprite sprite;
 
 
 	private void Awake()
@@ -56,7 +56,7 @@ public class PickUpScript : MonoBehaviour
 		_player = GameObject.FindWithTag("Player")
 			?.GetComponent<GridMovement>();
 		_navMesh = GameObject.FindWithTag("NavMesh").GetComponent<Tilemap>();
-		_sprite = GetComponent<SpriteRenderer>().sprite;
+		//_sprite = GetComponent<SpriteRenderer>().sprite;
 	}
 
 	private void Start()
@@ -102,7 +102,7 @@ public class PickUpScript : MonoBehaviour
 					GameObject itemInstance =
 						Instantiate(_itemPrefab, itemSlot.transform);
 					itemInstance.TryGetComponent(out InventoryItem item);
-					itemInstance.GetComponent<Image>().sprite = _sprite;
+					itemInstance.GetComponent<Image>().sprite = sprite;
 
 					item.itemType = _itemType;
 					_slotFound = true;
