@@ -1,4 +1,5 @@
 using System;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -69,6 +70,7 @@ public class PickUpScript : MonoBehaviour
 	private void Collected()
 	{
 		Debug.Log("Item collected");
+		DialogueManager.ShowAlert($"{name} has been collected!");
 		m_ActivateVariable = true;
 		gameObject.SetActive(false);
 	}

@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class ItemCollectionChangeVariable : MonoBehaviour
 {
-	[Tooltip("Apply the game object's pick up script.")]
-	public PickUpScript pickUpScript;
-
 	[Tooltip("Enter the name of the variable. (CASE SENSITIVE)")]
 	public string variableName;
 
@@ -22,10 +19,16 @@ public class ItemCollectionChangeVariable : MonoBehaviour
 	public int intValue;
 
 	private bool isCollected;
+	private PickUpScript pickUpScript;
 
 
-	// Update is called once per frame
-	private void Update()
+    private void Awake()
+    {
+        pickUpScript = GetComponent<PickUpScript>();
+    }
+
+    // Update is called once per frame
+    private void Update()
 	{
 		isCollected = pickUpScript.m_ActivateVariable;
 
