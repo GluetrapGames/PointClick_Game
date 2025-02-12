@@ -19,6 +19,13 @@ namespace AK
         static const AkUniqueID MENU_BACK = 3063554414U;
         static const AkUniqueID MENU_HOVER = 309439191U;
         static const AkUniqueID MENU_SELECT = 4203375351U;
+        static const AkUniqueID PLAYER_PICKUP = 1627434233U;
+        static const AkUniqueID UI_BACK = 2024222415U;
+        static const AkUniqueID UI_DIALOGUEPOPUP = 3452930546U;
+        static const AkUniqueID UI_HOVER = 2118900976U;
+        static const AkUniqueID UI_LETTER = 500465782U;
+        static const AkUniqueID UI_POINT = 4228838608U;
+        static const AkUniqueID UI_SELECT = 2774129122U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
@@ -41,6 +48,7 @@ namespace AK
         static const AkUniqueID DIALOGUE = 3930136735U;
         static const AkUniqueID LOUD_SOUND = 2880817584U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MASTER_AUDIO_BUS_01 = 4267419003U;
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES

@@ -87,6 +87,99 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="In-Game" ID="{6E957614-1CD6-44E7-829F-C7491B42AF15}" ShortID="541215087">
+							<ChildrenList>
+								<Folder Name="Dialogue" ID="{2CCC2BEC-6407-4B44-83EA-433766C8F3FF}" ShortID="21608623">
+									<ChildrenList>
+										<Event Name="ui_select" ID="{FEF13760-C6DD-401D-9F8F-A515F83FE027}">
+											<ChildrenList>
+												<Action Name="" ID="{0E6A2B16-E720-4981-ADEA-0075A7F0C22D}" ShortID="456514758">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ui_select" ID="{ABEDBD1F-DBB5-4737-AE9F-867892E996B8}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="ui_hover" ID="{0F0AFAF3-7685-4DB6-B3FB-A669E9FDBB70}">
+											<ChildrenList>
+												<Action Name="" ID="{875DB465-3CC3-43EB-A8F9-FF602B60BAE8}" ShortID="309543528">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ui_hover" ID="{87F7ABE0-743A-4FBD-98C8-D71AFBE4E6A3}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="ui_back" ID="{C84DAD6A-7E21-4686-9CBD-A3E6E16DBEA4}">
+											<ChildrenList>
+												<Action Name="" ID="{0E473090-A4BA-4F4B-B11E-1AB609C8D180}" ShortID="181286165">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ui_back" ID="{79EFCDCE-BFEF-452F-956E-9437C686AA6B}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="ui_dialoguePopup" ID="{0D0C44E7-0265-427D-8DF7-E09ACAD0EDCD}">
+											<ChildrenList>
+												<Action Name="" ID="{316FB040-419B-45AD-98A9-45D2D772C4AD}" ShortID="905071495">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ui_dialoguePopup" ID="{8BC4AEC2-9C3C-4A9E-AFEF-1AB0D71D98AE}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="ui_letter" ID="{11BCD139-C0F4-47FA-B547-060FE76F767C}">
+											<ChildrenList>
+												<Action Name="" ID="{5A7C20A3-B604-4B3B-8815-3F91D01BF279}" ShortID="427454978">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ui_letter" ID="{0129435C-8D9C-4D37-8606-0AE4A17BD019}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Point-n-click" ID="{76B5E7DD-1952-49FD-B10C-5D4374E727C5}" ShortID="82217942">
+									<ChildrenList>
+										<Event Name="ui_point" ID="{C9C9695C-CCD9-4A57-A7F7-40E67BB616B5}">
+											<ChildrenList>
+												<Action Name="" ID="{AE386475-F80A-46D0-8C98-79404760BC89}" ShortID="1001915212">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ui_point" ID="{7FF26B0F-8E1F-4CC7-A236-3893E02B326C}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Player" ID="{C890825C-7FE3-4AAA-9514-9F3D400053F5}" ShortID="21730826">
+					<ChildrenList>
+						<Event Name="player_pickup" ID="{23AD0A8F-25B8-41D2-8668-44A27AA828A0}">
+							<ChildrenList>
+								<Action Name="" ID="{775CC458-D3FB-4A04-98E4-F151A1D0DF0E}" ShortID="59886263">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="player_takeItem" ID="{6E59FE6C-10B3-4163-8E07-14442C9CCF52}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

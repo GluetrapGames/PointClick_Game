@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C0042AF8-2612-E843-C8B6-F61733BA509B}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C8B59BA7-3165-DAA2-1470-D90F6DF9168C}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -24,6 +24,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 				<Bus Id="3930136735" Name="Dialogue"/>
 				<Bus Id="3991942870" Name="Music"/>
+				<Bus Id="4267419003" Name="Master Audio Bus_01"/>
 			</Busses>
 			<GameParameters>
 				<GameParameter Id="223679447" Name="vol_loud"/>
@@ -33,7 +34,7 @@
 				<GameParameter Id="3391499625" Name="vol_master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{9D3848C1-267A-3F97-D566-60853449DBFE}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{20EAF559-774F-ED9A-6F58-C2F4CDD9E3D4}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -45,6 +46,14 @@
 					<ShortName>ui_menu_select.wav</ShortName>
 					<CachePath>SFX/ui_menu_select_3198CB9C.wem</CachePath>
 				</File>
+				<File Id="404540059" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_back.wav</ShortName>
+					<CachePath>SFX/ui_back_818F3B66.wem</CachePath>
+				</File>
+				<File Id="456918740" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_letter.wav</ShortName>
+					<CachePath>SFX/ui_letter_818F3B66.wem</CachePath>
+				</File>
 				<File Id="490080538" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_alMcGuig_blab.wav</ShortName>
 					<CachePath>SFX/dial_alMcGuig_blab_DF79E40E.wem</CachePath>
@@ -53,9 +62,25 @@
 					<ShortName>ui_menu_back.wav</ShortName>
 					<CachePath>SFX/ui_menu_back_831DFFC4.wem</CachePath>
 				</File>
+				<File Id="687109068" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_select.wav</ShortName>
+					<CachePath>SFX/ui_select_818F3B66.wem</CachePath>
+				</File>
 				<File Id="718177124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_lawyer_blab.wav</ShortName>
-					<CachePath>SFX/dial_lawyer_blab_7C5B904E.wem</CachePath>
+					<CachePath>SFX/dial_lawyer_blab_92D35545.wem</CachePath>
+				</File>
+				<File Id="845512123" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_dialoguePopup.wav</ShortName>
+					<CachePath>SFX/ui_dialoguePopup_818F3B66.wem</CachePath>
+				</File>
+				<File Id="920958933" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_hover.wav</ShortName>
+					<CachePath>SFX/ui_hover_818F3B66.wem</CachePath>
+				</File>
+				<File Id="967958596" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_takeItem.wav</ShortName>
+					<CachePath>SFX/player_takeItem_818F3B66.wem</CachePath>
 				</File>
 				<File Id="976753790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_hover.wav</ShortName>
@@ -93,8 +118,43 @@
 						<MediaRef Id="277770706"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1627434233" Name="player_pickup" DurationType="OneShot" DurationMin="0.72375" DurationMax="0.72375">
+					<MediaRefs>
+						<MediaRef Id="967958596"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2024222415" Name="ui_back" DurationType="OneShot" DurationMin="0.45858333" DurationMax="0.45858333">
+					<MediaRefs>
+						<MediaRef Id="404540059"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3452930546" Name="ui_dialoguePopup" DurationType="OneShot" DurationMin="1.1205208" DurationMax="1.1205208">
+					<MediaRefs>
+						<MediaRef Id="845512123"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2118900976" Name="ui_hover" DurationType="OneShot" DurationMin="0.1023125" DurationMax="0.1023125">
+					<MediaRefs>
+						<MediaRef Id="920958933"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="500465782" Name="ui_letter" DurationType="OneShot" DurationMin="0.12972917" DurationMax="0.12972917">
+					<MediaRefs>
+						<MediaRef Id="456918740"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4228838608" Name="ui_point" DurationType="OneShot" DurationMin="0.36712962" DurationMax="0.36712962">
+					<MediaRefs>
+						<MediaRef Id="277770706"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2774129122" Name="ui_select" DurationType="OneShot" DurationMin="0.21158333" DurationMax="0.21158333">
+					<MediaRefs>
+						<MediaRef Id="687109068"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{37591B5D-1808-86C8-D72F-318B8AAD70BE}</FileHash>
+	<FileHash>{A3B7A1DD-E5A0-FAAE-4ECA-EB4CF6BAD7BE}</FileHash>
 </SoundBanksInfo>

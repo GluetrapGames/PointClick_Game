@@ -48,6 +48,7 @@ public class PickUpScript : MonoBehaviour
 	private Camera _camera;
 	private bool _slotFound;
 	public Sprite sprite;
+	public string pickupEvent;
 
 
 	private void Awake()
@@ -82,7 +83,9 @@ public class PickUpScript : MonoBehaviour
 		if (!m_IsClicked)
 			return;
 
-		Collected();
+        AkSoundEngine.PostEvent(pickupEvent, gameObject);
+
+        Collected();
 	}
 
 	private void Collected()
