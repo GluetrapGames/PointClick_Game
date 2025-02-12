@@ -1,9 +1,4 @@
-using Piper;
-using PixelCrushers.DialogueSystem;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using Tools = PixelCrushers.DialogueSystem.Tools;
 
 /// <summary>
 ///     Extends the Dialogue System by adding text-to-speech functionality using
@@ -12,7 +7,7 @@ using Tools = PixelCrushers.DialogueSystem.Tools;
 [RequireComponent(typeof(AudioSource))]
 public class TTSExtension : MonoBehaviour
 {
-	[Tooltip("Log player lines in this colour.")]
+	/*[Tooltip("Log player lines in this colour.")]
 	public Color m_PlayerColor = Color.blue;
 	[Tooltip("Log NPC lines in this colour.")]
 	public Color m_NpcColor = Color.red;
@@ -103,5 +98,5 @@ public class TTSExtension : MonoBehaviour
 
 		_source.clip = await toSpeech;
 		_source.Play();
-	}
+	}*/
 }

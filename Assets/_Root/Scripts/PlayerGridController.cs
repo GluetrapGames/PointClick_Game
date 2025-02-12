@@ -86,6 +86,10 @@ public class PlayerGridController : MonoBehaviour
 	// Controller-based grid movement.
 	private void HandleControllerMovement()
 	{
+		// Ensure the tile highlight is turned off when using the controller.
+		if (_highlight.activeInHierarchy)
+			_highlight.SetActive(false);
+
 		Vector2 moveInput =
 			Gamepad.current?.leftStick.ReadValue() ?? Vector2.zero;
 		DpadControl dpad = Gamepad.current?.dpad;
