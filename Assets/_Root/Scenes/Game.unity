@@ -5029,7 +5029,7 @@ PrefabInstance:
       objectReference: {fileID: 1407760088958387398, guid: dc38f0fe79d4443f8a8580ffae7a9a2c, type: 3}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.a
-      value: 0.11764706
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.b
@@ -5198,8 +5198,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
-    m_SelectedColor: {r: 1, g: 0.5529412, b: 0.5529412, a: 1}
+    m_PressedColor: {r: 0.25, g: 1, b: 0.43513608, a: 0.19607843}
+    m_SelectedColor: {r: 0.3208711, g: 1, b: 0, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5589,7 +5589,7 @@ PrefabInstance:
       objectReference: {fileID: 1407760088958387398, guid: dc38f0fe79d4443f8a8580ffae7a9a2c, type: 3}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.a
-      value: 0.11764706
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.b
@@ -5758,8 +5758,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
-    m_SelectedColor: {r: 1, g: 0.5529412, b: 0.5529412, a: 1}
+    m_PressedColor: {r: 0.25, g: 1, b: 0.43513608, a: 0.19607843}
+    m_SelectedColor: {r: 0.3208711, g: 1, b: 0, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5861,21 +5861,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1260682052}
-        m_TargetAssemblyTypeName: InvButtonSpriteSwap, Assembly-CSharp
-        m_MethodName: OnButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1260682051}
-        m_TargetAssemblyTypeName: OpenInvScript, Assembly-CSharp
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 1192542210}
+        m_TargetAssemblyTypeName: InventoryControllerSupport, Assembly-CSharp
+        m_MethodName: OpenInv
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6984,6 +6972,10 @@ PrefabInstance:
     - target: {fileID: 1370189957532274956, guid: 2f265ace96949944299c9b2b7e11d451, type: 3}
       propertyPath: m_InteractionDirection
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370189957532274956, guid: 2f265ace96949944299c9b2b7e11d451, type: 3}
+      propertyPath: m_ControllerInteractionDistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1479629552066664035, guid: 2f265ace96949944299c9b2b7e11d451, type: 3}
       propertyPath: m_Sprite
@@ -14526,6 +14518,10 @@ PrefabInstance:
       propertyPath: m_InteractionDirection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1370189957532274956, guid: 2f265ace96949944299c9b2b7e11d451, type: 3}
+      propertyPath: m_ControllerInteractionDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1479629552066664035, guid: 2f265ace96949944299c9b2b7e11d451, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -14978,7 +14974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1370189957532274956, guid: 2f265ace96949944299c9b2b7e11d451, type: 3}
       propertyPath: m_ControllerInteractionDistance
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1479629552066664035, guid: 2f265ace96949944299c9b2b7e11d451, type: 3}
       propertyPath: m_Size.x
@@ -15745,7 +15741,7 @@ PrefabInstance:
       objectReference: {fileID: 1407760088958387398, guid: dc38f0fe79d4443f8a8580ffae7a9a2c, type: 3}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.a
-      value: 0.11764706
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.b
@@ -15918,8 +15914,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
-    m_SelectedColor: {r: 1, g: 0.5518868, b: 0.5518868, a: 1}
+    m_PressedColor: {r: 0.25, g: 1, b: 0.43513608, a: 0.19607843}
+    m_SelectedColor: {r: 0.3208711, g: 1, b: 0, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -16659,6 +16655,7 @@ MonoBehaviour:
   heldItemSlot: {fileID: 1170580785}
   heldItemSlot2: {fileID: 1170580784}
   playerInput: {fileID: 1167512477}
+  spriteSwap: {fileID: 1260682052}
 --- !u!114 &1192542211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16854,7 +16851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b65bb1277b846d29e9abaca94a309f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 1688361555}
 --- !u!114 &1260682052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16914,21 +16910,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1260682052}
-        m_TargetAssemblyTypeName: InvButtonSpriteSwap, Assembly-CSharp
-        m_MethodName: OnButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1260682051}
-        m_TargetAssemblyTypeName: OpenInvScript, Assembly-CSharp
-        m_MethodName: OnButtonClick
+      - m_Target: {fileID: 1192542210}
+        m_TargetAssemblyTypeName: InventoryControllerSupport, Assembly-CSharp
+        m_MethodName: OpenInv
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17126,7 +17110,7 @@ PrefabInstance:
       objectReference: {fileID: 1407760088958387398, guid: dc38f0fe79d4443f8a8580ffae7a9a2c, type: 3}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.a
-      value: 0.11764706
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.b
@@ -17295,8 +17279,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
-    m_SelectedColor: {r: 1, g: 0.5529412, b: 0.5529412, a: 1}
+    m_PressedColor: {r: 0.25, g: 1, b: 0.43513608, a: 0.19607843}
+    m_SelectedColor: {r: 0.3208711, g: 1, b: 0, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -18572,6 +18556,10 @@ PrefabInstance:
       propertyPath: m_InteractionDirection
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1370189957532274956, guid: 2f265ace96949944299c9b2b7e11d451, type: 3}
+      propertyPath: m_ControllerInteractionDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1479629552066664035, guid: 2f265ace96949944299c9b2b7e11d451, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -19092,7 +19080,7 @@ PrefabInstance:
       objectReference: {fileID: 1407760088958387398, guid: dc38f0fe79d4443f8a8580ffae7a9a2c, type: 3}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.a
-      value: 0.11764706
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.b
@@ -19261,8 +19249,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
-    m_SelectedColor: {r: 1, g: 0.5529412, b: 0.5529412, a: 1}
+    m_PressedColor: {r: 0.25, g: 1, b: 0.43513608, a: 0.19607843}
+    m_SelectedColor: {r: 0.3208711, g: 1, b: 0, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -20731,7 +20719,7 @@ PrefabInstance:
       objectReference: {fileID: 1407760088958387398, guid: dc38f0fe79d4443f8a8580ffae7a9a2c, type: 3}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.a
-      value: 0.11764706
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 312213630699713859, guid: 79403928cc1a348ad86f8bd9f067843a, type: 3}
       propertyPath: m_Color.b
@@ -20900,8 +20888,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
-    m_SelectedColor: {r: 1, g: 0.5529412, b: 0.5529412, a: 1}
+    m_PressedColor: {r: 0.25, g: 1, b: 0.43513608, a: 0.19607843}
+    m_SelectedColor: {r: 0.3208711, g: 1, b: 0, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
