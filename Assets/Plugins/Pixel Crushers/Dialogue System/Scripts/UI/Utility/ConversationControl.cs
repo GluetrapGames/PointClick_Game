@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PixelCrushers.DialogueSystem
 {
-
+    
     /// <summary>
     /// Provides AutoPlay and SkipAll functionality. To add "Auto Play" and/or 
     /// "Skip All" buttons that advances the current conversation:
@@ -17,6 +17,9 @@ namespace PixelCrushers.DialogueSystem
     [AddComponentMenu("")] // Use wrapper.
     public class ConversationControl : MonoBehaviour // Add to dialogue UI. Connect to Skip All and Auto Play buttons.
     {
+        
+        public bool autoplay = false;
+        
         [Tooltip("Skip all subtitles until response menu or end of conversation is reached. Set by SkipAll().")]
         public bool skipAll;
 
@@ -48,6 +51,9 @@ namespace PixelCrushers.DialogueSystem
             var newMode = (mode == DisplaySettings.SubtitleSettings.ContinueButtonMode.Never) ? DisplaySettings.SubtitleSettings.ContinueButtonMode.Always : DisplaySettings.SubtitleSettings.ContinueButtonMode.Never;
             DialogueManager.displaySettings.subtitleSettings.continueButton = newMode;
             if (newMode == DisplaySettings.SubtitleSettings.ContinueButtonMode.Never) dialogueUI.OnContinueConversation();
+
+            autoplay = !autoplay;
+            
         }
 
         /// <summary>
