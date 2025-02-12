@@ -22,6 +22,8 @@ public class InventoryControllerSupport : MonoBehaviour
     public PlayerInput playerInput;
     private InputAction _inventoryAction;
     
+    public InvButtonSpriteSwap spriteSwap;
+    
     private void Awake()
     {
         _inventoryAction = playerInput.actions["Inventory"];
@@ -50,38 +52,49 @@ public class InventoryControllerSupport : MonoBehaviour
         if (_inventoryAction.WasPressedThisFrame())
         {
             Debug.Log("Opening Inv/Closing Inv");
-            if (!_isOpen)
-            {
-                OpenInv();
-            }
-            else
-            {
-                CloseInv();
-            }
+            OpenInv();
         }
     }
 
-    private void OpenInv()
+    public void OpenInv()
     {
-        Debug.Log("Opening Inv");
-        inventoryUI.SetActive(true);
-        openInvButton.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(firstSelectedSlot);
-        _isOpen = true;
+        if (!_isOpen)
+        {
+            Debug.Log("Opening Inv");
+            inventoryUI.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(firstSelectedSlot);
+            _isOpen = true;
+            spriteSwap.OnButtonClick();
+            InvTimeMethod();
+        }
+        else
+        {
+            Debug.Log("Closing Inv");
+            inventoryUI.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+            _isOpen = false;
+            spriteSwap.OnButtonClick();
+            InvTimeMethod();
+        }
+ 
     }
-
-    private void CloseInv()
+    
+    private void InvTimeMethod()
     {
-        Debug.Log("Closing Inv");
-        inventoryUI.SetActive(false);
-        openInvButton.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(null);
-        _isOpen = false;
+        if (_isOpen)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
-
+    
     private void OnSlotPressed(InventorySlot slot)
     {
         InventorySlot pressedSlot = slot;
+        
         if (heldItemSlot.transform.childCount == 0)
         {
             if (slot.item != null)
@@ -124,7 +137,15 @@ public class InventoryControllerSupport : MonoBehaviour
             }
             else
             {
-                Debug.Log("No item in slot " + slot.name + " to transfer.");
+                Debug.Log("No item in slot " + slot.name + " to transfer, transferring held item to empty slot.");
+                Transform currentHeldItemTransform = heldItemSlot.transform.GetChild(0);
+                InventoryItem currentHeldItem = currentHeldItemTransform.GetComponent<InventoryItem>();
+                
+                currentHeldItem.transform.SetParent(slot.transform);
+                slot.item = currentHeldItem;
+                
+                heldItemSlot.item = null;
+                heldItemSlot2.playerHeldItem = null;
             }
         }
         
