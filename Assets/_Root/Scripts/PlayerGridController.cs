@@ -21,8 +21,8 @@ public class PlayerGridController : MonoBehaviour
 	private GameObject _highlight;
 	private Vector2 _inputDirection;
 	private float _lastMoveTime;
-	private Coroutine _moveCoroutine;
-	private GridMovement _movement;
+	public Coroutine _moveCoroutine;
+	public GridMovement _movement;
 	private bool _usingController;
 
 
@@ -134,4 +134,15 @@ public class PlayerGridController : MonoBehaviour
 
 		_moveCoroutine = null;
 	}
+
+
+	public void StopMovement() 
+	{
+		StopCoroutine(_moveCoroutine);
+		_moveCoroutine = null;
+		_movement.m_Path.Clear();
+		_movement.m_IsMoving = false;
+    }
+
+
 }
