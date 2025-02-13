@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
+
+		//Debug.Log(m_Player._moveCoroutine);
 	}
 
 

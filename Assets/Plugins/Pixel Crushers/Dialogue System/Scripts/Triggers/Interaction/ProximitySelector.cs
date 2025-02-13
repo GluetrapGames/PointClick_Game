@@ -478,7 +478,7 @@ namespace PixelCrushers.DialogueSystem
             {
                 GUI.skin = guiSkin;
                 UnityGUITools.DrawText(new Rect(0, 0, Screen.width, Screen.height), currentHeading, guiStyle, textStyle, textStyleColor);
-                UnityGUITools.DrawText(new Rect(0, guiStyleLineHeight, Screen.width, Screen.height), currentUseMessage, guiStyle, textStyle, textStyleColor);
+                UnityGUITools.DrawText(new Rect(0, guiStyleLineHeight, Screen.width * 2, Screen.height * 2), currentUseMessage, guiStyle, textStyle, textStyleColor);
             }
         }
 
