@@ -16794,6 +16794,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 137891107}
   firstSelectedPause: {fileID: 2041764389}
   firstSelectedSettings: {fileID: 640994156}
+  conversationControllerRef: {fileID: 2122037602}
 --- !u!4 &1192542212
 Transform:
   m_ObjectHideFlags: 0
@@ -21764,6 +21765,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083770688}
   m_CullTransparentMesh: 1
+--- !u!114 &2122037602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7048399639721328092, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
+  m_PrefabInstance: {fileID: 6266427974177350556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8b685e62a9aeb4a9472b30ec2d86d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2141307650
 GameObject:
   m_ObjectHideFlags: 0
@@ -22479,6 +22491,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6135283681079139593, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460965078537057552, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7043155026386293582, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}

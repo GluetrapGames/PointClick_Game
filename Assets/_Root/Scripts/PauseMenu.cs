@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using PixelCrushers.DialogueSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject firstSelectedPause;
     public GameObject firstSelectedSettings;
+
+    [SerializeField]
+    public DialogueSystemController conversationControllerRef;
 
     private void Awake()
     {
@@ -44,6 +48,10 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        if (conversationControllerRef.IsConversationActive)
+            inventoryUI.SetActive(false);
+        else
+            inventoryUI.SetActive(true);
         //inventoryUI.SetActive(true);
         Time.timeScale = 1f;
         paused = false;
