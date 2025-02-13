@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        inventoryUI.SetActive(true);
+        //inventoryUI.SetActive(true);
         Time.timeScale = 1f;
         paused = false;
         pauseMenuParent.SetActive(false);
@@ -56,7 +56,7 @@ public class PauseMenu : MonoBehaviour
     
     public void Pause()
     {
-        inventoryUI.SetActive(false);
+        //inventoryUI.SetActive(false);
         pauseMenuParent.SetActive(true);
         pauseMenuUI.SetActive(true);
         settingsMenuUI.SetActive(false);
