@@ -92,7 +92,7 @@ public class PickUpScript : MonoBehaviour
 	{
 
 		DialogueManager.ShowAlert($"{name} has been collected!");
-
+		
 		while (!_slotFound)
 		{
 			Debug.Log("Finding Slot");
