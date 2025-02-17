@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -14,7 +15,7 @@ public class InteractPopUp : MonoBehaviour
 
     private void Awake()
     {
-        interactionText = interactionUI.GetComponentInChildren<Text>();
+        interactionText = interactionUI.GetComponentInChildren<Text>();        
     }
 
     // Update is called once per frame
@@ -26,7 +27,8 @@ public class InteractPopUp : MonoBehaviour
         float distance = Vector3.Distance(player.position, transform.position);
         if (distance <= interactionRadius)
         {
-            interactionText.text = $"Press E to interact with {name}";
+
+            interactionText.text = $"Interact with {name}";
             interactionUI.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
