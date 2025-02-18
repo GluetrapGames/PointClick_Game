@@ -21,9 +21,9 @@ MonoBehaviour:
     bold: 0
     italic: 0
     underline: 0
-  - color: {r: 1, g: 0, b: 0, a: 1}
+  - color: {r: 0.9058824, g: 0.90196085, b: 0.7294118, a: 1}
     bold: 0
-    italic: 0
+    italic: 1
     underline: 0
   - color: {r: 0, g: 1, b: 0, a: 1}
     bold: 0
@@ -84,6 +84,50 @@ MonoBehaviour:
       type: 0
       typeString: 
     portrait: {fileID: 2800000, guid: 0dc3cb24472312b4bbe22e50041d6c7b, type: 3}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 3
+    fields:
+    - title: Name
+      value: Albert
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 2800000, guid: 6e890921b01bc0445a0d54145a93baa5, type: 3}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 4
+    fields:
+    - title: Name
+      value: New Actor 4
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
@@ -348,7 +392,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -403,7 +447,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 3
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -864,7 +908,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 200.67944
+        x: 202.04929
         y: 84.087715
         width: 160
         height: 30
@@ -1117,7 +1161,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: A single tear rolls down his face
+        value: '[em2]A single tear rolls down his face[/em2]'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
