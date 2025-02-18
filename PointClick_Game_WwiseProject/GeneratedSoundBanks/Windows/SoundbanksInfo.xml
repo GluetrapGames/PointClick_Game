@@ -34,7 +34,7 @@
 				<GameParameter Id="3391499625" Name="vol_master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{20EAF559-774F-ED9A-6F58-C2F4CDD9E3D4}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{08ACC7C4-7960-9C7E-988C-EE3BBD2734F1}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -58,6 +58,10 @@
 					<ShortName>dial_alMcGuig_blab.wav</ShortName>
 					<CachePath>SFX/dial_alMcGuig_blab_DF79E40E.wem</CachePath>
 				</File>
+				<File Id="566588730" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_takeItem_001.wav</ShortName>
+					<CachePath>SFX/player_takeItem_001_818F3B66.wem</CachePath>
+				</File>
 				<File Id="604374767" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_back.wav</ShortName>
 					<CachePath>SFX/ui_menu_back_831DFFC4.wem</CachePath>
@@ -77,10 +81,6 @@
 				<File Id="920958933" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_hover.wav</ShortName>
 					<CachePath>SFX/ui_hover_818F3B66.wem</CachePath>
-				</File>
-				<File Id="967958596" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>player_takeItem.wav</ShortName>
-					<CachePath>SFX/player_takeItem_818F3B66.wem</CachePath>
 				</File>
 				<File Id="976753790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_hover.wav</ShortName>
@@ -118,9 +118,9 @@
 						<MediaRef Id="277770706"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1627434233" Name="player_pickup" DurationType="OneShot" DurationMin="0.72375" DurationMax="0.72375">
+				<Event Id="1627434233" Name="player_pickup" DurationType="OneShot" DurationMin="0.7288333" DurationMax="0.7288333">
 					<MediaRefs>
-						<MediaRef Id="967958596"/>
+						<MediaRef Id="566588730"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2024222415" Name="ui_back" DurationType="OneShot" DurationMin="0.45858333" DurationMax="0.45858333">
@@ -156,5 +156,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{E6ECDDB4-FD32-D7BF-553B-F8CAE1E5C2A4}</FileHash>
+	<FileHash>{1BF34322-7C98-4ADF-5EA9-B274F006FDB0}</FileHash>
 </SoundBanksInfo>
