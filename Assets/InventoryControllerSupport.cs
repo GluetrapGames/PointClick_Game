@@ -62,7 +62,10 @@ public class InventoryControllerSupport : MonoBehaviour
         {
             Debug.Log("Opening Inv");
             inventoryUI.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(firstSelectedSlot);
+            if (Gamepad.current != null)
+            {
+                EventSystem.current.SetSelectedGameObject(firstSelectedSlot);
+            }
             _isOpen = true;
             spriteSwap.OnButtonClick();
             InvTimeMethod();
