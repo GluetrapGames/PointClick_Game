@@ -6,6 +6,9 @@ using AYellowpaper.SerializedCollections;
 using UnityEngine.Rendering;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using PixelCrushers.DialogueSystem.Wrappers;
+using PixelCrushers.DialogueSystem.SequencerCommands;
+using UnityEngine.InputSystem.Android.LowLevel;
 
 public class BlabController : MonoBehaviour
 {
@@ -17,7 +20,8 @@ public class BlabController : MonoBehaviour
     private GameObject _LogWindow;
     private float _LastAudioTime = 0.0f;
     private string _SpeakerName;
-    public UnityUITypewriterEffect m_TypeWritterEffect;
+    public PixelCrushers.DialogueSystem.UnityUITypewriterEffect m_TypeWritterEffect;
+
 
     // Update checks if an audio clip is currently playing.
     // Then changes the pitch for the next clip loop.
