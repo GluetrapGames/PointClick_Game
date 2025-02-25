@@ -404,7 +404,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>12</Value>
+										<Value>8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -413,7 +413,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+									<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -424,9 +424,16 @@
 										<MediaID ID="967958596"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="player_takeItem_001" ID="{0D66E1E2-D263-4378-9EE4-6EA2B6AA37BF}">
+									<Language>SFX</Language>
+									<AudioFile>player_takeItem_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="144182143"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="player_takeItem" ID="{1A37EFA5-DD8A-40A3-92B7-CE2684FF19E5}" Platform="Linked"/>
+								<ActiveSource Name="player_takeItem_001" ID="{0D66E1E2-D263-4378-9EE4-6EA2B6AA37BF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -1081,6 +1088,9 @@
 											</ModifierList>
 										</Property>
 										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
 											<ModifierList>
 												<ModifierInfo>
 													<Modifier Name="" ID="{1F4DA8BE-5BDC-4E3B-873C-F5A4B0721701}"/>
@@ -1098,13 +1108,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="viol_break_ceramic" ID="{0F887582-68C9-4553-9BB0-6EB10781D5E9}" ShortID="640295745">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-5</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
@@ -1124,6 +1127,28 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="viol_break_ceramic" ID="{310DB14E-84E2-47C1-9CD3-78B8F323F8F7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="viol_break_ceramic-001" ID="{31CDA501-A596-40E7-A6C9-DD75AB281379}" ShortID="389323470">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="viol_break_ceramic-001" ID="{E17D752D-D843-446B-A452-88F2FE3594FD}">
+													<Language>SFX</Language>
+													<AudioFile>viol_break_ceramic-001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1060580719"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="viol_break_ceramic-001" ID="{E17D752D-D843-446B-A452-88F2FE3594FD}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
