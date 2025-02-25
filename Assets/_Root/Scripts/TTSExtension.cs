@@ -1,4 +1,11 @@
+using EditorAttributes;
+using Piper;
+using PixelCrushers.DialogueSystem;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using CharacterInfo = PixelCrushers.DialogueSystem.CharacterInfo;
+using Tools = PixelCrushers.DialogueSystem.Tools;
 
 /// <summary>
 ///     Extends the Dialogue System by adding text-to-speech functionality using
@@ -7,40 +14,44 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class TTSExtension : MonoBehaviour
 {
-	/*[Tooltip("Log player lines in this colour.")]
-	public Color m_PlayerColor = Color.blue;
-	[Tooltip("Log NPC lines in this colour.")]
-	public Color m_NpcColor = Color.red;
+	[SerializeField]
+	private PiperManager _PiperManager;
+	[SerializeField]
+	private bool _LogLines;
+	[SerializeField, EnableField(nameof(_LogLines)),
+	 Tooltip("Log player lines in this colour.")]
+	private Color _PlayerColour = Color.blue;
+	[SerializeField, EnableField(nameof(_LogLines)),
+	 Tooltip("Log NPC lines in this colour.")]
+	private Color _NpcColour = Color.red;
 
-	[SerializeField]
-	private PiperManager m_Piper;
-	[SerializeField]
-	private bool m_LogPlayerLines;
-	private AudioSource _source;
+	private AudioSource _Source;
+
 
 	private void Awake()
 	{
-		_source = GetComponent<AudioSource>();
-		// Make sure the Piper Manager still exists on play.
-		if (m_Piper == null)
-			Reset();
+		_Source = GetComponent<AudioSource>();
+		if (!_PiperManager)
+			_PiperManager = FindFirstObjectByType<PiperManager>();
 	}
 
+#if UNITY_EDITOR
 	private void Reset()
 	{
-		var prefab = AssetDatabase.LoadAssetAtPath(
+		Object prefab = AssetDatabase.LoadAssetAtPath(
 			"Assets/_Root/Prefabs/Piper Manager.prefab", typeof(GameObject));
 
 		// Check to see if the Piper Manager prefab exists.
-		m_Piper = FindFirstObjectByType<PiperManager>();
-		if (m_Piper == null) //< If not, create it and grab it.
-			m_Piper = Instantiate(prefab).GetComponent<PiperManager>();
+		_PiperManager = FindFirstObjectByType<PiperManager>();
+		if (_PiperManager == null) //< If not, create it and grab it.
+			_PiperManager = Instantiate(prefab).GetComponent<PiperManager>();
 	}
 
+#endif
 	private void OnDestroy()
 	{
-		if (_source && _source.clip)
-			Destroy(_source.clip);
+		if (_Source && _Source.clip)
+			Destroy(_Source.clip);
 	}
 
 	public void OnConversationLine(Subtitle subtitle)
@@ -50,9 +61,9 @@ public class TTSExtension : MonoBehaviour
 		    string.IsNullOrEmpty(subtitle?.formattedText?.text)) return;
 
 		// Output spoken line when logging is enabled.
-		if (m_LogPlayerLines)
+		if (_LogLines)
 		{
-			var speakerInfo = subtitle.speakerInfo;
+			CharacterInfo speakerInfo = subtitle.speakerInfo;
 			var speakerName = speakerInfo != null &&
 			                  speakerInfo.transform != null
 				? speakerInfo.transform.name
@@ -84,19 +95,19 @@ public class TTSExtension : MonoBehaviour
 			return "white";
 
 		return Tools.ToWebColor(subtitle.speakerInfo.isPlayer
-			? m_PlayerColor
-			: m_NpcColor);
+			? _PlayerColour
+			: _NpcColour);
 	}
 
 	// Create an audio file from text, play it, then delete it.
 	private async void OnInputSubmit(string text)
 	{
-		var toSpeech = m_Piper.TextToSpeech(text);
-		_source.Stop();
-		if (_source && _source.clip)
-			Destroy(_source.clip);
+		var toSpeech = _PiperManager.TextToSpeech(text);
+		_Source.Stop();
+		if (_Source && _Source.clip)
+			Destroy(_Source.clip);
 
-		_source.clip = await toSpeech;
-		_source.Play();
-	}*/
+		_Source.clip = await toSpeech;
+		_Source.Play();
+	}
 }
