@@ -5535,6 +5535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatMaterial: 
   footstepSpeed: 0
+  Player: {fileID: 0}
 --- !u!1 &254414705
 GameObject:
   m_ObjectHideFlags: 0
@@ -14682,6 +14683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatMaterial: Wood
   footstepSpeed: 0
+  Player: {fileID: 0}
 --- !u!1001 &869597079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16584,6 +16586,7 @@ GameObject:
   - component: {fileID: 1167512471}
   - component: {fileID: 1167512470}
   - component: {fileID: 1167512477}
+  - component: {fileID: 1167512478}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -16799,6 +16802,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1167512478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167512469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatMaterial: Wood
+  footstepSpeed: 0.5
+  Player: {fileID: 1167512469}
 --- !u!1 &1170580781
 GameObject:
   m_ObjectHideFlags: 0
