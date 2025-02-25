@@ -37,6 +37,7 @@
 				<SwitchGroup Id="3865314626" Name="Material">
 					<Switches>
 						<Switch Id="114672780" Name="Plant"/>
+						<Switch Id="287855384" Name="Taxidermy"/>
 						<Switch Id="1968058251" Name="Ceramic"/>
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2449969375" Name="Glass"/>
@@ -46,7 +47,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{542E8242-0674-73D4-300F-CA696F934E6F}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{ECFD27B5-D5AB-7300-C677-A707C4DBE945}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -57,6 +58,10 @@
 				<File Id="73779194" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>track_menu.wav</ShortName>
 					<CachePath>SFX/track_menu_818F3B66.wem</CachePath>
+				</File>
+				<File Id="144182143" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_takeItem_001.wav</ShortName>
+					<CachePath>SFX/player_takeItem_001_818F3B66.wem</CachePath>
 				</File>
 				<File Id="195012293" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_electronic-001.wav</ShortName>
@@ -81,6 +86,14 @@
 				<File Id="490080538" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_alMcGuig_blab.wav</ShortName>
 					<CachePath>SFX/dial_alMcGuig_blab_DF79E40E.wem</CachePath>
+				</File>
+				<File Id="532204821" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>viol_break_taxidermy.wav</ShortName>
+					<CachePath>SFX/viol_break_taxidermy_818F3B66.wem</CachePath>
+				</File>
+				<File Id="560138299" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>viol_break_taxidermy-001.wav</ShortName>
+					<CachePath>SFX/viol_break_taxidermy-001_818F3B66.wem</CachePath>
 				</File>
 				<File Id="604374767" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_back.wav</ShortName>
@@ -126,10 +139,6 @@
 					<ShortName>viol_hit_wood2-002.wav</ShortName>
 					<CachePath>SFX/viol_hit_wood2-002_818F3B66.wem</CachePath>
 				</File>
-				<File Id="967958596" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>player_takeItem.wav</ShortName>
-					<CachePath>SFX/player_takeItem_818F3B66.wem</CachePath>
-				</File>
 				<File Id="976753790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_hover.wav</ShortName>
 					<CachePath>SFX/ui_menu_hover_8447143A.wem</CachePath>
@@ -137,6 +146,10 @@
 				<File Id="1032843977" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_plant.wav</ShortName>
 					<CachePath>SFX/viol_hit_plant_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1060580719" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>viol_break_ceramic-001.wav</ShortName>
+					<CachePath>SFX/viol_break_ceramic-001_818F3B66.wem</CachePath>
 				</File>
 				<File Id="1071037576" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_glass.wav</ShortName>
@@ -149,12 +162,20 @@
 						<MediaRef Id="490080538"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="584038952" Name="bug_shelf" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
+					<MediaRefs>
+						<MediaRef Id="685121363"/>
+						<MediaRef Id="874754579"/>
+						<MediaRef Id="947122152"/>
+						<MediaRef Id="1071037576"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3849916683" Name="Lawyer_Blab" DurationType="OneShot" DurationMin="0.18300436" DurationMax="0.25880724">
 					<MediaRefs>
 						<MediaRef Id="718177124"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3865314626" Name="Material" DurationType="OneShot" DurationMin="0.3437951" DurationMax="1.6208999">
+				<Event Id="3865314626" Name="Material" DurationType="OneShot" DurationMin="0.3437951" DurationMax="2.4581919">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="2449969375"/>
@@ -171,9 +192,17 @@
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="287855384"/>
+							<MediaRefs>
+								<MediaRef Id="532204821"/>
+								<MediaRef Id="560138299"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="1968058251"/>
 							<MediaRefs>
 								<MediaRef Id="61938418"/>
+								<MediaRef Id="1060580719"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -219,13 +248,23 @@
 						<MediaRef Id="277770706"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1627434233" Name="player_pickup" DurationType="OneShot" DurationMin="0.72375" DurationMax="0.72375">
+				<Event Id="1627434233" Name="player_pickup" DurationType="OneShot" DurationMin="0.7288333" DurationMax="0.7288333">
 					<MediaRefs>
-						<MediaRef Id="967958596"/>
+						<MediaRef Id="144182143"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2570475550" Name="record_player" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
+					<MediaRefs>
+						<MediaRef Id="685121363"/>
+						<MediaRef Id="874754579"/>
+						<MediaRef Id="947122152"/>
+						<MediaRef Id="1071037576"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3811696612" Name="taxi_animal" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
 					<MediaRefs>
+						<MediaRef Id="532204821"/>
+						<MediaRef Id="560138299"/>
 						<MediaRef Id="685121363"/>
 						<MediaRef Id="874754579"/>
 						<MediaRef Id="947122152"/>
@@ -270,6 +309,7 @@
 				<SwitchGroup Id="3865314626" Name="Material">
 					<Switches>
 						<Switch Id="114672780" Name="Plant"/>
+						<Switch Id="287855384" Name="Taxidermy"/>
 						<Switch Id="1968058251" Name="Ceramic"/>
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2449969375" Name="Glass"/>
@@ -280,5 +320,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{3BBA27A9-0E21-AA0E-FB63-45F8FE37A32C}</FileHash>
+	<FileHash>{9CA1D9B8-EA2D-EB2F-B4E7-566ED4AF7461}</FileHash>
 </SoundBanksInfo>

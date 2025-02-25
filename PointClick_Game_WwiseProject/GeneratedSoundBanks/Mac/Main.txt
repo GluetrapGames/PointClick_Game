@@ -1,9 +1,11 @@
 Event	ID	Name			Wwise Object Path	Notes
 	309439191	menu_hover			\Default Work Unit\UI\Menu\menu_hover	
 	500465782	ui_letter			\Default Work Unit\UI\In-Game\Dialogue\ui_letter	
+	584038952	bug_shelf			\Default Work Unit\Breaks\Specific\bug_shelf	
 	1627434233	player_pickup			\Default Work Unit\Player\player_pickup	
 	2024222415	ui_back			\Default Work Unit\UI\In-Game\Dialogue\ui_back	
 	2118900976	ui_hover			\Default Work Unit\UI\In-Game\Dialogue\ui_hover	
+	2570475550	record_player			\Default Work Unit\Breaks\Specific\record_player	
 	2607556080	menu			\Default Work Unit\Music\menu	
 	2774129122	ui_select			\Default Work Unit\UI\In-Game\Dialogue\ui_select	
 	3063554414	menu_back			\Default Work Unit\UI\Menu\menu_back	
@@ -20,6 +22,7 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 
 Switch	ID	Name	Switch Group			Notes
 	114672780	Plant	Material			
+	287855384	Taxidermy	Material			
 	1968058251	Ceramic	Material			
 	2058049674	Wood	Material			
 	2449969375	Glass	Material			
@@ -30,27 +33,30 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	223679447	vol_loud			\Default Work Unit\Volume\vol_loud	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	61938418	viol_break_ceramic	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_break_ceramic_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Ceramic\viol_break_ceramic		118976
-	73779194	track_menu	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\track_menu_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\track_menu		35229444
-	195012293	viol_hit_electronic-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_electronic-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Electronic\viol_hit_electronic-001		128156
-	277770706	ui_menu_select	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_menu_select_3198CB9C.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_select		70584
-	382891266	viol_hit_plant-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_plant-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Plant\viol_hit_plant-001		59772
-	404540059	ui_back	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_back_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_back		88144
-	456918740	ui_letter	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_letter_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_letter		25004
-	490080538	dial_alMcGuig_blab	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\dial_alMcGuig_blab_DF79E40E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Albert\dial_alMcGuig_blab		68052
-	604374767	ui_menu_back	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_menu_back_831DFFC4.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_back		75756
-	685121363	viol_hit_wood2-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_wood2-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Wood\viol_hit_wood2-001		147936
-	687109068	ui_select	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_select_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_select		40720
-	699494019	viol_hit_metal-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_metal-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Metal\viol_hit_metal-001		72216
-	718177124	dial_lawyer_blab	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\dial_lawyer_blab_92D35545.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Lawyer\dial_lawyer_blab		41880
-	718932789	viol_hit_metal	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_metal_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Metal\viol_hit_metal		114064
-	845512123	ui_dialoguePopup	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_dialoguePopup_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_dialoguePopup		215236
-	874754579	viol_break_glass-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_break_glass-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Glass\viol_break_glass-001		67112
-	886830654	viol_hit_electronic	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_electronic_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Electronic\viol_hit_electronic		113088
-	920958933	ui_hover	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_hover_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_hover		19740
-	947122152	viol_hit_wood2-002	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_wood2-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Wood\viol_hit_wood2-002		228576
-	967958596	player_takeItem	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\player_takeItem_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\player_takeItem		139056
-	976753790	ui_menu_hover	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_menu_hover_8447143A.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_hover		7068
-	1032843977	viol_hit_plant	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_plant_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Plant\viol_hit_plant		93036
-	1071037576	viol_break_glass	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_break_glass_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Glass\viol_break_glass		89144
+	61938418	viol_break_ceramic	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_break_ceramic_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Ceramic\viol_break_ceramic		360472
+	73779194	track_menu	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\track_menu_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\track_menu		35229444
+	144182143	player_takeItem	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\player_takeItem_001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\player_takeItem		140032
+	195012293	viol_hit_electronic-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_electronic-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Electronic\viol_hit_electronic-001		128156
+	277770706	ui_menu_select	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_menu_select_3198CB9C.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_select		70584
+	382891266	viol_hit_plant-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_plant-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Plant\viol_hit_plant-001		59772
+	404540059	ui_back	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_back_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_back		88144
+	456918740	ui_letter	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_letter_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_letter		25004
+	490080538	dial_alMcGuig_blab	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\dial_alMcGuig_blab_DF79E40E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Albert\dial_alMcGuig_blab		68052
+	532204821	viol_break_taxidermy	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_break_taxidermy_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Taxidermy\viol_break_taxidermy		86188
+	560138299	viol_break_taxidermy-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_break_taxidermy-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Taxidermy\viol_break_taxidermy-001		86188
+	604374767	ui_menu_back	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_menu_back_831DFFC4.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_back		75756
+	685121363	viol_hit_wood2-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_wood2-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Wood\viol_hit_wood2-001		147936
+	687109068	ui_select	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_select_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_select		40720
+	699494019	viol_hit_metal-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_metal-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Metal\viol_hit_metal-001		72216
+	718177124	dial_lawyer_blab	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\dial_lawyer_blab_92D35545.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\Lawyer\dial_lawyer_blab		41880
+	718932789	viol_hit_metal	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_metal_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Metal\viol_hit_metal		114064
+	845512123	ui_dialoguePopup	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_dialoguePopup_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_dialoguePopup		215236
+	874754579	viol_break_glass-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_break_glass-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Glass\viol_break_glass-001		67112
+	886830654	viol_hit_electronic	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_electronic_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Electronic\viol_hit_electronic		113088
+	920958933	ui_hover	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_hover_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_hover		19740
+	947122152	viol_hit_wood2-002	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_wood2-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Wood\viol_hit_wood2-002		228576
+	976753790	ui_menu_hover	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_menu_hover_8447143A.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_hover		7068
+	1032843977	viol_hit_plant	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_plant_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Plant\viol_hit_plant		93036
+	1060580719	viol_break_ceramic-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_break_ceramic-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Ceramic\viol_break_ceramic-001		420576
+	1071037576	viol_break_glass	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_break_glass_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Glass\viol_break_glass		89144
 
