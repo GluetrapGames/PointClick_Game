@@ -16,7 +16,7 @@ public class SceneTransistion : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        StartCoroutine((_sceneToTransitionTo));
+        StartCoroutine(LoadScene(_sceneToTransitionTo));
 
     }
 
