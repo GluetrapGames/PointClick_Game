@@ -1,8 +1,9 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueSound : MonoBehaviour
+
 {
     // Play sound when button is clicked
     public void onClick()
