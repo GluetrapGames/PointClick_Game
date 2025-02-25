@@ -34,10 +34,11 @@
 				<GameParameter Id="3391499625" Name="vol_master"/>
 			</GameParameters>
 			<SwitchGroups>
-				<SwitchGroup Id="3865314626" Name="Material">
+				<SwitchGroup Id="904554749" Name="BreakMaterial">
 					<Switches>
 						<Switch Id="114672780" Name="Plant"/>
 						<Switch Id="287855384" Name="Taxidermy"/>
+						<Switch Id="614164583" Name="BigGlass"/>
 						<Switch Id="1968058251" Name="Ceramic"/>
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2449969375" Name="Glass"/>
@@ -45,9 +46,14 @@
 						<Switch Id="4019199903" Name="Electronic"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="3287431056" Name="FootstepMaterial">
+					<Switches>
+						<Switch Id="2058049674" Name="Wood"/>
+					</Switches>
+				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{ECFD27B5-D5AB-7300-C677-A707C4DBE945}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{ABB6597B-D695-6D50-F1F0-5C9A1A10CA8D}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -70,6 +76,10 @@
 				<File Id="277770706" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_select.wav</ShortName>
 					<CachePath>SFX/ui_menu_select_3198CB9C.wem</CachePath>
+				</File>
+				<File Id="286209512" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>wood_light-004.wav</ShortName>
+					<CachePath>SFX/wood_light-004_818F3B66.wem</CachePath>
 				</File>
 				<File Id="382891266" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_plant-001.wav</ShortName>
@@ -95,6 +105,10 @@
 					<ShortName>viol_break_taxidermy-001.wav</ShortName>
 					<CachePath>SFX/viol_break_taxidermy-001_818F3B66.wem</CachePath>
 				</File>
+				<File Id="599646490" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>viol_break_bigGlass.wav</ShortName>
+					<CachePath>SFX/viol_break_bigGlass_818F3B66.wem</CachePath>
+				</File>
 				<File Id="604374767" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_back.wav</ShortName>
 					<CachePath>SFX/ui_menu_back_831DFFC4.wem</CachePath>
@@ -119,6 +133,14 @@
 					<ShortName>viol_hit_metal.wav</ShortName>
 					<CachePath>SFX/viol_hit_metal_818F3B66.wem</CachePath>
 				</File>
+				<File Id="753263382" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>wood_light-009.wav</ShortName>
+					<CachePath>SFX/wood_light-009_818F3B66.wem</CachePath>
+				</File>
+				<File Id="797840335" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>wood_light-010.wav</ShortName>
+					<CachePath>SFX/wood_light-010_818F3B66.wem</CachePath>
+				</File>
 				<File Id="845512123" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_dialoguePopup.wav</ShortName>
 					<CachePath>SFX/ui_dialoguePopup_818F3B66.wem</CachePath>
@@ -134,6 +156,10 @@
 				<File Id="920958933" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_hover.wav</ShortName>
 					<CachePath>SFX/ui_hover_818F3B66.wem</CachePath>
+				</File>
+				<File Id="943812538" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>wood_light-008.wav</ShortName>
+					<CachePath>SFX/wood_light-008_818F3B66.wem</CachePath>
 				</File>
 				<File Id="947122152" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_wood2-002.wav</ShortName>
@@ -165,10 +191,25 @@
 				<Event Id="584038952" Name="bug_shelf" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
 					<MediaRefs>
 						<MediaRef Id="685121363"/>
+						<MediaRef Id="699494019"/>
+						<MediaRef Id="718932789"/>
 						<MediaRef Id="874754579"/>
 						<MediaRef Id="947122152"/>
 						<MediaRef Id="1071037576"/>
 					</MediaRefs>
+				</Event>
+				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="0.6645363">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="2058049674" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="286209512"/>
+								<MediaRef Id="753263382"/>
+								<MediaRef Id="797840335"/>
+								<MediaRef Id="943812538"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
 				</Event>
 				<Event Id="3849916683" Name="Lawyer_Blab" DurationType="OneShot" DurationMin="0.18300436" DurationMax="0.25880724">
 					<MediaRefs>
@@ -178,49 +219,55 @@
 				<Event Id="3865314626" Name="Material" DurationType="OneShot" DurationMin="0.3437951" DurationMax="2.4581919">
 					<SwitchContainers>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="2449969375"/>
+							<SwitchValue GroupType="Switch" GroupId="904554749" Id="2449969375"/>
 							<MediaRefs>
 								<MediaRef Id="874754579"/>
 								<MediaRef Id="1071037576"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="4019199903"/>
+							<SwitchValue GroupType="Switch" GroupId="904554749" Id="4019199903"/>
 							<MediaRefs>
 								<MediaRef Id="195012293"/>
 								<MediaRef Id="886830654"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="287855384"/>
+							<SwitchValue GroupType="Switch" GroupId="904554749" Id="287855384"/>
 							<MediaRefs>
 								<MediaRef Id="532204821"/>
 								<MediaRef Id="560138299"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="1968058251"/>
+							<SwitchValue GroupType="Switch" GroupId="904554749" Id="614164583"/>
+							<MediaRefs>
+								<MediaRef Id="599646490"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="904554749" Id="1968058251"/>
 							<MediaRefs>
 								<MediaRef Id="61938418"/>
 								<MediaRef Id="1060580719"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="114672780"/>
+							<SwitchValue GroupType="Switch" GroupId="904554749" Id="114672780"/>
 							<MediaRefs>
 								<MediaRef Id="382891266"/>
 								<MediaRef Id="1032843977"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="2473969246"/>
+							<SwitchValue GroupType="Switch" GroupId="904554749" Id="2473969246"/>
 							<MediaRefs>
 								<MediaRef Id="699494019"/>
 								<MediaRef Id="718932789"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3865314626" Id="2058049674" Default="true"/>
+							<SwitchValue GroupType="Switch" GroupId="904554749" Id="2058049674" Default="true"/>
 							<MediaRefs>
 								<MediaRef Id="685121363"/>
 								<MediaRef Id="947122152"/>
@@ -253,13 +300,26 @@
 						<MediaRef Id="144182143"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2570475550" Name="record_player" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
+				<Event Id="2570475550" Name="record_player" DurationType="OneShot" DurationMin="0.55547" DurationMax="0.7573042">
 					<MediaRefs>
-						<MediaRef Id="685121363"/>
-						<MediaRef Id="874754579"/>
-						<MediaRef Id="947122152"/>
-						<MediaRef Id="1071037576"/>
+						<MediaRef Id="195012293"/>
+						<MediaRef Id="699494019"/>
+						<MediaRef Id="718932789"/>
+						<MediaRef Id="886830654"/>
 					</MediaRefs>
+				</Event>
+				<Event Id="2596245103" Name="StopFootstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="0.6645363">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="2058049674" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="286209512"/>
+								<MediaRef Id="753263382"/>
+								<MediaRef Id="797840335"/>
+								<MediaRef Id="943812538"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
 				</Event>
 				<Event Id="3811696612" Name="taxi_animal" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
 					<MediaRefs>
@@ -306,10 +366,11 @@
 				<GameParameter Id="223679447" Name="vol_loud"/>
 			</GameParameters>
 			<SwitchGroups>
-				<SwitchGroup Id="3865314626" Name="Material">
+				<SwitchGroup Id="904554749" Name="BreakMaterial">
 					<Switches>
 						<Switch Id="114672780" Name="Plant"/>
 						<Switch Id="287855384" Name="Taxidermy"/>
+						<Switch Id="614164583" Name="BigGlass"/>
 						<Switch Id="1968058251" Name="Ceramic"/>
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2449969375" Name="Glass"/>
@@ -317,8 +378,13 @@
 						<Switch Id="4019199903" Name="Electronic"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="3287431056" Name="FootstepMaterial">
+					<Switches>
+						<Switch Id="2058049674" Name="Wood"/>
+					</Switches>
+				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{CAC78157-E2FF-C15F-FF41-026AB3EE0402}</FileHash>
+	<FileHash>{EC0920DD-F9F8-F3E3-1073-EF605BBA05C4}</FileHash>
 </SoundBanksInfo>

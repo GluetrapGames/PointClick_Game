@@ -5533,7 +5533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSpecificSound: 
+  whatMaterial: 
+  footstepSpeed: 0
 --- !u!1 &254414705
 GameObject:
   m_ObjectHideFlags: 0
@@ -7421,7 +7422,7 @@ Transform:
   m_GameObject: {fileID: 634442467}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14568,6 +14569,7 @@ GameObject:
   - component: {fileID: 853005818}
   - component: {fileID: 853005820}
   - component: {fileID: 853005819}
+  - component: {fileID: 853005821}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -14666,6 +14668,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &853005821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853005817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatMaterial: Wood
+  footstepSpeed: 0
 --- !u!1001 &869597079
 PrefabInstance:
   m_ObjectHideFlags: 0

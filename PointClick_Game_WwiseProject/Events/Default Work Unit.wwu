@@ -180,6 +180,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Footstep" ID="{C5C96436-7908-415A-B7C0-5CEC691D4899}">
+							<ChildrenList>
+								<Action Name="" ID="{1AD8AA36-1668-4D7A-8ABD-F5B158466577}" ShortID="1016753882">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SwitchFootstep" ID="{A7DAA178-FE04-4B42-A127-8F50252AC492}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="StopFootstep" ID="{A8B51A53-3435-4F2B-8D51-FC2C275759A7}">
+							<ChildrenList>
+								<Action Name="" ID="{559A1E7F-EBC2-49A3-8B49-55B527A2864F}" ShortID="520129253">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SwitchFootstep" ID="{A7DAA178-FE04-4B42-A127-8F50252AC492}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Breaks" ID="{0EC0BFFF-FB79-427A-963F-AB89F9270EE8}" ShortID="167197009">
@@ -188,6 +210,39 @@
 							<ChildrenList>
 								<Event Name="taxi_animal" ID="{68EEF12E-A552-420E-AF9A-8AAFEDC2A198}">
 									<ChildrenList>
+										<Action Name="" ID="{ED2B3B35-5CAE-4BD0-9505-BF0B3B5CFB2E}" ShortID="628893289">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="12"/>
+												<Property Name="Volume" Type="Real64" Value="-8"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Glass" ID="{C5DC2137-4B36-443B-8C9A-16C74142CDA9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{AF45081E-8B1B-43B8-94A3-BA8811B042F7}" ShortID="921914755">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="12"/>
+												<Property Name="Volume" Type="Real64" Value="-3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wood" ID="{61A9B060-F790-40A1-8F0F-E13AF155FC13}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{444BE89A-BC28-4E99-B8FC-ED526A563CDD}" ShortID="766723785">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="12"/>
+												<Property Name="Volume" Type="Real64" Value="19"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Taxidermy" ID="{229FDDD2-04E8-4098-9A8A-6B593CCE1112}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 										<Action Name="" ID="{7938DEA1-C42F-4061-B085-3527745275CE}" ShortID="218986609">
 											<ReferenceList>
 												<Reference Name="Target">
@@ -202,10 +257,45 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
+										<Action Name="" ID="{D096D6A2-730C-4325-908D-291B0478AE89}" ShortID="269244597">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Taxidermy" ID="{229FDDD2-04E8-4098-9A8A-6B593CCE1112}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 									</ChildrenList>
 								</Event>
 								<Event Name="bug_shelf" ID="{A0541994-7BC6-40BA-8BCA-BEA4DA92DEEC}">
 									<ChildrenList>
+										<Action Name="" ID="{5A1BB752-6BC7-44F4-8345-C90B539F61A3}" ShortID="980571030">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="17"/>
+											</PropertyList>
+											<ReferenceList/>
+										</Action>
+										<Action Name="" ID="{B0B2EE54-6AFB-4D14-AD36-F1EAB773ECD1}" ShortID="663981567">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="12"/>
+												<Property Name="Volume" Type="Real64" Value="7"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Metal" ID="{A341A989-4895-4B37-8B1C-C5AD8C2D9102}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{983E06D3-6139-481B-95FD-30C030978254}" ShortID="487883219">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="12"/>
+												<Property Name="Volume" Type="Real64" Value="-6"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wood" ID="{61A9B060-F790-40A1-8F0F-E13AF155FC13}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 										<Action Name="" ID="{A55094F8-1171-47A8-85B6-58A492EFF22B}" ShortID="968937082">
 											<ReferenceList>
 												<Reference Name="Target">
@@ -220,21 +310,28 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
+										<Action Name="" ID="{2529D5D1-6E88-457C-B021-02CE9AE1EC20}" ShortID="759942541">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Metal" ID="{A341A989-4895-4B37-8B1C-C5AD8C2D9102}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 									</ChildrenList>
 								</Event>
 								<Event Name="record_player" ID="{B9A8AED7-25D9-49D8-A5E9-5EF0067FA7D7}">
 									<ChildrenList>
-										<Action Name="" ID="{09DB163D-F677-4A02-A258-B6203B611A9B}" ShortID="996049083">
+										<Action Name="" ID="{70DD5EB4-7601-49EE-9D61-CAAA09C71A34}" ShortID="25688154">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Glass" ID="{C5DC2137-4B36-443B-8C9A-16C74142CDA9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+													<ObjectRef Name="Metal" ID="{A341A989-4895-4B37-8B1C-C5AD8C2D9102}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
-										<Action Name="" ID="{1817C284-01C8-483E-92E7-ECC4C6677858}" ShortID="1021746175">
+										<Action Name="" ID="{E316AAF3-1DB5-474A-B95A-A3DD6BB825B3}" ShortID="632864016">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Wood" ID="{61A9B060-F790-40A1-8F0F-E13AF155FC13}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+													<ObjectRef Name="Electronic" ID="{13F90358-C34C-42DB-86C3-7DD1F74176C4}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -244,6 +341,12 @@
 						</Folder>
 						<Event Name="Material" ID="{B295CD18-4F87-46B4-A977-2608347FB39C}">
 							<ChildrenList>
+								<Action Name="" ID="{6DEF06A1-2EC3-42EF-A740-BE4385C8663A}" ShortID="1072145738">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="17"/>
+									</PropertyList>
+									<ReferenceList/>
+								</Action>
 								<Action Name="" ID="{20CD1DC4-9752-4377-9F12-D39E91F28759}" ShortID="680625341">
 									<ReferenceList>
 										<Reference Name="Target">

@@ -8,32 +8,13 @@ public class BreakSounds : MonoBehaviour
     public string itemType;
 
     public void postBreakMat() 
-    { 
+    {
+        // Default to wood
+        if (itemType != null) { AkSoundEngine.SetSwitch("BreakMaterial", "Wood", gameObject); }
+
         // Set material switch within Wwise (Theres definitely a better way to do this)
-        if (itemType == "Wood")
-        {
-            AkSoundEngine.SetSwitch("Material", "Wood", gameObject);
-        }
-        if (itemType == "Metal")
-        {
-            AkSoundEngine.SetSwitch("Material", "Metal", gameObject);
-        }
-        if (itemType == "Plant")
-        {
-            AkSoundEngine.SetSwitch("Material", "Plant", gameObject);
-        }
-        if (itemType == "Glass")
-        {
-            AkSoundEngine.SetSwitch("Material", "Glass", gameObject);
-        }
-        if (itemType == "Electronic")
-        {
-            AkSoundEngine.SetSwitch("Material", "Electronic", gameObject);
-        }
-        if (itemType == "Ceramic")
-        {
-            AkSoundEngine.SetSwitch("Material", "Ceramic", gameObject);
-        }
+        AkSoundEngine.SetSwitch("BreakMaterial", itemType, gameObject);
+
         // Post event
         AkSoundEngine.PostEvent("break_mat", gameObject); 
     }

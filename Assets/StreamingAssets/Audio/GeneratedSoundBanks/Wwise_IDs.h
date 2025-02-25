@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID ALBERT_BLAB = 3706611725U;
         static const AkUniqueID BUG_SHELF = 584038952U;
+        static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID LAWYER_BLAB = 3849916683U;
         static const AkUniqueID MATERIAL = 3865314626U;
         static const AkUniqueID MENU = 2607556080U;
@@ -23,6 +24,7 @@ namespace AK
         static const AkUniqueID MENU_SELECT = 4203375351U;
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
+        static const AkUniqueID STOPFOOTSTEP = 2596245103U;
         static const AkUniqueID TAXI_ANIMAL = 3811696612U;
         static const AkUniqueID UI_BACK = 2024222415U;
         static const AkUniqueID UI_DIALOGUEPOPUP = 3452930546U;
@@ -34,12 +36,13 @@ namespace AK
 
     namespace SWITCHES
     {
-        namespace MATERIAL
+        namespace BREAKMATERIAL
         {
-            static const AkUniqueID GROUP = 3865314626U;
+            static const AkUniqueID GROUP = 904554749U;
 
             namespace SWITCH
             {
+                static const AkUniqueID BIGGLASS = 614164583U;
                 static const AkUniqueID CERAMIC = 1968058251U;
                 static const AkUniqueID ELECTRONIC = 4019199903U;
                 static const AkUniqueID GLASS = 2449969375U;
@@ -48,7 +51,17 @@ namespace AK
                 static const AkUniqueID TAXIDERMY = 287855384U;
                 static const AkUniqueID WOOD = 2058049674U;
             } // namespace SWITCH
-        } // namespace MATERIAL
+        } // namespace BREAKMATERIAL
+
+        namespace FOOTSTEPMATERIAL
+        {
+            static const AkUniqueID GROUP = 3287431056U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID WOOD = 2058049674U;
+            } // namespace SWITCH
+        } // namespace FOOTSTEPMATERIAL
 
     } // namespace SWITCHES
 

@@ -436,6 +436,159 @@
 								<ActiveSource Name="player_takeItem_001" ID="{0D66E1E2-D263-4378-9EE4-6EA2B6AA37BF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<SwitchContainer Name="SwitchFootstep" ID="{A7DAA178-FE04-4B42-A127-8F50252AC492}" ShortID="143022406">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="Wood" ID="{FC5E8453-A62E-40D9-90E6-8C909764684B}" WorkUnitID="{E4A43D3A-8B1D-446E-AF5C-80B4C62B3FDD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="FootstepMaterial" ID="{357FEA7E-E6EE-48C8-BD60-B873DAFA003A}" WorkUnitID="{E4A43D3A-8B1D-446E-AF5C-80B4C62B3FDD}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Wood" ID="{F8009D18-7A2D-437E-80C7-11DCC0ABA005}" ShortID="602149519">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{682C83ED-F985-4028-A05F-EE0F56E68CB2}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-175"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="woodStep_001" ID="{394072D5-F905-484D-AFEA-42134CA7058B}" ShortID="800751582">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="wood_light-004" ID="{3C0D94FC-BA5B-444E-8523-4245766C9AE7}">
+													<Language>SFX</Language>
+													<AudioFile>wood_light-004.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="286209512"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="wood_light-004" ID="{3C0D94FC-BA5B-444E-8523-4245766C9AE7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="woodStep_002" ID="{7CBF9468-3B31-428E-9759-6437FD488CAA}" ShortID="460032341">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="wood_light-008" ID="{EF4C840A-79F2-4536-910C-EB07A037B6EC}">
+													<Language>SFX</Language>
+													<AudioFile>wood_light-008.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="943812538"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="wood_light-008" ID="{EF4C840A-79F2-4536-910C-EB07A037B6EC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="woodStep_004" ID="{C7F83040-E076-41FE-BB34-214E36ADC06E}" ShortID="281921111">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="wood_light-009" ID="{CDA65427-32D3-4BB1-83CB-CAB711F75EB8}">
+													<Language>SFX</Language>
+													<AudioFile>wood_light-009.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="753263382"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="wood_light-009" ID="{CDA65427-32D3-4BB1-83CB-CAB711F75EB8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="woodStep_003" ID="{8EF17A64-2617-4534-941C-5AAC9651180C}" ShortID="299997039">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="wood_light-010" ID="{DD084ACC-3305-4E1C-9AD2-207FD4FCB1DB}">
+													<Language>SFX</Language>
+													<AudioFile>wood_light-010.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="797840335"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="wood_light-010" ID="{DD084ACC-3305-4E1C-9AD2-207FD4FCB1DB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Wood" ID="{F8009D18-7A2D-437E-80C7-11DCC0ABA005}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Wood" ID="{FC5E8453-A62E-40D9-90E6-8C909764684B}"/>
+										<ItemList>
+											<ItemRef Name="Wood" ID="{F8009D18-7A2D-437E-80C7-11DCC0ABA005}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Break Materials" ID="{B74D1E6E-1575-4460-8F16-AA4C0BA19789}" ShortID="543896312">
@@ -452,7 +605,7 @@
 									<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 								</Reference>
 								<Reference Name="SwitchGroupOrStateGroup">
-									<ObjectRef Name="Material" ID="{75133752-83A5-4778-AB5B-8D4E1A0AFC3A}" WorkUnitID="{E4A43D3A-8B1D-446E-AF5C-80B4C62B3FDD}"/>
+									<ObjectRef Name="BreakMaterial" ID="{75133752-83A5-4778-AB5B-8D4E1A0AFC3A}" WorkUnitID="{E4A43D3A-8B1D-446E-AF5C-80B4C62B3FDD}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -591,6 +744,9 @@
 										</Property>
 										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
 											<ModifierList>
 												<ModifierInfo>
 													<Modifier Name="" ID="{A0A48664-AC00-4A57-A942-D894350C45D6}"/>
@@ -722,6 +878,11 @@
 											</ModifierList>
 										</Property>
 										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1210,7 +1371,7 @@
 										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>8</Value>
+												<Value>12</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1246,6 +1407,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="viol_break_taxidermy" ID="{FF7C3E51-5C87-4115-8736-D083E7AAA57C}" ShortID="697561044">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
@@ -1265,6 +1433,61 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="viol_break_taxidermy" ID="{38BB3ADF-B60D-46C1-876B-8C125F0C3FBB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="BigGlass" ID="{0BB45F8A-DD28-4E7F-A030-87D74BF56767}" ShortID="648285843">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{CCA9998E-9F7E-4CAB-8D06-BDD8073BC59A}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="250"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="viol_break_bigGlass" ID="{E20A718D-3B69-4739-B3FB-04A134A191EF}" ShortID="262363983">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="viol_break_bigGlass" ID="{F6FBDB34-646E-4D83-9E66-B0BE0A6FF735}">
+													<Language>SFX</Language>
+													<AudioFile>viol_break_bigGlass.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="599646490"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="viol_break_bigGlass" ID="{F6FBDB34-646E-4D83-9E66-B0BE0A6FF735}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -1291,6 +1514,9 @@
 										<ItemRef Name="Metal" ID="{A341A989-4895-4B37-8B1C-C5AD8C2D9102}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
+										<ItemRef Name="BigGlass" ID="{0BB45F8A-DD28-4E7F-A030-87D74BF56767}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
 										<ItemRef Name="Taxidermy" ID="{229FDDD2-04E8-4098-9A8A-6B593CCE1112}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
@@ -1311,6 +1537,12 @@
 										<SwitchRef Name="Taxidermy" ID="{37A5E653-5A6F-4CD0-AA51-3635A8786284}"/>
 										<ItemList>
 											<ItemRef Name="Taxidermy" ID="{229FDDD2-04E8-4098-9A8A-6B593CCE1112}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="BigGlass" ID="{BF791CA8-7B20-491A-87AF-3AACC6F5FA56}"/>
+										<ItemList>
+											<ItemRef Name="BigGlass" ID="{0BB45F8A-DD28-4E7F-A030-87D74BF56767}"/>
 										</ItemList>
 									</Grouping>
 									<Grouping>
