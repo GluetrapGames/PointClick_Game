@@ -20,7 +20,7 @@ public class BlabController : MonoBehaviour
     private GameObject _LogWindow;
     private float _LastAudioTime = 0.0f;
     private string _SpeakerName;
-    public PixelCrushers.DialogueSystem.UnityUITypewriterEffect m_TypeWritterEffect;
+    public PixelCrushers.DialogueSystem.TextMeshProTypewriterEffect m_TypeWritterEffect;
 
 
     // Update checks if an audio clip is currently playing.
@@ -78,4 +78,3 @@ public class BlabController : MonoBehaviour
         _LastAudioTime = 0f;
     }
 }
-
