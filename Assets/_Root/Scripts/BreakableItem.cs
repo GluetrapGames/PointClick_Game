@@ -18,6 +18,9 @@ public class BreakableItem : MonoBehaviour
 	
 	[SerializeField]
 	private string _effectiveItemType;
+
+	[SerializeField]
+	private Vector3 _afterBreakOffset;
 	
 	public CollideCheck itemCollision;
 	
@@ -98,6 +101,7 @@ public class BreakableItem : MonoBehaviour
 			case _itemStates.Broken:
 				gameObject.GetComponent<SpriteRenderer>().sprite = _sprites[1];
 				gameObject.GetComponent<BoxCollider2D>().enabled = false;
+				gameObject.transform.position -= _afterBreakOffset;
 				break;
 		}
 	}
