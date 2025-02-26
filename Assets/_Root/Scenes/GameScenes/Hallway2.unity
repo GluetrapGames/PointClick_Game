@@ -944,17 +944,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2132309067}
     - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
+      propertyPath: _NavMesh
+      value: 
+      objectReference: {fileID: 1949894131}
+    - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
       propertyPath: _navMesh
       value: 
       objectReference: {fileID: 1949894131}
+    - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
+      propertyPath: _ItemType
+      value: Journal
+      objectReference: {fileID: 0}
     - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
       propertyPath: _itemType
       value: Journal
       objectReference: {fileID: 0}
     - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
+      propertyPath: _Inventory
+      value: 
+      objectReference: {fileID: 567377600}
+    - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
       propertyPath: _inventory
       value: 
       objectReference: {fileID: 567377600}
+    - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
+      propertyPath: _ItemPrefab
+      value: 
+      objectReference: {fileID: 568122448181105827, guid: ba4717fc39d05429fba5808ba4f07ca7, type: 3}
     - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
       propertyPath: _itemPrefab
       value: 
@@ -11094,7 +11110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSpecificSound: 
+  whatMaterial: 
+  footstepSpeed: 0
+  Player: {fileID: 0}
 --- !u!114 &1956332997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11984,7 +12002,6 @@ MonoBehaviour:
   _inputCooldown: 0.15
   _highlightPrefab: {fileID: 1972289574776248469, guid: 960a300defe7bc74197720131e615c8d, type: 3}
   _startingGridPosition: {x: -4, y: -3, z: 0}
-  _movement: {fileID: 0}
 --- !u!114 &2132309067
 MonoBehaviour:
   m_ObjectHideFlags: 0
