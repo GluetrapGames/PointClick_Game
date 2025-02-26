@@ -23,7 +23,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        //transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10);
+        Vector3 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+        transform.position = mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)

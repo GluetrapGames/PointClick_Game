@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -8,22 +10,33 @@ using UnityEngine.UI;
 public class InvButtonSpriteSwap : MonoBehaviour
 {
    
-    public Sprite inactiveSprite;
-    public Sprite activeSprite;
-    public GameObject buttonToSwap;
-
-    bool _active = false;
+    [SerializeField]
+    private GameObject _buttonBuckle;
+    [SerializeField]
+    private GameObject _buttonToSwap;
+    [SerializeField]
+    private GameObject _buttonText;
     
+    [SerializeField]
+    private GameObject _invToSwap;
+
+    [SerializeField]
+    private GameObject inventoryTopBox;
+    
+    bool _active = false;
+
     public void OnButtonClick()
     {
         if (_active)
         {
-            buttonToSwap.GetComponent<Image>().sprite = inactiveSprite;
+            _buttonBuckle.SetActive(true);
+            _buttonText.GetComponent<TextMeshProUGUI>().text = "Expand";
             _active = false;
         }
         else
         {
-            buttonToSwap.GetComponent<Image>().sprite = activeSprite;
+            _buttonBuckle.SetActive(false);
+            _buttonText.GetComponent<TextMeshProUGUI>().text = "Close";
             _active = true;
         }
     }

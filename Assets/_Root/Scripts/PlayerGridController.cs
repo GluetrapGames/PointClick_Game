@@ -68,6 +68,7 @@ public class PlayerGridController : MonoBehaviour
 		    !_movement.m_ObstaclesPositions.Contains(tilePosition))
 		{
 			_highlight.transform.position = tilePosition;
+			_highlight.transform.position += new Vector3(0.5f, 0.5f, 0f);
 			_highlight.SetActive(true);
 		}
 
