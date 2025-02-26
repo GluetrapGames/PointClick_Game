@@ -13,6 +13,7 @@ public class PlayButton : MonoBehaviour
     {
 
         StartCoroutine(LoadScene("Hallway1"));
+        AkSoundEngine.StopAll();
 
     }
 
