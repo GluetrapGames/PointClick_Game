@@ -64,7 +64,6 @@ public class FootstepSounds : MonoBehaviour
         Debug.Log("Stopped Footstep");
     }
 
-    // This gets called every 3 frames on the albert animation for now
     private void postFootstep()
     {
         AkSoundEngine.PostEvent("Footstep", gameObject);

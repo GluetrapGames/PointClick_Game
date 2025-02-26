@@ -12,14 +12,19 @@ public class BreakSounds : MonoBehaviour
         // Default to wood
         if (itemType != null) { AkSoundEngine.SetSwitch("BreakMaterial", "Wood", gameObject); }
 
-        // Set material switch within Wwise (Theres definitely a better way to do this)
+        // Set material switch within Wwise
         AkSoundEngine.SetSwitch("BreakMaterial", itemType, gameObject);
 
         // Post event
-        AkSoundEngine.PostEvent("break_mat", gameObject); 
+        AkSoundEngine.PostEvent("break_mat", gameObject);
+
+        // Checks for unique objects
+        if (itemType == "BugShelf") { postBugShelf(); }
+
+        if (itemType == "Taxidermy") { postTaxidermy(); }
     }
 
-    // Specific Objects (Objects that need multiple material types)
+    // Unique objects (Objects that need multiple material types)
     public void postBugShelf() { AkSoundEngine.PostEvent("bug_shelf", gameObject); }
 
     public void postTaxidermy() { AkSoundEngine.PostEvent("taxi_animal", gameObject); }

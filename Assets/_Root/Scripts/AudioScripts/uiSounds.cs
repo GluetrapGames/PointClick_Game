@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonSound : MonoBehaviour
+public class UiSound : MonoBehaviour
 {
     // Play sound when button is clicked
     public void onClick()
@@ -32,5 +32,10 @@ public class ButtonSound : MonoBehaviour
     public void otherLogoOnClick()
     {
         AkSoundEngine.PostEvent("Lawyer_Blab", gameObject);
+    }
+
+    public void hintCue()
+    {
+        AkSoundEngine.PostEvent("Albert_Blab", gameObject);
     }
 }

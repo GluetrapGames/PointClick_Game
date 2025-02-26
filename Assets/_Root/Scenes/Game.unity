@@ -5447,7 +5447,6 @@ GameObject:
   - component: {fileID: 243124649}
   - component: {fileID: 243124648}
   - component: {fileID: 243124650}
-  - component: {fileID: 243124651}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -5521,21 +5520,6 @@ MonoBehaviour:
   unloadTriggerList: 958ca0ea
   bankNameInternal: 
   valueGuidInternal: 
---- !u!114 &243124651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243124647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatMaterial: 
-  footstepSpeed: 0
-  Player: {fileID: 0}
 --- !u!1 &254414705
 GameObject:
   m_ObjectHideFlags: 0
@@ -14570,7 +14554,6 @@ GameObject:
   - component: {fileID: 853005818}
   - component: {fileID: 853005820}
   - component: {fileID: 853005819}
-  - component: {fileID: 853005821}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -14669,21 +14652,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &853005821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853005817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatMaterial: Wood
-  footstepSpeed: 0
-  Player: {fileID: 0}
 --- !u!1001 &869597079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16309,6 +16277,19 @@ MonoBehaviour:
   interactionRadius: 3
   player: {fileID: 1167512476}
   interactionUI: {fileID: 1017874345}
+--- !u!114 &1087316252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333619190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e1d994ec536d64191516b54bbb487c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: Metal
 --- !u!1 &1147627935
 GameObject:
   m_ObjectHideFlags: 0
@@ -22424,6 +22405,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7935488637001019580, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1087316247}
+    - targetCorrespondingSourceObject: {fileID: 7935488637001019580, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1087316252}
   m_SourcePrefab: {fileID: 100100000, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
 --- !u!1001 &6266427974177350556
 PrefabInstance:
