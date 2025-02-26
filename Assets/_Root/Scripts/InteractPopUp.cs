@@ -13,20 +13,17 @@ public class InteractPopUp : MonoBehaviour
     public Transform player;
     public GameObject interactionUI;
 
-    private Text interactionText;
-
     [SerializeField]
     private CollideCheck _collisionCheck;
     
     private void Awake()
     {
-        interactionText = interactionUI.GetComponentInChildren<Text>();        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(player == null || interactionUI == null || interactionText == null)
+        if(player == null || interactionUI == null)
             { return; }
 
         DrawInteractUI();
@@ -37,7 +34,6 @@ public class InteractPopUp : MonoBehaviour
     {
         if (!interactionUI.GetComponent<InteractionPanel>().isDrawn && _collisionCheck.IsCollided)
         {
-            interactionText.text = $"Interact with {name}";
             interactionUI.SetActive(true);
             interactionUI.GetComponent<InteractionPanel>().isDrawn = true;
             interactionUI.GetComponent<InteractionPanel>().drawnBy = gameObject; 
