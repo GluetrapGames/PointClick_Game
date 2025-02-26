@@ -7,10 +7,9 @@ using UnityEngine.InputSystem.Controls;
 [RequireComponent(typeof(GridMovement))]
 public class PlayerGridController : MonoBehaviour
 {
-	[SerializeField]
+	[SerializeField, Range(0f, 10f)]
 	private float _moveSpeed = 5f;
-	[SerializeField]
-	[Range(0f, 0.5f)]
+	[SerializeField, Range(0f, 0.5f)]
 	private float _inputCooldown = 0.15f;
 	[SerializeField]
 	private GameObject _highlightPrefab;
@@ -21,8 +20,8 @@ public class PlayerGridController : MonoBehaviour
 	private GameObject _highlight;
 	private Vector2 _inputDirection;
 	private float _lastMoveTime;
-	public Coroutine _moveCoroutine;
-	public GridMovement _movement;
+	private Coroutine _moveCoroutine;
+	private GridMovement _movement;
 	private bool _usingController;
 
 
@@ -75,12 +74,18 @@ public class PlayerGridController : MonoBehaviour
 		// On click, set destination and start the movement coroutine
 		// (if not already running).
 		if (Input.GetMouseButtonDown(0))
-		{
-			_movement.SetDestination(tilePosition);
-			_moveCoroutine ??= StartCoroutine(MovementCoroutine());
-		}
+			_ = SetPlayerDestination(tilePosition);
+	}
 
-		_movement.m_PreviousTilePosition = tilePosition;
+	public Vector3Int SetPlayerDestination(Vector3Int targetPosition)
+	{
+		// Set new target position.
+		_movement.SetDestination(targetPosition);
+		_moveCoroutine ??= StartCoroutine(MovementCoroutine());
+
+		_movement.m_PreviousTilePosition = targetPosition;
+
+		return targetPosition;
 	}
 
 	// Controller-based grid movement.
@@ -136,13 +141,11 @@ public class PlayerGridController : MonoBehaviour
 	}
 
 
-	public void StopMovement() 
+	public void StopMovement()
 	{
 		StopCoroutine(_moveCoroutine);
 		_moveCoroutine = null;
 		_movement.m_Path.Clear();
 		_movement.m_IsMoving = false;
-    }
-
-
+	}
 }
