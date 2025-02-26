@@ -32,6 +32,9 @@ public class BreakableItem : MonoBehaviour
 
 	[SerializeField]
 	private List<Sprite> _sprites;
+
+	public string itemType;
+	public string eventType;
 	
 	private enum _itemStates
 	{
@@ -62,6 +65,8 @@ public class BreakableItem : MonoBehaviour
 		{
 			Debug.Log("Damage Called");
 			Damage();
+			AkSoundEngine.SetSwitch("BreakMaterial", itemType, gameObject);
+			AkSoundEngine.PostEvent(eventType, gameObject);
 		}
 		else if (_breakableAction.WasPressedThisFrame() && !itemCollision.IsCollided)
 			Debug.Log("Damage failed to call, no collision detected");
