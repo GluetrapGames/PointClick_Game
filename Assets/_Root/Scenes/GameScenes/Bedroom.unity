@@ -5998,7 +5998,6 @@ GameObject:
   - component: {fileID: 824274801}
   - component: {fileID: 824274799}
   - component: {fileID: 824274800}
-  - component: {fileID: 824274807}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6213,21 +6212,6 @@ Transform:
   - {fileID: 1232611308}
   m_Father: {fileID: 84386697}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &824274807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824274798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatMaterial: wood
-  footstepSpeed: 0.5
-  Player: {fileID: 824274798}
 --- !u!1 &824719839
 GameObject:
   m_ObjectHideFlags: 0
@@ -7705,6 +7689,14 @@ PrefabInstance:
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _itemHp
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: itemType
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: eventType
+      value: Material
       objectReference: {fileID: 0}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _itemMaxHp
@@ -9394,6 +9386,7 @@ GameObject:
   - component: {fileID: 1315655211}
   - component: {fileID: 1315655214}
   - component: {fileID: 1315655213}
+  - component: {fileID: 1315655215}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -9467,6 +9460,21 @@ MonoBehaviour:
   spatialAudioPoolSize: 0
   maxSoundPropagationDepth: 0
   engineLogging: 0
+--- !u!114 &1315655215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315655210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatMaterial: wood
+  footstepSpeed: 0.5
+  Player: {fileID: 824274798}
 --- !u!1 &1361362945
 GameObject:
   m_ObjectHideFlags: 0
