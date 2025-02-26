@@ -1,13 +1,24 @@
 using System;
+using EditorAttributes;
 using PixelCrushers.DialogueSystem;
+using UnityEngine;
+using Void = EditorAttributes.Void;
 
 public class GameManager : Singleton<GameManager>
 {
+	[HideInInspector]
+	public InventoryManager m_InventoryManager;
 	public PlayerGridController m_Player;
 	public States m_CurrentState = States.Moving;
 
+	[SerializeField, FoldoutGroup("Managers", nameof(m_InventoryManager)),
+	 PropertyOrder(-1)]
+	private Void _MangerGroupHeader;
+
+
 	protected override void Awake()
 	{
+		m_InventoryManager = FindFirstObjectByType<InventoryManager>();
 		m_Player = FindFirstObjectByType<PlayerGridController>();
 		base.Awake();
 	}
