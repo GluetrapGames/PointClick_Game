@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class PlayButton : MonoBehaviour
 {
 
+    [SerializeField]
+    private Animator _crossfadeAnimator;
+    
     public void PlayGame()
     {
-        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
+
+        StartCoroutine(LoadScene("Hallway1"));
+
     }
 
     public void QuitGame()
@@ -24,6 +27,14 @@ public class PlayButton : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
         
+    }
+    
+    IEnumerator LoadScene(string sceneName)
+    {
+        
+        _crossfadeAnimator.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(sceneName);
     }
     
 }
