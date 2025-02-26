@@ -12290,7 +12290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1956332995}
   - component: {fileID: 1956332997}
-  - component: {fileID: 1956332996}
+  - component: {fileID: 1956332998}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -12314,19 +12314,6 @@ Transform:
   - {fileID: 249794339}
   m_Father: {fileID: 556218736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1956332996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956332994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSpecificSound: 
 --- !u!114 &1956332997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12352,6 +12339,21 @@ MonoBehaviour:
   unloadTriggerList: 958ca0ea
   bankNameInternal: 
   valueGuidInternal: 
+--- !u!114 &1956332998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956332994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatMaterial: wood
+  footstepSpeed: 0.5
+  Player: {fileID: 2132309063}
 --- !u!1 &1968536358
 GameObject:
   m_ObjectHideFlags: 0
@@ -13050,7 +13052,6 @@ MonoBehaviour:
   _inputCooldown: 0.15
   _highlightPrefab: {fileID: 1972289574776248469, guid: 960a300defe7bc74197720131e615c8d, type: 3}
   _startingGridPosition: {x: -1, y: -3, z: 0}
-  _movement: {fileID: 0}
 --- !u!114 &2132309067
 MonoBehaviour:
   m_ObjectHideFlags: 0
