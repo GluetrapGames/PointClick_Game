@@ -128,6 +128,7 @@ public class PickUpScript : MonoBehaviour
 
 		Debug.Log("Item collected");
 		m_ActivateVariable = true;
+		Destroy(this.gameObject);
 	}
 
 	private void HandleItemFunction()
