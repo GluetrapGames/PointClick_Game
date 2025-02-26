@@ -56,7 +56,14 @@ public class BreakableItem : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		_heldItemType = _playerHeldItem.playerHeldItem;
+		if (_playerHeldItem == null)
+		{
+			return;
+		}
+		else
+		{
+			_heldItemType = _playerHeldItem.playerHeldItem;
+		}
 	}
 
 	private void Update()
