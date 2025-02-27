@@ -4299,10 +4299,10 @@ MonoBehaviour:
     onConversationStart:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 562976559}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 1930984374}
+          m_TargetAssemblyTypeName: AutoplaySelection, Assembly-CSharp
+          m_MethodName: setContinueButtonState
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4311,10 +4311,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1930984374}
-          m_TargetAssemblyTypeName: AutoplaySelection, Assembly-CSharp
-          m_MethodName: setContinueButtonState
-          m_Mode: 1
+        - m_Target: {fileID: 562976559}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5118,7 +5118,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_TargetDisplay: 0
 --- !u!224 &562976563
 RectTransform:
@@ -8034,7 +8034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 125}
+  m_AnchoredPosition: {x: 0, y: 191}
   m_SizeDelta: {x: 400, y: 221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &787713855
@@ -8176,7 +8176,7 @@ Animator:
   m_GameObject: {fileID: 790554373}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d8d06f599b2624459bcde78e62cbe0e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a47ba9bd4b129f46b67aa03507c7c7f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
