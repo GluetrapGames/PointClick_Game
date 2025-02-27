@@ -18,9 +18,9 @@ public class GameManager : Singleton<GameManager>
 
 	protected override void Awake()
 	{
+		base.Awake();
 		m_InventoryManager = FindFirstObjectByType<InventoryManager>();
 		m_Player = FindFirstObjectByType<PlayerGridController>();
-		base.Awake();
 	}
 
 #if UNITY_EDITOR

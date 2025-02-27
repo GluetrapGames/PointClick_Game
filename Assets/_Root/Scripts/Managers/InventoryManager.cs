@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Root.Scripts.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -72,7 +72,7 @@ public class InventoryManager : PersistantSingleton<InventoryManager>
 	{
 		// Get the inventory slots of the current scene.
 		m_InventorySlots.Clear();
-		FindChildrenByType<InventorySlot, Transform>(m_InventoryGroup,
+		Utils.FindChildrenByType<InventorySlot, Transform>(m_InventoryGroup,
 			m_InventorySlots, component => component.transform);
 
 		// Obtain the held item slot and remove it from the list.
@@ -164,20 +164,6 @@ public class InventoryManager : PersistantSingleton<InventoryManager>
 		m_InventoryItems.Add(data.m_Item.m_Name, data);
 
 		return true;
-	}
-
-
-	private static void FindChildrenByType<U, T>(Transform parent,
-		List<T> result, Func<U, T> selector) where U : Component
-	{
-		foreach (Transform child in parent)
-		{
-			var component = child.GetComponent<U>();
-			if (component != null) result.Add(selector(component));
-
-			// Recursively search in children.
-			FindChildrenByType(child, result, selector);
-		}
 	}
 }
 

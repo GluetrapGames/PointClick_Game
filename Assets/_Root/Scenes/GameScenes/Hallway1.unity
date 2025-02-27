@@ -2378,6 +2378,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2132309065}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: _PersistentID
+      value: 7faaf4c4-e7b6-411a-a6cb-07bbd9630aa3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: itemCollision
+      value: 
+      objectReference: {fileID: 298260805}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _playerHeldItem
       value: 
       objectReference: {fileID: 1857710881}
@@ -3384,7 +3392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2877171672287083949, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.5854492
+      value: -1.5855713
       objectReference: {fileID: 0}
     - target: {fileID: 3400330131735684884, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3397,6 +3405,10 @@ PrefabInstance:
     - target: {fileID: 3400330131735684884, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667605194378688257, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.999939
       objectReference: {fileID: 0}
     - target: {fileID: 3875280214339707166, guid: 2ca9a63ac413f1d41b8edefcf86ba872, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4695,6 +4707,14 @@ PrefabInstance:
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 2132309065}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: _PersistentID
+      value: 428f5b5e-4ffc-407e-8f1c-089ac31e926e
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: itemCollision
+      value: 
+      objectReference: {fileID: 1205325808}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _playerHeldItem
       value: 
@@ -6916,6 +6936,38 @@ PrefabInstance:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 2132309066}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: m_EndItemTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: 'm_EndItemTypes.Array.data[0]'
+      value: Journal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: 'm_EndItemTypes.Array.data[1]'
+      value: Pills
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: 'm_EndItemTypes.Array.data[2]'
+      value: Money
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: m_EndItemTypes._serializedList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: m_EndItemTypes._serializedList.Array.data[0].Key
+      value: Journal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: m_EndItemTypes._serializedList.Array.data[1].Key
+      value: Pills
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: m_EndItemTypes._serializedList.Array.data[2].Key
+      value: Money
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7976,6 +8028,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64e51b1779bb93499ef905559fe62ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1218769835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218769837}
+  - component: {fileID: 1218769836}
+  m_Layer: 0
+  m_Name: End Game Tracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1218769836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218769835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89885e079e944c419d7dba24728d3adf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GameManager: {fileID: 0}
+  m_EndItemTypes:
+    _serializedList:
+    - Key: Money
+      Value: 0
+    - Key: Pills
+      Value: 0
+    - Key: Journal
+      Value: 0
+  m_PlantsInGame: 5
+  m_PlantsDestroyed: 0
+  m_EndScene: 0
+  _BreakableItems:
+    _serializedList: []
+  _WorldObject: {fileID: 0}
+--- !u!4 &1218769837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218769835}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1240885836
 GameObject:
   m_ObjectHideFlags: 0
@@ -9018,7 +9129,7 @@ GameObject:
   - component: {fileID: 1470981161}
   m_Layer: 0
   m_Name: ----World----
-  m_TagString: Untagged
+  m_TagString: World
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13277,3 +13388,4 @@ SceneRoots:
   - {fileID: 792868575}
   - {fileID: 516040101}
   - {fileID: 1635499748}
+  - {fileID: 1218769837}
