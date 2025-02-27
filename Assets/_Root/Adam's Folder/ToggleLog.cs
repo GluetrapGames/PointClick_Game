@@ -6,18 +6,27 @@ using UnityEngine.UI;
 
 public class ToggleLog : MonoBehaviour
 {
+    [Tooltip("The portrait image's animator.")]
+    [SerializeField]
+    private Animator _PortraitAnimator;
     [Tooltip("The backlog window.")]
-    public GameObject logWindow;
+    [SerializeField]
+    private GameObject _LogWindow;
     [Tooltip("The dialogue system controller script.")]
-    public DialogueSystemController dsController;
+    [SerializeField]
+    private DialogueSystemController _dsController;
     [Tooltip("The back log example script.")]
-    public BackLogExample blExample;
+    [SerializeField]
+    private BackLogExample _blExample;
     [Tooltip("The UI continue button")]
-    public Button continueButton;
+    [SerializeField]
+    private Button _ContinueButton;
     [Tooltip("The UI auto play button")]
-    public Button autoButton;
+    [SerializeField]
+    private Button _AutoButton;
     [Tooltip("The UI skip button")]
-    public Button skipButton;
+    [SerializeField]
+    private Button _SkipButton;
 
     private Text buttonText;
     private bool toggleLog;
@@ -31,7 +40,7 @@ public class ToggleLog : MonoBehaviour
     {
         // Current fix - If autoplay is active and log panel opens, current subtitle still hides at the end
         // and the continue button appears. This line should prevent that for now.
-        if (toggleLog) continueButton.gameObject.SetActive(false);
+        if (toggleLog) _ContinueButton.gameObject.SetActive(false);
     }
 
 
@@ -41,32 +50,36 @@ public class ToggleLog : MonoBehaviour
 
         if (toggleLog) // When the backlog is showing
         {
+            // Stops the speed of the current portrait animation.
+            _PortraitAnimator.speed = 0f;
             // Set the button's display text
             buttonText.text = "Exit";
             // Hide all other buttons
-            continueButton.gameObject.SetActive(false); 
-            autoButton.gameObject.SetActive(false);
-            skipButton.gameObject.SetActive(false);
+            _ContinueButton.gameObject.SetActive(false); 
+            _AutoButton.gameObject.SetActive(false);
+            _SkipButton.gameObject.SetActive(false);
             // Turns off autoplay
             DialogueManager.displaySettings.subtitleSettings.continueButton = DisplaySettings.SubtitleSettings.ContinueButtonMode.Always;
             // Pauses the pauses the dialogue system
-            dsController.Pause();
+            _dsController.Pause();
             // Opens and displays the dialogue history
-            blExample.ShowBackLog();
-            blExample.OpenLogWindow();
+            _blExample.ShowBackLog();
+            _blExample.OpenLogWindow();
         }
         else // When the backlog is hidden
         {
+            // Returns the speed of the current portrait animation.
+            _PortraitAnimator.speed = 1.0f;
             // Set the button's display text
             buttonText.text = "History";
             // Show all other buttons
-            continueButton.gameObject.SetActive(true);
-            autoButton.gameObject.SetActive(true);
-            skipButton.gameObject.SetActive(true);
+            _ContinueButton.gameObject.SetActive(true);
+            _AutoButton.gameObject.SetActive(true);
+            _SkipButton.gameObject.SetActive(true);
             // Unpauses the dialogue system
-            dsController.Unpause();
+            _dsController.Unpause();
             // Hides the backlog window
-            logWindow.SetActive(false);
+            _LogWindow.SetActive(false);
         }
     }
 }

@@ -1,22 +1,44 @@
 using System;
+using EditorAttributes;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using Void = EditorAttributes.Void;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-	[SerializeField]
-	private PlayerGridController m_Player;
-	private States _currentState = States.Moving;
+	[HideInInspector]
+	public InventoryManager m_InventoryManager;
+	public PlayerGridController m_Player;
+	public States m_CurrentState = States.Moving;
+
+	[SerializeField, FoldoutGroup("Managers", nameof(m_InventoryManager)),
+	 PropertyOrder(-1)]
+	private Void _MangerGroupHeader;
+
+
+	protected override void Awake()
+	{
+		base.Awake();
+		m_InventoryManager = FindFirstObjectByType<InventoryManager>();
+		m_Player = FindFirstObjectByType<PlayerGridController>();
+	}
+
+#if UNITY_EDITOR
+	private void Reset()
+	{
+		m_Player = FindFirstObjectByType<PlayerGridController>();
+	}
+#endif
 
 	private void Update()
 	{
 		if (DialogueManager.IsConversationActive)
-			_currentState = States.Talking;
+			m_CurrentState = States.Talking;
 		else if // Resume movement when dialogue ends.
-			(_currentState == States.Talking)
-			_currentState = States.Moving;
+			(m_CurrentState == States.Talking)
+			m_CurrentState = States.Moving;
 
-		switch (_currentState)
+		switch (m_CurrentState)
 		{
 			case States.Moving:
 				m_Player.HandleMovement();
@@ -30,14 +52,11 @@ public class GameManager : MonoBehaviour
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
-
-		//Debug.Log(m_Player._moveCoroutine);
 	}
-
 
 	public void ChangeGameState(States newState)
 	{
-		_currentState = newState;
+		m_CurrentState = newState;
 	}
 }
 

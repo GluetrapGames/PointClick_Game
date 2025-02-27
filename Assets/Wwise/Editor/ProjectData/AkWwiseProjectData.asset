@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit 2
     guid: fef77f58d05ca5478965ec9b4d689c75
     GuidInternal: 
-    m_lastTime: -8584621556549413660
+    m_lastTime: -8584610275822065906
     List: []
   - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     PathAndIcons:
@@ -37,7 +37,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 5909de92d8ac4141b7fe347eabe5cda5
     GuidInternal: 
-    m_lastTime: -8584621556549257396
+    m_lastTime: -8584610275822055855
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -51,7 +51,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: a003960deb8bdf468e97a26af7e6ab6c
     GuidInternal: 
-    m_lastTime: -8584621556580663348
+    m_lastTime: -8584610275827951702
     List:
     - name: Dialogue
       guid: 13d5f7f34eace145936fbb7376e25110
@@ -161,7 +161,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d9cd24203029844a94de634f59516731
     GuidInternal: 
-    m_lastTime: -8584621556551444934
+    m_lastTime: -8584609480118605486
     List:
     - name: Main
       guid: fff4323f282c4e4bbef4b6e13128fb3a
@@ -189,7 +189,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584621556620037934
+    m_lastTime: -8584609480124222967
     List:
     - name: Albert
       guid: 32ba8eaa2a42914bad353b902f972236
@@ -234,6 +234,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.39727727
       minDuration: 0.334069
+    - name: Breaks
+      guid: ffbfc00e79fb7a42963fab89f9270ee8
+      id: 1008011617
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Breaks
+        ObjectType: 4
+        guid: ffbfc00e79fb7a42963fab89f9270ee8
+      Path: Events\Default Work Unit\Breaks
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: bug_shelf
+      guid: 941954a0c67bba408bcabea4da92deec
+      id: 584038952
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Breaks
+        ObjectType: 4
+        guid: ffbfc00e79fb7a42963fab89f9270ee8
+      - ElementName: Specific
+        ObjectType: 4
+        guid: a3b780ca44d0c84a9411b3224f6da948
+      - ElementName: bug_shelf
+        ObjectType: 3
+        guid: 941954a0c67bba408bcabea4da92deec
+      Path: Events\Default Work Unit\Breaks\Specific\bug_shelf
+      maxAttenuation: 0
+      maxDuration: 1.6208999
+      minDuration: 0.66646314
     - name: Dialogue
       guid: 1a5ab7e86bddf5499262cd911481f821
       id: 3930136735
@@ -274,6 +314,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Footstep
+      guid: 3664c9c508795a41b7c05cec691d4899
+      id: 1866025847
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Player
+        ObjectType: 4
+        guid: 5c8290c8e37faa4a95149f3d400053f5
+      - ElementName: Footstep
+        ObjectType: 3
+        guid: 3664c9c508795a41b7c05cec691d4899
+      Path: Events\Default Work Unit\Player\Footstep
+      maxAttenuation: 0
+      maxDuration: 0.6645363
+      minDuration: 0.1712196
     - name: In-Game
       guid: 1476956ed61ce744829fc7491b42af15
       id: 1714047475
@@ -317,6 +377,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.25880724
       minDuration: 0.18300436
+    - name: Material
+      guid: 18cd95b2874fb446a9772608347fb39c
+      id: 3865314626
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Breaks
+        ObjectType: 4
+        guid: ffbfc00e79fb7a42963fab89f9270ee8
+      - ElementName: Material
+        ObjectType: 3
+        guid: 18cd95b2874fb446a9772608347fb39c
+      Path: Events\Default Work Unit\Breaks\Material
+      maxAttenuation: 0
+      maxDuration: 2.4581919
+      minDuration: 0.3437951
     - name: menu
       guid: b5296ba8c7b6344ba9366f214d6f43f5
       id: 2607556080
@@ -478,8 +558,8 @@ MonoBehaviour:
         guid: 8f0aad23b825d241866844a27aa828a0
       Path: Events\Default Work Unit\Player\player_pickup
       maxAttenuation: 0
-      maxDuration: 0.72375
-      minDuration: 0.72375
+      maxDuration: 0.7288333
+      minDuration: 0.7288333
     - name: Point-n-click
       guid: dde7b5765219fd49b10c5d4374e727c5
       id: 884647459
@@ -503,6 +583,92 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: record_player
+      guid: d7aea8b9d925d849a5e95ef0067fa7d7
+      id: 2570475550
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Breaks
+        ObjectType: 4
+        guid: ffbfc00e79fb7a42963fab89f9270ee8
+      - ElementName: Specific
+        ObjectType: 4
+        guid: a3b780ca44d0c84a9411b3224f6da948
+      - ElementName: record_player
+        ObjectType: 3
+        guid: d7aea8b9d925d849a5e95ef0067fa7d7
+      Path: Events\Default Work Unit\Breaks\Specific\record_player
+      maxAttenuation: 0
+      maxDuration: 0.7573042
+      minDuration: 0.55547
+    - name: Specific
+      guid: a3b780ca44d0c84a9411b3224f6da948
+      id: 902158961
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Breaks
+        ObjectType: 4
+        guid: ffbfc00e79fb7a42963fab89f9270ee8
+      - ElementName: Specific
+        ObjectType: 4
+        guid: a3b780ca44d0c84a9411b3224f6da948
+      Path: Events\Default Work Unit\Breaks\Specific
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: StopFootstep
+      guid: 531ab5a835342b4f8d51fc2c275759a7
+      id: 2596245103
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Player
+        ObjectType: 4
+        guid: 5c8290c8e37faa4a95149f3d400053f5
+      - ElementName: StopFootstep
+        ObjectType: 3
+        guid: 531ab5a835342b4f8d51fc2c275759a7
+      Path: Events\Default Work Unit\Player\StopFootstep
+      maxAttenuation: 0
+      maxDuration: 0.6645363
+      minDuration: 0.1712196
+    - name: taxi_animal
+      guid: 2ef1ee6852a50e42af9a8aafedc2a198
+      id: 3811696612
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Breaks
+        ObjectType: 4
+        guid: ffbfc00e79fb7a42963fab89f9270ee8
+      - ElementName: Specific
+        ObjectType: 4
+        guid: a3b780ca44d0c84a9411b3224f6da948
+      - ElementName: taxi_animal
+        ObjectType: 3
+        guid: 2ef1ee6852a50e42af9a8aafedc2a198
+      Path: Events\Default Work Unit\Breaks\Specific\taxi_animal
+      maxAttenuation: 0
+      maxDuration: 1.6208999
+      minDuration: 0.66646314
     - name: UI
       guid: ba03455f55cd504796403d3470dd40b1
       id: 1551306167
@@ -688,7 +854,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584621556620037934
+    m_lastTime: -8584610275838792613
     List:
     - name: vol_dialogue
       guid: d375c4070ca9a54aa883e10fff410998
@@ -801,7 +967,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: aaef3b61817689459787a303f0cc8de8
     GuidInternal: 
-    m_lastTime: -8584621556550507434
+    m_lastTime: -8584610275822102856
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -815,8 +981,188 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584621556550194863
-    List: []
+    m_lastTime: -8584609480118590834
+    List:
+    - name: BreakMaterial
+      guid: 52371375a5837847ab5b8d4e1a0afc3a
+      id: 904554749
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+      - ElementName: BreakMaterial
+        ObjectType: 11
+        guid: 52371375a5837847ab5b8d4e1a0afc3a
+      Path: Switches\Default Work Unit\BreakMaterial
+      values:
+      - name: BigGlass
+        guid: a81c79bf207b1a4987af3aacc6f5fa56
+        id: 614164583
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: BreakMaterial
+          ObjectType: 11
+          guid: 52371375a5837847ab5b8d4e1a0afc3a
+        - ElementName: BigGlass
+          ObjectType: 10
+          guid: a81c79bf207b1a4987af3aacc6f5fa56
+      - name: Ceramic
+        guid: b320a0fe3b4f4741ad66f7bb5aea28be
+        id: 1968058251
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: BreakMaterial
+          ObjectType: 11
+          guid: 52371375a5837847ab5b8d4e1a0afc3a
+        - ElementName: Ceramic
+          ObjectType: 10
+          guid: b320a0fe3b4f4741ad66f7bb5aea28be
+      - name: Electronic
+        guid: 4b1ae07640f04e45a343479e99ec178c
+        id: 4019199903
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: BreakMaterial
+          ObjectType: 11
+          guid: 52371375a5837847ab5b8d4e1a0afc3a
+        - ElementName: Electronic
+          ObjectType: 10
+          guid: 4b1ae07640f04e45a343479e99ec178c
+      - name: Glass
+        guid: 47138ad22ae14547be5f972f8d250946
+        id: 2449969375
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: BreakMaterial
+          ObjectType: 11
+          guid: 52371375a5837847ab5b8d4e1a0afc3a
+        - ElementName: Glass
+          ObjectType: 10
+          guid: 47138ad22ae14547be5f972f8d250946
+      - name: Metal
+        guid: ca8238312709744b976aa0c7d8366029
+        id: 2473969246
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: BreakMaterial
+          ObjectType: 11
+          guid: 52371375a5837847ab5b8d4e1a0afc3a
+        - ElementName: Metal
+          ObjectType: 10
+          guid: ca8238312709744b976aa0c7d8366029
+      - name: Plant
+        guid: b599f212a42ce245bd2822ee646ac904
+        id: 114672780
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: BreakMaterial
+          ObjectType: 11
+          guid: 52371375a5837847ab5b8d4e1a0afc3a
+        - ElementName: Plant
+          ObjectType: 10
+          guid: b599f212a42ce245bd2822ee646ac904
+      - name: Taxidermy
+        guid: 53e6a5376f5ad04caa513635a8786284
+        id: 287855384
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: BreakMaterial
+          ObjectType: 11
+          guid: 52371375a5837847ab5b8d4e1a0afc3a
+        - ElementName: Taxidermy
+          ObjectType: 10
+          guid: 53e6a5376f5ad04caa513635a8786284
+      - name: Wood
+        guid: cd9c56889eb74749be44d3a811ef3280
+        id: 2058049674
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: BreakMaterial
+          ObjectType: 11
+          guid: 52371375a5837847ab5b8d4e1a0afc3a
+        - ElementName: Wood
+          ObjectType: 10
+          guid: cd9c56889eb74749be44d3a811ef3280
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: FootstepMaterial
+      guid: 7eea7f35eee6c848bd60b873dafa003a
+      id: 3287431056
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+      - ElementName: FootstepMaterial
+        ObjectType: 11
+        guid: 7eea7f35eee6c848bd60b873dafa003a
+      Path: Switches\Default Work Unit\FootstepMaterial
+      values:
+      - name: Wood
+        guid: 53845efc2ea6d94090e68c909764684b
+        id: 2058049674
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: FootstepMaterial
+          ObjectType: 11
+          guid: 7eea7f35eee6c848bd60b873dafa003a
+        - ElementName: Wood
+          ObjectType: 10
+          guid: 53845efc2ea6d94090e68c909764684b
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
@@ -829,10 +1175,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 8aff68e09ca652408bd2e782fdf49389
     GuidInternal: 
-    m_lastTime: -8584621556549882348
+    m_lastTime: -8584610275822076274
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000190000001a0000001c000000200000003cd41400
+  ExpandedWaapiItemIds: 01000000050000000600000007000000090000000a0000000b0000000c0000000d000000190000001a0000001c000000200000003cd41400
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
