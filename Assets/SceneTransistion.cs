@@ -20,6 +20,11 @@ public class SceneTransistion : MonoBehaviour
 
     }
 
+    public void CallFromConversationEnd() 
+    {
+        StartCoroutine(LoadScene(_sceneToTransitionTo));
+    }
+
     IEnumerator LoadScene(string sceneName)
     {
         
