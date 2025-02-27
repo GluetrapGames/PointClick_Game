@@ -3,6 +3,7 @@ using System.Linq;
 using _Root.Scripts.Utilities;
 using AYellowpaper.SerializedCollections;
 using EditorAttributes;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +27,10 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 	private Transform _WorldObject;
 	[SerializeField]
 	private bool _IsGameOver;
+	[SerializeField]
+	private GameObject _AlbertPrefab;
+	[SerializeField]
+	private Transform _AlbertSpawnLocation;
 
 
 	private void Update()
@@ -72,7 +77,8 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 
 		if (!allItemsCollected || !allPlantsDestroyed) return;
 		_IsGameOver = true;
-		SceneManager.LoadScene(m_EndScene);
+		//SceneManager.LoadScene(m_EndScene);
+		// Spawn Albert.
 	}
 
 
@@ -88,6 +94,12 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
+		if (_IsGameOver && SceneManager.GetActiveScene() ==
+		    SceneManager.GetSceneByName("Hallway1"))
+			Instantiate(_AlbertPrefab, _AlbertSpawnLocation.position,
+				quaternion.identity);
+
+
 		// Try to obtain the Game Manager.
 		var gameManager = FindFirstObjectByType<GameManager>();
 		if (!gameManager)
