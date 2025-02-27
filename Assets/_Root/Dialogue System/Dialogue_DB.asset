@@ -4183,7 +4183,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
+        x: 156.8
         y: 30
         width: 160
         height: 30
@@ -4227,13 +4227,13 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["HallEntryEventComplete"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 153.59998
+        x: 156.79999
         y: 150
         width: 160
         height: 30
@@ -4282,7 +4282,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["HallEntryEventComplete"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7430,8 +7430,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 345.4945
-        y: 384.28564
+        x: 344.61536
+        y: 383.4066
         width: 160
         height: 30
     - id: 9
@@ -7487,8 +7487,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 344.6154
-        y: 331.42847
+        x: 343.73624
+        y: 330.5494
         width: 160
         height: 30
     - id: 10
@@ -7542,8 +7542,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 343.73633
-        y: 280.32956
+        x: 342.85718
+        y: 279.45047
         width: 160
         height: 30
     - id: 11
@@ -7597,8 +7597,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 344.61545
-        y: 230.1098
+        x: 343.7363
+        y: 229.23068
         width: 160
         height: 30
     - id: 12
@@ -7652,8 +7652,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 344.61548
-        y: 179.01086
+        x: 343.73633
+        y: 178.13174
         width: 160
         height: 30
     - id: 13
@@ -7701,8 +7701,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 344.61548
-        y: 129.67023
+        x: 343.73633
+        y: 128.7911
         width: 160
         height: 30
     entryGroups: []
