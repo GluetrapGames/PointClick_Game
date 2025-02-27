@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 935899b62f48ae5498594680ed17d133, type: 3}
-  m_Name: Dialogue_DB
+  m_Name: Dialogue_DB (Auto-Backup)
   m_EditorClassIdentifier: 
   version: 
   author: 
@@ -233,7 +233,7 @@ MonoBehaviour:
   - id: 2
     fields:
     - title: Name
-      value: HallEntryEventComplete
+      value: New Variable 2
       type: 0
       typeString: 
     - title: Initial Value
@@ -241,63 +241,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
-      value: Check if hall entry dialogue has played
-      type: 0
-      typeString: 
-  - id: 3
-    fields:
-    - title: Name
-      value: BathroomEntryEventComplete
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: False
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Description
-      value: Check if bathroom entry dialogue has played
-      type: 0
-      typeString: 
-  - id: 4
-    fields:
-    - title: Name
-      value: BedroomEntryEventComplete
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: False
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Description
-      value: Check if bedroom entry dialogue has played
-      type: 0
-      typeString: 
-  - id: 5
-    fields:
-    - title: Name
-      value: SpareRoomEntryEventComplete
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: False
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Description
-      value: Check if spare room entry dialogue has played
-      type: 0
-      typeString: 
-  - id: 6
-    fields:
-    - title: Name
-      value: TaxidermyEntryEventComplete
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: False
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Description
-      value: Check if taxidermy entry dialogue has played
+      value: 
       type: 0
       typeString: 
   conversations:
@@ -2914,7 +2858,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: Variable["BedroomEntryEventComplete"] == false
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2965,7 +2909,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Variable["BedroomEntryEventComplete"] = true
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3123,7 +3067,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: Variable["BathroomEntryEventComplete"] == false
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3284,7 +3228,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Variable["BathroomEntryEventComplete"] = true
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -4167,13 +4111,13 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
         originDialogueID: 0
         destinationConversationID: 12
-        destinationDialogueID: 3
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -4185,6 +4129,62 @@ MonoBehaviour:
         serializedVersion: 2
         x: 160
         y: 30
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: I reckon he's put those stairs there as a burglary deterrent. How
+          do they not kill his knees?
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 1
+        destinationConversationID: 12
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 80
         width: 160
         height: 30
     - id: 2
@@ -4233,64 +4233,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 153.59998
-        y: 150
-        width: 160
-        height: 30
-    - id: 3
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: I reckon he's put those stairs there as a burglary deterrent. How
-          do they not kill his knees?
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 3
-        destinationConversationID: 12
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 156.80002
-        y: 90.399994
+        x: 160
+        y: 130
         width: 160
         height: 30
     entryGroups: []
@@ -4921,7 +4865,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 161.59999
+        x: 160
         y: 30
         width: 160
         height: 30
@@ -4963,15 +4907,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Variable["SpareRoomEntryEventComplete"] == false
-      userScript: Variable["SpareRoomEntryEventComplete"] = true
+      conditionsString: 
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 80.8
+        y: 80
         width: 160
         height: 30
     entryGroups: []
@@ -5912,7 +5856,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: Variable["TaxidermyEntryEventComplete"] == false
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6072,7 +6016,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Variable["TaxidermyEntryEventComplete"] = true
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -8481,7 +8425,7 @@ MonoBehaviour:
   - id: 25
     fields:
     - title: Title
-      value: CourtScenes_Intro
+      value: CourtScenes
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -8568,6 +8512,12 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 25
+        originDialogueID: 0
+        destinationConversationID: 25
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -8575,8 +8525,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 50
+        x: 160
+        y: 30
         width: 160
         height: 30
     - id: 1
@@ -8632,8 +8582,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 79.0909
-        y: 104.000015
+        x: 8.799995
+        y: 84
         width: 160
         height: 30
     - id: 2
@@ -8687,8 +8637,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 76.36365
-        y: 158.00005
+        x: 8.799995
+        y: 134
         width: 160
         height: 30
     - id: 3
@@ -8742,8 +8692,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 208.36365
+        x: 8.799995
+        y: 184
         width: 160
         height: 30
     - id: 4
@@ -8791,115 +8741,11 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 78.18181
-        y: 259.63635
+        x: 8.799995
+        y: 234
         width: 160
         height: 30
-    entryGroups: []
-    canvasScrollPosition: {x: 37.33447, y: 33.89228}
-    canvasZoom: 1.03
-  - id: 26
-    fields:
-    - title: Title
-      value: CourtScenes_Verdict
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: Description
-      value: 
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: Actor
-      value: 7
-      type: 5
-      typeString: CustomFieldType_Actor
-    - title: Conversant
-      value: 6
-      type: 5
-      typeString: CustomFieldType_Actor
-    overrideSettings:
-      useOverrides: 0
-      overrideSubtitleSettings: 0
-      showNPCSubtitlesDuringLine: 1
-      showNPCSubtitlesWithResponses: 1
-      showPCSubtitlesDuringLine: 0
-      skipPCSubtitleAfterResponseMenu: 0
-      subtitleCharsPerSecond: 30
-      minSubtitleSeconds: 2
-      continueButton: 0
-      overrideSequenceSettings: 0
-      defaultSequence: 
-      defaultPlayerSequence: 
-      defaultResponseMenuSequence: 
-      overrideInputSettings: 0
-      alwaysForceResponseMenu: 1
-      includeInvalidEntries: 0
-      responseTimeout: 0
-      emTagForOldResponses: 0
-      emTagForInvalidResponses: 0
-      cancelSubtitle:
-        key: 27
-        buttonName: 
-      cancelConversation:
-        key: 27
-        buttonName: 
-    nodeColor: 
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 6
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: None()
-        type: 0
-        typeString: 
-      conversationID: 26
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 26
-        originDialogueID: 0
-        destinationConversationID: 26
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 160
-        y: 30
-        width: 160
-        height: 30
-    - id: 1
+    - id: 5
       fields:
       - title: Title
         value: 
@@ -8922,14 +8768,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: John, you have caused the death of [em1]Albert McGuigan[/em1
+        value: John, you have caused the death of [em1]Albert McGuigan[/em1].
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 26
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -8937,10 +8783,10 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 26
-        originDialogueID: 1
-        destinationConversationID: 26
-        destinationDialogueID: 2
+      - originConversationID: 25
+        originDialogueID: 5
+        destinationConversationID: 25
+        destinationDialogueID: 6
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -8950,11 +8796,11 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 80
+        x: 198.40002
+        y: 84.79999
         width: 160
         height: 30
-    - id: 2
+    - id: 6
       fields:
       - title: Title
         value: 
@@ -8985,7 +8831,7 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 26
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -8993,10 +8839,10 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 26
-        originDialogueID: 2
-        destinationConversationID: 26
-        destinationDialogueID: 3
+      - originConversationID: 25
+        originDialogueID: 6
+        destinationConversationID: 25
+        destinationDialogueID: 7
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -9006,11 +8852,11 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 129.2
+        x: 198.40002
+        y: 134.79999
         width: 160
         height: 30
-    - id: 3
+    - id: 7
       fields:
       - title: Title
         value: 
@@ -9040,7 +8886,7 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 26
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -9048,10 +8894,10 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 26
-        originDialogueID: 3
-        destinationConversationID: 26
-        destinationDialogueID: 4
+      - originConversationID: 25
+        originDialogueID: 7
+        destinationConversationID: 25
+        destinationDialogueID: 8
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -9061,11 +8907,11 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 180
+        x: 198.40002
+        y: 184.79999
         width: 160
         height: 30
-    - id: 4
+    - id: 8
       fields:
       - title: Title
         value: 
@@ -9095,7 +8941,7 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 26
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -9103,10 +8949,10 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 26
-        originDialogueID: 4
-        destinationConversationID: 26
-        destinationDialogueID: 5
+      - originConversationID: 25
+        originDialogueID: 8
+        destinationConversationID: 25
+        destinationDialogueID: 9
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -9116,11 +8962,11 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 230
+        x: 198.40002
+        y: 234.79999
         width: 160
         height: 30
-    - id: 5
+    - id: 9
       fields:
       - title: Title
         value: 
@@ -9131,11 +8977,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 5
+        value: 7
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 7
+        value: 5
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -9152,7 +8998,7 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 26
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -9167,8 +9013,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 280
+        x: 198.40002
+        y: 284.8
         width: 160
         height: 30
     entryGroups: []
