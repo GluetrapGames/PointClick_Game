@@ -236,7 +236,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: CourtScenes_Intro
+  conversation: CourtScenes_Verdict
   conversationConversant: {fileID: 284299679}
   conversationActor: {fileID: 755706032}
   startConversationEntryID: -1
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 755706032}
   - component: {fileID: 755706033}
   m_Layer: 0
-  m_Name: Jack
+  m_Name: Judge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actor: Jack
+  actor: Judge
   persistentDataName: 
   portrait: {fileID: 0}
   spritePortrait: {fileID: 0}
@@ -527,7 +527,7 @@ MonoBehaviour:
     customMenuPanel: {fileID: 0}
     customMenuPanelOffset: {x: 0, y: 0, z: 0}
     useMenuPanelFor: 0
-    portraitAnimatorController: {fileID: 9100000, guid: dc4138380e7dc85448fd024e8c2d7b66, type: 2}
+    portraitAnimatorController: {fileID: 9100000, guid: 994683c845fbf0c479f332f1ec2b4eb3, type: 2}
     setSubtitleColor: 0
     applyColorToPrependedName: 0
     prependActorNameSeparator: ': '
@@ -765,6 +765,14 @@ PrefabInstance:
     - target: {fileID: 4946644223047531021, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: _sceneToTransitionTo
+      value: MenuScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468852923161896967, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_Name
+      value: ToMenu
       objectReference: {fileID: 0}
     - target: {fileID: 9123357558529462298, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_Name

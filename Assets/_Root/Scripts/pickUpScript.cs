@@ -45,6 +45,12 @@ public class PickUpScript : MonoBehaviour
 	[SerializeField]
 	private List<InventorySlot> _ItemSlots;
 
+
+	[Header("Dialogue Settings"), Tooltip("Will the item start dialogue"), SerializeField]
+	private bool _StartConvo;
+	[Tooltip("The GameObject That has the convo trigger"), SerializeField]
+	private GameObject _ConvoObject;
+
 	private Camera _Camera;
 	private GameManager _GameManager;
 	private bool _SlotFound;
@@ -121,6 +127,10 @@ public class PickUpScript : MonoBehaviour
 		}
 
 		_SlotFound = false;
+
+		// If the object plays a dialogue after pickup
+		if (_StartConvo)
+			_ConvoObject.SetActive(true);
 
 		Debug.Log("Item collected");
 		m_ActivateVariable = true;
