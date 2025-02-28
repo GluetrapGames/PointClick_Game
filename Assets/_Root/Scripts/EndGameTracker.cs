@@ -13,9 +13,6 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 	[Header("End Game Settings"),
 	 SerializedDictionary("Item Type", "Is Collected")]
 	public SerializedDictionary<string, bool> m_EndItemTypes = new();
-	public int m_PlantsInGame;
-	[ReadOnly]
-	public int m_PlantsDestroyed;
 	[SceneDropdown]
 	public int m_EndScene;
 
@@ -96,8 +93,10 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 	{
 		if (_IsGameOver && SceneManager.GetActiveScene() ==
 		    SceneManager.GetSceneByName("Hallway1"))
+		{
 			Instantiate(_AlbertPrefab, _AlbertSpawnLocation.position,
 				quaternion.identity);
+		}
 
 
 		// Try to obtain the Game Manager.
