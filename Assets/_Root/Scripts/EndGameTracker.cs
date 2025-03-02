@@ -7,7 +7,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndGameTracker : PersistantSingleton<EndGameTracker>
+public class EndGameTracker : Singleton<EndGameTracker>
 {
 	public GameManager m_GameManager;
 	[Header("End Game Settings"),
@@ -20,15 +20,19 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
 	[SerializeField, ReadOnly]
 	public SerializedDictionary<string, bool> _DestroyedItems = new();
-	[SerializeField, ReadOnly]
-	private Transform _WorldObject;
 	[SerializeField]
 	private bool _IsGameOver;
 	[SerializeField]
 	private GameObject _AlbertPrefab;
-	[SerializeField]
-	private Transform _AlbertSpawnLocation;
+	[SerializeField, ReadOnly]
+	private Transform _AlbertSpawPoint;
 
+
+	protected override void Awake()
+	{
+		base.Awake();
+		m_GameManager = FindFirstObjectByType<GameManager>();
+	}
 
 	private void Update()
 	{
@@ -74,54 +78,24 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 
 		if (!allItemsCollected || !allPlantsDestroyed) return;
 		_IsGameOver = true;
-		//SceneManager.LoadScene(m_EndScene);
-		// Spawn Albert.
 	}
 
-
-	private void OnEnable()
+	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
-		SceneManager.sceneLoaded += OnSceneLoaded;
-	}
+		// Get Albert's spawner.
+		_AlbertSpawPoint = Utils.FindSpawner("AlbertSpawner");
 
-	private void OnDisable()
-	{
-		SceneManager.sceneLoaded -= OnSceneLoaded;
-	}
-
-	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
+		// Check for GameOver.
 		if (_IsGameOver && SceneManager.GetActiveScene() ==
 		    SceneManager.GetSceneByName("Hallway1"))
 		{
-			Instantiate(_AlbertPrefab, _AlbertSpawnLocation.position,
+			Instantiate(_AlbertPrefab, _AlbertSpawPoint.position,
 				quaternion.identity);
 		}
 
-
-		// Try to obtain the Game Manager.
-		var gameManager = FindFirstObjectByType<GameManager>();
-		if (!gameManager)
-		{
-			Debug.LogWarning("Cannot find 'Game Manager' object in the scene.");
-			return;
-		}
-
-		m_GameManager = gameManager;
-
-		// Try to obtain the World GameObject.
-		GameObject worldObject = GameObject.FindWithTag("World");
-		if (!worldObject)
-		{
-			Debug.LogWarning("Cannot find 'World' object in the scene.");
-			return;
-		}
-
-		_WorldObject = worldObject.transform;
-
-		var newItems = new List<BreakableItem>();
-		Utils.FindChildrenByType<BreakableItem, BreakableItem>(
-			_WorldObject, newItems, c => c);
+		// Get breakable items and add/update the list.
+		var newItems =
+			FindObjectsByType<BreakableItem>(FindObjectsSortMode.None);
 
 		// Either update or add new item to list.
 		foreach (BreakableItem item in newItems)

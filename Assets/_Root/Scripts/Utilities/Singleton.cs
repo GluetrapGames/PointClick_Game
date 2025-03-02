@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Inspired and taken from a Tarodev video - Unity Architecture for Noobs - Game Structure
 // URL: https://www.youtube.com/watch?v=tE1qH8OxO2Y
@@ -22,7 +23,6 @@ public abstract class StaticInstance<T> : MonoBehaviour
 		else if (m_Instance != this) Destroy(gameObject);
 	}
 
-
 	protected virtual void OnApplicationQuit()
 	{
 		m_Instance = null;
@@ -35,7 +35,8 @@ public abstract class StaticInstance<T> : MonoBehaviour
 ///     original instance intact.
 /// </summary>
 /// <typeparam name="T">The class to make a singleton.</typeparam>
-public abstract class Singleton<T> : StaticInstance<T> where T : MonoBehaviour
+public abstract class Singleton<T> : StaticInstance<T>, ISceneChangeHandler
+	where T : MonoBehaviour
 {
 	protected override void Awake()
 	{
@@ -46,8 +47,12 @@ public abstract class Singleton<T> : StaticInstance<T> where T : MonoBehaviour
 		}
 
 		base.Awake();
+		PersistentSystems.m_Instance.RegisterSingleton(this);
 	}
+
+	public abstract void OnSceneChange(Scene scene, LoadSceneMode mode);
 }
+
 
 /// <summary>
 ///     A persistent version of the singleton. This will survive through scene

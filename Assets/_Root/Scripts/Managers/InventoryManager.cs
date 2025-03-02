@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using _Root.Scripts.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class InventoryManager : PersistantSingleton<InventoryManager>
+public class InventoryManager : Singleton<InventoryManager>
 {
 	public Transform m_InventoryGroup;
 	public List<Transform> m_InventorySlots = new();
@@ -17,17 +16,7 @@ public class InventoryManager : PersistantSingleton<InventoryManager>
 	public Dictionary<string, InventoryItemData> m_InventoryItems = new();
 
 
-	private void OnEnable()
-	{
-		SceneManager.sceneLoaded += OnSceneLoaded;
-	}
-
-	private void OnDisable()
-	{
-		SceneManager.sceneLoaded -= OnSceneLoaded;
-	}
-
-	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
 		// Get current scenes inventory.
 		GameObject inventoryObject = GameObject.FindWithTag("Inventory");
@@ -38,6 +27,7 @@ public class InventoryManager : PersistantSingleton<InventoryManager>
 		}
 
 		m_InventoryGroup = inventoryObject.transform;
+
 		GetInventory();
 
 		// Re-add the inventory items.
@@ -72,8 +62,12 @@ public class InventoryManager : PersistantSingleton<InventoryManager>
 	{
 		// Get the inventory slots of the current scene.
 		m_InventorySlots.Clear();
-		Utils.FindChildrenByType<InventorySlot, Transform>(m_InventoryGroup,
-			m_InventorySlots, component => component.transform);
+		var slots =
+			FindObjectsByType<InventorySlot>(FindObjectsInactive.Include,
+				FindObjectsSortMode.None);
+
+		foreach (InventorySlot slot in slots)
+			m_InventorySlots.Add(slot.transform);
 
 		// Obtain the held item slot and remove it from the list.
 		if (m_InventorySlots.Count == 0) return;
@@ -89,7 +83,6 @@ public class InventoryManager : PersistantSingleton<InventoryManager>
 
 		if (slotToRemove != null) m_InventorySlots.Remove(slotToRemove);
 	}
-
 
 	public bool CollectItem(ItemData itemData)
 	{

@@ -1,7 +1,9 @@
 using System;
+using _Root.Scripts.Utilities;
 using EditorAttributes;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Void = EditorAttributes.Void;
 
 public class GameManager : Singleton<GameManager>
@@ -14,21 +16,17 @@ public class GameManager : Singleton<GameManager>
 	[SerializeField, FoldoutGroup("Managers", nameof(m_InventoryManager)),
 	 PropertyOrder(-1)]
 	private Void _MangerGroupHeader;
+	[SerializeField]
+	private GameObject _PlayerPrefab;
+	[SerializeField, ReadOnly]
+	private Transform _PlayerSpawnPoint;
 
 
 	protected override void Awake()
 	{
 		base.Awake();
 		m_InventoryManager = FindFirstObjectByType<InventoryManager>();
-		m_Player = FindFirstObjectByType<PlayerGridController>();
 	}
-
-#if UNITY_EDITOR
-	private void Reset()
-	{
-		m_Player = FindFirstObjectByType<PlayerGridController>();
-	}
-#endif
 
 	private void Update()
 	{
@@ -52,6 +50,12 @@ public class GameManager : Singleton<GameManager>
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
+	}
+
+	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
+	{
+		// Get Player spawner.
+		_PlayerSpawnPoint = Utils.FindSpawner("PlayerSpawner");
 	}
 
 	public void ChangeGameState(States newState)
