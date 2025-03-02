@@ -7,8 +7,10 @@ using UnityEngine.InputSystem.Controls;
 [RequireComponent(typeof(GridMovement))]
 public class PlayerGridController : MonoBehaviour
 {
-	[SerializeField, Range(0f, 10f)]
-	private float _moveSpeed = 5f;
+	public GridMovement m_Movement;
+	[Range(0f, 10f)]
+	public float m_MoveSpeed = 5f;
+
 	[SerializeField, Range(0f, 0.5f)]
 	private float _inputCooldown = 0.15f;
 	[SerializeField]
@@ -21,21 +23,20 @@ public class PlayerGridController : MonoBehaviour
 	private Vector2 _inputDirection;
 	private float _lastMoveTime;
 	private Coroutine _moveCoroutine;
-	private GridMovement _movement;
 	private bool _usingController;
 
 
 	private void Awake()
 	{
 		_camera = Camera.main;
-		_movement = GetComponent<GridMovement>();
+		m_Movement = GetComponent<GridMovement>();
 		_highlight = Instantiate(_highlightPrefab);
 		_highlight.SetActive(false);
 	}
 
 	private void Start()
 	{
-		_movement.TeleportToTile(_startingGridPosition);
+		m_Movement.TeleportToTile(_startingGridPosition);
 	}
 
 
@@ -56,16 +57,16 @@ public class PlayerGridController : MonoBehaviour
 		Vector3 mouseWorldPosition =
 			_camera.ScreenToWorldPoint(Input.mousePosition);
 		Vector3Int tilePosition =
-			_movement.m_Grid.WorldToCell(mouseWorldPosition);
+			m_Movement.m_Grid.WorldToCell(mouseWorldPosition);
 
 		// Un-highlight the tile when moving onto another tile.
-		if (_movement.m_PreviousTilePosition.HasValue &&
-		    _movement.m_PreviousTilePosition.Value != tilePosition)
+		if (m_Movement.m_PreviousTilePosition.HasValue &&
+		    m_Movement.m_PreviousTilePosition.Value != tilePosition)
 			_highlight.SetActive(false);
 
 		// Highlight tile if valid and has no obstacle on it.
-		if (_movement.m_NavMesh.HasTile(tilePosition) &&
-		    !_movement.m_ObstaclesPositions.Contains(tilePosition))
+		if (m_Movement.m_NavMesh.HasTile(tilePosition) &&
+		    !m_Movement.m_ObstaclesPositions.Contains(tilePosition))
 		{
 			_highlight.transform.position = tilePosition;
 			_highlight.transform.position += new Vector3(0.5f, 0.5f, 0f);
@@ -81,10 +82,10 @@ public class PlayerGridController : MonoBehaviour
 	public Vector3Int SetPlayerDestination(Vector3Int targetPosition)
 	{
 		// Set new target position.
-		_movement.SetDestination(targetPosition);
+		m_Movement.SetDestination(targetPosition);
 		_moveCoroutine ??= StartCoroutine(MovementCoroutine());
 
-		_movement.m_PreviousTilePosition = targetPosition;
+		m_Movement.m_PreviousTilePosition = targetPosition;
 
 		return targetPosition;
 	}
@@ -115,16 +116,16 @@ public class PlayerGridController : MonoBehaviour
 		    !(Time.time - _lastMoveTime >= _inputCooldown)) return;
 
 		Vector3Int targetTile =
-			_movement.m_Grid.WorldToCell(_movement.transform.position) +
+			m_Movement.m_Grid.WorldToCell(m_Movement.transform.position) +
 			direction;
 
 		// Prevent movement if tile not part of NavMesh or has an obstacle in it.
-		if (!_movement.m_NavMesh.HasTile(targetTile) ||
-		    _movement.m_ObstaclesPositions.Contains(targetTile)) return;
+		if (!m_Movement.m_NavMesh.HasTile(targetTile) ||
+		    m_Movement.m_ObstaclesPositions.Contains(targetTile)) return;
 
-		_movement.m_Path = new List<Vector3Int> { targetTile };
-		_movement.m_CurrentPathIndex = 0;
-		_movement.m_IsMoving = true;
+		m_Movement.m_Path = new List<Vector3Int> { targetTile };
+		m_Movement.m_CurrentPathIndex = 0;
+		m_Movement.m_IsMoving = true;
 		_lastMoveTime = Time.time;
 		_moveCoroutine ??= StartCoroutine(MovementCoroutine());
 	}
@@ -132,9 +133,9 @@ public class PlayerGridController : MonoBehaviour
 	// Coroutine that moves the player along the path until complete.
 	private IEnumerator MovementCoroutine()
 	{
-		while (_movement.m_IsMoving)
+		while (m_Movement.m_IsMoving)
 		{
-			_movement.MoveToTile(_moveSpeed);
+			m_Movement.MoveToTile(m_MoveSpeed);
 			yield return null;
 		}
 
@@ -146,7 +147,7 @@ public class PlayerGridController : MonoBehaviour
 	{
 		StopCoroutine(_moveCoroutine);
 		_moveCoroutine = null;
-		_movement.m_Path.Clear();
-		_movement.m_IsMoving = false;
+		m_Movement.m_Path.Clear();
+		m_Movement.m_IsMoving = false;
 	}
 }
