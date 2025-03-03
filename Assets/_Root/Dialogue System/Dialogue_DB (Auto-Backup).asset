@@ -40,7 +40,7 @@ MonoBehaviour:
     - title: Name
       value: John (Player)
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -53,6 +53,10 @@ MonoBehaviour:
       value: True
       type: 2
       typeString: CustomFieldType_Boolean
+    - title: NodeColor
+      value: '#2e7f13ff'
+      type: 0
+      typeString: CustomFieldType_Text
     portrait: {fileID: 2800000, guid: 1423a9989b7aa7d4387ba107c6635aa3, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
@@ -62,7 +66,7 @@ MonoBehaviour:
     - title: Name
       value: John (NPC)
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -77,6 +81,10 @@ MonoBehaviour:
       typeString: CustomFieldType_Boolean
     - title: Display Name
       value: John
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: NodeColor
+      value: '#6b7f12ff'
       type: 0
       typeString: 
     portrait: {fileID: 2800000, guid: 1423a9989b7aa7d4387ba107c6635aa3, type: 3}
@@ -105,7 +113,7 @@ MonoBehaviour:
       value: Wife
       type: 0
       typeString: 
-    portrait: {fileID: 0}
+    portrait: {fileID: 2800000, guid: 283c25855caac144da6c33e62cab9da6, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
@@ -114,7 +122,7 @@ MonoBehaviour:
     - title: Name
       value: Albert
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -130,8 +138,8 @@ MonoBehaviour:
     - title: Display Name
       value: Albert
       type: 0
-      typeString: 
-    portrait: {fileID: 2800000, guid: 6e890921b01bc0445a0d54145a93baa5, type: 3}
+      typeString: CustomFieldType_Text
+    portrait: {fileID: 2800000, guid: fb9cb7454471856458d88ab411064bd1, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
@@ -157,7 +165,7 @@ MonoBehaviour:
       value: Mark
       type: 0
       typeString: 
-    portrait: {fileID: 2800000, guid: a19fb126fa91a824e883d82ffc19c781, type: 3}
+    portrait: {fileID: 2800000, guid: 3a8384b6dfb941d4b8b6acc282f173c7, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
@@ -209,7 +217,7 @@ MonoBehaviour:
       value: Jack
       type: 0
       typeString: 
-    portrait: {fileID: 2800000, guid: 1c488ac4aab233343a13637a6b0b9bf7, type: 3}
+    portrait: {fileID: 2800000, guid: 0b79ba3698bdeb64b82bb0e7408e70c7, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
@@ -233,6 +241,10 @@ MonoBehaviour:
       typeString: CustomFieldType_Boolean
     - title: Display Name
       value: ' '
+      type: 0
+      typeString: 
+    - title: NodeColor
+      value: '#2f9c7eff'
       type: 0
       typeString: 
     portrait: {fileID: 0}
@@ -3902,7 +3914,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Actor
-      value: 7
+      value: 1
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
@@ -9135,7 +9147,7 @@ MonoBehaviour:
   - id: 27
     fields:
     - title: Title
-      value: New Conversation 27
+      value: AlbertConversation
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -9222,12 +9234,6 @@ MonoBehaviour:
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      - originConversationID: 27
-        originDialogueID: 0
-        destinationConversationID: 27
-        destinationDialogueID: 40
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -9263,7 +9269,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Oh, I didn't know there was anything wrong with the TV. I suppose
-          it has been doing that funny thing when Bruce is on...
+          it has been doing that funny thing when [em1]Bruce[/em1] is on...
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -10287,7 +10293,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: You think I do what? You still haven't answered my question.
+        value: You think I do what?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -10555,8 +10561,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 542.457
-        y: 373.27774
+        x: 551.24817
+        y: 368.003
         width: 160
         height: 30
     - id: 26
@@ -10700,7 +10706,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Explain yourself. Or I'll have to take matters iinto my own hands!
+        value: Explain yourself. Or I'll have to take matters into my own hands!
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -11305,7 +11311,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 7
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -11343,55 +11349,6 @@ MonoBehaviour:
         y: 816.2951
         width: 160
         height: 30
-    - id: 40
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 27
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1205.306
-        y: 94.42749
-        width: 160
-        height: 30
     - id: 41
       fields:
       - title: Title
@@ -11403,7 +11360,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 7
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -11663,8 +11620,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1436.4631
-        y: 801.6059
+        x: 1434.9537
+        y: 803.1153
         width: 160
         height: 30
     - id: 46
@@ -12081,7 +12038,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: No kids, no other family. You take however much ypu need son.
+        value: No kids, no other family. You take however much you need son.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -12124,7 +12081,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 3
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -12627,7 +12584,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 3
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -12639,7 +12596,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '[em2]Albert keels over and has a heart attack[/em2]'
+        value: Albert keels over and has a heart attack
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -12789,8 +12746,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1510.921
-        y: 1678.944
+        x: 1502.121
+        y: 1675.744
         width: 160
         height: 30
     - id: 66
@@ -12845,7 +12802,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1693.4452
-        y: 1678.9438
+        y: 1678.1439
         width: 160
         height: 30
     - id: 67
@@ -12859,7 +12816,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 3
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -12908,7 +12865,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 3
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -12947,8 +12904,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1246.6166, y: 1275.5165}
-    canvasZoom: 0.64000034
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.1300002
   syncInfo:
     syncActors: 0
     syncItems: 0
