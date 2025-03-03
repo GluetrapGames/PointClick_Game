@@ -6,28 +6,27 @@ using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
-using Void = EditorAttributes.Void;
 
 public class GameManager : Singleton<GameManager>
 {
-	[HideInInspector]
-	public InventoryManager m_InventoryManager;
-	public PlayerGridController m_Player;
-
-	[SerializeField, FoldoutGroup("Managers", nameof(m_InventoryManager)),
-	 PropertyOrder(-1)]
-	private Void _MangerGroupHeader;
 	[SerializeField]
 	private GameObject _PlayerPrefab;
 	[SerializeField]
 	private GameObject _PlayerCameraPrefab;
 	[SerializeField, ReadOnly]
 	private Transform _PlayerSpawnPoint;
+	[SerializeField, ReadOnly]
+	private States _CurrentState;
 
-	[ReadOnly] public Grid m_Grid { get; private set; }
-	[ReadOnly] public Tilemap m_NavMesh { get; private set; }
-	[ReadOnly]
-	public States m_CurrentState { get; private set; } = States.Moving;
+	public InventoryManager m_InventoryManager { get; private set; }
+	public PlayerGridController m_Player { get; private set; }
+	public Grid m_Grid { get; private set; }
+	public Tilemap m_NavMesh { get; private set; }
+	public States m_CurrentState
+	{
+		get => _CurrentState;
+		private set => _CurrentState = value;
+	}
 	public Camera m_Camera { get; private set; }
 
 
