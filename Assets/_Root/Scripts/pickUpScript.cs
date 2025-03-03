@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using EditorAttributes;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
-using UnityEngine.UI;
 
 public class PickUpScript : MonoBehaviour
 {
@@ -68,9 +66,29 @@ public class PickUpScript : MonoBehaviour
 		foreach (Transform child in _Inventory)
 			_ItemSlots.Add(child.GetComponent<InventorySlot>());
 
-		gameObject.SetActive(true);
-		m_IsClicked = false;
-		m_ActivateVariable = false;
+		// Check if any items where collected.
+		var itemCollected = false;
+		if (_GameManager.m_InventoryManager.m_InventoryItems.Count > 0 &&
+		    _GameManager.m_InventoryManager.m_InventoryItems.TryGetValue(
+			    gameObject.name, out InventoryItemData inventoryItem))
+		{
+			itemCollected = inventoryItem.m_IsCollected;
+			Debug.Log(itemCollected);
+		}
+
+
+		if (itemCollected)
+		{
+			gameObject.SetActive(false);
+			m_IsClicked = true;
+			m_ActivateVariable = true;
+		}
+		else
+		{
+			gameObject.SetActive(true);
+			m_IsClicked = false;
+			m_ActivateVariable = false;
+		}
 	}
 
 	private void Update()
@@ -95,7 +113,11 @@ public class PickUpScript : MonoBehaviour
 	{
 		DialogueManager.ShowAlert($"{name} has been collected!");
 
-		while (!_SlotFound)
+
+		_ = _GameManager.m_InventoryManager.CollectItem(
+			new ItemData(gameObject.name, _ItemType, sprite));
+
+		/*while (!_SlotFound)
 		{
 			Debug.Log("Finding Slot");
 			foreach (InventorySlot itemSlot in _ItemSlots)
@@ -126,7 +148,7 @@ public class PickUpScript : MonoBehaviour
 			}
 		}
 
-		_SlotFound = false;
+		_SlotFound = false;*/
 
 		// If the object plays a dialogue after pickup
 		if (_StartConvo)
@@ -134,7 +156,7 @@ public class PickUpScript : MonoBehaviour
 
 		Debug.Log("Item collected");
 		m_ActivateVariable = true;
-		Destroy(this.gameObject);
+		Destroy(gameObject);
 	}
 
 	private void HandleItemFunction()

@@ -60,7 +60,8 @@ public abstract class PersistantSingleton<T> : Singleton<T>
 	protected override void Awake()
 	{
 		base.Awake();
-		if (m_Instance == this)
-			DontDestroyOnLoad(gameObject);
+		if (m_Instance != this) return;
+		transform.SetParent(null); //< Make root object if not.
+		DontDestroyOnLoad(gameObject);
 	}
 }
