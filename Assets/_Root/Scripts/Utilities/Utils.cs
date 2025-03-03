@@ -31,7 +31,8 @@ namespace _Root.Scripts.Utilities
 			foreach (GameObject spawner in spawners)
 				if (spawner.name == name)
 					return spawner.transform;
-			Debug.LogWarning($"Cannot find spawner: {name} tagged <{tag}>!");
+			Debug.LogWarning(
+				$"Cannot find spawner: \"{name}\" tagged <{tag}>!");
 			return null;
 		}
 

@@ -11,20 +11,19 @@ public class NPCMovement : MonoBehaviour
 	public float m_WaitTime = 2.0f;
 	public List<Vector2> m_Path = new();
 
-	[SerializeField]
-	[Tooltip("Enables viewing of transformed path nodes.")]
+	[SerializeField, Tooltip("Enables viewing of transformed path nodes.")]
 	private bool m_Debug;
 	[SerializeField]
 	private List<Vector3Int> _cellPath = new();
 
-	private Grid _grid;
+	private GameManager _GameManager;
 	private GridMovement _gridMovement;
 
 
 	private void Awake()
 	{
+		_GameManager = FindFirstObjectByType<GameManager>();
 		_gridMovement = GetComponent<GridMovement>();
-		_grid = _gridMovement.m_Grid;
 	}
 
 	private void Reset()
@@ -51,21 +50,13 @@ public class NPCMovement : MonoBehaviour
 			Gizmos.DrawSphere(cell, 0.2f);
 	}
 
-	/*private void OnValidate()
-	{
-		// Convert point to cell grid.
-		_cellPath.Clear();
-		foreach (Vector2 point in m_Path)
-			_cellPath.Add(_grid.WorldToCell(point));
-	}*/
-
 	private IEnumerator FollowPath()
 	{
 		while (true)
 		{
 			// Iterate through each destination in the current path.
 			foreach (Vector3Int gridDestination in m_Path.Select(point =>
-				         _grid.WorldToCell(point)))
+				         _GameManager.m_Grid.WorldToCell(point)))
 			{
 				_gridMovement.SetDestination(gridDestination);
 

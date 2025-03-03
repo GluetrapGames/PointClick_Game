@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 public class GridMovement : MonoBehaviour
@@ -10,8 +9,6 @@ public class GridMovement : MonoBehaviour
 	public int m_CurrentPathIndex;
 	public bool m_IsMoving;
 	public List<Vector3Int> m_Path = new();
-	public Grid m_Grid;
-	public Tilemap m_NavMesh;
 
 	[SerializeField]
 	private List<string> _obstacleTags = new();
@@ -19,10 +16,10 @@ public class GridMovement : MonoBehaviour
 	private List<Transform> _obstacles = new();
 	[SerializeField]
 	private bool _debug;
-	[SerializeField]
-	[Range(0f, 1f)]
+	[SerializeField, Range(0f, 1f)]
 	private float _obstacleBoundsOffset = 0.15f;
 	public readonly List<Vector3Int> m_ObstaclesPositions = new();
+	private GameManager _GameManager;
 
 	private GridDebug _gridDebug;
 	private Dictionary<Transform, bool> _obstacleStates = new();
@@ -32,18 +29,7 @@ public class GridMovement : MonoBehaviour
 
 	private void Awake()
 	{
-		m_Grid = FindFirstObjectByType<Grid>();
-		// If grid doesn't have debug script, add it.
-		if (!m_Grid.TryGetComponent(out _gridDebug))
-			_gridDebug = m_Grid.gameObject.AddComponent<GridDebug>();
-
-		// Loop through the children of the Grid object to assign the Navmesh.
-		foreach (Transform child in m_Grid.transform)
-			if (child.CompareTag("NavMesh"))
-				m_NavMesh = child.GetComponent<Tilemap>();
-
-		// Ensure both tilemaps were assigned correctly.
-		if (!m_NavMesh) Debug.LogError("NavMesh Tilemap not assigned.");
+		_GameManager = FindFirstObjectByType<GameManager>();
 
 		// Store current tag list.
 		_oldObstacleTags = _obstacleTags;
@@ -61,14 +47,15 @@ public class GridMovement : MonoBehaviour
 			_gridDebug.m_ToggleDebug = true;
 			foreach (Vector3Int cellPos in m_ObstaclesPositions)
 			{
-				m_NavMesh.SetTileFlags(cellPos, TileFlags.None);
-				m_NavMesh.SetColor(cellPos, Color.red);
+				_GameManager.m_NavMesh.SetTileFlags(cellPos, TileFlags.None);
+				_GameManager.m_NavMesh.SetColor(cellPos, Color.red);
 			}
 		}
 		else
 		{
 			foreach (Vector3Int cellPos in m_ObstaclesPositions)
-				m_NavMesh.SetColor(cellPos, _gridDebug.m_DebugColour);
+				_GameManager.m_NavMesh.SetColor(cellPos,
+					_gridDebug.m_DebugColour);
 		}
 
 		if (ShouldUpdateObstacle())
@@ -157,8 +144,9 @@ public class GridMovement : MonoBehaviour
 			if (!obstacle.TryGetComponent(out Renderer obstacleRenderer))
 			{
 				// Fallback: use the obstacle's transform position.
-				Vector3Int cellPos = m_Grid.WorldToCell(obstacle.position);
-				if (m_NavMesh.HasTile(cellPos) &&
+				Vector3Int cellPos =
+					_GameManager.m_Grid.WorldToCell(obstacle.position);
+				if (_GameManager.m_NavMesh.HasTile(cellPos) &&
 				    !m_ObstaclesPositions.Contains(cellPos))
 					m_ObstaclesPositions.Add(cellPos);
 				continue;
@@ -170,8 +158,10 @@ public class GridMovement : MonoBehaviour
 			var offset = new Vector3(
 				_obstacleBoundsOffset, _obstacleBoundsOffset, 0f);
 			// Convert bounds to grid positions.
-			Vector3Int minCell = m_Grid.WorldToCell(bounds.min + offset);
-			Vector3Int maxCell = m_Grid.WorldToCell(bounds.max - offset);
+			Vector3Int minCell =
+				_GameManager.m_Grid.WorldToCell(bounds.min + offset);
+			Vector3Int maxCell =
+				_GameManager.m_Grid.WorldToCell(bounds.max - offset);
 
 			// Loop over every cell in the bounding rectangle.
 			for (var x = minCell.x; x <= maxCell.x; x++)
@@ -179,7 +169,7 @@ public class GridMovement : MonoBehaviour
 			{
 				var cell = new Vector3Int(x, y, 0);
 				// Add the cell if it's a valid NavMesh tile.
-				if (m_NavMesh.HasTile(cell) &&
+				if (_GameManager.m_NavMesh.HasTile(cell) &&
 				    !m_ObstaclesPositions.Contains(cell))
 					m_ObstaclesPositions.Add(cell);
 			}
@@ -189,20 +179,22 @@ public class GridMovement : MonoBehaviour
 	public void TeleportToTile(Vector3Int tilePosition)
 	{
 		// Set the object's initial position to the starting tile.
-		Vector3 startPos = m_Grid.GetCellCenterWorld(tilePosition);
+		Vector3 startPos = _GameManager.m_Grid.GetCellCenterWorld(tilePosition);
 		transform.position = startPos;
 	}
 
 	// Sets the destination tile and calculates an A* path.
 	public void SetDestination(Vector3Int tilePosition)
 	{
-		if (!m_NavMesh.HasTile(tilePosition)) return;
+		if (!_GameManager.m_NavMesh.HasTile(tilePosition)) return;
 
-		m_Path = AStar.FindPath(m_Grid.WorldToCell(transform.position),
-			tilePosition, m_NavMesh, m_ObstaclesPositions);
+		m_Path = AStar.FindPath(
+			_GameManager.m_Grid.WorldToCell(transform.position),
+			tilePosition, _GameManager.m_NavMesh, m_ObstaclesPositions);
 		if (m_Path is { Count: > 0 })
 		{
-			Vector3Int currentCell = m_Grid.WorldToCell(transform.position);
+			Vector3Int currentCell =
+				_GameManager.m_Grid.WorldToCell(transform.position);
 			if (m_Path[0] == currentCell)
 				m_Path.RemoveAt(0);
 		}
@@ -221,7 +213,8 @@ public class GridMovement : MonoBehaviour
 		}
 
 		Vector3Int targetTile = m_Path[m_CurrentPathIndex];
-		Vector3 targetPosition = m_Grid.GetCellCenterWorld(targetTile);
+		Vector3 targetPosition =
+			_GameManager.m_Grid.GetCellCenterWorld(targetTile);
 		var step = speed * Time.deltaTime;
 		transform.position =
 			Vector3.MoveTowards(transform.position, targetPosition, step);
@@ -245,16 +238,4 @@ public class GridMovement : MonoBehaviour
 			yield return null;
 		}
 	}
-
-#if UNITY_EDITOR
-	private void Reset()
-	{
-		//Awake();
-	}
-
-	private void OnValidate()
-	{
-	}
-
-#endif
 }

@@ -26,6 +26,8 @@ public class BreakableItem : MonoBehaviour
 
 	[SerializeField]
 	private Vector3 _afterBreakOffset;
+	[SerializeField]
+	private bool _Log;
 
 	public CollideCheck itemCollision;
 
@@ -43,15 +45,16 @@ public class BreakableItem : MonoBehaviour
 	private string _PersistentID;
 	public EndGameTracker m_EndGameTracker;
 	private InputAction _breakableAction;
+	private GameManager _GameManager;
 	private string _heldItemType;
 	public string m_PersistentID => _PersistentID;
 
 
 	private void Awake()
 	{
+		_GameManager = GameObject.FindGameObjectWithTag("Manager")
+			.GetComponent<GameManager>();
 		m_EndGameTracker = FindFirstObjectByType<EndGameTracker>();
-		_breakableAction = playerInput.actions["Break"];
-		if (_breakableAction == null) Debug.LogError("No break action found");
 	}
 
 #if UNITY_EDITOR
@@ -65,6 +68,10 @@ public class BreakableItem : MonoBehaviour
 
 	private void Start()
 	{
+		playerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
+		_breakableAction = playerInput.actions["Break"];
+		if (_breakableAction == null) Debug.LogError("No break action found");
+
 		if (!m_EndGameTracker._DestroyedItems.ContainsKey(_PersistentID))
 			return;
 		_itemHp = 0;
@@ -76,7 +83,7 @@ public class BreakableItem : MonoBehaviour
 	{
 		if (_breakableAction.WasPressedThisFrame() && itemCollision.IsCollided)
 		{
-			Debug.Log("Damage Called");
+			if (_Log) Debug.Log("Damage Called");
 			Damage();
 			AkSoundEngine.SetSwitch("BreakMaterial", itemType, gameObject);
 			AkSoundEngine.PostEvent(eventType, gameObject);
@@ -98,14 +105,22 @@ public class BreakableItem : MonoBehaviour
 		if (_playerHeldItem.playerHeldItem != _effectiveItemType)
 		{
 			_itemHp = _itemHp - 1;
-			Debug.Log(transform.name + " took 1 damage - New HP = " + _itemHp);
+			if (_Log)
+			{
+				Debug.Log(transform.name + " took 1 damage - New HP = " +
+				          _itemHp);
+			}
 		}
 		else
 		{
 			_itemHp = _itemHp - 2;
-			Debug.Log(transform.name + " took 2 damage from effective item " +
-			          _playerHeldItem.playerHeldItem + " - New HP = " +
-			          _itemHp);
+			if (_Log)
+			{
+				Debug.Log(transform.name +
+				          " took 2 damage from effective item " +
+				          _playerHeldItem.playerHeldItem + " - New HP = " +
+				          _itemHp);
+			}
 		}
 
 		if (_itemHp <= 0)

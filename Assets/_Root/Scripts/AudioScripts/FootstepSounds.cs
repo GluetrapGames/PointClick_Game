@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class FootstepSounds : MonoBehaviour
 {
+	[SerializeField]
+	private bool _Log;
+
 	public string whatMaterial;
 	public float footstepSpeed;
-	[SerializeField]
-	private GameObject Player;
-	private GridMovement PlayerGridController;
+	private GameManager _GameManager;
 	private bool playingFootsteps;
 
-	/// <summary>
-	///     Idk why this isnt working, Adam found a workaround for now.
-	/// </summary>
+
+	// Idk why this isnt working, Adam found a workaround for now.
 	private void Awake()
 	{
-		PlayerGridController = Player.GetComponent<GridMovement>();
+		_GameManager = FindFirstObjectByType<GameManager>();
 	}
 
 	private void Update()
 	{
-		if (PlayerGridController.m_IsMoving)
+		if (_GameManager.m_Player.m_Movement.m_IsMoving)
 		{
 			if (!playingFootsteps) startFootsteps();
 		}
@@ -44,14 +44,14 @@ public class FootstepSounds : MonoBehaviour
 	{
 		playingFootsteps = true;
 		InvokeRepeating("postFootstep", 0f, footstepSpeed);
-		Debug.Log("Started Footstep");
+		if (_Log) Debug.Log("Started Footstep");
 	}
 
 	private void stopFootsteps()
 	{
 		playingFootsteps = false;
 		CancelInvoke("postFootstep");
-		Debug.Log("Stopped Footstep");
+		if (_Log) Debug.Log("Stopped Footstep");
 	}
 
 	private void postFootstep()
