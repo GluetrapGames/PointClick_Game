@@ -16,12 +16,12 @@ public class BreakSounds : MonoBehaviour
         AkSoundEngine.SetSwitch("BreakMaterial", itemType, gameObject);
 
         // Post event
-        AkSoundEngine.PostEvent("break_mat", gameObject);
+        AkSoundEngine.PostEvent("Material", gameObject);
 
         // Checks for unique objects
         if (itemType == "BugShelf") { postBugShelf(); }
 
-        if (itemType == "Taxidermy") { postTaxidermy(); }
+        if (itemType == "TaxidermyAnimal") { postTaxidermy(); }
     }
 
     // Unique objects (Objects that need multiple material types)
