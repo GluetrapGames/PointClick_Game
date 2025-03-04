@@ -27,7 +27,6 @@ public class SceneTransistion : MonoBehaviour
 
     IEnumerator LoadScene(string sceneName)
     {
-        
         _crossfadeAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);

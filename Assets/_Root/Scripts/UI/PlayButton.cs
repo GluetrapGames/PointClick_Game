@@ -1,3 +1,4 @@
+using PixelCrushers.DialogueSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,11 @@ public class PlayButton : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        // If a conversation is playing when returning to menu, then stop all conversations.
+        if (DialogueManager.IsConversationActive)
+            DialogueManager.StopAllConversations();
+
+
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
         
