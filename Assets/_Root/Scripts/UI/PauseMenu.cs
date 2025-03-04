@@ -39,7 +39,7 @@ public class PauseMenu : MonoBehaviour
             {
                 Resume();
             }
-            else
+            else if(!conversationControllerRef.IsConversationActive)
             {
                 Pause();
             }
