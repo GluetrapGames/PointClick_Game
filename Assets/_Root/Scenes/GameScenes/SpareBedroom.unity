@@ -7632,7 +7632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 8
+  trigger: 16
   condition:
     luaConditions: []
     questConditions: []
@@ -7673,7 +7673,7 @@ MonoBehaviour:
   cacheBarkLines: 0
   conversation: SpareBedroom_EntryEvent
   conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 734692103}
+  conversationActor: {fileID: 1193585558}
   startConversationEntryID: -1
   startConversationEntryTitle: 
   overrideDialogueUI: {fileID: 0}
@@ -7706,7 +7706,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734692102}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -8720,7 +8720,7 @@ Transform:
   m_GameObject: {fileID: 893731814}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7894771, y: -3.0598521, z: -10.493114}
+  m_LocalPosition: {x: 3.33, y: -4.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11551,15 +11551,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1412881895938366377, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7894771
+      value: 3.33
       objectReference: {fileID: 0}
     - target: {fileID: 1412881895938366377, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.0598521
+      value: -4.15
       objectReference: {fileID: 0}
     - target: {fileID: 1412881895938366377, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.4931146
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1412881895938366377, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11588,6 +11588,14 @@ PrefabInstance:
     - target: {fileID: 1412881895938366377, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550366243758954927, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
+      propertyPath: _startingGridPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550366243758954927, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
+      propertyPath: _startingGridPosition.y
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8485669108317632510, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_Name

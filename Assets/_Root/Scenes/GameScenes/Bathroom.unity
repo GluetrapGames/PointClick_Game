@@ -4018,11 +4018,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1412881895938366377, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.37725914
+      value: -0.57
       objectReference: {fileID: 0}
     - target: {fileID: 1412881895938366377, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.4931146
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1412881895938366377, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4051,6 +4051,14 @@ PrefabInstance:
     - target: {fileID: 1412881895938366377, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550366243758954927, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
+      propertyPath: _startingGridPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550366243758954927, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
+      propertyPath: _startingGridPosition.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8485669108317632510, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
       propertyPath: m_Name
@@ -4647,7 +4655,7 @@ Transform:
   m_GameObject: {fileID: 426849133}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.9737906, y: 0.37725914, z: -10.493114}
+  m_LocalPosition: {x: -2.9737906, y: -0.57, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14121,7 +14129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 8
+  trigger: 16
   condition:
     luaConditions: []
     questConditions: []
@@ -14162,7 +14170,7 @@ MonoBehaviour:
   cacheBarkLines: 0
   conversation: Bathroom__EnterEvent
   conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 1506340970}
+  conversationActor: {fileID: 372620830}
   startConversationEntryID: -1
   startConversationEntryTitle: 
   overrideDialogueUI: {fileID: 0}
@@ -14229,7 +14237,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506340969}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
