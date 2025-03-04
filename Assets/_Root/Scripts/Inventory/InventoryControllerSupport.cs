@@ -1,3 +1,4 @@
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -167,7 +168,7 @@ public class InventoryControllerSupport : MonoBehaviour
 				slot.item = currentHeldItem;
 
 				slotComp.item = null;
-				heldItemSlot.playerHeldItem = null;
+				heldItemSlot.playerHeldItem = ItemTypes.None;
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 using System;
 using EditorAttributes;
+using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -34,7 +35,7 @@ public class PickUpScript : MonoBehaviour
 	[SerializeField]
 	private bool _IsWallItem;
 	[SerializeField]
-	private string _ItemType;
+	private ItemTypes _ItemType;
 	[SerializeField]
 	private GameObject _ItemPrefab;
 
@@ -105,42 +106,8 @@ public class PickUpScript : MonoBehaviour
 	{
 		DialogueManager.ShowAlert($"{name} has been collected!");
 
-
 		_ = _GameManager.m_InventoryManager.CollectItem(
 			new ItemData(gameObject.name, _ItemType, sprite));
-
-		/*while (!_SlotFound)
-		{
-			Debug.Log("Finding Slot");
-			foreach (InventorySlot itemSlot in _ItemSlots)
-			{
-				if (itemSlot.transform.childCount == 0 && !_SlotFound)
-				{
-					Debug.Log($"Slot {itemSlot.name} is empty");
-					// Create inventory item instance.
-					GameObject itemInstance =
-						Instantiate(_ItemPrefab, itemSlot.transform);
-					itemInstance.TryGetComponent(out InventoryItem item);
-					itemInstance.GetComponent<Image>().sprite = sprite;
-
-					item.itemType = _ItemType;
-					_SlotFound = true;
-					itemSlot.item = item;
-
-					Debug.Log(
-						$"Added <{_ItemType}> to slot {itemSlot.name} - " +
-						$"Type Validation:<{item.itemType}>");
-				}
-
-				if (itemSlot != _ItemSlots.Last() || _SlotFound) continue;
-				Debug.LogWarning(
-					$"Inventory full while attempting {_ItemType} " +
-					"spawning, exiting while loop");
-				_SlotFound = true;
-			}
-		}
-
-		_SlotFound = false;*/
 
 		// If the object plays a dialogue after pickup
 		if (_StartConvo)

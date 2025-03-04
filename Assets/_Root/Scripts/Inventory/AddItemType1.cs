@@ -10,7 +10,7 @@ public class AddItemType1 : MonoBehaviour
 	public Sprite sprite;
 	private bool _slotFound;
 
-	public void OnButtonPress()
+	/*public void OnButtonPress()
 	{
 		while (!_slotFound)
 		{
@@ -42,6 +42,6 @@ public class AddItemType1 : MonoBehaviour
 		}
 
 		_slotFound = false;
-	}
+	}*/
 }
 }

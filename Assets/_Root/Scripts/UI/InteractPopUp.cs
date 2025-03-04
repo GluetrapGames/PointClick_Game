@@ -8,16 +8,16 @@ public class InteractPopUp : MonoBehaviour
 	public GameObject interactionUI;
 
 	[SerializeField]
-	private CollideCheck _collisionCheck;
-	[SerializeField]
 	private bool _Log;
 
+	private CollideCheck _collisionCheck;
 	private GameManager _GameManager;
 
 
 	private void Awake()
 	{
 		_GameManager = FindFirstObjectByType<GameManager>();
+		_collisionCheck = GetComponent<CollideCheck>();
 	}
 
 	// Update is called once per frame

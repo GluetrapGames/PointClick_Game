@@ -1,3 +1,4 @@
+using GlueTrap.Utilities;
 using UnityEngine;
 
 namespace GlueTrap
@@ -7,7 +8,7 @@ public class FootstepSounds : MonoBehaviour
 	[SerializeField]
 	private bool _Log;
 
-	public string whatMaterial;
+	public MaterialTypes whatMaterial;
 	public float footstepSpeed;
 	private GameManager _GameManager;
 	private bool playingFootsteps;
@@ -39,7 +40,7 @@ public class FootstepSounds : MonoBehaviour
 			AkSoundEngine.SetSwitch("FootstepMaterial", "Wood", gameObject);
 
 		// Set switch in Wwise 
-		AkSoundEngine.SetSwitch("FootstepMaterial", whatMaterial,
+		AkSoundEngine.SetSwitch("FootstepMaterial", whatMaterial.ToString(),
 			gameObject);
 	}
 

@@ -2917,7 +2917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
       propertyPath: _ItemType
-      value: Journal
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
       propertyPath: _itemType
@@ -3374,7 +3374,7 @@ PrefabInstance:
       objectReference: {fileID: 52003857}
     - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
       propertyPath: _ItemType
-      value: Money
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 108372546632361976, guid: 9fa5994635f0a4a159bbfabd0930d4ca, type: 3}
       propertyPath: _itemType
@@ -3606,17 +3606,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!1 &350264717 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7935488637001019580, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
-  m_PrefabInstance: {fileID: 970713078}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &350264719 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1724862933650706340, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
   m_PrefabInstance: {fileID: 970713078}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350264717}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 033d880ff2a5e410caf917adc7cb1a05, type: 3}
@@ -3627,35 +3622,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4143384594345370911, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
   m_PrefabInstance: {fileID: 970713078}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &350264723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350264717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 033d880ff2a5e410caf917adc7cb1a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Log: 0
---- !u!114 &350264724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350264717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8767476faee20ba419fbdc13bb70ac6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRadius: 5
-  interactionUI: {fileID: 1772023802}
-  _collisionCheck: {fileID: 350264719}
-  _Log: 0
 --- !u!1 &357959359
 GameObject:
   m_ObjectHideFlags: 0
@@ -9235,6 +9201,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2005157879}
     m_Modifications:
+    - target: {fileID: 1220951294116191168, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: interactionUI
+      value: 
+      objectReference: {fileID: 1772023802}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _itemHp
       value: 3
@@ -9244,8 +9214,16 @@ PrefabInstance:
       value: Plant
       objectReference: {fileID: 0}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: _ItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: eventType
       value: Material
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: _EventType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _itemMaxHp
@@ -9370,13 +9348,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7935488637001019580, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 350264724}
-    - targetCorrespondingSourceObject: {fileID: 7935488637001019580, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 350264723}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
 --- !u!1 &971643439
 GameObject:
@@ -11723,7 +11695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Log: 0
-  whatMaterial: wood
+  whatMaterial: 1
   footstepSpeed: 0.5
 --- !u!1 &1361362945
 GameObject:

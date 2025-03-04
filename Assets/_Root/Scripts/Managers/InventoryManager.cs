@@ -10,16 +10,20 @@ namespace GlueTrap
 public class InventoryManager : Singleton<InventoryManager>
 {
 	[SerializeField]
+	public bool m_Log;
+	[SerializeField]
 	private GameObject _InventoryPrefab;
-
 	[SerializeField]
 	private GameObject _ItemPrefab;
-	public HeldItemSlot m_HeldItemSlot;
-	public Transform m_Inventory;
-	public List<Transform> m_InventorySlots = new();
-	public bool m_Log;
+
 	private GameManager _GameManager;
-	public Dictionary<string, InventoryItemData> m_InventoryItems = new();
+
+	public HeldItemSlot m_HeldItemSlot { get; private set; }
+	public Transform m_Inventory { get; private set; }
+	public List<Transform> m_InventorySlots { get; } = new();
+	public Dictionary<string, InventoryItemData> m_InventoryItems { get; } =
+		new();
+
 
 	protected override void Awake()
 	{
@@ -152,9 +156,9 @@ public struct ItemData
 {
 	public string m_Name;
 	public Sprite m_Sprite;
-	public string m_Type;
+	public ItemTypes m_Type;
 
-	public ItemData(string name, string type, Sprite sprite)
+	public ItemData(string name, ItemTypes type, Sprite sprite)
 	{
 		m_Name = name;
 		m_Type = type;

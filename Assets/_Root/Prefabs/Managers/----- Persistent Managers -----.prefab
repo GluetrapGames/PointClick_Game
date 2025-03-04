@@ -1042,23 +1042,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89885e079e944c419d7dba24728d3adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GameManager: {fileID: 0}
-  m_EndItemTypes:
-    _serializedList:
-    - Key: Money
-      Value: 0
-    - Key: Pills
-      Value: 0
-    - Key: Journal
-      Value: 0
-  m_EndScene: 7
-  _BreakableItems:
-    _serializedList: []
+  _AlbertPrefab: {fileID: 3175547867612132222, guid: 6868a9bb6290cb144b4fb953a5dfe7f6, type: 3}
+  _AlbertSpawPoint: {fileID: 0}
   _DestroyedItems:
     _serializedList: []
   _IsGameOver: 0
-  _AlbertPrefab: {fileID: 3175547867612132222, guid: 6868a9bb6290cb144b4fb953a5dfe7f6, type: 3}
-  _AlbertSpawPoint: {fileID: 0}
+  _Log: 0
+  m_EndItemTypes:
+    _serializedList:
+    - Key: 3
+      Value: 0
+    - Key: 4
+      Value: 0
+    - Key: 9
+      Value: 0
+  m_EndScene: 7
+  m_GameManager: {fileID: 0}
 --- !u!1 &1039360163538705382
 GameObject:
   m_ObjectHideFlags: 0
@@ -7341,6 +7340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 5659531494727424445, guid: e2dab9c99cc794f45999fefa91703331, type: 3}
+      propertyPath: _InventoryPrefab
+      value: 
+      objectReference: {fileID: 5831595455352338867, guid: aa600f848e7fa0b4f9acfff7ea0db528, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7407,6 +7410,22 @@ PrefabInstance:
       propertyPath: _PlayerCameraPrefab
       value: 
       objectReference: {fileID: 2228862305253267717, guid: a40fa0eb3f6da6544aa5e3aa446f4686, type: 3}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: _NoneGameplayScenes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: '_NoneGameplayScenes.Array.data[0]'
+      value: MenuScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: '_NoneGameplayScenes.Array.data[1]'
+      value: CourtroomIntro
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189679988881524789, guid: 700490468346f3b4b86837f861967597, type: 3}
+      propertyPath: '_NoneGameplayScenes.Array.data[2]'
+      value: CourtroomEnding
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

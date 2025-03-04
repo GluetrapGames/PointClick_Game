@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using EditorAttributes;
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,42 +9,37 @@ namespace GlueTrap
 {
 public class BreakableItem : MonoBehaviour
 {
-	public enum _itemStates
-	{
-		Undamaged,
-		Damaged,
-		Broken
-	}
-
-	public string itemType;
-	public string eventType;
-	public CollideCheck itemCollision;
-	public PlayerInput playerInput;
-	public _itemStates _damageState = _itemStates.Undamaged;
-
 	[SerializeField, ReadOnly]
 	private string _PersistentID;
 	[SerializeField]
 	private bool _Log;
+	[SerializeField, ReadOnly]
+	private ItemDamageStates _DamageState = ItemDamageStates.Undamaged;
 	[SerializeField]
 	private int _itemMaxHp;
-	[SerializeField,
-	 ProgressBar(nameof(_itemMaxHp), 0.8f, 0f, 0f)]
+	[SerializeField, ProgressBar(nameof(_itemMaxHp), 0.8f, 0f, 0f)]
 	private int _itemHp;
 	[SerializeField]
-	private string _effectiveItemType;
+	private ItemTypes _ItemType;
+	[SerializeField]
+	private ItemTypes _effectiveItemType;
 	[SerializeField]
 	private Vector3 _afterBreakOffset;
 	[SerializeField]
 	private List<Sprite> _sprites;
+	[SerializeField]
+	private EventTypes _EventType;
+
 	private InputAction _breakableAction;
 	private EndGameTracker _EndGameTracker;
-
 	private GameManager _GameManager;
-	private string _heldItemType;
+	private ItemTypes _heldItemType;
+	private CollideCheck _ItemCollision;
 	private HeldItemSlot _playerHeldItem;
+	private PlayerInput _PlayerInput;
 
 	public string m_PersistentID => _PersistentID;
+	public ItemDamageStates m_DamageState => _DamageState;
 
 
 	private void Awake()
@@ -51,81 +47,77 @@ public class BreakableItem : MonoBehaviour
 		_GameManager = GameObject.FindGameObjectWithTag("Manager")
 			.GetComponent<GameManager>();
 		_EndGameTracker = FindFirstObjectByType<EndGameTracker>();
+		_ItemCollision = GetComponent<CollideCheck>();
 	}
 
 	private void Start()
 	{
 		_playerHeldItem = _GameManager.m_InventoryManager.m_HeldItemSlot;
-		playerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
-		_breakableAction = playerInput.actions["Break"];
+		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
+
+		_breakableAction = _PlayerInput.actions["Break"];
 		if (_breakableAction == null) Debug.LogError("No break action found");
 
 		if (!_EndGameTracker._DestroyedItems.ContainsKey(_PersistentID))
 			return;
 		_itemHp = 0;
-		_damageState = _itemStates.Broken;
-		SpriteSwap(_damageState);
+		_DamageState = ItemDamageStates.Broken;
+		SpriteSwap(_DamageState);
 	}
 
 	private void Update()
 	{
-		if (_breakableAction.WasPressedThisFrame() && itemCollision.IsCollided)
+		if (!_playerHeldItem) return;
+		_heldItemType = _playerHeldItem.playerHeldItem;
+
+		if (_breakableAction.WasPressedThisFrame() && _ItemCollision.IsCollided)
 		{
 			if (_Log) Debug.Log("Damage Called");
 			Damage();
-			AkSoundEngine.SetSwitch("BreakMaterial", itemType, gameObject);
-			AkSoundEngine.PostEvent(eventType, gameObject);
+			AkSoundEngine.SetSwitch("BreakMaterial", _ItemType.ToString(),
+				gameObject);
+			AkSoundEngine.PostEvent(_EventType.ToString(), gameObject);
 		}
 		else if (_breakableAction.WasPressedThisFrame() &&
-		         !itemCollision.IsCollided)
+		         !_ItemCollision.IsCollided)
 			Debug.Log("Damage failed to call, no collision detected");
-	}
-
-	private void FixedUpdate()
-	{
-		if (_playerHeldItem == null)
-			return;
-		_heldItemType = _playerHeldItem.playerHeldItem;
 	}
 
 	private void Damage()
 	{
-		if (_playerHeldItem.playerHeldItem != _effectiveItemType)
+		// Normal amount of damage if not held item or held item is ineffective.
+		if (_playerHeldItem.playerHeldItem != _effectiveItemType ||
+		    _playerHeldItem.playerHeldItem == ItemTypes.None)
 		{
-			_itemHp = _itemHp - 1;
+			_itemHp--;
 			if (_Log)
-			{
-				Debug.Log(transform.name + " took 1 damage - New HP = " +
-				          _itemHp);
-			}
+				Debug.Log($"{name} took 1 damage! New HP = {_itemHp}");
 		}
 		else
 		{
-			_itemHp = _itemHp - 2;
+			_itemHp -= 2;
 			if (_Log)
 			{
-				Debug.Log(transform.name +
-				          " took 2 damage from effective item " +
-				          _playerHeldItem.playerHeldItem + " - New HP = " +
-				          _itemHp);
+				Debug.Log(
+					$"{name} took 2 damage from effective item " +
+					$"{_playerHeldItem.playerHeldItem}! New HP = {_itemHp}");
 			}
 		}
 
-		if (_itemHp <= 0)
-			_damageState = _itemStates.Broken;
-		else
-			_damageState = _itemStates.Damaged;
-		SpriteSwap(_damageState);
+		_DamageState = _itemHp <= 0
+			? ItemDamageStates.Broken
+			: ItemDamageStates.Damaged;
+		SpriteSwap(_DamageState);
 	}
 
-	private void SpriteSwap(_itemStates state)
+	private void SpriteSwap(ItemDamageStates damageState)
 	{
-		switch (state)
+		switch (damageState)
 		{
-			case _itemStates.Damaged:
+			case ItemDamageStates.Damaged:
 				gameObject.GetComponent<SpriteRenderer>().sprite = _sprites[0];
 				break;
-			case _itemStates.Broken:
+			case ItemDamageStates.Broken:
 				gameObject.GetComponent<SpriteRenderer>().sprite = _sprites[1];
 				gameObject.GetComponent<BoxCollider2D>().enabled = false;
 				gameObject.transform.position -= _afterBreakOffset;
@@ -143,6 +135,7 @@ public class BreakableItem : MonoBehaviour
 
 	private void OnValidate()
 	{
+		// Update current Health to new max health.
 		_itemHp = _itemMaxHp;
 	}
 #endif

@@ -7,7 +7,7 @@ public class ItemChecker : MonoBehaviour
 	public HeldItemSlot heldItem;
 	public SpriteRenderer renderer;
 
-	private void OnTriggerEnter2D(Collider2D other)
+	/*private void OnTriggerEnter2D(Collider2D other)
 	{
 		Debug.Log("Trigger Called");
 		if (other.gameObject.CompareTag("Player"))
@@ -29,6 +29,6 @@ public class ItemChecker : MonoBehaviour
 				renderer.color = Color.yellow;
 			}
 		}
-	}
+	}*/
 }
 }

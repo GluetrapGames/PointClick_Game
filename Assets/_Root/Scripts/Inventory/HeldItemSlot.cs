@@ -1,3 +1,4 @@
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -5,11 +6,11 @@ namespace GlueTrap
 {
 public class HeldItemSlot : MonoBehaviour, IDropHandler
 {
-	public string playerHeldItem;
+	public ItemTypes playerHeldItem;
 
 	private void Update()
 	{
-		if (transform.childCount == 0) playerHeldItem = null;
+		if (transform.childCount == 0) playerHeldItem = ItemTypes.None;
 	}
 
 	public void OnDrop(PointerEventData eventData)

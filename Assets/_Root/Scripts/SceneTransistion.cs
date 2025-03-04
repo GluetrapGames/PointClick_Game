@@ -1,4 +1,5 @@
 using System.Collections;
+using EditorAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +7,7 @@ namespace GlueTrap
 {
 public class SceneTransistion : MonoBehaviour
 {
-	[SerializeField]
+	[SerializeField, SceneDropdown]
 	private string _sceneToTransitionTo;
 
 	[SerializeField]

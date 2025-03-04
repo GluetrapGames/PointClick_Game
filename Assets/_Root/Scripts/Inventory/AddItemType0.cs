@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace GlueTrap
 {
@@ -10,7 +9,7 @@ public class AddItemType0 : MonoBehaviour
 	public Sprite sprite;
 	private bool _slotFound;
 
-	public void OnButtonPress()
+	/*public void OnButtonPress()
 	{
 		while (!_slotFound)
 		{
@@ -21,8 +20,7 @@ public class AddItemType0 : MonoBehaviour
 				    _slotFound == false)
 				{
 					Debug.Log("Slot" + itemSlots[i].name + " is empty");
-					itemPrefab.GetComponent<InventoryItem>().itemType =
-						"Type 0";
+					itemPrefab.GetComponent<InventoryItem>().itemType = "Type 0";
 					itemPrefab.GetComponent<Image>().sprite = sprite;
 					Instantiate(itemPrefab, itemSlots[i].transform);
 					_slotFound = true;
@@ -42,6 +40,6 @@ public class AddItemType0 : MonoBehaviour
 		}
 
 		_slotFound = false;
-	}
+	}*/
 }
 }

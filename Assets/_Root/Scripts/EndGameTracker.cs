@@ -23,7 +23,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private bool _Log;
 	[Header("End Game Settings"),
 	 SerializedDictionary("Item Type", "Is Collected")]
-	public SerializedDictionary<string, bool> m_EndItemTypes = new();
+	public SerializedDictionary<ItemTypes, bool> m_EndItemTypes = new();
 	[SceneDropdown]
 	public int m_EndScene;
 	public GameManager m_GameManager;
@@ -45,10 +45,10 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 		if (m_GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
 		{
-			List<string> keysToUpdate = new();
+			List<ItemTypes> keysToUpdate = new();
 			foreach ((var itemName, InventoryItemData data) in m_GameManager
 				         .m_InventoryManager.m_InventoryItems)
-			foreach (var (type, isCollected) in m_EndItemTypes)
+			foreach ((ItemTypes type, var isCollected) in m_EndItemTypes)
 				if (data.m_Item.m_Type == type)
 				{
 					if (_Log) Debug.Log($"{type}: {isCollected}");
@@ -56,13 +56,13 @@ public class EndGameTracker : Singleton<EndGameTracker>
 				}
 
 			// Update list for every item collected.
-			foreach (var key in keysToUpdate) m_EndItemTypes[key] = true;
+			foreach (ItemTypes key in keysToUpdate) m_EndItemTypes[key] = true;
 		}
 
 		if (_BreakableItems.Count != 0)
 		{
 			foreach ((var id, BreakableItem item) in _BreakableItems)
-				if (item._damageState == BreakableItem._itemStates.Broken)
+				if (item.m_DamageState == ItemDamageStates.Broken)
 					_DestroyedItems[id] = true;
 		}
 
