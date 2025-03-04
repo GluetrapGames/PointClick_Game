@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using _Root.Scripts.Utilities;
 using Cinemachine;
 using EditorAttributes;
@@ -16,36 +18,34 @@ public class GameManager : Singleton<GameManager>
 	[SerializeField, ReadOnly]
 	private Transform _PlayerSpawnPoint;
 	[SerializeField, ReadOnly]
-	private States _CurrentState;
+	private States _CurrentState = States.Moving;
+	[SerializeField, SceneDropdown]
+	private List<string> _NoneGameplayScenes;
+
+	private States _PreviousState;
 
 	public InventoryManager m_InventoryManager { get; private set; }
-	public PauseMenu m_UiManager { get; }
 	public PlayerGridController m_Player { get; private set; }
 	public Grid m_Grid { get; private set; }
 	public Tilemap m_NavMesh { get; private set; }
-	public States m_CurrentState
-	{
-		get => _CurrentState;
-		private set => _CurrentState = value;
-	}
+	public States m_CurrentState => _CurrentState;
 	public Camera m_Camera { get; private set; }
+	public List<string> m_NoneGameplayScenes => _NoneGameplayScenes;
+	public Scene m_CurrentScene { get; private set; }
 
 
 	protected override void Awake()
 	{
 		base.Awake();
 		m_InventoryManager = FindFirstObjectByType<InventoryManager>();
-
 		InitGame();
+		_PreviousState = _CurrentState;
 	}
 
 	private void Update()
 	{
 		if (DialogueManager.IsConversationActive)
-			m_CurrentState = States.Talking;
-		else if // Resume movement when dialogue ends.
-			(m_CurrentState == States.Talking)
-			m_CurrentState = States.Moving;
+			ChangeGameState(States.Talking);
 
 		switch (m_CurrentState)
 		{
@@ -53,6 +53,13 @@ public class GameManager : Singleton<GameManager>
 				m_Player.HandleMovement();
 				break;
 			case States.Talking:
+				// Return to past state once dialogue ends.
+				if (DialogueManager.IsConversationActive) break;
+				ChangeGameState(m_NoneGameplayScenes.Any(noneGameplayScene =>
+					m_CurrentScene.name == noneGameplayScene)
+					? States.InMenus
+					: States.Moving);
+
 				break;
 			case States.Interacting:
 				break;
@@ -114,6 +121,23 @@ public class GameManager : Singleton<GameManager>
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
+		// Update current Scene.
+		m_CurrentScene = scene;
+
+		// Make sure we are in a gameplay scene.
+		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
+			    scene.name == noneGameplayScene))
+		{
+			m_Player.gameObject.SetActive(false);
+			ChangeGameState(States.InMenus);
+			return;
+		}
+
+		// If this is a gameplay scene and the Player is not active, turn them on.
+		ChangeGameState(States.Moving);
+		if (!m_Player.gameObject.activeInHierarchy)
+			m_Player.gameObject.SetActive(true);
+
 		// Get the Grid and the Navmesh.
 		m_Grid = FindFirstObjectByType<Grid>();
 		m_NavMesh = GameObject.FindGameObjectWithTag("NavMesh")
@@ -144,7 +168,8 @@ public class GameManager : Singleton<GameManager>
 
 	public void ChangeGameState(States newState)
 	{
-		m_CurrentState = newState;
+		_PreviousState = _CurrentState;
+		_CurrentState = newState;
 	}
 }
 

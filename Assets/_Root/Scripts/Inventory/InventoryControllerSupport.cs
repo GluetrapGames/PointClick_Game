@@ -10,10 +10,13 @@ public class InventoryControllerSupport : MonoBehaviour
 	public PlayerInput playerInput;
 
 	public InvButtonSpriteSwap spriteSwap;
+
+	[SerializeField]
+	private bool _Log;
 	private GameManager _GameManager;
 	private InputAction _inventoryAction;
-
 	private bool _isOpen;
+
 
 	private void Awake()
 	{
@@ -33,8 +36,7 @@ public class InventoryControllerSupport : MonoBehaviour
 			// Check if the button is assigned
 			if (inventorySlot.button == null || slot == null)
 			{
-				Debug.LogError("Button is null in InventorySlot: " +
-				               slot.name);
+				Debug.LogError($"Button is null in {slot}: {slot.name}");
 				continue; // Skip this slot if the button is missing
 			}
 
@@ -48,7 +50,7 @@ public class InventoryControllerSupport : MonoBehaviour
 	{
 		if (_inventoryAction.WasPressedThisFrame())
 		{
-			Debug.Log("Opening Inv/Closing Inv");
+			if (_Log) Debug.Log("Opening Inv/Closing Inv");
 			OpenInv();
 		}
 	}
@@ -57,7 +59,8 @@ public class InventoryControllerSupport : MonoBehaviour
 	{
 		if (!_isOpen)
 		{
-			Debug.Log("Opening Inv");
+			_GameManager.ChangeGameState(States.InMenus);
+			if (_Log) Debug.Log("Opening Inv");
 			inventoryUI.SetActive(true);
 			if (Gamepad.current != null)
 				EventSystem.current.SetSelectedGameObject(firstSelectedSlot);
@@ -67,7 +70,8 @@ public class InventoryControllerSupport : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Closing Inv");
+			_GameManager.ChangeGameState(States.Moving);
+			if (_Log) Debug.Log("Closing Inv");
 			inventoryUI.SetActive(false);
 			EventSystem.current.SetSelectedGameObject(null);
 			_isOpen = false;
@@ -78,10 +82,7 @@ public class InventoryControllerSupport : MonoBehaviour
 
 	private void InvTimeMethod()
 	{
-		if (_isOpen)
-			Time.timeScale = 0;
-		else
-			Time.timeScale = 1;
+		Time.timeScale = _isOpen ? 0 : 1;
 	}
 
 	private void OnSlotPressed(InventorySlot slot)
@@ -89,7 +90,8 @@ public class InventoryControllerSupport : MonoBehaviour
 		InventorySlot pressedSlot = slot;
 		var slotComp = _GameManager.m_InventoryManager.m_HeldItemSlot
 			.GetComponent<InventorySlot>();
-		HeldItemSlot heldItemSlot = _GameManager.m_InventoryManager.m_HeldItemSlot;
+		HeldItemSlot heldItemSlot =
+			_GameManager.m_InventoryManager.m_HeldItemSlot;
 
 		if (_GameManager.m_InventoryManager.m_HeldItemSlot.transform
 			    .childCount == 0)
@@ -100,19 +102,22 @@ public class InventoryControllerSupport : MonoBehaviour
 					.m_HeldItemSlot.transform);
 				heldItemSlot.playerHeldItem = slot.item.itemType;
 
-				Debug.Log("Transferred " + slot.item.name +
-				          " to the HeldItemSlot.");
+				if (_Log)
+				{
+					Debug.Log(
+						$"Transferred {slot.item.name} to the HeldItemSlot.");
+				}
 
 				slot.item = null;
 			}
-			else
-				Debug.Log("No item in slot " + slot.name + " to transfer.");
+			else if (_Log)
+				Debug.Log($"No item in slot {slot.item.name} to transfer.");
 		}
 		else
 		{
 			if (slot.item != null)
 			{
-				Debug.Log("Item in held slot");
+				if (_Log) Debug.Log("Item in held slot");
 				InventorySlot previousSlot = slot;
 
 				Transform currentHeldItemTransform =
@@ -136,15 +141,20 @@ public class InventoryControllerSupport : MonoBehaviour
 				slotComp.item = newHeldItem;
 				heldItemSlot.playerHeldItem = newHeldItem.itemType;
 
-				Debug.Log("Held item new parent = " +
-				          currentHeldItem.transform.parent.name);
-				Debug.Log("Transferred " + slot.item.name +
-				          " to the HeldItemSlot.");
+				if (!_Log) return;
+				Debug.Log(
+					$"Held item new parent: {currentHeldItem.transform.parent.name}");
+				Debug.Log(
+					$"Transferred {slot.item.name} to the HeldItemSlot.");
 			}
 			else
 			{
-				Debug.Log("No item in slot " + slot.name +
-				          " to transfer, transferring held item to empty slot.");
+				if (_Log)
+				{
+					Debug.Log($"No item in slot {slot.name} to transfer, " +
+					          "transferring held item to empty slot.");
+				}
+
 				Transform currentHeldItemTransform =
 					_GameManager.m_InventoryManager.m_HeldItemSlot.transform
 						.GetChild(0);

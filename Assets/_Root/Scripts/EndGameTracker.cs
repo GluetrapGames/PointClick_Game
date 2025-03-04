@@ -48,7 +48,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			foreach (var (type, isCollected) in m_EndItemTypes)
 				if (data.m_Item.m_Type == type)
 				{
-					if(_Log)Debug.Log($"{type}: {isCollected}");
+					if (_Log) Debug.Log($"{type}: {isCollected}");
 					keysToUpdate.Add(type);
 				}
 
@@ -94,6 +94,11 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			Instantiate(_AlbertPrefab, _AlbertSpawPoint.position,
 				quaternion.identity);
 		}
+
+		// Make sure we are in a gameplay scene.
+		if (m_GameManager.m_NoneGameplayScenes.Any(noneGameplayScene =>
+			    scene.name == noneGameplayScene))
+			return;
 
 		// Get breakable items and add/update the list.
 		var newItems =

@@ -15,11 +15,14 @@ public class InventoryManager : Singleton<InventoryManager>
 	private GameObject _ItemPrefab;
 	[SerializeField]
 	private GameObject _InventoryPrefab;
+
+	private GameManager _GameManager;
 	public Dictionary<string, InventoryItemData> m_InventoryItems = new();
 
 	protected override void Awake()
 	{
 		base.Awake();
+		_GameManager = FindFirstObjectByType<GameManager>();
 		// Get the Inventory.
 		GameObject inventoryObject = GameObject.FindWithTag("Inventory");
 		if (!inventoryObject)
@@ -35,6 +38,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
+		m_Inventory.gameObject.SetActive(_GameManager.m_CurrentState !=
+		                                 States.InMenus);
 	}
 
 	private void GetInventory()
