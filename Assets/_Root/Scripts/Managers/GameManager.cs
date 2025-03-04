@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
 	private States _CurrentState;
 
 	public InventoryManager m_InventoryManager { get; private set; }
+	public PauseMenu m_UiManager { get; }
 	public PlayerGridController m_Player { get; private set; }
 	public Grid m_Grid { get; private set; }
 	public Tilemap m_NavMesh { get; private set; }

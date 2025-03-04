@@ -12,7 +12,6 @@ public class BreakableItem : MonoBehaviour
 		Broken
 	}
 
-	[SerializeField]
 	private HeldItemSlot _playerHeldItem;
 
 	[SerializeField]
@@ -68,6 +67,7 @@ public class BreakableItem : MonoBehaviour
 
 	private void Start()
 	{
+		_playerHeldItem = _GameManager.m_InventoryManager.m_HeldItemSlot;
 		playerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
 		_breakableAction = playerInput.actions["Break"];
 		if (_breakableAction == null) Debug.LogError("No break action found");

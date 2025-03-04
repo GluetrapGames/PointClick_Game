@@ -16,8 +16,6 @@ public class PauseMenu : MonoBehaviour
 	public GameObject firstSelectedPause;
 	public GameObject firstSelectedSettings;
 
-	[SerializeField]
-	public DialogueSystemController conversationControllerRef;
 	private GameManager _GameManager;
 	private InputAction _menuAction;
 
@@ -29,6 +27,8 @@ public class PauseMenu : MonoBehaviour
 	private void Start()
 	{
 		playerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
+		inventoryUI = _GameManager.m_InventoryManager.m_Inventory
+			.gameObject;
 		_menuAction = playerInput.actions["Menu"];
 		if (_menuAction == null) Debug.LogError("No menu action found");
 	}
@@ -47,7 +47,7 @@ public class PauseMenu : MonoBehaviour
 
 	public void Resume()
 	{
-		if (conversationControllerRef.IsConversationActive)
+		if (DialogueManager.IsConversationActive)
 			inventoryUI.SetActive(false);
 		else
 			inventoryUI.SetActive(true);

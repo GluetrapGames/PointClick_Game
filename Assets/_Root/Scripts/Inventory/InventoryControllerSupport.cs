@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -6,12 +5,7 @@ using UnityEngine.InputSystem;
 public class InventoryControllerSupport : MonoBehaviour
 {
 	public GameObject inventoryUI;
-	public GameObject openInvButton;
 	public GameObject firstSelectedSlot;
-
-	public List<InventorySlot> itemSlots;
-	public InventorySlot heldItemSlot;
-	public HeldItemSlot heldItemSlot2;
 
 	public PlayerInput playerInput;
 
@@ -23,27 +17,30 @@ public class InventoryControllerSupport : MonoBehaviour
 
 	private void Awake()
 	{
+		_GameManager = FindFirstObjectByType<GameManager>();
 	}
 
 	private void Start()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
 		playerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
 		_inventoryAction = playerInput.actions["Inventory"];
 		if (_inventoryAction == null) Debug.LogError("No menu action found");
 
-		foreach (InventorySlot slots in itemSlots)
+		foreach (Transform slot in _GameManager.m_InventoryManager
+			         .m_InventorySlots)
 		{
+			var inventorySlot = slot.GetComponent<InventorySlot>();
 			// Check if the button is assigned
-			if (slots.button == null || slots == null)
+			if (inventorySlot.button == null || slot == null)
 			{
 				Debug.LogError("Button is null in InventorySlot: " +
-				               slots.name);
+				               slot.name);
 				continue; // Skip this slot if the button is missing
 			}
 
 			// Add an onClick listener to the Button inside each InventorySlot
-			slots.button.onClick.AddListener(() => OnSlotPressed(slots));
+			inventorySlot.button.onClick.AddListener(() =>
+				OnSlotPressed(inventorySlot));
 		}
 	}
 
@@ -90,13 +87,18 @@ public class InventoryControllerSupport : MonoBehaviour
 	private void OnSlotPressed(InventorySlot slot)
 	{
 		InventorySlot pressedSlot = slot;
+		var slotComp = _GameManager.m_InventoryManager.m_HeldItemSlot
+			.GetComponent<InventorySlot>();
+		HeldItemSlot heldItemSlot = _GameManager.m_InventoryManager.m_HeldItemSlot;
 
-		if (heldItemSlot.transform.childCount == 0)
+		if (_GameManager.m_InventoryManager.m_HeldItemSlot.transform
+			    .childCount == 0)
 		{
 			if (slot.item != null)
 			{
-				slot.item.transform.SetParent(heldItemSlot.transform);
-				heldItemSlot2.playerHeldItem = slot.item.itemType;
+				slot.item.transform.SetParent(_GameManager.m_InventoryManager
+					.m_HeldItemSlot.transform);
+				heldItemSlot.playerHeldItem = slot.item.itemType;
 
 				Debug.Log("Transferred " + slot.item.name +
 				          " to the HeldItemSlot.");
@@ -114,22 +116,25 @@ public class InventoryControllerSupport : MonoBehaviour
 				InventorySlot previousSlot = slot;
 
 				Transform currentHeldItemTransform =
-					heldItemSlot.transform.GetChild(0);
+					_GameManager.m_InventoryManager.m_HeldItemSlot.transform
+						.GetChild(0);
 				var currentHeldItem =
 					currentHeldItemTransform.GetComponent<InventoryItem>();
 
 				currentHeldItem.transform.SetParent(slot.transform);
-				slot.item.transform.SetParent(heldItemSlot.transform);
+				slot.item.transform.SetParent(_GameManager.m_InventoryManager
+					.m_HeldItemSlot.transform);
 
 				slot.item = currentHeldItem;
 
 				Transform newHeldItemTransform =
-					heldItemSlot.transform.GetChild(0);
+					_GameManager.m_InventoryManager.m_HeldItemSlot.transform
+						.GetChild(0);
 				var newHeldItem =
 					newHeldItemTransform.GetComponent<InventoryItem>();
 
-				heldItemSlot.item = newHeldItem;
-				heldItemSlot2.playerHeldItem = newHeldItem.itemType;
+				slotComp.item = newHeldItem;
+				heldItemSlot.playerHeldItem = newHeldItem.itemType;
 
 				Debug.Log("Held item new parent = " +
 				          currentHeldItem.transform.parent.name);
@@ -141,15 +146,16 @@ public class InventoryControllerSupport : MonoBehaviour
 				Debug.Log("No item in slot " + slot.name +
 				          " to transfer, transferring held item to empty slot.");
 				Transform currentHeldItemTransform =
-					heldItemSlot.transform.GetChild(0);
+					_GameManager.m_InventoryManager.m_HeldItemSlot.transform
+						.GetChild(0);
 				var currentHeldItem =
 					currentHeldItemTransform.GetComponent<InventoryItem>();
 
 				currentHeldItem.transform.SetParent(slot.transform);
 				slot.item = currentHeldItem;
 
-				heldItemSlot.item = null;
-				heldItemSlot2.playerHeldItem = null;
+				slotComp.item = null;
+				heldItemSlot.playerHeldItem = null;
 			}
 		}
 	}

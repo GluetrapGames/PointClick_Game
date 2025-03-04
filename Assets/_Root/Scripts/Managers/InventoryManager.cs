@@ -6,61 +6,40 @@ using UnityEngine.UI;
 
 public class InventoryManager : Singleton<InventoryManager>
 {
-	public Transform m_InventoryGroup;
+	public Transform m_Inventory;
 	public List<Transform> m_InventorySlots = new();
-	public GameObject m_HeldItemSlot;
+	public HeldItemSlot m_HeldItemSlot;
 	public bool m_Log;
 
 	[SerializeField]
 	private GameObject _ItemPrefab;
+	[SerializeField]
+	private GameObject _InventoryPrefab;
 	public Dictionary<string, InventoryItemData> m_InventoryItems = new();
 
-
-	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
+	protected override void Awake()
 	{
-		// Get current scenes inventory.
+		base.Awake();
+		// Get the Inventory.
 		GameObject inventoryObject = GameObject.FindWithTag("Inventory");
 		if (!inventoryObject)
 		{
 			Debug.LogWarning("Cannot find 'Inventory Canvas' in the scene.");
-			return;
+			inventoryObject = Instantiate(_InventoryPrefab, transform);
 		}
 
-		m_InventoryGroup = inventoryObject.transform;
+		m_Inventory = inventoryObject.transform;
 
 		GetInventory();
+	}
 
-		// Re-add the inventory items.
-		var slotIndex = 0;
-		foreach (var key in m_InventoryItems.Keys.ToList())
-		{
-			InventoryItemData data = m_InventoryItems[key];
-
-			// Update m_Slot with the new scene's inventory slot.
-			if (slotIndex < m_InventorySlots.Count)
-			{
-				data.m_Slot = m_InventorySlots[slotIndex]
-					.GetComponent<InventorySlot>();
-				m_InventoryItems[key] = data;
-			}
-			else
-			{
-				Debug.LogWarning(
-					$"Not enough slots for '{data.m_Item.m_Name}'!");
-				continue;
-			}
-
-			// Re-add the inventory items.
-			if (SetItem(data) && m_Log)
-				Debug.Log($"Inventory Item '{data.m_Item.m_Name}' restored.");
-
-			slotIndex++;
-		}
+	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
+	{
 	}
 
 	private void GetInventory()
 	{
-		// Get the inventory slots of the current scene.
+		// Get the inventory slots.
 		m_InventorySlots.Clear();
 		var slots =
 			FindObjectsByType<InventorySlot>(FindObjectsInactive.Include,
@@ -76,7 +55,7 @@ public class InventoryManager : Singleton<InventoryManager>
 		foreach (Transform slot in m_InventorySlots)
 		{
 			if (!slot.TryGetComponent(out HeldItemSlot heldItemSlot)) continue;
-			m_HeldItemSlot = heldItemSlot.gameObject;
+			m_HeldItemSlot = heldItemSlot;
 			slotToRemove = slot;
 			break;
 		}

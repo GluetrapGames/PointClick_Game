@@ -26,6 +26,8 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private GameObject _AlbertPrefab;
 	[SerializeField, ReadOnly]
 	private Transform _AlbertSpawPoint;
+	[SerializeField]
+	private bool _Log;
 
 
 	protected override void Awake()
@@ -46,7 +48,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			foreach (var (type, isCollected) in m_EndItemTypes)
 				if (data.m_Item.m_Type == type)
 				{
-					Debug.Log($"{type}: {isCollected}");
+					if(_Log)Debug.Log($"{type}: {isCollected}");
 					keysToUpdate.Add(type);
 				}
 
