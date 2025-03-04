@@ -4,35 +4,39 @@ using UnityEngine.Tilemaps;
 using UnityEditor;
 #endif
 
-public class GridDebug : MonoBehaviour
+namespace GlueTrap.Utilities
 {
-	public bool m_ToggleDebug;
-	public Color m_DebugColour = Color.cyan;
-
-	[SerializeField]
-	private Tilemap _groundTilemap;
-	[SerializeField]
-	private Color _defaultColour = new(1f, 1f, 1f, 0.00f);
-
-
-	private void Update()
+	public class GridDebug : MonoBehaviour
 	{
-		ApplyDebugColours();
-	}
+		public bool m_ToggleDebug;
+		public Color m_DebugColour = Color.cyan;
 
-	// Apply changes in play mode.
+		[SerializeField]
+		private Tilemap _groundTilemap;
+		[SerializeField]
+		private Color _defaultColour = new(1f, 1f, 1f, 0.00f);
+
+
+		private void Update()
+		{
+			ApplyDebugColours();
+		}
+
+		// Apply changes in play mode.
 #if UNITY_EDITOR
-	private void OnValidate()
-	{
-		// Apply changes in the editor when values are changed.
-		if (!Application.isPlaying)
-			EditorApplication.delayCall += ApplyDebugColours;
-	}
+		private void OnValidate()
+		{
+			// Apply changes in the editor when values are changed.
+			if (!Application.isPlaying)
+				EditorApplication.delayCall += ApplyDebugColours;
+		}
 #endif
 
-	private void ApplyDebugColours()
-	{
-		if (_groundTilemap == null) return;
-		_groundTilemap.color = m_ToggleDebug ? m_DebugColour : _defaultColour;
+		private void ApplyDebugColours()
+		{
+			if (_groundTilemap == null) return;
+			_groundTilemap.color =
+				m_ToggleDebug ? m_DebugColour : _defaultColour;
+		}
 	}
 }

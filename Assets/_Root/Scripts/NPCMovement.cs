@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+namespace GlueTrap
+{
 [RequireComponent(typeof(GridMovement))]
 public class NPCMovement : MonoBehaviour
 {
@@ -76,4 +78,5 @@ public class NPCMovement : MonoBehaviour
 			yield return new WaitForSeconds(m_WaitTime / 2f);
 		}
 	}
+}
 }

@@ -1,5 +1,7 @@
 using UnityEngine;
 
+namespace GlueTrap
+{
 public class FootstepSounds : MonoBehaviour
 {
 	[SerializeField]
@@ -37,7 +39,8 @@ public class FootstepSounds : MonoBehaviour
 			AkSoundEngine.SetSwitch("FootstepMaterial", "Wood", gameObject);
 
 		// Set switch in Wwise 
-		AkSoundEngine.SetSwitch("FootstepMaterial", whatMaterial, gameObject);
+		AkSoundEngine.SetSwitch("FootstepMaterial", whatMaterial,
+			gameObject);
 	}
 
 	public void startFootsteps()
@@ -58,4 +61,5 @@ public class FootstepSounds : MonoBehaviour
 	{
 		AkSoundEngine.PostEvent("Footstep", gameObject);
 	}
+}
 }

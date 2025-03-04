@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
+namespace GlueTrap
+{
 public class InventoryControllerSupport : MonoBehaviour
 {
 	public GameObject inventoryUI;
@@ -169,4 +171,5 @@ public class InventoryControllerSupport : MonoBehaviour
 			}
 		}
 	}
+}
 }

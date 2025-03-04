@@ -1,33 +1,36 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using _Root.Scripts.Utilities;
 using AYellowpaper.SerializedCollections;
 using EditorAttributes;
+using GlueTrap.Utilities;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+namespace GlueTrap
+{
 public class EndGameTracker : Singleton<EndGameTracker>
 {
-	public GameManager m_GameManager;
-	[Header("End Game Settings"),
-	 SerializedDictionary("Item Type", "Is Collected")]
-	public SerializedDictionary<string, bool> m_EndItemTypes = new();
-	[SceneDropdown]
-	public int m_EndScene;
-
+	[SerializeField]
+	private GameObject _AlbertPrefab;
 	[SerializeField, ReadOnly]
-	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
+	private Transform _AlbertSpawPoint;
 	[SerializeField, ReadOnly]
 	public SerializedDictionary<string, bool> _DestroyedItems = new();
 	[SerializeField]
 	private bool _IsGameOver;
 	[SerializeField]
-	private GameObject _AlbertPrefab;
-	[SerializeField, ReadOnly]
-	private Transform _AlbertSpawPoint;
-	[SerializeField]
 	private bool _Log;
+	[Header("End Game Settings"),
+	 SerializedDictionary("Item Type", "Is Collected")]
+	public SerializedDictionary<string, bool> m_EndItemTypes = new();
+	[SceneDropdown]
+	public int m_EndScene;
+	public GameManager m_GameManager;
+
+	[SerializeField, ReadOnly]
+	private readonly SerializedDictionary<string, BreakableItem>
+		_BreakableItems = new();
 
 
 	protected override void Awake()
@@ -111,4 +114,5 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			_BreakableItems[id] = item;
 		}
 	}
+}
 }

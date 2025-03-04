@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using EditorAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+namespace GlueTrap
+{
 public class BreakableItem : MonoBehaviour
 {
 	public enum _itemStates
@@ -12,40 +15,34 @@ public class BreakableItem : MonoBehaviour
 		Broken
 	}
 
-	private HeldItemSlot _playerHeldItem;
+	public string itemType;
+	public string eventType;
+	public CollideCheck itemCollision;
+	public PlayerInput playerInput;
+	public _itemStates _damageState = _itemStates.Undamaged;
 
+	[SerializeField, ReadOnly]
+	private string _PersistentID;
 	[SerializeField]
-	private int _itemHp;
-
+	private bool _Log;
 	[SerializeField]
 	private int _itemMaxHp;
-
+	[SerializeField,
+	 ProgressBar(nameof(_itemMaxHp), 0.8f, 0f, 0f)]
+	private int _itemHp;
 	[SerializeField]
 	private string _effectiveItemType;
-
 	[SerializeField]
 	private Vector3 _afterBreakOffset;
 	[SerializeField]
-	private bool _Log;
-
-	public CollideCheck itemCollision;
-
-	public PlayerInput playerInput;
-
-	[SerializeField]
 	private List<Sprite> _sprites;
-
-	public string itemType;
-	public string eventType;
-
-	public _itemStates _damageState = _itemStates.Undamaged;
-
-	[SerializeField]
-	private string _PersistentID;
-	public EndGameTracker m_EndGameTracker;
 	private InputAction _breakableAction;
+	private EndGameTracker _EndGameTracker;
+
 	private GameManager _GameManager;
 	private string _heldItemType;
+	private HeldItemSlot _playerHeldItem;
+
 	public string m_PersistentID => _PersistentID;
 
 
@@ -53,17 +50,8 @@ public class BreakableItem : MonoBehaviour
 	{
 		_GameManager = GameObject.FindGameObjectWithTag("Manager")
 			.GetComponent<GameManager>();
-		m_EndGameTracker = FindFirstObjectByType<EndGameTracker>();
+		_EndGameTracker = FindFirstObjectByType<EndGameTracker>();
 	}
-
-#if UNITY_EDITOR
-	private void Reset()
-	{
-		// Assign a unique ID if it's empty.
-		if (string.IsNullOrEmpty(_PersistentID))
-			_PersistentID = Guid.NewGuid().ToString();
-	}
-#endif
 
 	private void Start()
 	{
@@ -72,7 +60,7 @@ public class BreakableItem : MonoBehaviour
 		_breakableAction = playerInput.actions["Break"];
 		if (_breakableAction == null) Debug.LogError("No break action found");
 
-		if (!m_EndGameTracker._DestroyedItems.ContainsKey(_PersistentID))
+		if (!_EndGameTracker._DestroyedItems.ContainsKey(_PersistentID))
 			return;
 		_itemHp = 0;
 		_damageState = _itemStates.Broken;
@@ -144,4 +132,19 @@ public class BreakableItem : MonoBehaviour
 				break;
 		}
 	}
+
+#if UNITY_EDITOR
+	private void Reset()
+	{
+		// Assign a unique ID if it's empty.
+		if (string.IsNullOrEmpty(_PersistentID))
+			_PersistentID = Guid.NewGuid().ToString();
+	}
+
+	private void OnValidate()
+	{
+		_itemHp = _itemMaxHp;
+	}
+#endif
+}
 }

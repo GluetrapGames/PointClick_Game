@@ -1,5 +1,7 @@
 using UnityEngine;
 
+namespace GlueTrap
+{
 public class CollideCheck : MonoBehaviour
 {
 	[SerializeField]
@@ -25,4 +27,5 @@ public class CollideCheck : MonoBehaviour
 	{
 		IsCollided = false;
 	}
+}
 }

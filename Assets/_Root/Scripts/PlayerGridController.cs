@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
+namespace GlueTrap
+{
 [RequireComponent(typeof(GridMovement))]
 public class PlayerGridController : MonoBehaviour
 {
@@ -198,4 +200,5 @@ public class PlayerGridController : MonoBehaviour
 		m_Movement.m_Path.Clear();
 		m_Movement.m_IsMoving = false;
 	}
+}
 }

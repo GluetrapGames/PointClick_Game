@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
+namespace GlueTrap
+{
 public class PickUpScript : MonoBehaviour
 {
 	public enum InteractionDir
@@ -329,4 +331,5 @@ public class PickUpScript : MonoBehaviour
 		}
 	}
 #endif
+}
 }

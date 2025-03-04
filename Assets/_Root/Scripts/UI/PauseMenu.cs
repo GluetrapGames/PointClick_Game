@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
+namespace GlueTrap
+{
 public class PauseMenu : MonoBehaviour
 {
 	public static bool paused;
@@ -80,4 +82,5 @@ public class PauseMenu : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject(firstSelectedPause);
 	}
+}
 }

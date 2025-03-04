@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+namespace GlueTrap
+{
 public class GridMovement : MonoBehaviour
 {
 	public int m_CurrentPathIndex;
@@ -238,4 +241,5 @@ public class GridMovement : MonoBehaviour
 			yield return null;
 		}
 	}
+}
 }

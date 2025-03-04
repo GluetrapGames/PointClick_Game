@@ -1,21 +1,23 @@
 using System.Collections.Generic;
 using System.Linq;
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+namespace GlueTrap
+{
 public class InventoryManager : Singleton<InventoryManager>
 {
-	public Transform m_Inventory;
-	public List<Transform> m_InventorySlots = new();
-	public HeldItemSlot m_HeldItemSlot;
-	public bool m_Log;
-
-	[SerializeField]
-	private GameObject _ItemPrefab;
 	[SerializeField]
 	private GameObject _InventoryPrefab;
 
+	[SerializeField]
+	private GameObject _ItemPrefab;
+	public HeldItemSlot m_HeldItemSlot;
+	public Transform m_Inventory;
+	public List<Transform> m_InventorySlots = new();
+	public bool m_Log;
 	private GameManager _GameManager;
 	public Dictionary<string, InventoryItemData> m_InventoryItems = new();
 
@@ -27,7 +29,8 @@ public class InventoryManager : Singleton<InventoryManager>
 		GameObject inventoryObject = GameObject.FindWithTag("Inventory");
 		if (!inventoryObject)
 		{
-			Debug.LogWarning("Cannot find 'Inventory Canvas' in the scene.");
+			Debug.LogWarning(
+				"Cannot find 'Inventory Canvas' in the scene.");
 			inventoryObject = Instantiate(_InventoryPrefab, transform);
 		}
 
@@ -59,7 +62,8 @@ public class InventoryManager : Singleton<InventoryManager>
 		Transform slotToRemove = null;
 		foreach (Transform slot in m_InventorySlots)
 		{
-			if (!slot.TryGetComponent(out HeldItemSlot heldItemSlot)) continue;
+			if (!slot.TryGetComponent(out HeldItemSlot heldItemSlot))
+				continue;
 			m_HeldItemSlot = heldItemSlot;
 			slotToRemove = slot;
 			break;
@@ -164,4 +168,5 @@ public struct InventoryItemData
 	public bool m_IsCollected;
 	public bool m_IsEquipped;
 	public InventorySlot m_Slot;
+}
 }

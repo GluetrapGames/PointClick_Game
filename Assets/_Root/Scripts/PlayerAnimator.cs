@@ -2,6 +2,8 @@ using System;
 using EditorAttributes;
 using UnityEngine;
 
+namespace GlueTrap
+{
 public class PlayerAnimator : MonoBehaviour
 {
 	// Static Animator parameter hashes.
@@ -117,4 +119,5 @@ public class PlayerAnimator : MonoBehaviour
 		public Animator m_Animator;
 		public SpriteRenderer m_SpriteRenderer;
 	}
+}
 }

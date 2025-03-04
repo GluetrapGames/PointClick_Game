@@ -1,26 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using _Root.Scripts.Utilities;
 using Cinemachine;
 using EditorAttributes;
+using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
+namespace GlueTrap
+{
 public class GameManager : Singleton<GameManager>
 {
-	[SerializeField]
-	private GameObject _PlayerPrefab;
-	[SerializeField]
-	private GameObject _PlayerCameraPrefab;
-	[SerializeField, ReadOnly]
-	private Transform _PlayerSpawnPoint;
 	[SerializeField, ReadOnly]
 	private States _CurrentState = States.Moving;
 	[SerializeField, SceneDropdown]
 	private List<string> _NoneGameplayScenes;
+	[SerializeField]
+	private GameObject _PlayerCameraPrefab;
+	[SerializeField]
+	private GameObject _PlayerPrefab;
+	[SerializeField, ReadOnly]
+	private Transform _PlayerSpawnPoint;
 
 	private States _PreviousState;
 
@@ -55,8 +57,9 @@ public class GameManager : Singleton<GameManager>
 			case States.Talking:
 				// Return to past state once dialogue ends.
 				if (DialogueManager.IsConversationActive) break;
-				ChangeGameState(m_NoneGameplayScenes.Any(noneGameplayScene =>
-					m_CurrentScene.name == noneGameplayScene)
+				ChangeGameState(m_NoneGameplayScenes.Any(
+					noneGameplayScene =>
+						m_CurrentScene.name == noneGameplayScene)
 					? States.InMenus
 					: States.Moving);
 
@@ -76,7 +79,8 @@ public class GameManager : Singleton<GameManager>
 		CinemachineVirtualCamera cinemachineCamera = null;
 		if (!FindFirstObjectByType<Camera>())
 		{
-			GameObject cameraObj = Instantiate(_PlayerCameraPrefab, transform);
+			GameObject cameraObj =
+				Instantiate(_PlayerCameraPrefab, transform);
 			m_Camera = cameraObj.GetComponent<Camera>();
 
 			// Check if any of the components are on the parent.
@@ -179,4 +183,5 @@ public enum States
 	Talking = 1,
 	Interacting = 2,
 	InMenus = 3
+}
 }

@@ -1,5 +1,7 @@
 using UnityEngine;
 
+namespace GlueTrap
+{
 public class InteractPopUp : MonoBehaviour
 {
 	public float interactionRadius = 3f;
@@ -35,8 +37,10 @@ public class InteractPopUp : MonoBehaviour
 			interactionUI.GetComponent<InteractionPanel>().isDrawn = true;
 			interactionUI.GetComponent<InteractionPanel>().drawnBy = gameObject;
 			if (_Log)
+			{
 				Debug.Log("Drawing interaction UI, drawn by " +
 				          gameObject.name);
+			}
 		}
 		else if (!interactionUI.GetComponent<InteractionPanel>().isDrawn &&
 		         !_collisionCheck.IsCollided)
@@ -59,4 +63,5 @@ public class InteractPopUp : MonoBehaviour
 		if (_Log)
 			Debug.Log($"Interacted with {name}");
 	}
+}
 }

@@ -3,49 +3,52 @@ using EditorAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PersistentSystems : PersistantSingleton<PersistentSystems>
+namespace GlueTrap.Utilities
 {
-	[SerializeField,
-	 HelpBox("Don't modify the \"_Systems\" list!", MessageMode.Warning)]
-	private Void _SystemsWarningBox;
-	[SerializeField]
-	private List<MonoBehaviour> _Systems = new();
-
-
-	protected override void Awake()
+	public class PersistentSystems : PersistantSingleton<PersistentSystems>
 	{
-		base.Awake();
-		// Remove itself from the list.
-		if (_Systems.Contains(this))
-			_Systems.Remove(this);
-	}
+		[SerializeField,
+		 HelpBox("Don't modify the \"_Systems\" list!", MessageMode.Warning)]
+		private Void _SystemsWarningBox;
+		[SerializeField]
+		private List<MonoBehaviour> _Systems = new();
 
-	private void OnEnable()
-	{
-		SceneManager.sceneLoaded += OnSceneLoaded;
-	}
 
-	private void OnDisable()
-	{
-		SceneManager.sceneLoaded -= OnSceneLoaded;
-	}
+		protected override void Awake()
+		{
+			base.Awake();
+			// Remove itself from the list.
+			if (_Systems.Contains(this))
+				_Systems.Remove(this);
+		}
 
-	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
-		// Call OnSceneChange for all registered Singleton systems.
-		foreach (MonoBehaviour system in _Systems)
-			if (system is ISceneChangeHandler handler)
-				handler.OnSceneChange(scene, mode);
-	}
+		private void OnEnable()
+		{
+			SceneManager.sceneLoaded += OnSceneLoaded;
+		}
 
-	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
-	{
-		// Handle scene change logic if needed.
-	}
+		private void OnDisable()
+		{
+			SceneManager.sceneLoaded -= OnSceneLoaded;
+		}
 
-	// Register a singleton instance.
-	public void RegisterSingleton(MonoBehaviour singleton)
-	{
-		if (!_Systems.Contains(singleton)) _Systems.Add(singleton);
+		private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+		{
+			// Call OnSceneChange for all registered Singleton systems.
+			foreach (MonoBehaviour system in _Systems)
+				if (system is ISceneChangeHandler handler)
+					handler.OnSceneChange(scene, mode);
+		}
+
+		public override void OnSceneChange(Scene scene, LoadSceneMode mode)
+		{
+			// Handle scene change logic if needed.
+		}
+
+		// Register a singleton instance.
+		public void RegisterSingleton(MonoBehaviour singleton)
+		{
+			if (!_Systems.Contains(singleton)) _Systems.Add(singleton);
+		}
 	}
 }

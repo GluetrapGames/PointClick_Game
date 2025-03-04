@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Root.Scripts.Utilities
+namespace GlueTrap.Utilities
 {
 	public static class Utils
 	{

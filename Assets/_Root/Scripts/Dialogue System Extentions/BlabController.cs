@@ -1,7 +1,10 @@
 using AYellowpaper.SerializedCollections;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-using Random = UnityEngine.Random;
+
+namespace GlueTrap
+{
+using Random = Random;
 
 public class BlabController : MonoBehaviour
 {
@@ -67,4 +70,5 @@ public class BlabController : MonoBehaviour
 		_AudioSource.Stop();
 		_LastAudioTime = 0f;
 	}
+}
 }

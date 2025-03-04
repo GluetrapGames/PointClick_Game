@@ -1,21 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-
+namespace GlueTrap
+{
 public class InventoryRenderingHierarchy : MonoBehaviour
 {
+	[SerializeField]
+	private GameObject darkBG;
 
-    [SerializeField] private GameObject darkBG;
-    
-    void Start()
-    {
-        Transform darkBackgroundTransform = darkBG.transform;
-        Transform heldItemTbTransform = transform; // This script is on HeldItemTB
+	private void Start()
+	{
+		Transform darkBackgroundTransform = darkBG.transform;
+		Transform
+			heldItemTbTransform = transform; // This script is on HeldItemTB
 
-        // Ensure HeldItemTB is drawn above DarkBackground but below Inventory
-        int targetIndex = darkBackgroundTransform.GetSiblingIndex() + 1;
-        heldItemTbTransform.SetSiblingIndex(targetIndex);
-    }
+		// Ensure HeldItemTB is drawn above DarkBackground but below Inventory
+		var targetIndex = darkBackgroundTransform.GetSiblingIndex() + 1;
+		heldItemTbTransform.SetSiblingIndex(targetIndex);
+	}
+}
 }
