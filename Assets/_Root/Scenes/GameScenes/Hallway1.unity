@@ -4794,6 +4794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 617069868}
   - component: {fileID: 617069869}
+  - component: {fileID: 617069870}
   m_Layer: 0
   m_Name: Albert
   m_TagString: Untagged
@@ -4850,6 +4851,96 @@ MonoBehaviour:
     prependActorNameSeparator: ': '
     prependActorNameFormat: '{0}{1}'
     subtitleColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &617069870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617069867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5473918a168c44fa0294bd4d1399f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversationEvents:
+    onConversationStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationEnd:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1635499750}
+          m_TargetAssemblyTypeName: SceneTransistion, Assembly-CSharp
+          m_MethodName: CallFromConversationEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    runOnConversationEndEventsAtEndOfFrame: 0
+    onConversationCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationLine:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationLineEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationLineCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationResponseMenu:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationResponseMenuTimeout:
+      m_PersistentCalls:
+        m_Calls: []
+    onLinkedConversationStart:
+      m_PersistentCalls:
+        m_Calls: []
+  barkEvents:
+    onBarkStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onBarkEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onBarkLine:
+      m_PersistentCalls:
+        m_Calls: []
+  sequenceEvents:
+    onSequenceStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSequenceEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  questEvents:
+    onQuestStateChange:
+      m_PersistentCalls:
+        m_Calls: []
+    onQuestTrackingEnabled:
+      m_PersistentCalls:
+        m_Calls: []
+    onQuestTrackingDisabled:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdateQuestTracker:
+      m_PersistentCalls:
+        m_Calls: []
+  pauseEvents:
+    onDialogueSystemPause:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueSystemUnpause:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &621821642
 GameObject:
   m_ObjectHideFlags: 0
@@ -10688,8 +10779,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       insertIndex: 2
       addedObject: {fileID: 408834265}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9123357558529462298, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1635499750}
   m_SourcePrefab: {fileID: 100100000, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+--- !u!1 &1635499749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9123357558529462298, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+  m_PrefabInstance: {fileID: 1635499748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1635499750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635499749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneToTransitionTo: CourtroomEnding
+  _crossfadeAnimator: {fileID: 1493552933}
 --- !u!1 &1700362393
 GameObject:
   m_ObjectHideFlags: 0
@@ -13637,6 +13750,8 @@ MonoBehaviour:
   m_EndItemTypes:
     _serializedList:
     - Key: Money
+      Value: 0
+    - Key: Poems
       Value: 0
     - Key: Pills
       Value: 0
