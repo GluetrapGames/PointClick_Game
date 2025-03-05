@@ -193,9 +193,23 @@
 						<Event Name="StopFootstep" ID="{A8B51A53-3435-4F2B-8D51-FC2C275759A7}">
 							<ChildrenList>
 								<Action Name="" ID="{559A1E7F-EBC2-49A3-8B49-55B527A2864F}" ShortID="520129253">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="SwitchFootstep" ID="{A7DAA178-FE04-4B42-A127-8F50252AC492}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SwingWeapon" ID="{D98A0C31-58E2-48B4-8A6E-63767AB4F191}">
+							<ChildrenList>
+								<Action Name="" ID="{1A80A6DE-2B72-4F57-8372-53BD7D7CE426}" ShortID="627348219">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="weaponSwing" ID="{CC31FB85-1E0E-433C-98D0-7BC7565C1377}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

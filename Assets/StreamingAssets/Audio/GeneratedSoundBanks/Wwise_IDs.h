@@ -25,6 +25,7 @@ namespace AK
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
         static const AkUniqueID STOPBLAB = 1732588570U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
+        static const AkUniqueID SWINGWEAPON = 729991629U;
         static const AkUniqueID TAXI_ANIMAL = 3811696612U;
         static const AkUniqueID UI_BACK = 2024222415U;
         static const AkUniqueID UI_DIALOGUEPOPUP = 3452930546U;

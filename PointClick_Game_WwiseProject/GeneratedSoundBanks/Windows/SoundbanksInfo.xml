@@ -60,7 +60,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2D196004-8409-1252-9FE2-CA4A505D100D}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{0ED62C1F-D8DB-EEAC-439F-84778BBF6F3A}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -100,13 +100,13 @@
 					<ShortName>ui_letter.wav</ShortName>
 					<CachePath>SFX/ui_letter_818F3B66.wem</CachePath>
 				</File>
-				<File Id="490080538" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>dial_alMcGuig_blab.wav</ShortName>
-					<CachePath>SFX/dial_alMcGuig_blab_DF79E40E.wem</CachePath>
-				</File>
 				<File Id="532204821" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_taxidermy.wav</ShortName>
 					<CachePath>SFX/viol_break_taxidermy_818F3B66.wem</CachePath>
+				</File>
+				<File Id="534372370" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>viol_weapon_swing-001.wav</ShortName>
+					<CachePath>SFX/viol_weapon_swing-001_818F3B66.wem</CachePath>
 				</File>
 				<File Id="560138299" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_taxidermy-001.wav</ShortName>
@@ -134,7 +134,7 @@
 				</File>
 				<File Id="718177124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_lawyer_blab.wav</ShortName>
-					<CachePath>SFX/dial_lawyer_blab_92D35545.wem</CachePath>
+					<CachePath>SFX/dial_lawyer_blab_74894F2E.wem</CachePath>
 				</File>
 				<File Id="718932789" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_metal.wav</ShortName>
@@ -176,6 +176,10 @@
 					<ShortName>ui_menu_hover.wav</ShortName>
 					<CachePath>SFX/ui_menu_hover_8447143A.wem</CachePath>
 				</File>
+				<File Id="1015922044" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>dial_alMcGuig_blab.wav</ShortName>
+					<CachePath>SFX/dial_alMcGuig_blab_8A50D783.wem</CachePath>
+				</File>
 				<File Id="1032843977" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_plant.wav</ShortName>
 					<CachePath>SFX/viol_hit_plant_818F3B66.wem</CachePath>
@@ -190,7 +194,7 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="1527158674" Name="Blab" DurationType="OneShot" DurationMin="0.17779459" DurationMax="0.43323398">
+				<Event Id="1527158674" Name="Blab" DurationType="OneShot" DurationMin="0.052356195" DurationMax="0.13150942">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="3865235296"/>
@@ -201,13 +205,13 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="3678415638" Default="true"/>
 							<MediaRefs>
-								<MediaRef Id="490080538"/>
+								<MediaRef Id="1015922044"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="1449413731"/>
 							<MediaRefs>
-								<MediaRef Id="490080538"/>
+								<MediaRef Id="1015922044"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -328,18 +332,11 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="1732588570" Name="StopBlab" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="2596245103" Name="StopFootstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="0.6645363">
-					<SwitchContainers>
-						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="2058049674" Default="true"/>
-							<MediaRefs>
-								<MediaRef Id="286209512"/>
-								<MediaRef Id="753263382"/>
-								<MediaRef Id="797840335"/>
-								<MediaRef Id="943812538"/>
-							</MediaRefs>
-						</SwitchContainer>
-					</SwitchContainers>
+				<Event Id="2596245103" Name="StopFootstep" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="729991629" Name="SwingWeapon" DurationType="OneShot" DurationMin="0.20709683" DurationMax="0.2647209">
+					<MediaRefs>
+						<MediaRef Id="534372370"/>
+					</MediaRefs>
 				</Event>
 				<Event Id="3811696612" Name="taxi_animal" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
 					<MediaRefs>
@@ -413,5 +410,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{E20BC4D8-AC5B-6E6F-8EA0-849653A0A459}</FileHash>
+	<FileHash>{FE5C4632-696A-BA1E-62B7-D27D39D5FB5B}</FileHash>
 </SoundBanksInfo>
