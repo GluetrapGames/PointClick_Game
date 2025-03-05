@@ -5,18 +5,41 @@
 			<ChildrenList>
 				<Folder Name="Dialogue" ID="{D6C997ED-22D7-46B1-942B-43AE938C2E58}" ShortID="134794572">
 					<ChildrenList>
-						<Folder Name="Albert" ID="{9887B967-D88D-4848-89B0-A738124B2F30}" ShortID="564298065">
+						<Folder Name="Albert" ID="{9887B967-D88D-4848-89B0-A738124B2F30}" ShortID="564298065"/>
+						<Folder Name="Lawyer" ID="{7356F788-FBBD-4510-BA9E-E4A3A7170D63}" ShortID="923783363"/>
+						<SwitchContainer Name="SwitchBlab" ID="{AA8ED00E-F095-42E4-B610-8EF92B38DCB9}" ShortID="431058310">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="John" ID="{CD3F071A-EDC5-4F84-9B95-6516CB5D9EF2}" WorkUnitID="{E4A43D3A-8B1D-446E-AF5C-80B4C62B3FDD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="CharacterBlab" ID="{8C07485A-DF2A-4D14-9AE3-807451041C61}" WorkUnitID="{E4A43D3A-8B1D-446E-AF5C-80B4C62B3FDD}"/>
+								</Reference>
+							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="dial_alMcGuig_blab" ID="{536F0CC8-EA5E-42F9-9047-4DC29ED2CDD1}" ShortID="901929746">
+								<RandomSequenceContainer Name="Albert" ID="{DEB88614-3463-4D49-AB9E-73613CD9921C}" ShortID="567587975">
 									<PropertyList>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
-													<Modifier Name="" ID="{17CECCC7-3C58-44F2-9D6E-0B557F3FC22F}">
+													<Modifier Name="" ID="{FF034179-455D-4170-9964-7DBDBE4AE828}">
 														<PropertyList>
 															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="100"/>
-															<Property Name="Min" Type="Real64" Value="-200"/>
+															<Property Name="Max" Type="Real64" Value="350"/>
+															<Property Name="Min" Type="Real64" Value="-350"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
@@ -28,41 +51,63 @@
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Dialogue" ID="{F3F7D513-AC4E-45E1-936F-BB7376E25110}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="dial_alMcGuig_blab" ID="{969897BB-AFA2-4A01-8D0A-3800AB26A0F0}">
+										<Sound Name="albert_blab" ID="{91931CBF-E2F1-4261-AD7A-7783458E75FC}" ShortID="363197478">
 											<PropertyList>
-												<Property Name="LoopBegin" Type="Real64" Value="0"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimEnd" Type="Real64" Value="0.353933823529412"/>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{626DA341-5893-4013-AE2F-A8FD618A5B11}">
+																<PropertyList>
+																	<Property Name="Max" Type="Real64" Value="100"/>
+																	<Property Name="Min" Type="Real64" Value="-200"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>dial_alMcGuig_blab.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="490080538"/>
-											</MediaIDList>
-										</AudioFileSource>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="dial_alMcGuig_blab" ID="{68DA993C-3C46-4B1F-A48B-9F51C579F0A1}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.353933823529412"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>dial_alMcGuig_blab.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="490080538"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="dial_alMcGuig_blab" ID="{68DA993C-3C46-4B1F-A48B-9F51C579F0A1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="dial_alMcGuig_blab" ID="{969897BB-AFA2-4A01-8D0A-3800AB26A0F0}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-						</Folder>
-						<Folder Name="Lawyer" ID="{7356F788-FBBD-4510-BA9E-E4A3A7170D63}" ShortID="923783363">
-							<ChildrenList>
-								<Sound Name="dial_lawyer_blab" ID="{95189BF6-10FA-4745-AE37-7789528ED798}" ShortID="527194575">
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Jack" ID="{1027A652-4EFC-482E-B297-5BFD8EEF48B2}" ShortID="1049876609">
 									<PropertyList>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
-													<Modifier Name="" ID="{4BAACE2C-D53E-4D68-A3D8-CB4201595318}">
+													<Modifier Name="" ID="{EA1BA5D8-2CCF-4086-934F-4A44DB274905}">
 														<PropertyList>
 															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="300"/>
-															<Property Name="Min" Type="Real64" Value="-300"/>
+															<Property Name="Max" Type="Real64" Value="350"/>
+															<Property Name="Min" Type="Real64" Value="-350"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
@@ -74,29 +119,156 @@
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Dialogue" ID="{F3F7D513-AC4E-45E1-936F-BB7376E25110}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="dial_lawyer_blab" ID="{745B3E95-44C5-459F-AF94-41C643E2E6C0}">
+										<Sound Name="jack_blab" ID="{95189BF6-10FA-4745-AE37-7789528ED798}" ShortID="527194575">
 											<PropertyList>
-												<Property Name="LoopBegin" Type="Real64" Value="0"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimEnd" Type="Real64" Value="0.217630083514887"/>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{4BAACE2C-D53E-4D68-A3D8-CB4201595318}">
+																<PropertyList>
+																	<Property Name="Max" Type="Real64" Value="300"/>
+																	<Property Name="Min" Type="Real64" Value="-300"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>dial_lawyer_blab.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="718177124"/>
-											</MediaIDList>
-										</AudioFileSource>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Dialogue" ID="{F3F7D513-AC4E-45E1-936F-BB7376E25110}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="dial_lawyer_blab" ID="{745B3E95-44C5-459F-AF94-41C643E2E6C0}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.217630083514887"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>dial_lawyer_blab.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="718177124"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="dial_lawyer_blab" ID="{745B3E95-44C5-459F-AF94-41C643E2E6C0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="dial_lawyer_blab" ID="{745B3E95-44C5-459F-AF94-41C643E2E6C0}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="John" ID="{8B4E9059-0022-4339-9840-70341935AE01}" ShortID="328127375">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F6867C63-1E50-4733-B6DB-28B1EF6ED1D4}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="350"/>
+															<Property Name="Min" Type="Real64" Value="-350"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="albert_blab" ID="{536F0CC8-EA5E-42F9-9047-4DC29ED2CDD1}" ShortID="901929746">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{17CECCC7-3C58-44F2-9D6E-0B557F3FC22F}">
+																<PropertyList>
+																	<Property Name="Max" Type="Real64" Value="100"/>
+																	<Property Name="Min" Type="Real64" Value="-200"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="dial_alMcGuig_blab" ID="{969897BB-AFA2-4A01-8D0A-3800AB26A0F0}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.353933823529412"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>dial_alMcGuig_blab.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="490080538"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="dial_alMcGuig_blab" ID="{969897BB-AFA2-4A01-8D0A-3800AB26A0F0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
-						</Folder>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Albert" ID="{DEB88614-3463-4D49-AB9E-73613CD9921C}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Jack" ID="{1027A652-4EFC-482E-B297-5BFD8EEF48B2}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="John" ID="{8B4E9059-0022-4339-9840-70341935AE01}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Jack" ID="{71919310-26E0-471F-ADC1-AEE9488FF96A}"/>
+										<ItemList>
+											<ItemRef Name="Jack" ID="{1027A652-4EFC-482E-B297-5BFD8EEF48B2}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="John" ID="{CD3F071A-EDC5-4F84-9B95-6516CB5D9EF2}"/>
+										<ItemList>
+											<ItemRef Name="John" ID="{8B4E9059-0022-4339-9840-70341935AE01}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Albert" ID="{58219A30-EDA7-4DDA-A30B-6FEBABFD6B45}"/>
+										<ItemList>
+											<ItemRef Name="Albert" ID="{DEB88614-3463-4D49-AB9E-73613CD9921C}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{C2F290B6-76C2-4E17-88F7-FC83B585C1F8}" ShortID="562242881">

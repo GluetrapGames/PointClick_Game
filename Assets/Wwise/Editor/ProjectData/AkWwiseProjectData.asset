@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit 2
     guid: fef77f58d05ca5478965ec9b4d689c75
     GuidInternal: 
-    m_lastTime: -8584615558191612203
+    m_lastTime: -8584611974431917788
     List: []
   - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     PathAndIcons:
@@ -37,7 +37,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 5909de92d8ac4141b7fe347eabe5cda5
     GuidInternal: 
-    m_lastTime: -8584615558191612203
+    m_lastTime: -8584611974431917788
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -51,7 +51,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: a003960deb8bdf468e97a26af7e6ab6c
     GuidInternal: 
-    m_lastTime: -8584615558194940034
+    m_lastTime: -8584611974434420904
     List:
     - name: Dialogue
       guid: 13d5f7f34eace145936fbb7376e25110
@@ -161,7 +161,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d9cd24203029844a94de634f59516731
     GuidInternal: 
-    m_lastTime: -8584610118498017374
+    m_lastTime: -8584604305193572694
     List:
     - name: Main
       guid: fff4323f282c4e4bbef4b6e13128fb3a
@@ -189,11 +189,11 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584610118580078778
+    m_lastTime: -8584604301198676790
     List:
-    - name: Albert
-      guid: 32ba8eaa2a42914bad353b902f972236
-      id: 1449413731
+    - name: Blab
+      guid: 79ae0e61b1425b4ab1c71133d9ae0762
+      id: 1527158674
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -204,36 +204,13 @@ MonoBehaviour:
       - ElementName: Dialogue
         ObjectType: 4
         guid: 1a5ab7e86bddf5499262cd911481f821
-      - ElementName: Albert
-        ObjectType: 4
-        guid: 32ba8eaa2a42914bad353b902f972236
-      Path: Events\Default Work Unit\Dialogue\Albert
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Albert_Blab
-      guid: 8fe8d3c46ed94e4b991e2125d38664e6
-      id: 3706611725
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Dialogue
-        ObjectType: 4
-        guid: 1a5ab7e86bddf5499262cd911481f821
-      - ElementName: Albert
-        ObjectType: 4
-        guid: 32ba8eaa2a42914bad353b902f972236
-      - ElementName: Albert_Blab
+      - ElementName: Blab
         ObjectType: 3
-        guid: 8fe8d3c46ed94e4b991e2125d38664e6
-      Path: Events\Default Work Unit\Dialogue\Albert\Albert_Blab
+        guid: 79ae0e61b1425b4ab1c71133d9ae0762
+      Path: Events\Default Work Unit\Dialogue\Blab
       maxAttenuation: 0
       maxDuration: 0.39727727
-      minDuration: 0.334069
+      minDuration: 0.18300436
     - name: Breaks
       guid: ffbfc00e79fb7a42963fab89f9270ee8
       id: 1008011617
@@ -354,29 +331,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Lawyer_Blab
-      guid: 9222a7910309c24284c2809a70ddaef7
-      id: 3849916683
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Dialogue
-        ObjectType: 4
-        guid: 1a5ab7e86bddf5499262cd911481f821
-      - ElementName: Albert
-        ObjectType: 4
-        guid: 32ba8eaa2a42914bad353b902f972236
-      - ElementName: Lawyer_Blab
-        ObjectType: 3
-        guid: 9222a7910309c24284c2809a70ddaef7
-      Path: Events\Default Work Unit\Dialogue\Albert\Lawyer_Blab
-      maxAttenuation: 0
-      maxDuration: 0.25880724
-      minDuration: 0.18300436
     - name: Material
       guid: 18cd95b2874fb446a9772608347fb39c
       id: 3865314626
@@ -626,6 +580,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: StopBlab
+      guid: 7483e9c4009bed46b9d2b8237dbd26be
+      id: 1732588570
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: 1a5ab7e86bddf5499262cd911481f821
+      - ElementName: StopBlab
+        ObjectType: 3
+        guid: 7483e9c4009bed46b9d2b8237dbd26be
+      Path: Events\Default Work Unit\Dialogue\StopBlab
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: StopFootstep
       guid: 531ab5a835342b4f8d51fc2c275759a7
       id: 2596245103
@@ -854,7 +828,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584615558199699002
+    m_lastTime: -8584611974439019169
     List:
     - name: vol_dialogue
       guid: d375c4070ca9a54aa883e10fff410998
@@ -967,7 +941,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: aaef3b61817689459787a303f0cc8de8
     GuidInternal: 
-    m_lastTime: -8584615558191637979
+    m_lastTime: -8584611974431927761
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -981,7 +955,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584610118488114619
+    m_lastTime: -8584604301556235402
     List:
     - name: BreakMaterial
       guid: 52371375a5837847ab5b8d4e1a0afc3a
@@ -1129,6 +1103,72 @@ MonoBehaviour:
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
+    - name: CharacterBlab
+      guid: 5a48078c2adf144d9ae3807451041c61
+      id: 1352502929
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+      - ElementName: CharacterBlab
+        ObjectType: 11
+        guid: 5a48078c2adf144d9ae3807451041c61
+      Path: Switches\Default Work Unit\CharacterBlab
+      values:
+      - name: Albert
+        guid: 309a2158a7edda4da30b6febabfd6b45
+        id: 1449413731
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: CharacterBlab
+          ObjectType: 11
+          guid: 5a48078c2adf144d9ae3807451041c61
+        - ElementName: Albert
+          ObjectType: 10
+          guid: 309a2158a7edda4da30b6febabfd6b45
+      - name: Jack
+        guid: 10939171e0261f47adc1aee9488ff96a
+        id: 3865235296
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: CharacterBlab
+          ObjectType: 11
+          guid: 5a48078c2adf144d9ae3807451041c61
+        - ElementName: Jack
+          ObjectType: 10
+          guid: 10939171e0261f47adc1aee9488ff96a
+      - name: John
+        guid: 1a073fcdc5ed844f9b956516cb5d9ef2
+        id: 3678415638
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: CharacterBlab
+          ObjectType: 11
+          guid: 5a48078c2adf144d9ae3807451041c61
+        - ElementName: John
+          ObjectType: 10
+          guid: 1a073fcdc5ed844f9b956516cb5d9ef2
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
     - name: FootstepMaterial
       guid: 7eea7f35eee6c848bd60b873dafa003a
       id: 3287431056
@@ -1175,7 +1215,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 8aff68e09ca652408bd2e782fdf49389
     GuidInternal: 
-    m_lastTime: -8584615558191622599
+    m_lastTime: -8584611974431917788
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 01000000050000000600000007000000090000000a0000000b0000000c0000000d000000190000001a0000001c000000200000003cd41400

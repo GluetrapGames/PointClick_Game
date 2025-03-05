@@ -46,6 +46,13 @@
 						<Switch Id="4019199903" Name="Electronic"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="1352502929" Name="CharacterBlab">
+					<Switches>
+						<Switch Id="1449413731" Name="Albert"/>
+						<Switch Id="3678415638" Name="John"/>
+						<Switch Id="3865235296" Name="Jack"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="3287431056" Name="FootstepMaterial">
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
@@ -53,7 +60,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{ABB6597B-D695-6D50-F1F0-5C9A1A10CA8D}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2D196004-8409-1252-9FE2-CA4A505D100D}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -183,10 +190,27 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3706611725" Name="Albert_Blab" DurationType="OneShot" DurationMin="0.334069" DurationMax="0.39727727">
-					<MediaRefs>
-						<MediaRef Id="490080538"/>
-					</MediaRefs>
+				<Event Id="1527158674" Name="Blab" DurationType="OneShot" DurationMin="0.17779459" DurationMax="0.43323398">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="3865235296"/>
+							<MediaRefs>
+								<MediaRef Id="718177124"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="3678415638" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="490080538"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="1449413731"/>
+							<MediaRefs>
+								<MediaRef Id="490080538"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
 				</Event>
 				<Event Id="584038952" Name="bug_shelf" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
 					<MediaRefs>
@@ -210,11 +234,6 @@
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
-				</Event>
-				<Event Id="3849916683" Name="Lawyer_Blab" DurationType="OneShot" DurationMin="0.18300436" DurationMax="0.25880724">
-					<MediaRefs>
-						<MediaRef Id="718177124"/>
-					</MediaRefs>
 				</Event>
 				<Event Id="3865314626" Name="Material" DurationType="OneShot" DurationMin="0.3437951" DurationMax="2.4581919">
 					<SwitchContainers>
@@ -308,6 +327,7 @@
 						<MediaRef Id="886830654"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1732588570" Name="StopBlab" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2596245103" Name="StopFootstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="0.6645363">
 					<SwitchContainers>
 						<SwitchContainer>
@@ -378,6 +398,13 @@
 						<Switch Id="4019199903" Name="Electronic"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="1352502929" Name="CharacterBlab">
+					<Switches>
+						<Switch Id="1449413731" Name="Albert"/>
+						<Switch Id="3678415638" Name="John"/>
+						<Switch Id="3865235296" Name="Jack"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="3287431056" Name="FootstepMaterial">
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
@@ -386,5 +413,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EC0920DD-F9F8-F3E3-1073-EF605BBA05C4}</FileHash>
+	<FileHash>{D92B7AC3-BACA-4452-3A74-ACFAAA0B0985}</FileHash>
 </SoundBanksInfo>

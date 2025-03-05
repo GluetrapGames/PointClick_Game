@@ -20,32 +20,31 @@
 				</Folder>
 				<Folder Name="Dialogue" ID="{E8B75A1A-DD6B-49F5-9262-CD911481F821}" ShortID="1032286017">
 					<ChildrenList>
-						<Folder Name="Albert" ID="{AA8EBA32-422A-4B91-AD35-3B902F972236}" ShortID="1017367364">
+						<Event Name="Blab" ID="{610EAE79-42B1-4A5B-B1C7-1133D9AE0762}">
 							<ChildrenList>
-								<Event Name="Albert_Blab" ID="{C4D3E88F-D96E-4B4E-991E-2125D38664E6}">
-									<ChildrenList>
-										<Action Name="" ID="{FEEF9811-A7E0-42CD-97B1-10B8A7E605FC}" ShortID="298936323">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="dial_alMcGuig_blab" ID="{536F0CC8-EA5E-42F9-9047-4DC29ED2CDD1}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
-								<Event Name="Lawyer_Blab" ID="{91A72292-0903-42C2-84C2-809A70DDAEF7}">
-									<ChildrenList>
-										<Action Name="" ID="{6C31AA9D-69AA-44F6-8110-B56666B1AB9F}" ShortID="983491334">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="dial_lawyer_blab" ID="{95189BF6-10FA-4745-AE37-7789528ED798}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
+								<Action Name="" ID="{2062CA10-788B-4BCD-9C1F-2725E7A42E53}" ShortID="988965794">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SwitchBlab" ID="{AA8ED00E-F095-42E4-B610-8EF92B38DCB9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
-						</Folder>
+						</Event>
+						<Event Name="StopBlab" ID="{C4E98374-9B00-46ED-B9D2-B8237DBD26BE}">
+							<ChildrenList>
+								<Action Name="" ID="{FBC8CBFB-3C92-4E9A-8C67-4C46D4AB1FA9}" ShortID="878352950">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SwitchBlab" ID="{AA8ED00E-F095-42E4-B610-8EF92B38DCB9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{5F4503BA-CD55-4750-9640-3D3470DD40B1}" ShortID="129391907">
