@@ -15,6 +15,7 @@ public class SceneTransistion : MonoBehaviour
 
 	private void Awake()
 	{
+		if (!transform.parent) return;
 		// Find the Cross-fade animation from one the children.
 		var parentChildren =
 			transform.parent.GetComponentsInChildren<Transform>();
