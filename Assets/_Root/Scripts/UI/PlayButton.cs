@@ -1,3 +1,4 @@
+using PixelCrushers.DialogueSystem;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,7 +24,11 @@ public class PlayButton : MonoBehaviour
 
 	public void ReturnToMainMenu()
 	{
-		Time.timeScale = 1f;
+		// Check if converssaton is playing and cancel it
+		if (DialogueManager.IsConversationActive)
+			DialogueManager.StopAllConversations();
+
+        Time.timeScale = 1f;
 		SceneManager.LoadScene(0);
 	}
 
