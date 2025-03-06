@@ -1333,6 +1333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 343898379533672101}
   - component: {fileID: 1907674267710718514}
+  - component: {fileID: 8691969142429518733}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -1406,8 +1407,32 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8691969142429518733}
+        m_TargetAssemblyTypeName: UiSound, Assembly-CSharp
+        m_MethodName: onClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
+--- !u!114 &8691969142429518733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941577477931103976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e684f388781414abf83e65d4bf362d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2081068545061677042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7559336584208930783}
   - component: {fileID: 7499565487735777684}
+  - component: {fileID: 2325800546316534406}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1497,7 +1523,31 @@ MonoBehaviour:
   m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2325800546316534406}
+        m_TargetAssemblyTypeName: UiSound, Assembly-CSharp
+        m_MethodName: onHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2325800546316534406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081068545061677042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e684f388781414abf83e65d4bf362d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2166356939663842983
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,6 +4138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1003132790770346731}
   - component: {fileID: 2591858413212159734}
+  - component: {fileID: 8481010431864560979}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -4167,7 +4218,31 @@ MonoBehaviour:
   m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8481010431864560979}
+        m_TargetAssemblyTypeName: UiSound, Assembly-CSharp
+        m_MethodName: onHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8481010431864560979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510972017743541714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e684f388781414abf83e65d4bf362d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3764464988141725882
 GameObject:
   m_ObjectHideFlags: 0
@@ -6310,6 +6385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5236585054705280590}
   - component: {fileID: 3579420591057016425}
+  - component: {fileID: 2221353554492699456}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -6389,7 +6465,31 @@ MonoBehaviour:
   m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2221353554492699456}
+        m_TargetAssemblyTypeName: UiSound, Assembly-CSharp
+        m_MethodName: onHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2221353554492699456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099588769803687498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e684f388781414abf83e65d4bf362d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6184564064271911198
 GameObject:
   m_ObjectHideFlags: 0
@@ -7834,6 +7934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2831610679221952729}
   - component: {fileID: 8850405771054821885}
+  - component: {fileID: 5183893948855538396}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -7913,7 +8014,32 @@ MonoBehaviour:
   m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5183893948855538396}
+        m_TargetAssemblyTypeName: BreakSounds, Assembly-CSharp
+        m_MethodName: postBreakMat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5183893948855538396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206712219613062387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e1d994ec536d64191516b54bbb487c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: Electronic
 --- !u!1 &7270732134654484929
 GameObject:
   m_ObjectHideFlags: 0
@@ -8060,6 +8186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3977601578762269675}
   - component: {fileID: 6389849426070291791}
+  - component: {fileID: 2842058561670704178}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -8139,7 +8266,31 @@ MonoBehaviour:
   m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2842058561670704178}
+        m_TargetAssemblyTypeName: UiSound, Assembly-CSharp
+        m_MethodName: logoOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2842058561670704178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7376572305527759763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e684f388781414abf83e65d4bf362d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7514223992702874317
 GameObject:
   m_ObjectHideFlags: 0

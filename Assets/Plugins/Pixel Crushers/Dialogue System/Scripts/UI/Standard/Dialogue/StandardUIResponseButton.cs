@@ -1,7 +1,9 @@
 // Copyright (c) Pixel Crushers. All rights reserved.
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace PixelCrushers.DialogueSystem
 {
