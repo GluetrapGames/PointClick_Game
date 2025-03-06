@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 7550366243758954927}
   - component: {fileID: 8414485640084905812}
   - component: {fileID: 3661671528087318030}
+  - component: {fileID: 3811311875681059491}
+  - component: {fileID: 8869049621572334531}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -201,6 +203,43 @@ MonoBehaviour:
     m_SpriteRenderer: {fileID: 0}
   _PlayerPosition: {x: 0, y: 0, z: 0}
   _FlipHorizontalFlipping: 1
+--- !u!114 &3811311875681059491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485669108317632510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c4647566d903148aa6f14e0e46f7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &8869049621572334531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485669108317632510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ad26ab69fdf7f4982b4091f2906dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Log: 0
+  whatMaterial: 0
+  footstepSpeed: 0
 --- !u!1 &9033717235172527478
 GameObject:
   m_ObjectHideFlags: 0

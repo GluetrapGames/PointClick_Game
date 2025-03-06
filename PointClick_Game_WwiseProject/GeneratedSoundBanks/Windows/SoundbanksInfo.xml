@@ -56,11 +56,12 @@
 				<SwitchGroup Id="3287431056" Name="FootstepMaterial">
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
+						<Switch Id="2412606308" Name="Carpet"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{0ED62C1F-D8DB-EEAC-439F-84778BBF6F3A}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EA88BBE2-268D-D947-845B-2D3B5433D262}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -71,6 +72,10 @@
 				<File Id="73779194" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>track_menu.wav</ShortName>
 					<CachePath>SFX/track_menu_818F3B66.wem</CachePath>
+				</File>
+				<File Id="143897904" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>metalstep_heavy-006.wav</ShortName>
+					<CachePath>SFX/metalstep_heavy-006_818F3B66.wem</CachePath>
 				</File>
 				<File Id="144182143" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>player_takeItem_001.wav</ShortName>
@@ -120,9 +125,21 @@
 					<ShortName>ui_menu_back.wav</ShortName>
 					<CachePath>SFX/ui_menu_back_831DFFC4.wem</CachePath>
 				</File>
+				<File Id="651170833" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>metalstep_heavy-002.wav</ShortName>
+					<CachePath>SFX/metalstep_heavy-002_818F3B66.wem</CachePath>
+				</File>
+				<File Id="659625583" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>metalstep_heavy-004.wav</ShortName>
+					<CachePath>SFX/metalstep_heavy-004_818F3B66.wem</CachePath>
+				</File>
 				<File Id="685121363" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_wood2-001.wav</ShortName>
 					<CachePath>SFX/viol_hit_wood2-001_818F3B66.wem</CachePath>
+				</File>
+				<File Id="685654288" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>metalstep_heavy-008.wav</ShortName>
+					<CachePath>SFX/metalstep_heavy-008_818F3B66.wem</CachePath>
 				</File>
 				<File Id="687109068" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_select.wav</ShortName>
@@ -226,8 +243,17 @@
 						<MediaRef Id="1071037576"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="0.6645363">
+				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="1.7685778">
 					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="2412606308"/>
+							<MediaRefs>
+								<MediaRef Id="143897904"/>
+								<MediaRef Id="651170833"/>
+								<MediaRef Id="659625583"/>
+								<MediaRef Id="685654288"/>
+							</MediaRefs>
+						</SwitchContainer>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="2058049674" Default="true"/>
 							<MediaRefs>
@@ -405,10 +431,11 @@
 				<SwitchGroup Id="3287431056" Name="FootstepMaterial">
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
+						<Switch Id="2412606308" Name="Carpet"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{FE5C4632-696A-BA1E-62B7-D27D39D5FB5B}</FileHash>
+	<FileHash>{4637EE6C-7FFE-24DE-FD48-2374AEC93BF1}</FileHash>
 </SoundBanksInfo>

@@ -31,19 +31,6 @@ public class FootstepSounds : MonoBehaviour
 			if (playingFootsteps) stopFootsteps();
 		}
 	}
-
-
-	public void switchFootMat()
-	{
-		// Default to wood
-		if (whatMaterial != null)
-			AkSoundEngine.SetSwitch("FootstepMaterial", "Wood", gameObject);
-
-		// Set switch in Wwise 
-		AkSoundEngine.SetSwitch("FootstepMaterial", whatMaterial.ToString(),
-			gameObject);
-	}
-
 	public void startFootsteps()
 	{
 		playingFootsteps = true;
