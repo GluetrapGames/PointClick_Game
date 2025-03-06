@@ -29,10 +29,17 @@ public class PauseMenu : MonoBehaviour
 	private void Start()
 	{
 		playerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
-		inventoryUI = _GameManager.m_InventoryManager.m_Inventory
-			.gameObject;
+		inventoryUI = _GameManager.m_InventoryManager.m_Inventory.gameObject;
 		_menuAction = playerInput.actions["Menu"];
 		if (_menuAction == null) Debug.LogError("No menu action found");
+
+		// Assign all WorldSpace & ScreenSpaceCamera Canvases.
+		var canvases = FindObjectsByType<Canvas>(FindObjectsInactive.Include,
+			FindObjectsSortMode.None);
+		foreach (Canvas canvas in canvases)
+			if (canvas.renderMode is RenderMode.ScreenSpaceCamera
+			    or RenderMode.WorldSpace)
+				canvas.worldCamera = _GameManager.m_Camera;
 	}
 
 	private void Update()
