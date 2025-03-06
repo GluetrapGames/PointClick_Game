@@ -2,34 +2,31 @@ using PixelCrushers.DialogueSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class ToggleLog : MonoBehaviour
 {
-    [Tooltip("The portrait image's animator.")]
-    [SerializeField]
+    [SerializeField,Tooltip("The portrait image's animator.")]
     private Animator _PortraitAnimator;
-    [Tooltip("The backlog window.")]
-    [SerializeField]
+    [SerializeField,Tooltip("The backlog window.")]
     private GameObject _LogWindow;
-    [Tooltip("The dialogue system controller script.")]
-    [SerializeField]
+    [SerializeField,Tooltip("The dialogue system controller script.")]
     private DialogueSystemController _dsController;
-    [Tooltip("The back log example script.")]
-    [SerializeField]
+    [SerializeField,Tooltip("The back log example script.")]
     private BackLogExample _blExample;
-    [Tooltip("The UI continue button")]
-    [SerializeField]
+    [SerializeField,Tooltip("The UI continue button")]
     private Button _ContinueButton;
-    [Tooltip("The UI auto play button")]
-    [SerializeField]
+    [SerializeField,Tooltip("The UI auto play button")]
     private Button _AutoButton;
-    [Tooltip("The UI skip button")]
-    [SerializeField]
+    [SerializeField,Tooltip("The UI skip button")]
     private Button _SkipButton;
+    [SerializeField, Tooltip("The response menu panel")]
+    private GameObject _ResponseMenuPanel;
 
     private Text buttonText;
     private bool toggleLog;
+    private bool isPlayerListening;
 
     private void Start()
     {
@@ -41,8 +38,13 @@ public class ToggleLog : MonoBehaviour
         // Current fix - If autoplay is active and log panel opens, current subtitle still hides at the end
         // and the continue button appears. This line should prevent that for now.
         if (toggleLog) _ContinueButton.gameObject.SetActive(false);
+
     }
 
+    void OnConversationLine(Subtitle subtitle)
+    {
+        isPlayerListening = subtitle.listenerInfo.isPlayer;
+    }
 
     public void toggle() 
     {
@@ -50,6 +52,9 @@ public class ToggleLog : MonoBehaviour
 
         if (toggleLog) // When the backlog is showing
         {
+            // Hides the response panel if it is currently active.
+            if(isPlayerListening)
+                _ResponseMenuPanel.SetActive(false);
             // Stops the speed of the current portrait animation.
             _PortraitAnimator.speed = 0f;
             // Set the button's display text
@@ -68,6 +73,8 @@ public class ToggleLog : MonoBehaviour
         }
         else // When the backlog is hidden
         {
+            if (isPlayerListening)
+                _ResponseMenuPanel.SetActive(true);
             // Returns the speed of the current portrait animation.
             _PortraitAnimator.speed = 1.0f;
             // Set the button's display text

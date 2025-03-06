@@ -52,6 +52,7 @@ public class GameManager : Singleton<GameManager>
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
+		//Adam = big baby boy
 	}
 
 	public void ChangeGameState(States newState)

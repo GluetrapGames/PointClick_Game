@@ -29,7 +29,7 @@ public class PlayButton : MonoBehaviour
         // If a conversation is playing when returning to menu, then stop all conversations.
         if (DialogueManager.IsConversationActive)
             DialogueManager.StopAllConversations();
-
+        //run adam is coming
 
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);

@@ -17,7 +17,7 @@ public class SceneTransistion : MonoBehaviour
     {
 
         StartCoroutine(LoadScene(_sceneToTransitionTo));
-
+        //big boi adam
     }
 
     public void CallFromConversationEnd() 
