@@ -409,7 +409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 195, y: -51.5}
+  m_AnchoredPosition: {x: 195, y: -26.5}
   m_SizeDelta: {x: 76, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &892495403512998467
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6979447525729208456}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -797,6 +797,7 @@ GameObject:
   - component: {fileID: 5950437436220240857}
   - component: {fileID: 429956158637395544}
   - component: {fileID: 6624626533058600740}
+  - component: {fileID: 793892902264642702}
   m_Layer: 5
   m_Name: Continue Button
   m_TagString: Untagged
@@ -986,8 +987,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: DialogueSound, Assembly-CSharp
+        - m_Target: {fileID: 793892902264642702}
+          m_TargetAssemblyTypeName: GlueTrap.ButtonSound, Assembly-CSharp
           m_MethodName: onHover
           m_Mode: 1
           m_Arguments:
@@ -998,6 +999,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &793892902264642702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838362616325528487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6d1756998b4754c9517d9a1f8a85ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &957517751453292306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,7 +2186,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.000011444092}
-  m_SizeDelta: {x: 0, y: 91}
+  m_SizeDelta: {x: 0, y: 116}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8760389919862107698
 MonoBehaviour:
@@ -2254,8 +2267,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 126.5, y: -45.5}
-  m_SizeDelta: {x: 233, y: 71}
+  m_AnchoredPosition: {x: 126.5, y: -58}
+  m_SizeDelta: {x: 233, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4318614082632256392
 MonoBehaviour:
@@ -2289,7 +2302,7 @@ MonoBehaviour:
     m_Left: 157
     m_Right: 0
     m_Top: 7
-    m_Bottom: 0
+    m_Bottom: 50
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 0
@@ -3383,6 +3396,7 @@ GameObject:
   - component: {fileID: 610436888647927709}
   - component: {fileID: 3131110638340060787}
   - component: {fileID: 804231069355198066}
+  - component: {fileID: 6042049377395730057}
   m_Layer: 5
   m_Name: Log Button
   m_TagString: Untagged
@@ -3536,6 +3550,7 @@ MonoBehaviour:
   _ContinueButton: {fileID: 6044755747364527163}
   _AutoButton: {fileID: 2016966440371359713}
   _SkipButton: {fileID: 7616186525660769002}
+  _ResponsePanel: {fileID: 293863183849321573}
 --- !u!114 &804231069355198066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3553,8 +3568,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: DialogueSound, Assembly-CSharp
+        - m_Target: {fileID: 6042049377395730057}
+          m_TargetAssemblyTypeName: GlueTrap.ButtonSound, Assembly-CSharp
           m_MethodName: onHover
           m_Mode: 1
           m_Arguments:
@@ -3565,6 +3580,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &6042049377395730057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4546061960202508850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6d1756998b4754c9517d9a1f8a85ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4642567830144779445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3732,6 +3759,7 @@ GameObject:
   - component: {fileID: 531759239747939523}
   - component: {fileID: 2016966440371359713}
   - component: {fileID: 348604628925090173}
+  - component: {fileID: 5134770773822863768}
   m_Layer: 5
   m_Name: Auto Play Button
   m_TagString: Untagged
@@ -3884,8 +3912,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: DialogueSound, Assembly-CSharp
+        - m_Target: {fileID: 5134770773822863768}
+          m_TargetAssemblyTypeName: GlueTrap.ButtonSound, Assembly-CSharp
           m_MethodName: onHover
           m_Mode: 1
           m_Arguments:
@@ -3896,6 +3924,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &5134770773822863768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413715262997748342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6d1756998b4754c9517d9a1f8a85ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5480939236365489246
 GameObject:
   m_ObjectHideFlags: 0
@@ -5007,6 +5047,7 @@ GameObject:
   - component: {fileID: 8573858144369801050}
   - component: {fileID: 7616186525660769002}
   - component: {fileID: 6988806819814435620}
+  - component: {fileID: 2538944882758771875}
   m_Layer: 5
   m_Name: Skip Button
   m_TagString: Untagged
@@ -5159,8 +5200,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: DialogueSound, Assembly-CSharp
+        - m_Target: {fileID: 2538944882758771875}
+          m_TargetAssemblyTypeName: GlueTrap.ButtonSound, Assembly-CSharp
           m_MethodName: onHover
           m_Mode: 1
           m_Arguments:
@@ -5171,6 +5212,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2538944882758771875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279568486103096643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6d1756998b4754c9517d9a1f8a85ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6482408557949158131
 GameObject:
   m_ObjectHideFlags: 0
@@ -7156,8 +7209,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 188, y: -19.5}
-  m_SizeDelta: {x: 62, y: 25}
+  m_AnchoredPosition: {x: 157, y: -7}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1624128081364328087
 CanvasRenderer:

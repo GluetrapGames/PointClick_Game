@@ -20,9 +20,12 @@ public class ToggleLog : MonoBehaviour
 	private Button _AutoButton;
 	[Tooltip("The UI skip button"), SerializeField]
 	private Button _SkipButton;
+	[Tooltip("The response panel"), SerializeField]
+	private GameObject _ResponsePanel;
 
 	private Text buttonText;
 	private bool toggleLog;
+	private bool _IsPlayerListener;
 
 	private void Start()
 	{
@@ -36,6 +39,12 @@ public class ToggleLog : MonoBehaviour
 		if (toggleLog) _ContinueButton.gameObject.SetActive(false);
 	}
 
+	void OnConversationLine(Subtitle subtitle) 
+	{
+		// Check if the player is the listener on the current subtitle.
+		_IsPlayerListener = subtitle.listenerInfo.IsPlayer;
+	}
+
 
 	public void toggle()
 	{
@@ -43,6 +52,8 @@ public class ToggleLog : MonoBehaviour
 
 		if (toggleLog) // When the backlog is showing
 		{
+			if(_IsPlayerListener)
+				_ResponsePanel.SetActive(false);
 			// Stops the speed of the current portrait animation.
 			_PortraitAnimator.speed = 0f;
 			// Set the button's display text
@@ -62,8 +73,10 @@ public class ToggleLog : MonoBehaviour
 		}
 		else // When the backlog is hidden
 		{
-			// Returns the speed of the current portrait animation.
-			_PortraitAnimator.speed = 1.0f;
+            if (_IsPlayerListener)
+                _ResponsePanel.SetActive(true);
+            // Returns the speed of the current portrait animation.
+            _PortraitAnimator.speed = 1.0f;
 			// Set the button's display text
 			buttonText.text = "History";
 			// Show all other buttons
