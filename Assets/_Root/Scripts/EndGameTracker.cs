@@ -1,34 +1,43 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using _Root.Scripts.Utilities;
 using AYellowpaper.SerializedCollections;
 using EditorAttributes;
+using GlueTrap.Utilities;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndGameTracker : PersistantSingleton<EndGameTracker>
+namespace GlueTrap
 {
-	public GameManager m_GameManager;
-	[Header("End Game Settings"),
-	 SerializedDictionary("Item Type", "Is Collected")]
-	public SerializedDictionary<string, bool> m_EndItemTypes = new();
-	[SceneDropdown]
-	public int m_EndScene;
-
+public class EndGameTracker : Singleton<EndGameTracker>
+{
+	[SerializeField]
+	private GameObject _AlbertPrefab;
 	[SerializeField, ReadOnly]
-	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
+	private Transform _AlbertSpawPoint;
 	[SerializeField, ReadOnly]
 	public SerializedDictionary<string, bool> _DestroyedItems = new();
-	[SerializeField, ReadOnly]
-	private Transform _WorldObject;
 	[SerializeField]
 	private bool _IsGameOver;
 	[SerializeField]
-	private GameObject _AlbertPrefab;
-	[SerializeField]
-	private Transform _AlbertSpawnLocation;
+	private bool _Log;
+	[Header("End Game Settings"),
+	 SerializedDictionary("Item Type", "Is Collected")]
+	public SerializedDictionary<ItemTypes, bool> m_EndItemTypes = new();
+	[SceneDropdown]
+	public int m_EndScene;
+	public GameManager m_GameManager;
 
+	[SerializeField, ReadOnly]
+	private readonly SerializedDictionary<string, BreakableItem>
+		_BreakableItems = new();
+
+
+	protected override void Awake()
+	{
+		base.Awake();
+		m_GameManager = FindFirstObjectByType<GameManager>();
+	}
 
 	private void Update()
 	{
@@ -36,24 +45,24 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 
 		if (m_GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
 		{
-			List<string> keysToUpdate = new();
+			List<ItemTypes> keysToUpdate = new();
 			foreach ((var itemName, InventoryItemData data) in m_GameManager
 				         .m_InventoryManager.m_InventoryItems)
-			foreach (var (type, isCollected) in m_EndItemTypes)
+			foreach ((ItemTypes type, var isCollected) in m_EndItemTypes)
 				if (data.m_Item.m_Type == type)
 				{
-					Debug.Log($"{type}: {isCollected}");
+					if (_Log) Debug.Log($"{type}: {isCollected}");
 					keysToUpdate.Add(type);
 				}
 
 			// Update list for every item collected.
-			foreach (var key in keysToUpdate) m_EndItemTypes[key] = true;
+			foreach (ItemTypes key in keysToUpdate) m_EndItemTypes[key] = true;
 		}
 
 		if (_BreakableItems.Count != 0)
 		{
 			foreach ((var id, BreakableItem item) in _BreakableItems)
-				if (item._damageState == BreakableItem._itemStates.Broken)
+				if (item.m_DamageState == ItemDamageStates.Broken)
 					_DestroyedItems[id] = true;
 		}
 
@@ -74,54 +83,29 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 
 		if (!allItemsCollected || !allPlantsDestroyed) return;
 		_IsGameOver = true;
-		//SceneManager.LoadScene(m_EndScene);
-		// Spawn Albert.
 	}
 
-
-	private void OnEnable()
+	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
-		SceneManager.sceneLoaded += OnSceneLoaded;
-	}
+		// Get Albert's spawner.
+		_AlbertSpawPoint = Utils.FindSpawner("AlbertSpawner");
 
-	private void OnDisable()
-	{
-		SceneManager.sceneLoaded -= OnSceneLoaded;
-	}
-
-	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
+		// Check for GameOver.
 		if (_IsGameOver && SceneManager.GetActiveScene() ==
 		    SceneManager.GetSceneByName("Hallway1"))
 		{
-			Instantiate(_AlbertPrefab, _AlbertSpawnLocation.position,
+			Instantiate(_AlbertPrefab, _AlbertSpawPoint.position,
 				quaternion.identity);
 		}
 
-
-		// Try to obtain the Game Manager.
-		var gameManager = FindFirstObjectByType<GameManager>();
-		if (!gameManager)
-		{
-			Debug.LogWarning("Cannot find 'Game Manager' object in the scene.");
+		// Make sure we are in a gameplay scene.
+		if (m_GameManager.m_NoneGameplayScenes.Any(noneGameplayScene =>
+			    scene.name == noneGameplayScene))
 			return;
-		}
 
-		m_GameManager = gameManager;
-
-		// Try to obtain the World GameObject.
-		GameObject worldObject = GameObject.FindWithTag("World");
-		if (!worldObject)
-		{
-			Debug.LogWarning("Cannot find 'World' object in the scene.");
-			return;
-		}
-
-		_WorldObject = worldObject.transform;
-
-		var newItems = new List<BreakableItem>();
-		Utils.FindChildrenByType<BreakableItem, BreakableItem>(
-			_WorldObject, newItems, c => c);
+		// Get breakable items and add/update the list.
+		var newItems =
+			FindObjectsByType<BreakableItem>(FindObjectsSortMode.None);
 
 		// Either update or add new item to list.
 		foreach (BreakableItem item in newItems)
@@ -130,4 +114,5 @@ public class EndGameTracker : PersistantSingleton<EndGameTracker>
 			_BreakableItems[id] = item;
 		}
 	}
+}
 }

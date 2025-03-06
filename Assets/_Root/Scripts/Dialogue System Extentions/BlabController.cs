@@ -1,25 +1,48 @@
 using AYellowpaper.SerializedCollections;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-using Random = UnityEngine.Random;
+
+namespace GlueTrap
+{
+using Random = Random;
 
 public class BlabController : MonoBehaviour
 {
 	[SerializeField]
+	private SerializedDictionary<string, AudioClip> _ClipDictionary;
+	[SerializeField]
+	private AudioSource _AudioSource;
+	[SerializeField]
 	private GameObject _LogWindow;
+	[SerializeField]
+	private bool _Log;
+
+	public TextMeshProTypewriterEffect m_TypeWritterEffect;
+	private float _LastAudioTime;
 	private string _SpeakerName;
-	public float blabSpeed = 0.1f;
-	private bool isBlabbing = false;
 
 
+	// Update checks if an audio clip is currently playing.
+	// Then changes the pitch for the next clip loop.
 	private void Update()
 	{
-		// If the hitory window is open, then pause the blabs.
-		// Currently doesn't restart blabs
-		if (_LogWindow.activeInHierarchy)
+		if (_AudioSource.isPlaying)
 		{
-			CancelInvoke("postBlab");
+			// Detect when the clip loops
+			if (_AudioSource.time < _LastAudioTime) // Loop detected
+				_AudioSource.pitch = Random.Range(0.8f, 1.2f);
+			_LastAudioTime = _AudioSource.time;
 		}
+
+		// If the hitory window is open, then pause the blabs.
+		if (_LogWindow.activeInHierarchy)
+			_AudioSource.Pause();
+		else
+			_AudioSource.UnPause();
+	}
+
+	private void OnConversationStart(Transform subtitle)
+	{
 	}
 
 	// When a conversation line begins, gets the current speaker's name
@@ -27,33 +50,25 @@ public class BlabController : MonoBehaviour
 	private void OnConversationLine(Subtitle subtitle)
 	{
 		_SpeakerName = subtitle.speakerInfo.Name;
-        AkSoundEngine.SetSwitch("CharacterBlab", _SpeakerName, gameObject);
-        PlayActorClip();
-		Debug.Log(_SpeakerName);
+		PlayActorClip();
+		if (_Log) Debug.Log(_SpeakerName);
 	}
 
 	// Plays the audio clip associated with the speaker from the database.
 	public void PlayActorClip()
 	{
-		if (!isBlabbing)
-		{
-            isBlabbing = true;
-            InvokeRepeating("postBlab", 0f, blabSpeed);
-            Debug.Log("Started blabbing");
-        }
-		
+		//Debug.Log("Entered audio");
+		foreach (var actor in _ClipDictionary)
+			if (_SpeakerName == actor.Key)
+				m_TypeWritterEffect.audioClip = actor.Value;
 	}
 
 	// Stops the audio clip at the end of the conversation line.
 	public void StopActorClip()
 	{
-        isBlabbing = false;
-        CancelInvoke("postBlab");
-		Debug.Log("Stopped blabbing");
+		m_TypeWritterEffect.audioClip = null;
+		_AudioSource.Stop();
+		_LastAudioTime = 0f;
 	}
-
-	private void postBlab()
-	{
-		AkSoundEngine.PostEvent("Blab", gameObject);
-	}
+}
 }

@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using GlueTrap.Utilities;
 using Piper;
 using PixelCrushers.DialogueSystem;
 using UnityEditor;
 using UnityEngine;
 
+namespace GlueTrap.Editor
+{
 public class DialogueToAudioEditor : EditorWindow
 {
 	private static PiperManager _PiperManager;
@@ -122,4 +125,5 @@ public class DialogueToAudioEditor : EditorWindow
 
 		AssetDatabase.Refresh();
 	}
+}
 }

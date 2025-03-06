@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+namespace GlueTrap
+{
 public class PlayerSounds : MonoBehaviour
 {
-    public string playSpecificSound;
+	public string playSpecificSound;
 
-    public void soundManager()
-    {
-
-    }
+	public void soundManager()
+	{
+	}
+}
 }

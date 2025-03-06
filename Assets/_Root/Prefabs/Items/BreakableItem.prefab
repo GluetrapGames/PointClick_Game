@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2188445504314987934}
   - component: {fileID: 1724862933650706340}
   - component: {fileID: 7464258638969582822}
+  - component: {fileID: 1220951294116191168}
   m_Layer: 0
   m_Name: BreakableItem
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7935488637001019580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.69, y: -2.46, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101,9 +102,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7833e346ad3ed4cb494d970b89123d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemHp: 1
-  itemCollision: {fileID: 1724862933650706340}
-  effectiveItemType: 
+  _PersistentID: 
+  _Log: 0
+  _DamageState: 0
+  _itemMaxHp: 3
+  _itemHp: 3
+  _ItemType: 0
+  _effectiveItemType: 0
+  _afterBreakOffset: {x: 0, y: 0, z: 0}
+  _sprites: []
+  _EventType: 0
 --- !u!114 &1724862933650706340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033d880ff2a5e410caf917adc7cb1a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Log: 0
 --- !u!61 &7464258638969582822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,3 +171,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.2798457, y: 3.666776}
   m_EdgeRadius: 0
+--- !u!114 &1220951294116191168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935488637001019580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8767476faee20ba419fbdc13bb70ac6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRadius: 5
+  interactionUI: {fileID: 0}
+  _Log: 0

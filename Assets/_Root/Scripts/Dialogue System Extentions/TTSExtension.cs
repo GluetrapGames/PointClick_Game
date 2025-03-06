@@ -7,6 +7,8 @@ using UnityEngine;
 using CharacterInfo = PixelCrushers.DialogueSystem.CharacterInfo;
 using Tools = PixelCrushers.DialogueSystem.Tools;
 
+namespace GlueTrap
+{
 /// <summary>
 ///     Extends the Dialogue System by adding text-to-speech functionality using
 ///     the Piper plugin. Waits for the generated audio to finish before unloading
@@ -145,4 +147,5 @@ public class TTSExtension : MonoBehaviour
 			return audioClip.length;
 		return audioClip.length / pitchAbs;
 	}
+}
 }

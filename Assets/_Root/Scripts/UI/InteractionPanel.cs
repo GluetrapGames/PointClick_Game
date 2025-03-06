@@ -1,14 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+namespace GlueTrap
+{
 public class InteractionPanel : MonoBehaviour
 {
-    [NonSerialized]
-    public bool isDrawn = false;
-    
-    [NonSerialized]
-    public GameObject drawnBy;
-    
+	[NonSerialized]
+	public GameObject drawnBy;
+	[NonSerialized]
+	public bool isDrawn = false;
+}
 }

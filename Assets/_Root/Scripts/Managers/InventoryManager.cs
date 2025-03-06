@@ -1,79 +1,64 @@
 using System.Collections.Generic;
 using System.Linq;
-using _Root.Scripts.Utilities;
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class InventoryManager : PersistantSingleton<InventoryManager>
+namespace GlueTrap
 {
-	public Transform m_InventoryGroup;
-	public List<Transform> m_InventorySlots = new();
-	public GameObject m_HeldItemSlot;
+public class InventoryManager : Singleton<InventoryManager>
+{
+	[SerializeField]
 	public bool m_Log;
-
+	[SerializeField]
+	private GameObject _InventoryPrefab;
 	[SerializeField]
 	private GameObject _ItemPrefab;
-	public Dictionary<string, InventoryItemData> m_InventoryItems = new();
+
+	private GameManager _GameManager;
+
+	public HeldItemSlot m_HeldItemSlot { get; private set; }
+	public Transform m_Inventory { get; private set; }
+	public List<Transform> m_InventorySlots { get; } = new();
+	public Dictionary<string, InventoryItemData> m_InventoryItems { get; } =
+		new();
 
 
-	private void OnEnable()
+	protected override void Awake()
 	{
-		SceneManager.sceneLoaded += OnSceneLoaded;
-	}
-
-	private void OnDisable()
-	{
-		SceneManager.sceneLoaded -= OnSceneLoaded;
-	}
-
-	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
-		// Get current scenes inventory.
+		base.Awake();
+		_GameManager = FindFirstObjectByType<GameManager>();
+		// Get the Inventory.
 		GameObject inventoryObject = GameObject.FindWithTag("Inventory");
 		if (!inventoryObject)
 		{
-			Debug.LogWarning("Cannot find 'Inventory Canvas' in the scene.");
-			return;
+			Debug.LogWarning(
+				"Cannot find 'Inventory Canvas' in the scene.");
+			inventoryObject = Instantiate(_InventoryPrefab, transform);
 		}
 
-		m_InventoryGroup = inventoryObject.transform;
+		m_Inventory = inventoryObject.transform;
+
 		GetInventory();
+	}
 
-		// Re-add the inventory items.
-		var slotIndex = 0;
-		foreach (var key in m_InventoryItems.Keys.ToList())
-		{
-			InventoryItemData data = m_InventoryItems[key];
-
-			// Update m_Slot with the new scene's inventory slot.
-			if (slotIndex < m_InventorySlots.Count)
-			{
-				data.m_Slot = m_InventorySlots[slotIndex]
-					.GetComponent<InventorySlot>();
-				m_InventoryItems[key] = data;
-			}
-			else
-			{
-				Debug.LogWarning(
-					$"Not enough slots for '{data.m_Item.m_Name}'!");
-				continue;
-			}
-
-			// Re-add the inventory items.
-			if (SetItem(data) && m_Log)
-				Debug.Log($"Inventory Item '{data.m_Item.m_Name}' restored.");
-
-			slotIndex++;
-		}
+	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
+	{
+		m_Inventory.gameObject.SetActive(_GameManager.m_CurrentState !=
+		                                 States.InMenus);
 	}
 
 	private void GetInventory()
 	{
-		// Get the inventory slots of the current scene.
+		// Get the inventory slots.
 		m_InventorySlots.Clear();
-		Utils.FindChildrenByType<InventorySlot, Transform>(m_InventoryGroup,
-			m_InventorySlots, component => component.transform);
+		var slots =
+			FindObjectsByType<InventorySlot>(FindObjectsInactive.Include,
+				FindObjectsSortMode.None);
+
+		foreach (InventorySlot slot in slots)
+			m_InventorySlots.Add(slot.transform);
 
 		// Obtain the held item slot and remove it from the list.
 		if (m_InventorySlots.Count == 0) return;
@@ -81,15 +66,15 @@ public class InventoryManager : PersistantSingleton<InventoryManager>
 		Transform slotToRemove = null;
 		foreach (Transform slot in m_InventorySlots)
 		{
-			if (!slot.TryGetComponent(out HeldItemSlot heldItemSlot)) continue;
-			m_HeldItemSlot = heldItemSlot.gameObject;
+			if (!slot.TryGetComponent(out HeldItemSlot heldItemSlot))
+				continue;
+			m_HeldItemSlot = heldItemSlot;
 			slotToRemove = slot;
 			break;
 		}
 
 		if (slotToRemove != null) m_InventorySlots.Remove(slotToRemove);
 	}
-
 
 	public bool CollectItem(ItemData itemData)
 	{
@@ -171,9 +156,9 @@ public struct ItemData
 {
 	public string m_Name;
 	public Sprite m_Sprite;
-	public string m_Type;
+	public ItemTypes m_Type;
 
-	public ItemData(string name, string type, Sprite sprite)
+	public ItemData(string name, ItemTypes type, Sprite sprite)
 	{
 		m_Name = name;
 		m_Type = type;
@@ -187,4 +172,5 @@ public struct InventoryItemData
 	public bool m_IsCollected;
 	public bool m_IsEquipped;
 	public InventorySlot m_Slot;
+}
 }
