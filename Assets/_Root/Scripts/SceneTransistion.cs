@@ -10,14 +10,8 @@ public class SceneTransistion : MonoBehaviour
 	[SerializeField, SceneDropdown]
 	private string _sceneToTransitionTo;
 
-<<<<<<< HEAD
-        StartCoroutine(LoadScene(_sceneToTransitionTo));
-        //big boi adam
-    }
-=======
 	private Animator _crossfadeAnimator;
 
->>>>>>> MergeBranch
 
 	private void Awake()
 	{

@@ -83,12 +83,6 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 		if (!allItemsCollected || !allPlantsDestroyed) return;
 		_IsGameOver = true;
-<<<<<<< HEAD
-		//SceneManager.LoadScene(m_EndScene);
-		// Spawn Albert.
-		//ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh run
-=======
->>>>>>> MergeBranch
 	}
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
