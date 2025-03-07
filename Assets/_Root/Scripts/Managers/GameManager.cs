@@ -171,102 +171,6 @@ public class GameManager : Singleton<GameManager>
 		m_Player.SetPositionInGrid(_PlayerSpawnPoint.position);
 	}
 
-	private void InitGame()
-	{
-		// Spawn Camera.
-		CinemachineVirtualCamera cinemachineCamera = null;
-		if (!FindFirstObjectByType<Camera>())
-		{
-			GameObject cameraObj =
-				Instantiate(_PlayerCameraPrefab, transform);
-			m_Camera = cameraObj.GetComponent<Camera>();
-
-			// Check if any of the components are on the parent.
-			if (!m_Camera)
-			{
-				Debug.LogWarning(
-					$"{m_Camera}: Trying to get the Camera component from children.");
-				m_Camera = cameraObj.GetComponentInChildren<Camera>();
-			}
-
-			// Try to obtain the VirtualCamera.
-			cinemachineCamera =
-				cameraObj.GetComponent<CinemachineVirtualCamera>();
-			if (!cinemachineCamera)
-			{
-				Debug.LogWarning(
-					$"{m_Camera}: Trying to get the CinemachineVirtualCamera " +
-					"component from children.");
-				cinemachineCamera = cameraObj
-					.GetComponentInChildren<CinemachineVirtualCamera>();
-			}
-		}
-
-		// Get Player spawner.
-		_PlayerSpawnPoint = Utils.FindSpawner("PlayerSpawner");
-		if (!_PlayerSpawnPoint) return;
-
-		// Make sure we don't already have the Player.
-		var obj = FindFirstObjectByType<PlayerGridController>();
-		if (obj && m_Player == obj) return;
-
-		// Spawn Player.
-		GameObject spawnedPlayer = Instantiate(_PlayerPrefab,
-			_PlayerSpawnPoint.position, Quaternion.identity);
-		spawnedPlayer.transform.parent = transform;
-		m_Player = spawnedPlayer.GetComponent<PlayerGridController>();
-
-		// Update Cinemachine Camera Follow Target.
-		if (cinemachineCamera)
-			cinemachineCamera.Follow = m_Player.transform;
-	}
-
-	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
-	{
-		// Update current Scene.
-		m_CurrentScene = scene;
-
-		// Make sure we are in a gameplay scene.
-		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
-			    scene.name == noneGameplayScene))
-		{
-			m_Player.gameObject.SetActive(false);
-			ChangeGameState(States.InMenus);
-			return;
-		}
-
-		// If this is a gameplay scene and the Player is not active, turn them on.
-		ChangeGameState(States.Moving);
-		if (!m_Player.gameObject.activeInHierarchy)
-			m_Player.gameObject.SetActive(true);
-
-		// Get the Grid and the Navmesh.
-		m_Grid = FindFirstObjectByType<Grid>();
-		m_NavMesh = GameObject.FindGameObjectWithTag("NavMesh")
-			.GetComponent<Tilemap>();
-
-		// Make sure that both objects could be found.
-		if (!m_Grid || !m_NavMesh)
-		{
-			Debug.LogError(
-				"The Grid or walkable Tilemap could not be found in the scene!");
-			return;
-		}
-
-		// Get Player spawner.
-		_PlayerSpawnPoint = Utils.FindSpawner("PlayerSpawner");
-		if (!_PlayerSpawnPoint) return;
-
-		// Move Player to spawner.
-		if (!m_Player)
-		{
-			Debug.LogError("No Player found in the scene!");
-			return;
-		}
-
-		// Update Player position.
-		m_Player.SetPositionInGrid(_PlayerSpawnPoint.position);
-	}
 
 	public void ChangeGameState(States newState)
 	{
@@ -275,11 +179,11 @@ public class GameManager : Singleton<GameManager>
 	}
 }
 
-public enum States
-{
-	Moving = 0,
-	Talking = 1,
-	Interacting = 2,
-	InMenus = 3
-}
+	public enum States
+	{
+		Moving = 0,
+		Talking = 1,
+		Interacting = 2,
+		InMenus = 3
+	}
 }
