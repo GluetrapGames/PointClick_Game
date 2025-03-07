@@ -1,157 +1,176 @@
-using System.Collections;
-using System.Collections.Generic;
-using PixelCrushers;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using GlueTrap.Utilities;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
+namespace GlueTrap
+{
 public class InventoryControllerSupport : MonoBehaviour
 {
+	public GameObject inventoryUI;
+	public GameObject firstSelectedSlot;
 
-    public GameObject inventoryUI;
-    public GameObject openInvButton;
-    public GameObject firstSelectedSlot;
+	public PlayerInput playerInput;
 
-    public List<InventorySlot> itemSlots;
-    public InventorySlot heldItemSlot;
-    public HeldItemSlot heldItemSlot2;
-    
-    private bool _isOpen = false;
-    
-    public PlayerInput playerInput;
-    private InputAction _inventoryAction;
-    
-    public InvButtonSpriteSwap spriteSwap;
-    
-    private void Awake()
-    {
-        _inventoryAction = playerInput.actions["Inventory"];
-        if (_inventoryAction == null)
-        {
-            Debug.LogError("No menu action found");
-        } 
-        
-        foreach (InventorySlot slots in itemSlots)
-        {
-            // Check if the button is assigned
-            if (slots.button == null || slots == null)
-            {
-                Debug.LogError("Button is null in InventorySlot: " + slots.name);
-                continue; // Skip this slot if the button is missing
-            }
+	public InvButtonSpriteSwap spriteSwap;
 
-            // Add an onClick listener to the Button inside each InventorySlot
-            slots.button.onClick.AddListener(() => OnSlotPressed(slots));
-        }
-        
-    }
+	[SerializeField]
+	private bool _Log;
+	private GameManager _GameManager;
+	private InputAction _inventoryAction;
+	private bool _isOpen;
 
-    private void Update()
-    {
-        if (_inventoryAction.WasPressedThisFrame())
-        {
-            Debug.Log("Opening Inv/Closing Inv");
-            OpenInv();
-        }
-    }
 
-    public void OpenInv()
-    {
-        if (!_isOpen)
-        {
-            Debug.Log("Opening Inv");
-            inventoryUI.SetActive(true);
-            if (Gamepad.current != null)
-            {
-                EventSystem.current.SetSelectedGameObject(firstSelectedSlot);
-            }
-            _isOpen = true;
-            spriteSwap.OnButtonClick();
-            InvTimeMethod();
-        }
-        else
-        {
-            Debug.Log("Closing Inv");
-            inventoryUI.SetActive(false);
-            EventSystem.current.SetSelectedGameObject(null);
-            _isOpen = false;
-            spriteSwap.OnButtonClick();
-            InvTimeMethod();
-        }
- 
-    }
-    
-    private void InvTimeMethod()
-    {
-        if (_isOpen)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
-    }
-    
-    private void OnSlotPressed(InventorySlot slot)
-    {
-        InventorySlot pressedSlot = slot;
-        
-        if (heldItemSlot.transform.childCount == 0)
-        {
-            if (slot.item != null)
-            {
-                slot.item.transform.SetParent(heldItemSlot.transform);
-                heldItemSlot2.playerHeldItem = slot.item.itemType;
-                
-                Debug.Log("Transferred " + slot.item.name + " to the HeldItemSlot.");
-                
-                slot.item = null;
-            }
-            else
-            {
-                Debug.Log("No item in slot " + slot.name + " to transfer.");
-            }
-        }
-        else
-        {
-            if (slot.item != null)
-            {
-                Debug.Log("Item in held slot");
-                InventorySlot previousSlot = slot;
-                
-                Transform currentHeldItemTransform = heldItemSlot.transform.GetChild(0);
-                InventoryItem currentHeldItem = currentHeldItemTransform.GetComponent<InventoryItem>();
-                
-                currentHeldItem.transform.SetParent(slot.transform);
-                slot.item.transform.SetParent(heldItemSlot.transform);
-                
-                slot.item = currentHeldItem;
-                
-                Transform newHeldItemTransform = heldItemSlot.transform.GetChild(0);
-                InventoryItem newHeldItem = newHeldItemTransform.GetComponent<InventoryItem>();
+	private void Awake()
+	{
+		_GameManager = FindFirstObjectByType<GameManager>();
+	}
 
-                heldItemSlot.item = newHeldItem;
-                heldItemSlot2.playerHeldItem = newHeldItem.itemType;
-            
-                Debug.Log("Held item new parent = " + currentHeldItem.transform.parent.name);
-                Debug.Log("Transferred " + slot.item.name + " to the HeldItemSlot.");
-            }
-            else
-            {
-                Debug.Log("No item in slot " + slot.name + " to transfer, transferring held item to empty slot.");
-                Transform currentHeldItemTransform = heldItemSlot.transform.GetChild(0);
-                InventoryItem currentHeldItem = currentHeldItemTransform.GetComponent<InventoryItem>();
-                
-                currentHeldItem.transform.SetParent(slot.transform);
-                slot.item = currentHeldItem;
-                
-                heldItemSlot.item = null;
-                heldItemSlot2.playerHeldItem = null;
-            }
-        }
-        
-    }
-    
+	private void Start()
+	{
+		playerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
+		_inventoryAction = playerInput.actions["Inventory"];
+		if (_inventoryAction == null) Debug.LogError("No menu action found");
+
+		foreach (Transform slot in _GameManager.m_InventoryManager
+			         .m_InventorySlots)
+		{
+			var inventorySlot = slot.GetComponent<InventorySlot>();
+			// Check if the button is assigned
+			if (inventorySlot.button == null || slot == null)
+			{
+				Debug.LogError($"Button is null in {slot}: {slot.name}");
+				continue; // Skip this slot if the button is missing
+			}
+
+			// Add an onClick listener to the Button inside each InventorySlot
+			inventorySlot.button.onClick.AddListener(() =>
+				OnSlotPressed(inventorySlot));
+		}
+	}
+
+	private void Update()
+	{
+		if (_inventoryAction.WasPressedThisFrame())
+		{
+			if (_Log) Debug.Log("Opening Inv/Closing Inv");
+			OpenInv();
+		}
+	}
+
+	public void OpenInv()
+	{
+		if (!_isOpen)
+		{
+			_GameManager.ChangeGameState(States.InMenus);
+			if (_Log) Debug.Log("Opening Inv");
+			inventoryUI.SetActive(true);
+			if (Gamepad.current != null)
+				EventSystem.current.SetSelectedGameObject(firstSelectedSlot);
+			_isOpen = true;
+			spriteSwap.OnButtonClick();
+			InvTimeMethod();
+		}
+		else
+		{
+			_GameManager.ChangeGameState(States.Moving);
+			if (_Log) Debug.Log("Closing Inv");
+			inventoryUI.SetActive(false);
+			EventSystem.current.SetSelectedGameObject(null);
+			_isOpen = false;
+			spriteSwap.OnButtonClick();
+			InvTimeMethod();
+		}
+	}
+
+	private void InvTimeMethod()
+	{
+		Time.timeScale = _isOpen ? 0 : 1;
+	}
+
+	private void OnSlotPressed(InventorySlot slot)
+	{
+		InventorySlot pressedSlot = slot;
+		var slotComp = _GameManager.m_InventoryManager.m_HeldItemSlot
+			.GetComponent<InventorySlot>();
+		HeldItemSlot heldItemSlot =
+			_GameManager.m_InventoryManager.m_HeldItemSlot;
+
+		if (_GameManager.m_InventoryManager.m_HeldItemSlot.transform
+			    .childCount == 0)
+		{
+			if (slot.item != null)
+			{
+				slot.item.transform.SetParent(_GameManager.m_InventoryManager
+					.m_HeldItemSlot.transform);
+				heldItemSlot.playerHeldItem = slot.item.itemType;
+
+				if (_Log)
+				{
+					Debug.Log(
+						$"Transferred {slot.item.name} to the HeldItemSlot.");
+				}
+
+				slot.item = null;
+			}
+			else if (_Log)
+				Debug.Log($"No item in slot {slot.item.name} to transfer.");
+		}
+		else
+		{
+			if (slot.item != null)
+			{
+				if (_Log) Debug.Log("Item in held slot");
+				InventorySlot previousSlot = slot;
+
+				Transform currentHeldItemTransform =
+					_GameManager.m_InventoryManager.m_HeldItemSlot.transform
+						.GetChild(0);
+				var currentHeldItem =
+					currentHeldItemTransform.GetComponent<InventoryItem>();
+
+				currentHeldItem.transform.SetParent(slot.transform);
+				slot.item.transform.SetParent(_GameManager.m_InventoryManager
+					.m_HeldItemSlot.transform);
+
+				slot.item = currentHeldItem;
+
+				Transform newHeldItemTransform =
+					_GameManager.m_InventoryManager.m_HeldItemSlot.transform
+						.GetChild(0);
+				var newHeldItem =
+					newHeldItemTransform.GetComponent<InventoryItem>();
+
+				slotComp.item = newHeldItem;
+				heldItemSlot.playerHeldItem = newHeldItem.itemType;
+
+				if (!_Log) return;
+				Debug.Log(
+					$"Held item new parent: {currentHeldItem.transform.parent.name}");
+				Debug.Log(
+					$"Transferred {slot.item.name} to the HeldItemSlot.");
+			}
+			else
+			{
+				if (_Log)
+				{
+					Debug.Log($"No item in slot {slot.name} to transfer, " +
+					          "transferring held item to empty slot.");
+				}
+
+				Transform currentHeldItemTransform =
+					_GameManager.m_InventoryManager.m_HeldItemSlot.transform
+						.GetChild(0);
+				var currentHeldItem =
+					currentHeldItemTransform.GetComponent<InventoryItem>();
+
+				currentHeldItem.transform.SetParent(slot.transform);
+				slot.item = currentHeldItem;
+
+				slotComp.item = null;
+				heldItemSlot.playerHeldItem = ItemTypes.None;
+			}
+		}
+	}
+}
 }

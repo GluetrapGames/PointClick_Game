@@ -1,7 +1,10 @@
 using AYellowpaper.SerializedCollections;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-using Random = UnityEngine.Random;
+
+namespace GlueTrap
+{
+using Random = Random;
 
 public class BlabController : MonoBehaviour
 {
@@ -11,6 +14,9 @@ public class BlabController : MonoBehaviour
 	private AudioSource _AudioSource;
 	[SerializeField]
 	private GameObject _LogWindow;
+	[SerializeField]
+	private bool _Log;
+
 	public TextMeshProTypewriterEffect m_TypeWritterEffect;
 	private float _LastAudioTime;
 	private string _SpeakerName;
@@ -45,7 +51,7 @@ public class BlabController : MonoBehaviour
 	{
 		_SpeakerName = subtitle.speakerInfo.Name;
 		PlayActorClip();
-		Debug.Log(_SpeakerName);
+		if (_Log) Debug.Log(_SpeakerName);
 	}
 
 	// Plays the audio clip associated with the speaker from the database.
@@ -64,4 +70,5 @@ public class BlabController : MonoBehaviour
 		_AudioSource.Stop();
 		_LastAudioTime = 0f;
 	}
+}
 }

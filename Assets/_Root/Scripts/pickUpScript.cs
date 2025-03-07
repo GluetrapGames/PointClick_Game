@@ -1,11 +1,13 @@
 using System;
-using System.Collections.Generic;
 using EditorAttributes;
+using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
+namespace GlueTrap
+{
 public class PickUpScript : MonoBehaviour
 {
 	public enum InteractionDir
@@ -33,39 +35,30 @@ public class PickUpScript : MonoBehaviour
 	[SerializeField]
 	private bool _IsWallItem;
 	[SerializeField]
-	private Tilemap _NavMesh;
-	[Header("Inventory Settings"), SerializeField]
-	private Transform _Inventory;
-	[SerializeField]
-	private string _ItemType;
+	private ItemTypes _ItemType;
 	[SerializeField]
 	private GameObject _ItemPrefab;
-	[SerializeField]
-	private List<InventorySlot> _ItemSlots;
 
 
-	[Header("Dialogue Settings"), Tooltip("Will the item start dialogue"), SerializeField]
+	[Header("Dialogue Settings"), Tooltip("Will the item start dialogue"),
+	 SerializeField]
 	private bool _StartConvo;
 	[Tooltip("The GameObject That has the convo trigger"), SerializeField]
 	private GameObject _ConvoObject;
 
-	private Camera _Camera;
 	private GameManager _GameManager;
+	private Grid _GizmoGrid;
 	private bool _SlotFound;
 
 
 	private void Awake()
 	{
-		_Camera = Camera.main;
-		_NavMesh = GameObject.FindWithTag("NavMesh").GetComponent<Tilemap>();
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = GameObject.FindGameObjectWithTag("Manager")
+			.GetComponent<GameManager>();
 	}
 
 	private void Start()
 	{
-		foreach (Transform child in _Inventory)
-			_ItemSlots.Add(child.GetComponent<InventorySlot>());
-
 		// Check if any items where collected.
 		var itemCollected = false;
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count > 0 &&
@@ -113,42 +106,8 @@ public class PickUpScript : MonoBehaviour
 	{
 		DialogueManager.ShowAlert($"{name} has been collected!");
 
-
 		_ = _GameManager.m_InventoryManager.CollectItem(
 			new ItemData(gameObject.name, _ItemType, sprite));
-
-		/*while (!_SlotFound)
-		{
-			Debug.Log("Finding Slot");
-			foreach (InventorySlot itemSlot in _ItemSlots)
-			{
-				if (itemSlot.transform.childCount == 0 && !_SlotFound)
-				{
-					Debug.Log($"Slot {itemSlot.name} is empty");
-					// Create inventory item instance.
-					GameObject itemInstance =
-						Instantiate(_ItemPrefab, itemSlot.transform);
-					itemInstance.TryGetComponent(out InventoryItem item);
-					itemInstance.GetComponent<Image>().sprite = sprite;
-
-					item.itemType = _ItemType;
-					_SlotFound = true;
-					itemSlot.item = item;
-
-					Debug.Log(
-						$"Added <{_ItemType}> to slot {itemSlot.name} - " +
-						$"Type Validation:<{item.itemType}>");
-				}
-
-				if (itemSlot != _ItemSlots.Last() || _SlotFound) continue;
-				Debug.LogWarning(
-					$"Inventory full while attempting {_ItemType} " +
-					"spawning, exiting while loop");
-				_SlotFound = true;
-			}
-		}
-
-		_SlotFound = false;*/
 
 		// If the object plays a dialogue after pickup
 		if (_StartConvo)
@@ -205,7 +164,8 @@ public class PickUpScript : MonoBehaviour
 		if (!Input.GetMouseButtonDown(0))
 			return;
 
-		Vector2 mousePos = _Camera.ScreenToWorldPoint(Input.mousePosition);
+		Vector2 mousePos =
+			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
 		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
 		if (hit.collider && hit.collider.gameObject == gameObject)
@@ -220,7 +180,8 @@ public class PickUpScript : MonoBehaviour
 	// Handle ground item functionality.
 	private void HandleGroundFunction()
 	{
-		Vector3Int cellPosition = _NavMesh.WorldToCell(transform.position);
+		Vector3Int cellPosition =
+			_GameManager.m_Grid.WorldToCell(transform.position);
 
 		// Based on interaction direction, have player move to that tile instead.
 		switch (m_InteractionDirection)
@@ -248,20 +209,22 @@ public class PickUpScript : MonoBehaviour
 	// Handle wall item functionality.
 	private void HandleWallFunction()
 	{
-		Vector3Int cellPosition = _NavMesh.WorldToCell(transform.position);
+		Vector3Int cellPosition =
+			_GameManager.m_Grid.WorldToCell(transform.position);
 
 		if (m_Log)
 			Debug.Log($"Before Loop: {cellPosition}");
 
 		// Find a valid tile within range.
-		while (!_NavMesh.HasTile(cellPosition) && cellPosition.y > -100)
+		while (!_GameManager.m_NavMesh.HasTile(cellPosition) &&
+		       cellPosition.y > -100)
 		{
 			cellPosition.y--;
 			if (m_Log) Debug.Log($"In Loop: {cellPosition}");
 		}
 
 		// If no valid tile is found, output a warning.
-		if (!_NavMesh.HasTile(cellPosition))
+		if (!_GameManager.m_NavMesh.HasTile(cellPosition))
 		{
 			Debug.LogWarning(
 				$"No valid tile found in range of 100 tiles: {cellPosition}");
@@ -271,9 +234,9 @@ public class PickUpScript : MonoBehaviour
 		if (m_Log)
 		{
 			Debug.Log($"After Loop: {cellPosition}");
-			_NavMesh.SetTileFlags(cellPosition,
+			_GameManager.m_NavMesh.SetTileFlags(cellPosition,
 				TileFlags.None); // Allow colour modification.
-			_NavMesh.SetColor(cellPosition, Color.green);
+			_GameManager.m_NavMesh.SetColor(cellPosition, Color.green);
 		}
 
 		// Move the player to the target tile.
@@ -283,12 +246,12 @@ public class PickUpScript : MonoBehaviour
 #if UNITY_EDITOR
 	private void Reset()
 	{
-		_Camera = Camera.main;
-		_NavMesh = GameObject.FindWithTag("NavMesh").GetComponent<Tilemap>();
+		_GizmoGrid = FindFirstObjectByType<Grid>();
 	}
 
 	private void OnDrawGizmosSelected()
 	{
+		if (!_GizmoGrid) return;
 		// Handle wall item gizmos.
 		if (_IsWallItem)
 		{
@@ -303,7 +266,8 @@ public class PickUpScript : MonoBehaviour
 		}
 		else // Handle ground item gizmos.
 		{
-			Vector3Int cellPosition = _NavMesh.WorldToCell(transform.position);
+			Vector3Int cellPosition =
+				_GizmoGrid.WorldToCell(transform.position);
 			switch (m_InteractionDirection)
 			{
 				case InteractionDir.Left:
@@ -324,7 +288,8 @@ public class PickUpScript : MonoBehaviour
 
 			// Draw player interaction point.
 			Gizmos.color = Color.red;
-			Gizmos.DrawSphere(_NavMesh.GetCellCenterWorld(cellPosition), 0.1f);
+			Gizmos.DrawSphere(_GizmoGrid.GetCellCenterWorld(cellPosition),
+				0.1f);
 
 			// Draw the controller interaction range for ground items.
 			Gizmos.color = Color.blue;
@@ -333,4 +298,5 @@ public class PickUpScript : MonoBehaviour
 		}
 	}
 #endif
+}
 }

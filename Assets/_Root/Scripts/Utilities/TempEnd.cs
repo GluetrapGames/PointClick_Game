@@ -2,14 +2,17 @@ using EditorAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TempEnd : MonoBehaviour
+namespace GlueTrap.Utilities
 {
-	[SceneDropdown]
-	public string m_SceneTransition;
-
-
-	public void ChangeScene()
+	public class TempEnd : MonoBehaviour
 	{
-		SceneManager.LoadScene(m_SceneTransition);
+		[SceneDropdown]
+		public string m_SceneTransition;
+
+
+		public void ChangeScene()
+		{
+			SceneManager.LoadScene(m_SceneTransition);
+		}
 	}
 }

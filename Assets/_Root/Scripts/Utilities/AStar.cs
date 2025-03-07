@@ -3,97 +3,104 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public static class AStar
+namespace GlueTrap.Utilities
 {
-	public static List<Vector3Int> FindPath(Vector3Int start, Vector3Int goal,
-		Tilemap map, List<Vector3Int> obstacles)
+	public static class AStar
 	{
-		// A* algorithm to find the path.
-		var openList = new List<Vector3Int>();
-		var closedList = new HashSet<Vector3Int>();
-		var cameFrom = new Dictionary<Vector3Int, Vector3Int>();
-		var gScore =
-			new Dictionary<Vector3Int, float>(); // Cost from start to current.
-		var fScore =
-			new Dictionary<Vector3Int, float>(); // Estimated cost to goal.
-
-		openList.Add(start);
-		gScore[start] = 0;
-		fScore[start] = Heuristic(start, goal);
-
-		while (openList.Count > 0)
+		public static List<Vector3Int> FindPath(Vector3Int start,
+			Vector3Int goal,
+			Tilemap map, List<Vector3Int> obstacles)
 		{
-			// Get the node with the lowest fScore.
-			Vector3Int current = GetLowestFScoreNode(openList, fScore);
-			if (current == goal)
-				return ReconstructPath(cameFrom, current);
+			// A* algorithm to find the path.
+			var openList = new List<Vector3Int>();
+			var closedList = new HashSet<Vector3Int>();
+			var cameFrom = new Dictionary<Vector3Int, Vector3Int>();
+			var gScore =
+				new Dictionary<Vector3Int,
+					float>(); // Cost from start to current.
+			var fScore =
+				new Dictionary<Vector3Int, float>(); // Estimated cost to goal.
 
-			openList.Remove(current);
-			closedList.Add(current);
+			openList.Add(start);
+			gScore[start] = 0;
+			fScore[start] = Heuristic(start, goal);
 
-			foreach (Vector3Int neighbor in GetNeighbors(current, map))
+			while (openList.Count > 0)
 			{
-				// Skip if neighbor is already evaluated or is an obstacle.
-				if (closedList.Contains(neighbor) ||
-				    (obstacles != null && obstacles.Contains(neighbor)))
-					continue;
+				// Get the node with the lowest fScore.
+				Vector3Int current = GetLowestFScoreNode(openList, fScore);
+				if (current == goal)
+					return ReconstructPath(cameFrom, current);
 
-				var tentativeGScore = gScore[current] + 1;
+				openList.Remove(current);
+				closedList.Add(current);
 
-				if (!openList.Contains(neighbor))
-					openList.Add(neighbor);
-				else if (tentativeGScore >= gScore[neighbor])
-					continue;
+				foreach (Vector3Int neighbor in GetNeighbors(current, map))
+				{
+					// Skip if neighbor is already evaluated or is an obstacle.
+					if (closedList.Contains(neighbor) ||
+					    (obstacles != null && obstacles.Contains(neighbor)))
+						continue;
 
-				cameFrom[neighbor] = current;
-				gScore[neighbor] = tentativeGScore;
-				fScore[neighbor] = gScore[neighbor] + Heuristic(neighbor, goal);
+					var tentativeGScore = gScore[current] + 1;
+
+					if (!openList.Contains(neighbor))
+						openList.Add(neighbor);
+					else if (tentativeGScore >= gScore[neighbor])
+						continue;
+
+					cameFrom[neighbor] = current;
+					gScore[neighbor] = tentativeGScore;
+					fScore[neighbor] =
+						gScore[neighbor] + Heuristic(neighbor, goal);
+				}
 			}
+
+			return null;
 		}
 
-		return null;
-	}
-
-	public static Vector3Int GetLowestFScoreNode(List<Vector3Int> openList,
-		Dictionary<Vector3Int, float> fScore)
-	{
-		Vector3Int lowest = openList[0];
-		foreach (Vector3Int node in openList.Where(node =>
-			         fScore[node] < fScore[lowest]))
-			lowest = node;
-
-		return lowest;
-	}
-
-	public static List<Vector3Int> ReconstructPath(
-		Dictionary<Vector3Int, Vector3Int> cameFrom, Vector3Int current)
-	{
-		var path = new List<Vector3Int> { current };
-		while (cameFrom.ContainsKey(current))
+		public static Vector3Int GetLowestFScoreNode(List<Vector3Int> openList,
+			Dictionary<Vector3Int, float> fScore)
 		{
-			current = cameFrom[current];
-			path.Insert(0, current);
+			Vector3Int lowest = openList[0];
+			foreach (Vector3Int node in openList.Where(node =>
+				         fScore[node] < fScore[lowest]))
+				lowest = node;
+
+			return lowest;
 		}
 
-		return path;
-	}
-
-	public static List<Vector3Int> GetNeighbors(Vector3Int tilePosition,
-		Tilemap map)
-	{
-		// Check for four possible neighbors (up, down, left, right).
-		Vector3Int[] directions =
+		public static List<Vector3Int> ReconstructPath(
+			Dictionary<Vector3Int, Vector3Int> cameFrom, Vector3Int current)
 		{
-			Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right
-		};
+			var path = new List<Vector3Int> { current };
+			while (cameFrom.ContainsKey(current))
+			{
+				current = cameFrom[current];
+				path.Insert(0, current);
+			}
 
-		return directions.Select(dir => tilePosition + dir)
-			.Where(map.HasTile)
-			.ToList();
-	}
+			return path;
+		}
 
-	public static float Heuristic(Vector3Int a, Vector3Int b)
-	{
-		return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
+		public static List<Vector3Int> GetNeighbors(Vector3Int tilePosition,
+			Tilemap map)
+		{
+			// Check for four possible neighbors (up, down, left, right).
+			Vector3Int[] directions =
+			{
+				Vector3Int.up, Vector3Int.down, Vector3Int.left,
+				Vector3Int.right
+			};
+
+			return directions.Select(dir => tilePosition + dir)
+				.Where(map.HasTile)
+				.ToList();
+		}
+
+		public static float Heuristic(Vector3Int a, Vector3Int b)
+		{
+			return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
+		}
 	}
 }

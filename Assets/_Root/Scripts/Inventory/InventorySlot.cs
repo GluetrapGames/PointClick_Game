@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+namespace GlueTrap
+{
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
 	public Button button;
@@ -21,4 +23,5 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 			item.parentAfterDrag = transform;
 		}
 	}
+}
 }

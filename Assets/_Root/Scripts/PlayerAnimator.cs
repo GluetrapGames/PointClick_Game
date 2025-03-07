@@ -2,6 +2,8 @@ using System;
 using EditorAttributes;
 using UnityEngine;
 
+namespace GlueTrap
+{
 public class PlayerAnimator : MonoBehaviour
 {
 	// Static Animator parameter hashes.
@@ -15,6 +17,9 @@ public class PlayerAnimator : MonoBehaviour
 	private AnimationComponents _AnimationComponents;
 	[SerializeField, ReadOnly]
 	private Vector3 _PlayerPosition;
+	[SerializeField]
+	private bool _FlipHorizontalFlipping;
+
 
 	private GameManager _GameManager;
 	private Vector3 _OldPlayerPosition;
@@ -51,8 +56,8 @@ public class PlayerAnimator : MonoBehaviour
 		// Flip the sprite horizontally based on the current Player's X direction.
 		_AnimationComponents.m_SpriteRenderer.flipX = delta.x switch
 		{
-			> 0f => false,
-			< 0f => true,
+			> 0f => _FlipHorizontalFlipping,
+			< 0f => !_FlipHorizontalFlipping,
 			_ => _AnimationComponents.m_SpriteRenderer.flipX
 		};
 
@@ -117,4 +122,5 @@ public class PlayerAnimator : MonoBehaviour
 		public Animator m_Animator;
 		public SpriteRenderer m_SpriteRenderer;
 	}
+}
 }

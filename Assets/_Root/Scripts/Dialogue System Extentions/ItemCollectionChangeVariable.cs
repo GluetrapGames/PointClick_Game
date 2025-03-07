@@ -1,6 +1,8 @@
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
+namespace GlueTrap
+{
 public class ItemCollectionChangeVariable : MonoBehaviour
 {
 	[Tooltip("Enter the name of the variable. (CASE SENSITIVE)")]
@@ -22,13 +24,13 @@ public class ItemCollectionChangeVariable : MonoBehaviour
 	private PickUpScript pickUpScript;
 
 
-    private void Awake()
-    {
-        pickUpScript = GetComponent<PickUpScript>();
-    }
+	private void Awake()
+	{
+		pickUpScript = GetComponent<PickUpScript>();
+	}
 
-    // Update is called once per frame
-    private void Update()
+	// Update is called once per frame
+	private void Update()
 	{
 		isCollected = pickUpScript.m_ActivateVariable;
 
@@ -40,4 +42,5 @@ public class ItemCollectionChangeVariable : MonoBehaviour
 			gameObject.SetActive(false);
 		}
 	}
+}
 }
