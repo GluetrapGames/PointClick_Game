@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
 	public GameObject pauseMenuParent;
 	public GameObject pauseMenuUI;
 	public GameObject settingsMenuUI;
+	public GameObject onScreenButton;
 	public GameObject inventoryUI;
 
 	public GameObject firstSelectedPause;
@@ -64,6 +65,7 @@ public class PauseMenu : MonoBehaviour
 		Time.timeScale = 1f;
 		paused = false;
 		pauseMenuParent.SetActive(false);
+		onScreenButton.SetActive(true);
 		pauseMenuUI.SetActive(false);
 		settingsMenuUI.SetActive(false);
 		EventSystem.current.SetSelectedGameObject(null);
@@ -74,6 +76,7 @@ public class PauseMenu : MonoBehaviour
 		//inventoryUI.SetActive(false);
 		pauseMenuParent.SetActive(true);
 		pauseMenuUI.SetActive(true);
+		onScreenButton.SetActive(false);
 		settingsMenuUI.SetActive(false);
 		EventSystem.current.SetSelectedGameObject(firstSelectedPause);
 		Time.timeScale = 0f;

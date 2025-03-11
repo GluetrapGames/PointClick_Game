@@ -9,7 +9,7 @@ namespace GlueTrap
 {
 public class BreakableItem : MonoBehaviour
 {
-	[SerializeField, ReadOnly]
+	[SerializeField]
 	private string _PersistentID;
 	[SerializeField]
 	private bool _Log;
@@ -134,12 +134,18 @@ public class BreakableItem : MonoBehaviour
 		}
 	}
 
+	[Button("Generate Persistent ID")]
+	private void GenerateID()
+	{
+		_PersistentID = Guid.NewGuid().ToString();
+	}
+	
 #if UNITY_EDITOR
 	private void Reset()
 	{
 		// Assign a unique ID if it's empty.
 		if (string.IsNullOrEmpty(_PersistentID))
-			_PersistentID = Guid.NewGuid().ToString();
+			GenerateID();
 	}
 
 	private void OnValidate()
