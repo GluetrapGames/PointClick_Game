@@ -29,7 +29,7 @@ public class PickUpScript : MonoBehaviour
 	public int m_PickUpDistance = 1;
 	[Range(1f, 3f)]
 	public float m_ControllerInteractionDistance = 1f;
-	public string pickupEvent;
+	public string pickupEvent = "player_pickup";
 	public Sprite sprite;
 
 	[SerializeField]
@@ -53,8 +53,16 @@ public class PickUpScript : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = GameObject.FindGameObjectWithTag("Manager")
-			.GetComponent<GameManager>();
+		// Obtain the Game Manager.
+		var objs = GameObject.FindGameObjectsWithTag("Manager");
+		foreach (GameObject obj in objs)
+		{
+			var component = obj.GetComponent<GameManager>();
+			if (!component) continue;
+			Debug.Log(component.GetComponent<GameManager>());
+			_GameManager = component;
+			return;
+		}
 	}
 
 	private void Start()
@@ -98,9 +106,27 @@ public class PickUpScript : MonoBehaviour
 			return;
 
 		AkSoundEngine.PostEvent(pickupEvent, gameObject);
-
 		Collected();
 	}
+
+	private void OnTriggerStay2D(Collider2D other)
+	{
+		if (!m_IsClicked)
+			return;
+
+		// If next to item and Player pressed it, pick it up.
+		const float constReachDistance = 2f;
+		if (Vector3.Distance(transform.position,
+			    _GameManager.m_Player.transform.position) <=
+		    constReachDistance && !_GameManager.m_Player.m_Movement.m_IsMoving)
+		{
+			if (m_Log) Debug.Log("Player is within one tile radius.");
+			AkSoundEngine.PostEvent(pickupEvent, gameObject);
+			Collected();
+		}
+		else if (m_Log) Debug.Log("Player is NOT within one tile radius.");
+	}
+
 
 	private void Collected()
 	{
@@ -166,7 +192,13 @@ public class PickUpScript : MonoBehaviour
 
 		Vector2 mousePos =
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
-		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+		// Create a layer mask to ignore the "Player" layer.
+		var layerMask = ~LayerMask.GetMask("Player");
+
+		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
+			Mathf.Infinity, layerMask);
+		Debug.Log(hit.collider);
 
 		if (hit.collider && hit.collider.gameObject == gameObject)
 		{
