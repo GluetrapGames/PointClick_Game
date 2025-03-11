@@ -12,6 +12,11 @@ namespace GlueTrap
         public void OnTriggerEnter2D(Collider2D other)
         {
             AkSoundEngine.SetSwitch("FootstepMaterial", stepMaterial, other.gameObject);
-        }       
+        }
+
+        public void OnTriggerExit2D(Collider2D other)
+        {
+            AkSoundEngine.SetSwitch("FootstepMaterial", "Wood", other.gameObject);
+        }
     }
 }

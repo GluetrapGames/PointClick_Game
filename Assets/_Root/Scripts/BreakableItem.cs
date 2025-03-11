@@ -44,14 +44,23 @@ public class BreakableItem : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = GameObject.FindGameObjectWithTag("Manager")
-			.GetComponent<GameManager>();
-		_EndGameTracker = FindFirstObjectByType<EndGameTracker>();
+		// Obtain Game Manager.
+		var objs = GameObject.FindGameObjectsWithTag("Manager");
+		foreach (GameObject obj in objs)
+		{
+			var component = obj.GetComponent<GameManager>();
+			if (!component) continue;
+			_GameManager = component;
+			return;
+		}
+
 		_ItemCollision = GetComponent<CollideCheck>();
 	}
 
 	private void Start()
 	{
+		_EndGameTracker = _GameManager.m_EndGameTracker;
+
 		_playerHeldItem = _GameManager.m_InventoryManager.m_HeldItemSlot;
 		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
 

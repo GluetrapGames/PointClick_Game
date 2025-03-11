@@ -1,63 +1,65 @@
 using PixelCrushers.DialogueSystem;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace GlueTrap
 {
-    public class InteractDialgoue : MonoBehaviour
-    {
-        [SerializeField,Tooltip("The title of the conversation to be played.")]
-        private string _ConversationTitle;
-        [SerializeField,Tooltip("Tick if the conversation is to only be pplayed once.")]
-        private bool _PlayOnce;
-        private bool _HasPlayedOnce;
+public class InteractDialgoue : MonoBehaviour
+{
+	[SerializeField, Tooltip("The title of the conversation to be played.")]
+	private string _ConversationTitle;
+	[SerializeField,
+	 Tooltip("Tick if the conversation is to only be pplayed once.")]
+	private bool _PlayOnce;
 
-        private GameManager _GameManager;
-        private PlayerInput _PlayerInput;
-        private InputAction _InteractAction;
-        private CollideCheck _ItemCollision;
+	private GameManager _GameManager;
+	private bool _HasPlayedOnce;
+	private InputAction _InteractAction;
+	private CollideCheck _ItemCollision;
+	private PlayerInput _PlayerInput;
 
-        private void Awake()
-        {
-            _GameManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
-            _ItemCollision = GetComponent<CollideCheck>();
-        }
+	private void Awake()
+	{
+		// Obtain Game Manager.
+		var objs = GameObject.FindGameObjectsWithTag("Manager");
+		foreach (GameObject obj in objs)
+		{
+			var component = obj.GetComponent<GameManager>();
+			if (!component) continue;
+			_GameManager = component;
+			return;
+		}
+	}
 
-        private void Start()
-        {
-            _PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
-            _InteractAction = _PlayerInput.actions["Break"];
-        }
+	private void Start()
+	{
+		_ItemCollision = GetComponent<CollideCheck>();
+		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
+		_InteractAction = _PlayerInput.actions["Break"];
+	}
 
-        private void Update()
-        {
-            // Check if the interact key was pressed and the player was within the collision zone
-            if (_InteractAction.WasPressedThisFrame() && _ItemCollision.IsCollided) 
-            {
-                PlayConversation();
-            }
-        }
+	private void Update()
+	{
+		// Check if the interact key was pressed and the player was within the collision zone
+		if (_InteractAction.WasPressedThisFrame() && _ItemCollision.IsCollided)
+			PlayConversation();
+	}
 
-        // Plays the conversation
-        private void PlayConversation() 
-        {
-
-            if (_PlayOnce)
-            {
-                if (!_HasPlayedOnce)
-                {
-                    DialogueManager.StartConversation(_ConversationTitle);
-                    var collider = GetComponent<BoxCollider2D>();
-                    collider.enabled = false;
-                    _HasPlayedOnce = true;
-                }
-            }
-            else 
-            {
-                DialogueManager.StartConversation(_ConversationTitle);
-            }
-        }
-    }
+	// Plays the conversation
+	private void PlayConversation()
+	{
+		if (_PlayOnce)
+		{
+			if (!_HasPlayedOnce)
+			{
+				DialogueManager.StartConversation(_ConversationTitle);
+				var collider = GetComponent<BoxCollider2D>();
+				collider.enabled = false;
+				_HasPlayedOnce = true;
+			}
+		}
+		else
+			DialogueManager.StartConversation(_ConversationTitle);
+	}
+}
 }

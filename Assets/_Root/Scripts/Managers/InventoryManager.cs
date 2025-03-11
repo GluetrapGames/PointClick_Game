@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GlueTrap.Utilities;
@@ -19,6 +20,7 @@ public class InventoryManager : Singleton<InventoryManager>
 	private GameManager _GameManager;
 
 	public HeldItemSlot m_HeldItemSlot { get; private set; }
+	public DropHeldItem m_DropHeldItem { get; private set; }
 	public Transform m_Inventory { get; private set; }
 	public List<Transform> m_InventorySlots { get; } = new();
 	public Dictionary<string, InventoryItemData> m_InventoryItems { get; } =
@@ -47,6 +49,9 @@ public class InventoryManager : Singleton<InventoryManager>
 	{
 		m_Inventory.gameObject.SetActive(_GameManager.m_CurrentState !=
 		                                 States.InMenus);
+
+		StartCoroutine(SetDropHeldItemData());
+
 	}
 
 	private void GetInventory()
@@ -150,6 +155,20 @@ public class InventoryManager : Singleton<InventoryManager>
 
 		return true;
 	}
+
+	private IEnumerator SetDropHeldItemData()
+	{
+		yield return new WaitForSeconds(2);
+		m_DropHeldItem = DropHeldItem.Instance;
+		if (m_DropHeldItem == null)
+		{
+			Debug.LogError("Failed to find DropHeldItem!");
+		}
+		m_DropHeldItem._heldItemSlot = m_HeldItemSlot.GetComponent<HeldItemSlot>();
+		m_DropHeldItem._playerInstance = _GameManager.m_Player;
+		m_DropHeldItem._pickupParent = GameObject.Find("----Pickups----");
+	}
+
 }
 
 public struct ItemData
