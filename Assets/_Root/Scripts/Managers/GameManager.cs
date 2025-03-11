@@ -27,6 +27,7 @@ public class GameManager : Singleton<GameManager>
 	private States _PreviousState;
 
 	public InventoryManager m_InventoryManager { get; private set; }
+	public EndGameTracker m_EndGameTracker { get; private set; }
 	public PlayerGridController m_Player { get; private set; }
 	public Grid m_Grid { get; private set; }
 	public Tilemap m_NavMesh { get; private set; }
@@ -40,6 +41,7 @@ public class GameManager : Singleton<GameManager>
 	{
 		base.Awake();
 		m_InventoryManager = FindFirstObjectByType<InventoryManager>();
+		m_EndGameTracker = FindFirstObjectByType<EndGameTracker>();
 		InitGame();
 		_PreviousState = _CurrentState;
 	}
@@ -177,12 +179,11 @@ public class GameManager : Singleton<GameManager>
 	}
 }
 
-	public enum States
-	{
-		Moving = 0,
-		Talking = 1,
-		Interacting = 2,
-		InMenus = 3
-	}
+public enum States
+{
+	Moving = 0,
+	Talking = 1,
+	Interacting = 2,
+	InMenus = 3
 }
 }
