@@ -311,9 +311,9 @@ RectTransform:
   - {fileID: 8032440662743339282}
   m_Father: {fileID: 3321077797859199184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 0.00002670288}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 0.000030517578}
   m_SizeDelta: {x: 40.874, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7271143019455278815
@@ -684,9 +684,10 @@ MonoBehaviour:
       cameraAngles: {fileID: 0}
       keepCameraPositionAtConversationEnd: 0
       showSubtitleOnEmptyContinue: 0
-      defaultSequence: 'AnimatorPlay(Talk,speakerportrait);
+      defaultSequence: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-        required AnimatorPlay(Idle,speakerportrait)@Message(Typed)'
+        required
+        AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed)'
       defaultPlayerSequence: 
       defaultResponseMenuSequence: 
       entrytagFormat: 0
@@ -827,31 +828,7 @@ MonoBehaviour:
   conversationEvents:
     onConversationStart:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: AutoplaySelection, Assembly-CSharp
-          m_MethodName: setContinueButtonState
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     onConversationEnd:
       m_PersistentCalls:
         m_Calls:
@@ -868,37 +845,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
     runOnConversationEndEventsAtEndOfFrame: 0
     onConversationCancelled:
       m_PersistentCalls:
         m_Calls: []
     onConversationLine:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     onConversationLineEnd:
       m_PersistentCalls:
         m_Calls: []
@@ -1323,7 +1276,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -13, y: 0}
+  m_SizeDelta: {x: -346.88, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3588338364266296247
 CanvasRenderer:
@@ -3020,18 +2973,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PixelCrushers.DialogueSystem.ConversationControl,
           Assembly-CSharp-firstpass
         m_MethodName: ToggleAutoPlay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogueSound, Assembly-CSharp
-        m_MethodName: onClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6551,8 +6492,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -143.48492, y: -352.23}
-  m_SizeDelta: {x: 1198.9844, y: 96.397}
+  m_AnchoredPosition: {x: -128.45508, y: -352.23}
+  m_SizeDelta: {x: 1239.5483, y: 96.397}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &824824851442351285
 CanvasRenderer:

@@ -155,7 +155,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
 		return true;
 	}
-	
+
 	private IEnumerator SetDropHeldItemData()
 	{
 		yield return new WaitForSeconds(2);
@@ -168,7 +168,7 @@ public class InventoryManager : Singleton<InventoryManager>
 		m_DropHeldItem._playerInstance = _GameManager.m_Player;
 		m_DropHeldItem._pickupParent = GameObject.Find("----Pickups----");
 	}
-	
+
 }
 
 public struct ItemData
@@ -192,5 +192,4 @@ public struct InventoryItemData
 	public bool m_IsEquipped;
 	public InventorySlot m_Slot;
 }
-
 }
