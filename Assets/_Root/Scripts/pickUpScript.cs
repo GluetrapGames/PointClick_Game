@@ -61,7 +61,7 @@ public class PickUpScript : MonoBehaviour
 		{
 			var component = obj.GetComponent<GameManager>();
 			if (!component) continue;
-			Debug.Log(component.GetComponent<GameManager>());
+			if (m_Log) Debug.Log(component.GetComponent<GameManager>());
 			_GameManager = component;
 			return;
 		}
@@ -200,7 +200,7 @@ public class PickUpScript : MonoBehaviour
 
 		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
 			Mathf.Infinity, layerMask);
-		Debug.Log(hit.collider);
+		if (m_Log) Debug.Log(hit.collider);
 
 		if (hit.collider && hit.collider.gameObject == gameObject)
 		{
