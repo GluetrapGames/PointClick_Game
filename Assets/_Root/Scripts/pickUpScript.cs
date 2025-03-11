@@ -32,10 +32,10 @@ public class PickUpScript : MonoBehaviour
 	public string pickupEvent = "player_pickup";
 	public Sprite sprite;
 
-	[SerializeField]
+	[SerializeField]4
 	private bool _IsWallItem;
 	[SerializeField]
-	private ItemTypes _ItemType;
+	public ItemTypes _ItemType;
 	[SerializeField]
 	private GameObject _ItemPrefab;
 
