@@ -22,6 +22,8 @@ public class PickUpScript : MonoBehaviour
 	public bool m_Log;
 	[Header("Settings"), ReadOnly]
 	public bool m_IsClicked;
+	[Header("Settings"), ReadOnly]
+	public bool m_IsDropped;
 	[ReadOnly]
 	public bool m_ActivateVariable;
 	public InteractionDir m_InteractionDirection = InteractionDir.Left;
@@ -32,12 +34,12 @@ public class PickUpScript : MonoBehaviour
 	public string pickupEvent = "player_pickup";
 	public Sprite sprite;
 
-	[SerializeField]4
+	[SerializeField]
 	private bool _IsWallItem;
 	[SerializeField]
 	public ItemTypes _ItemType;
 	[SerializeField]
-	private GameObject _ItemPrefab;
+	public GameObject _ItemPrefab;
 
 
 	[Header("Dialogue Settings"), Tooltip("Will the item start dialogue"),
@@ -78,13 +80,13 @@ public class PickUpScript : MonoBehaviour
 		}
 
 
-		if (itemCollected)
+		if (itemCollected && !m_IsDropped)
 		{
 			gameObject.SetActive(false);
 			m_IsClicked = true;
 			m_ActivateVariable = true;
 		}
-		else
+		else if (m_IsDropped || !itemCollected)
 		{
 			gameObject.SetActive(true);
 			m_IsClicked = false;

@@ -24,9 +24,12 @@ namespace GlueTrap
         [SerializeField]
         private ItemTypes _heldItemType = ItemTypes.None;
 
-        // Prefab
+        // Prefabs
         [SerializeField]
         private GameObject _pickupPrefab = null;
+        
+        [SerializeField]
+        private GameObject _itemPrefab = null;
         
         // Parent to assign new pickup to
         [SerializeField]
@@ -35,7 +38,7 @@ namespace GlueTrap
         // Player instance to find position to spawn new pickup
         [SerializeField]
         public PlayerGridController _playerInstance;
-
+        
         public static DropHeldItem Instance { get; private set; }
         
         private void Awake()
@@ -88,6 +91,9 @@ namespace GlueTrap
             pickupInstance.GetComponent<PickUpScript>()._ItemType = _heldItemType;
             pickupInstance.GetComponent<PickUpScript>().sprite = _heldItemSprite;
             pickupInstance.GetComponent<PickUpScript>().m_IsClicked = false;
+            pickupInstance.GetComponent<PickUpScript>().m_IsDropped = true;
+            pickupInstance.GetComponent<PickUpScript>()._ItemPrefab = _itemPrefab;
+            pickupInstance.GetComponent<PickUpScript>().pickupEvent = "player_pickup";
             pickupInstance.GetComponent<SpriteRenderer>().sprite = _heldItemSprite;
             pickupInstance.transform.position = _playerInstance.transform.position;
             Destroy(_heldItem.gameObject);
