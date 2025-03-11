@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C8B59BA7-3165-DAA2-1470-D90F6DF9168C}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F7A8B25E-4C0E-E958-208C-6ED7E7FE7671}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -33,6 +33,17 @@
 				<GameParameter Id="3273357900" Name="vol_sfx"/>
 				<GameParameter Id="3391499625" Name="vol_master"/>
 			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1848906592" Name="HouseMusic">
+					<States>
+						<State Id="289078192" Name="higher"/>
+						<State Id="545371365" Name="low"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1182670505" Name="mid"/>
+						<State Id="3550808449" Name="high"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="904554749" Name="BreakMaterial">
 					<Switches>
@@ -61,7 +72,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{17CB20B7-EA68-0BA4-F0EA-83BD6E32B4B1}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{6C186DCB-A447-5B8F-F19D-B0487F5B9AF1}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -145,6 +156,14 @@
 					<ShortName>viol_hit_metal-001.wav</ShortName>
 					<CachePath>SFX/viol_hit_metal-001_818F3B66.wem</CachePath>
 				</File>
+				<File Id="701244824" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>high.wav</ShortName>
+					<CachePath>SFX/high_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="711482501" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>low.wav</ShortName>
+					<CachePath>SFX/low_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="718177124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_lawyer_blab.wav</ShortName>
 					<CachePath>SFX/dial_lawyer_blab_74894F2E.wem</CachePath>
@@ -157,9 +176,17 @@
 					<ShortName>wood_light-009.wav</ShortName>
 					<CachePath>SFX/wood_light-009_818F3B66.wem</CachePath>
 				</File>
+				<File Id="772522099" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mid.wav</ShortName>
+					<CachePath>SFX/mid_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="797840335" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>wood_light-010.wav</ShortName>
 					<CachePath>SFX/wood_light-010_818F3B66.wem</CachePath>
+				</File>
+				<File Id="798446541" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>higher.wav</ShortName>
+					<CachePath>SFX/higher_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="845512123" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_dialoguePopup.wav</ShortName>
@@ -324,11 +351,6 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="2607556080" Name="menu" DurationType="OneShot" DurationMin="183.48619" DurationMax="183.48619">
-					<MediaRefs>
-						<MediaRef Id="73779194"/>
-					</MediaRefs>
-				</Event>
 				<Event Id="3063554414" Name="menu_back" DurationType="OneShot" DurationMin="0.39407054" DurationMax="0.39407054">
 					<MediaRefs>
 						<MediaRef Id="604374767"/>
@@ -342,6 +364,39 @@
 				<Event Id="4203375351" Name="menu_select" DurationType="OneShot" DurationMin="0.36712962" DurationMax="0.36712962">
 					<MediaRefs>
 						<MediaRef Id="277770706"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1154458182" Name="MusicHouse" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1848906592" Id="545371365"/>
+							<MediaRefs>
+								<MediaRef Id="711482501"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1848906592" Id="3550808449"/>
+							<MediaRefs>
+								<MediaRef Id="701244824"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1848906592" Id="1182670505"/>
+							<MediaRefs>
+								<MediaRef Id="772522099"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1848906592" Id="289078192"/>
+							<MediaRefs>
+								<MediaRef Id="798446541"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="4082046343" Name="MusicMenu" DurationType="OneShot" DurationMin="183.48619" DurationMax="183.48619">
+					<MediaRefs>
+						<MediaRef Id="73779194"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1627434233" Name="player_pickup" DurationType="OneShot" DurationMin="0.7288333" DurationMax="0.7288333">
@@ -408,6 +463,17 @@
 			<GameParameters>
 				<GameParameter Id="223679447" Name="vol_loud"/>
 			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1848906592" Name="HouseMusic">
+					<States>
+						<State Id="289078192" Name="higher"/>
+						<State Id="545371365" Name="low"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1182670505" Name="mid"/>
+						<State Id="3550808449" Name="high"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="904554749" Name="BreakMaterial">
 					<Switches>
@@ -437,5 +503,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{370E5500-23B3-3E2A-8761-6EF69D66D681}</FileHash>
+	<FileHash>{3A308DF1-B210-C524-049A-47731B61AB5B}</FileHash>
 </SoundBanksInfo>

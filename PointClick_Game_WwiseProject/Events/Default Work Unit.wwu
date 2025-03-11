@@ -5,12 +5,23 @@
 			<ChildrenList>
 				<Folder Name="Music" ID="{460DFC57-8F3D-4C84-9422-7605840AA6C2}" ShortID="341061156">
 					<ChildrenList>
-						<Event Name="menu" ID="{A86B29B5-B6C7-4B34-A936-6F214D6F43F5}">
+						<Event Name="MusicMenu" ID="{A86B29B5-B6C7-4B34-A936-6F214D6F43F5}">
 							<ChildrenList>
 								<Action Name="" ID="{6830FD54-FD5D-4CD4-AF0A-A190C0E633CE}" ShortID="436221503">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="MusicHouse" ID="{163A39F5-7694-4655-A94C-67B74885B51C}">
+							<ChildrenList>
+								<Action Name="" ID="{2BFAAE3F-141E-41AA-9D66-31590F1254B3}" ShortID="35722533">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Music" ID="{5DFE2C84-FAF6-4EAF-BA44-8D6082703469}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
