@@ -8,6 +8,8 @@ public class HeldItemSlot : MonoBehaviour, IDropHandler
 {
 	public ItemTypes playerHeldItem;
 
+	private bool _Log;
+
 	private void Update()
 	{
 		if (transform.childCount == 0) playerHeldItem = ItemTypes.None;
@@ -21,7 +23,7 @@ public class HeldItemSlot : MonoBehaviour, IDropHandler
 			var item = dropped.GetComponent<InventoryItem>();
 			playerHeldItem = item.itemType;
 			item.parentAfterDrag = transform;
-			Debug.Log(playerHeldItem);
+			if (_Log) Debug.Log(playerHeldItem);
 		}
 		else
 		{
@@ -33,8 +35,11 @@ public class HeldItemSlot : MonoBehaviour, IDropHandler
 			item.parentAfterDrag = transform;
 			currentItem.parentAfterDrag = item.parentBeforeDrag;
 			currentItem.transform.SetParent(currentItem.parentAfterDrag);
-			Debug.Log(currentItem.parentAfterDrag);
-			Debug.Log(playerHeldItem);
+			if (_Log)
+			{
+				Debug.Log(currentItem.parentAfterDrag);
+				Debug.Log(playerHeldItem);
+			}
 		}
 	}
 }

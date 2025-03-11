@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GlueTrap.Utilities;
@@ -41,17 +40,15 @@ public class InventoryManager : Singleton<InventoryManager>
 		}
 
 		m_Inventory = inventoryObject.transform;
-
 		GetInventory();
+		m_DropHeldItem = DropHeldItem.Instance;
 	}
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
+		SetDropHeldItemData();
 		m_Inventory.gameObject.SetActive(_GameManager.m_CurrentState !=
 		                                 States.InMenus);
-
-		StartCoroutine(SetDropHeldItemData());
-
 	}
 
 	private void GetInventory()
@@ -156,19 +153,20 @@ public class InventoryManager : Singleton<InventoryManager>
 		return true;
 	}
 
-	private IEnumerator SetDropHeldItemData()
+	private void SetDropHeldItemData()
 	{
-		yield return new WaitForSeconds(2);
-		m_DropHeldItem = DropHeldItem.Instance;
-		if (m_DropHeldItem == null)
+		if (m_Log) Debug.Log("Setting Drop Held Item Data");
+		if (!m_DropHeldItem)
 		{
-			Debug.LogError("Failed to find DropHeldItem!");
+			if (m_Log) Debug.LogWarning("Failed to find DropHeldItem!");
+			return;
 		}
-		m_DropHeldItem._heldItemSlot = m_HeldItemSlot.GetComponent<HeldItemSlot>();
+
+		m_DropHeldItem._heldItemSlot =
+			m_HeldItemSlot.GetComponent<HeldItemSlot>();
 		m_DropHeldItem._playerInstance = _GameManager.m_Player;
 		m_DropHeldItem._pickupParent = GameObject.Find("----Pickups----");
 	}
-
 }
 
 public struct ItemData

@@ -39,7 +39,7 @@ public class InventoryControllerSupport : MonoBehaviour
 			// Check if the button is assigned
 			if (inventorySlot.button == null || slot == null)
 			{
-				Debug.LogError($"Button is null in {slot}: {slot.name}");
+				Debug.LogWarning($"Button is null in {slot}: {slot.name}");
 				continue; // Skip this slot if the button is missing
 			}
 

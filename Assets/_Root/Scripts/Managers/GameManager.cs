@@ -108,15 +108,17 @@ public class GameManager : Singleton<GameManager>
 
 		// Get Player spawner.
 		_PlayerSpawnPoint = Utils.FindSpawner("PlayerSpawner");
-		if (!_PlayerSpawnPoint) return;
+		Vector3 spawnPos = _PlayerSpawnPoint
+			? _PlayerSpawnPoint.position
+			: Vector3.zero;
 
 		// Make sure we don't already have the Player.
 		var obj = FindFirstObjectByType<PlayerGridController>();
 		if (obj && m_Player == obj) return;
 
 		// Spawn Player.
-		GameObject spawnedPlayer = Instantiate(_PlayerPrefab,
-			_PlayerSpawnPoint.position, Quaternion.identity);
+		GameObject spawnedPlayer =
+			Instantiate(_PlayerPrefab, spawnPos, Quaternion.identity);
 		spawnedPlayer.transform.parent = transform;
 		m_Player = spawnedPlayer.GetComponent<PlayerGridController>();
 
@@ -134,7 +136,8 @@ public class GameManager : Singleton<GameManager>
 		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
 			    scene.name == noneGameplayScene))
 		{
-			m_Player.gameObject.SetActive(false);
+			if (m_Player)
+				m_Player.gameObject.SetActive(false);
 			ChangeGameState(States.InMenus);
 			return;
 		}

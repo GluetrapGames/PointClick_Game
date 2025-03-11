@@ -76,7 +76,6 @@ public class PickUpScript : MonoBehaviour
 			    gameObject.name, out InventoryItemData inventoryItem))
 		{
 			itemCollected = inventoryItem.m_IsCollected;
-			Debug.Log(itemCollected);
 		}
 
 
@@ -141,7 +140,7 @@ public class PickUpScript : MonoBehaviour
 		if (_StartConvo)
 			_ConvoObject.SetActive(true);
 
-		Debug.Log("Item collected");
+		if (m_Log) Debug.Log("Item collected");
 		m_ActivateVariable = true;
 		Destroy(gameObject);
 	}
