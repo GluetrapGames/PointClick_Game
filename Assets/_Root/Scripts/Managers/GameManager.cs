@@ -177,11 +177,12 @@ public class GameManager : Singleton<GameManager>
 	}
 }
 
-public enum States
-{
-	Moving = 0,
-	Talking = 1,
-	Interacting = 2,
-	InMenus = 3
+	public enum States
+	{
+		Moving = 0,
+		Talking = 1,
+		Interacting = 2,
+		InMenus = 3
+	}
 }
 }

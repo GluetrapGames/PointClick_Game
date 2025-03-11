@@ -1801,7 +1801,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
 --- !u!1 &84386696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,7 +3916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 491143372}
   m_Layer: 0
-  m_Name: ---Objects---
+  m_Name: ---Dialogue Objects---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9203,7 +9203,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1220951294116191168, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: interactionUI
-      value: 
+      value:
       objectReference: {fileID: 1772023802}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _itemHp
@@ -10312,27 +10312,113 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
       propertyPath: inventoryUI
-      value: 
+      value:
       objectReference: {fileID: 0}
     - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
       propertyPath: pauseMenuUI
-      value: 
+      value:
       objectReference: {fileID: 702411991}
     - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
       propertyPath: settingsMenuUI
-      value: 
+      value:
       objectReference: {fileID: 1236950961}
     - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
       propertyPath: pauseMenuParent
-      value: 
+      value:
       objectReference: {fileID: 148036031}
     - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
       propertyPath: firstSelectedPause
-      value: 
+      value:
       objectReference: {fileID: 1056220343}
     - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
       propertyPath: firstSelectedSettings
-      value: 
+      value:
+      objectReference: {fileID: 1443353337}
+    - target: {fileID: 7062584420862020392, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_Name
+      value: UIManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+--- !u!4 &1142515804 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+  m_PrefabInstance: {fileID: 1142515803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1142515803
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 570002771}
+    m_Modifications:
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.027658
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.3992696
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.6438122
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129062797450221513, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: inventoryUI
+      value:
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: pauseMenuUI
+      value:
+      objectReference: {fileID: 702411991}
+    - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: settingsMenuUI
+      value:
+      objectReference: {fileID: 1236950961}
+    - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: pauseMenuParent
+      value:
+      objectReference: {fileID: 148036031}
+    - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: firstSelectedPause
+      value:
+      objectReference: {fileID: 1056220343}
+    - target: {fileID: 5848520460585727577, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
+      propertyPath: firstSelectedSettings
+      value:
       objectReference: {fileID: 1443353337}
     - target: {fileID: 7062584420862020392, guid: 9fbd163fb31bc0646baa13a0e189f258, type: 3}
       propertyPath: m_Name
@@ -10472,7 +10558,7 @@ Transform:
   m_GameObject: {fileID: 1165693568}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.79, y: 0, z: 0}
+  m_LocalPosition: {x: 4.72, y: -1.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10530,7 +10616,7 @@ MonoBehaviour:
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
   conversation: Bedroom_EnterEvent
-  conversationConversant: {fileID: 0}
+  conversationConversant: {fileID: 894154529}
   conversationActor: {fileID: 1165693569}
   startConversationEntryID: -1
   startConversationEntryTitle: 
@@ -15387,7 +15473,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
 --- !u!1 &1884988295
 GameObject:
   m_ObjectHideFlags: 0
