@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 	public GameObject pauseMenuUI;
 	public GameObject settingsMenuUI;
 	public GameObject onScreenButton;
-	public GameObject inventoryUI;
+	//public GameObject inventoryUI;
 
 	public GameObject firstSelectedPause;
 	public GameObject firstSelectedSettings;
@@ -31,7 +31,6 @@ public class PauseMenu : MonoBehaviour
 	private void Start()
 	{
 		playerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
-		inventoryUI = _GameManager.m_InventoryManager.m_Inventory.gameObject;
 		_menuAction = playerInput.actions["Menu"];
 		if (_menuAction == null) Debug.LogError("No menu action found");
 
@@ -46,22 +45,16 @@ public class PauseMenu : MonoBehaviour
 
 	private void Update()
 	{
-		if (_menuAction.WasPressedThisFrame())
-		{
-			Debug.Log("Pausing/Resuming");
-			if (paused)
-				Resume();
-			else
-				Pause();
-		}
+		if (!_menuAction.WasPressedThisFrame()) return;
+		Debug.Log("Pausing/Resuming");
+		if (paused)
+			Resume();
+		else
+			Pause();
 	}
 
 	public void Resume()
 	{
-		if (DialogueManager.IsConversationActive)
-			inventoryUI.SetActive(false);
-		else
-			inventoryUI.SetActive(true);
 		//inventoryUI.SetActive(true);
 		Time.timeScale = 1f;
 		paused = false;

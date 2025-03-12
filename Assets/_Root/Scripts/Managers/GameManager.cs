@@ -135,6 +135,9 @@ public class GameManager : Singleton<GameManager>
 		// Update current Scene.
 		m_CurrentScene = scene;
 
+		if (m_Player)
+			m_Player.m_Movement.m_Path.Clear();
+
 		// Make sure we are in a gameplay scene.
 		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
 			    scene.name == noneGameplayScene))
