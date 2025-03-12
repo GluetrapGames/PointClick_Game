@@ -60,7 +60,7 @@ public class PlayerAnimator : MonoBehaviour
 			< 0f => !_FlipHorizontalFlipping,
 			_ => _AnimationComponents.m_SpriteRenderer.flipX
 		};
-		
+
 		// Update the animation parameters.
 		_AnimationComponents.m_Animator.SetInteger(s_HorizontalMovement,
 			(int)delta.x);
