@@ -11,6 +11,12 @@ namespace GlueTrap
 {
 public class EndGameTracker : Singleton<EndGameTracker>
 {
+	[Header("End Game Settings"),
+	 SerializedDictionary("Item Type", "Is Collected")]
+	public SerializedDictionary<ItemTypes, bool> m_EndItemTypes = new();
+	[SceneDropdown]
+	public int m_EndScene;
+
 	[SerializeField]
 	private GameObject _AlbertPrefab;
 	[SerializeField, ReadOnly]
@@ -21,43 +27,23 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private bool _IsGameOver;
 	[SerializeField]
 	private bool _Log;
-	[Header("End Game Settings"),
-	 SerializedDictionary("Item Type", "Is Collected")]
-	public SerializedDictionary<ItemTypes, bool> m_EndItemTypes = new();
-	[SceneDropdown]
-	public int m_EndScene;
-	public GameManager m_GameManager;
-
 	[SerializeField, ReadOnly]
-	private readonly SerializedDictionary<string, BreakableItem>
-		_BreakableItems = new();
+	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
+
+	private GameManager _GameManager;
 
 
 	protected override void Awake()
 	{
 		base.Awake();
-		m_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = FindFirstObjectByType<GameManager>();
 	}
 
 	private void Update()
 	{
 		if (_IsGameOver) return;
 
-		if (m_GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
-		{
-			List<ItemTypes> keysToUpdate = new();
-			foreach ((var itemName, InventoryItemData data) in m_GameManager
-				         .m_InventoryManager.m_InventoryItems)
-			foreach ((ItemTypes type, var isCollected) in m_EndItemTypes)
-				if (data.m_Item.m_Type == type)
-				{
-					if (_Log) Debug.Log($"{type}: {isCollected}");
-					keysToUpdate.Add(type);
-				}
-
-			// Update list for every item collected.
-			foreach (ItemTypes key in keysToUpdate) m_EndItemTypes[key] = true;
-		}
+		TrackEndGameItems();
 
 		if (_BreakableItems.Count != 0)
 		{
@@ -70,7 +56,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		var allItemsCollected = false;
 		var allPlantsDestroyed = false;
 		if (_DestroyedItems.Count != 0 && _BreakableItems.Count != 0 &&
-		    m_GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
+		    _GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
 		{
 			allItemsCollected = m_EndItemTypes.Values.All(value => value);
 			if (!allItemsCollected) return;
@@ -83,6 +69,37 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 		if (!allItemsCollected || !allPlantsDestroyed) return;
 		_IsGameOver = true;
+	}
+
+	private void TrackEndGameItems()
+	{
+		if (_GameManager.m_InventoryManager.m_InventoryItems.Count <= 0) return;
+
+		Dictionary<ItemTypes, bool> keysToUpdate = new();
+
+		// Collect updates.
+		foreach ((var itemName, InventoryItemData data) in _GameManager
+			         .m_InventoryManager.m_InventoryItems)
+		foreach ((ItemTypes type, var isCollected) in m_EndItemTypes)
+			if (data.m_Item.m_Type == type)
+			{
+				if (_Log) Debug.Log($"{type}: {isCollected}");
+				keysToUpdate[type] = data.m_IsCollected;
+			}
+
+		// Store changes separately.
+		List<KeyValuePair<ItemTypes, bool>> updates = new();
+		foreach ((ItemTypes type, var isCollected) in m_EndItemTypes)
+			if (keysToUpdate.TryGetValue(type, out var updatedValue) &&
+			    isCollected != updatedValue)
+			{
+				updates.Add(
+					new KeyValuePair<ItemTypes, bool>(type, updatedValue));
+			}
+
+		// Apply updates.
+		foreach (var update in updates)
+			m_EndItemTypes[update.Key] = update.Value;
 	}
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
@@ -99,7 +116,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		}
 
 		// Make sure we are in a gameplay scene.
-		if (m_GameManager.m_NoneGameplayScenes.Any(noneGameplayScene =>
+		if (_GameManager.m_NoneGameplayScenes.Any(noneGameplayScene =>
 			    scene.name == noneGameplayScene))
 			return;
 

@@ -54,9 +54,12 @@ public class GameManager : Singleton<GameManager>
 		switch (m_CurrentState)
 		{
 			case States.Moving:
+				m_InventoryManager.m_Inventory.gameObject.SetActive(true);
 				m_Player.HandleMovement();
 				break;
 			case States.Talking:
+				m_InventoryManager.m_Inventory.gameObject.SetActive(false);
+
 				// Return to past state once dialogue ends.
 				if (DialogueManager.IsConversationActive) break;
 				ChangeGameState(m_NoneGameplayScenes.Any(

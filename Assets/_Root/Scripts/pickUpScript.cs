@@ -63,7 +63,7 @@ public class PickUpScript : MonoBehaviour
 			if (!component) continue;
 			if (m_Log) Debug.Log(component.GetComponent<GameManager>());
 			_GameManager = component;
-			return;
+			break;
 		}
 	}
 
@@ -74,9 +74,7 @@ public class PickUpScript : MonoBehaviour
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count > 0 &&
 		    _GameManager.m_InventoryManager.m_InventoryItems.TryGetValue(
 			    gameObject.name, out InventoryItemData inventoryItem))
-		{
 			itemCollected = inventoryItem.m_IsCollected;
-		}
 
 
 		if (itemCollected && !m_IsDropped)
