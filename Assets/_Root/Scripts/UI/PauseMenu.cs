@@ -1,3 +1,4 @@
+using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -24,7 +25,7 @@ public class PauseMenu : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Start()
@@ -65,7 +66,7 @@ public class PauseMenu : MonoBehaviour
 		Time.timeScale = 1f;
 		paused = false;
 		pauseMenuParent.SetActive(false);
-		onScreenButton.SetActive(true);
+		//onScreenButton.SetActive(true);
 		pauseMenuUI.SetActive(false);
 		settingsMenuUI.SetActive(false);
 		EventSystem.current.SetSelectedGameObject(null);
@@ -76,7 +77,7 @@ public class PauseMenu : MonoBehaviour
 		//inventoryUI.SetActive(false);
 		pauseMenuParent.SetActive(true);
 		pauseMenuUI.SetActive(true);
-		onScreenButton.SetActive(false);
+		//onScreenButton.SetActive(false);
 		settingsMenuUI.SetActive(false);
 		EventSystem.current.SetSelectedGameObject(firstSelectedPause);
 		Time.timeScale = 0f;

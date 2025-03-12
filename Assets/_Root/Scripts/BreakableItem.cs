@@ -45,14 +45,7 @@ public class BreakableItem : MonoBehaviour
 	private void Awake()
 	{
 		// Obtain Game Manager.
-		var objs = GameObject.FindGameObjectsWithTag("Manager");
-		foreach (GameObject obj in objs)
-		{
-			var component = obj.GetComponent<GameManager>();
-			if (!component) continue;
-			_GameManager = component;
-			break;
-		}
+		_GameManager = Utils.GetGameManager();
 
 		_ItemCollision = GetComponent<CollideCheck>();
 	}

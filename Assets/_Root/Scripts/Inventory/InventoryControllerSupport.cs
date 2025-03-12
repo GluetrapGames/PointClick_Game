@@ -1,3 +1,4 @@
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -22,7 +23,7 @@ public class InventoryControllerSupport : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Start()

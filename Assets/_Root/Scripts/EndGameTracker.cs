@@ -36,7 +36,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	protected override void Awake()
 	{
 		base.Awake();
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Update()

@@ -1,4 +1,5 @@
 using System.Linq;
+using GlueTrap.Utilities;
 using UnityEngine;
 
 namespace GlueTrap
@@ -24,7 +25,7 @@ public class DropHeldItem : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private bool GetHeldItem()

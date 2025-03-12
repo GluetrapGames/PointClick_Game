@@ -28,7 +28,7 @@ public class InventoryManager : Singleton<InventoryManager>
 	protected override void Awake()
 	{
 		base.Awake();
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 		// Get the Inventory.
 		GameObject inventoryObject = GameObject.FindWithTag("Inventory");
 		if (!inventoryObject)
@@ -43,13 +43,6 @@ public class InventoryManager : Singleton<InventoryManager>
 
 		m_Inventory = inventoryObject.transform;
 		GetInventory();
-	}
-
-	private void Update()
-	{
-		/*if (m_InventoryItems.Count <= 0) return;
-		foreach ((var key, InventoryItemData data) in m_InventoryItems)
-			Debug.Log($"[{key}]: {data.m_IsCollected}");*/
 	}
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)

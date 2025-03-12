@@ -56,15 +56,7 @@ public class PickUpScript : MonoBehaviour
 	private void Awake()
 	{
 		// Obtain the Game Manager.
-		var objs = GameObject.FindGameObjectsWithTag("Manager");
-		foreach (GameObject obj in objs)
-		{
-			var component = obj.GetComponent<GameManager>();
-			if (!component) continue;
-			if (m_Log) Debug.Log(component.GetComponent<GameManager>());
-			_GameManager = component;
-			break;
-		}
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Start()
