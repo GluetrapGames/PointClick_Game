@@ -51,7 +51,7 @@ public class BreakableItem : MonoBehaviour
 			var component = obj.GetComponent<GameManager>();
 			if (!component) continue;
 			_GameManager = component;
-			return;
+			break;
 		}
 
 		_ItemCollision = GetComponent<CollideCheck>();
