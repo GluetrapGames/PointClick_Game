@@ -96,7 +96,9 @@ public class BreakableItem : MonoBehaviour
 	private void Damage()
 	{
 		// Normal amount of damage if not held item or held item is ineffective.
-		_heldItemType = _playerHeldItem.playerHeldItem.m_Item.m_Type;
+		_heldItemType = _playerHeldItem.playerHeldItem != null
+			? _playerHeldItem.playerHeldItem.m_Item.m_Type
+			: ItemTypes.None;
 		if (_heldItemType != _effectiveItemType ||
 		    _heldItemType == ItemTypes.None)
 		{
