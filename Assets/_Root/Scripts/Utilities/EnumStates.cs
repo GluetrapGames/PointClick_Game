@@ -21,6 +21,20 @@ public enum ItemTypes
 	Money = 9
 }
 
+public enum BreakMaterialTypes
+{
+	None = 0,
+	BigGlass = 1,
+	Ceramic = 2,
+	Electronic = 3,
+	Glass = 4,
+	Metal = 5,
+	Plant = 6,
+	Taxidermy = 7,
+	Wood = 8
+}
+
+
 public enum EventTypes
 {
 	None = 0,
