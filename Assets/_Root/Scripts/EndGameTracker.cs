@@ -54,7 +54,12 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 		// Check if everything that was needed was collected or destroyed.
 		var allItemsCollected = false;
-		var allPlantsDestroyed = false;
+		if (_GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
+		{
+			allItemsCollected = m_EndItemTypes.Values.All(value => value);
+			if (!allItemsCollected) return;
+		}
+		/*var allPlantsDestroyed = false;
 		if (_DestroyedItems.Count != 0 && _BreakableItems.Count != 0 &&
 		    _GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
 		{
@@ -65,9 +70,9 @@ public class EndGameTracker : Singleton<EndGameTracker>
 				allPlantsDestroyed = _DestroyedItems.Values.All(value => value);
 				if (!allPlantsDestroyed) return;
 			}
-		}
+		}*/
 
-		if (!allItemsCollected || !allPlantsDestroyed) return;
+		if (!allItemsCollected /*|| !allPlantsDestroyed*/) return;
 		_IsGameOver = true;
 	}
 
