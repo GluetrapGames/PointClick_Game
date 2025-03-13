@@ -34,11 +34,14 @@ public enum BreakMaterialTypes
 	Wood = 8
 }
 
-
 public enum EventTypes
 {
 	None = 0,
-	Material = 1
+	Material = 1,
+	bug_shelf = 2,
+	record_player = 3,
+	taxi_animal = 4,
+	glass_cupboard = 5,
 }
 
 public enum MaterialTypes

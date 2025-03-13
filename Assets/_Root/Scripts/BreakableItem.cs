@@ -30,7 +30,7 @@ public class BreakableItem : MonoBehaviour
 	[SerializeField]
 	private EventTypes _EventType;
     [SerializeField]
-    private BreakMaterialTypes _BreakMaterialType;
+	private BreakMaterialTypes _BreakMaterialType;
 
         private InputAction _breakableAction;
 	private EndGameTracker _EndGameTracker;
