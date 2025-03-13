@@ -32,7 +32,7 @@ public class GridMovement : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 
 		// Store current tag list.
 		_oldObstacleTags = _obstacleTags;

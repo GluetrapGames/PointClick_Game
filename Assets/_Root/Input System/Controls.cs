@@ -62,6 +62,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""75b39e8f-5f64-4ea4-a6ae-fbf0c86b8ff2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -240,6 +249,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Break"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13b043b5-9bb9-4230-a932-34fd799de795"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbda9806-8f8f-4fe8-8602-501af1a4a346"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -252,6 +283,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Break = m_Player.FindAction("Break", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -317,6 +349,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Menu;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_Break;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -325,6 +358,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @Break => m_Wrapper.m_Player_Break;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -346,6 +380,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Break.started += instance.OnBreak;
             @Break.performed += instance.OnBreak;
             @Break.canceled += instance.OnBreak;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -362,6 +399,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Break.started -= instance.OnBreak;
             @Break.performed -= instance.OnBreak;
             @Break.canceled -= instance.OnBreak;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -385,5 +425,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnBreak(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
