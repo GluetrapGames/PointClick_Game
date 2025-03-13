@@ -19,6 +19,36 @@ namespace GlueTrap
             }
         }
 
+        public void setLow()
+        {
+            if (hm_IsPlaying)
+            {
+                AkSoundEngine.SetState("HouseMusic", "low");
+            }
+        }
+
+        public void setMid()
+        {
+            if (hm_IsPlaying)
+            {
+                AkSoundEngine.SetState("HouseMusic", "mid");
+            }
+        }
+        public void setHigh()
+        {
+            if (hm_IsPlaying)
+            {
+                AkSoundEngine.SetState("HouseMusic", "high");
+            }
+        }
+        public void setHigher()
+        {
+            if (hm_IsPlaying)
+            {
+                AkSoundEngine.SetState("HouseMusic", "higher");
+            }
+        }
+
 
     }
 }
