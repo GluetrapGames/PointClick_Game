@@ -92,6 +92,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID CARPET = 2412606308U;
+                static const AkUniqueID TILE = 2637588553U;
                 static const AkUniqueID WOOD = 2058049674U;
             } // namespace SWITCH
         } // namespace FOOTSTEPMATERIAL

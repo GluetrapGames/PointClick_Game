@@ -1964,6 +1964,126 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Tile" ID="{5D46C2A5-F5AD-43C1-9C7A-933D92CED419}" ShortID="303770755">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{911C99C6-22BE-4C91-BFD0-C7E2103BA965}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-175"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="step_tile-001" ID="{952C0AA3-D5CD-462B-8AF4-E9CDE1BDF8E9}" ShortID="688857814">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="step_tile-001" ID="{6ACC5902-F55F-4E01-A89D-546A96CDEC70}">
+													<Language>SFX</Language>
+													<AudioFile>step_tile-001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="359437438"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="step_tile-001" ID="{6ACC5902-F55F-4E01-A89D-546A96CDEC70}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="step_tile-002" ID="{AF74013F-24FA-4B2F-B4E8-E0E70887497B}" ShortID="1053260132">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="step_tile-002" ID="{2535481F-F01A-436D-8C38-2576BBB26E0C}">
+													<Language>SFX</Language>
+													<AudioFile>step_tile-002.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="508778594"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="step_tile-002" ID="{2535481F-F01A-436D-8C38-2576BBB26E0C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="step_tile-003" ID="{9C4767E3-BD6D-4E89-B9F3-B3F5CB40B7A6}" ShortID="186417037">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="step_tile-003" ID="{22D93681-E011-4C0A-B540-F28B3FA408D0}">
+													<Language>SFX</Language>
+													<AudioFile>step_tile-003.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="525460864"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="step_tile-003" ID="{22D93681-E011-4C0A-B540-F28B3FA408D0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="step_tile-004" ID="{7A1748E4-82A7-4EEF-9128-E86970DF74F6}" ShortID="832151789">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="step_tile-004" ID="{3C2110E3-4B4D-4B78-8724-D9C0B5081C8A}">
+													<Language>SFX</Language>
+													<AudioFile>step_tile-004.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="215169109"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="step_tile-004" ID="{3C2110E3-4B4D-4B78-8724-D9C0B5081C8A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
@@ -1972,6 +2092,9 @@
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Carpet" ID="{E46F136A-9A21-4798-8370-BB4F60171C12}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Tile" ID="{5D46C2A5-F5AD-43C1-9C7A-933D92CED419}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
@@ -1985,6 +2108,12 @@
 										<SwitchRef Name="Wood" ID="{FC5E8453-A62E-40D9-90E6-8C909764684B}"/>
 										<ItemList>
 											<ItemRef Name="Wood" ID="{F8009D18-7A2D-437E-80C7-11DCC0ABA005}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Tile" ID="{900FD4CD-7412-40FD-95C1-26917A02D143}"/>
+										<ItemList>
+											<ItemRef Name="Tile" ID="{5D46C2A5-F5AD-43C1-9C7A-933D92CED419}"/>
 										</ItemList>
 									</Grouping>
 								</GroupingList>

@@ -68,11 +68,12 @@
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2412606308" Name="Carpet"/>
+						<Switch Id="2637588553" Name="Tile"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{713FD447-CAA8-637F-002B-E73967BE9BE1}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D58AE0B8-3E8F-70A9-703E-A3AFCF34E5ED}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -96,6 +97,10 @@
 					<ShortName>viol_hit_electronic-001.wav</ShortName>
 					<CachePath>SFX/viol_hit_electronic-001_818F3B66.wem</CachePath>
 				</File>
+				<File Id="215169109" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>step_tile-004.wav</ShortName>
+					<CachePath>SFX/step_tile-004_818F3B66.wem</CachePath>
+				</File>
 				<File Id="216833292" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_woodCarpet-002.wav</ShortName>
 					<CachePath>SFX/step_woodCarpet-002_818F3B66.wem</CachePath>
@@ -112,6 +117,10 @@
 					<ShortName>wood_light-004.wav</ShortName>
 					<CachePath>SFX/wood_light-004_818F3B66.wem</CachePath>
 				</File>
+				<File Id="359437438" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>step_tile-001.wav</ShortName>
+					<CachePath>SFX/step_tile-001_818F3B66.wem</CachePath>
+				</File>
 				<File Id="382891266" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_plant-001.wav</ShortName>
 					<CachePath>SFX/viol_hit_plant-001_818F3B66.wem</CachePath>
@@ -123,6 +132,14 @@
 				<File Id="456918740" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_letter.wav</ShortName>
 					<CachePath>SFX/ui_letter_818F3B66.wem</CachePath>
+				</File>
+				<File Id="508778594" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>step_tile-002.wav</ShortName>
+					<CachePath>SFX/step_tile-002_818F3B66.wem</CachePath>
+				</File>
+				<File Id="525460864" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>step_tile-003.wav</ShortName>
+					<CachePath>SFX/step_tile-003_818F3B66.wem</CachePath>
 				</File>
 				<File Id="532204821" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_taxidermy.wav</ShortName>
@@ -270,7 +287,7 @@
 						<MediaRef Id="1071037576"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="0.6645363">
+				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="1.4487923">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="2412606308"/>
@@ -288,6 +305,15 @@
 								<MediaRef Id="753263382"/>
 								<MediaRef Id="797840335"/>
 								<MediaRef Id="943812538"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="2637588553"/>
+							<MediaRefs>
+								<MediaRef Id="215169109"/>
+								<MediaRef Id="359437438"/>
+								<MediaRef Id="508778594"/>
+								<MediaRef Id="525460864"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -498,10 +524,11 @@
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2412606308" Name="Carpet"/>
+						<Switch Id="2637588553" Name="Tile"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{B27AE1D0-8759-739E-27B3-D31A4A3F8D7C}</FileHash>
+	<FileHash>{33CEFD6F-A8D7-0662-608C-3AB3826B956D}</FileHash>
 </SoundBanksInfo>
