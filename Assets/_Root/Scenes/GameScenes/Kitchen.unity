@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneToTransitionTo: MenuScene
+  _sceneToTransitionTo: DiningRoom
 --- !u!61 &261605738
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 8239210475934320996, guid: 733a961d494cc4d02b096633f580039b, type: 3}
-  m_Color: {r: 0.9811321, g: 0.9209238, b: 0.41189036, a: 0.039215688}
+  m_Color: {r: 0.9811321, g: 0.9209238, b: 0.41189036, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2186,6 +2186,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3610123015410519637, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2253,6 +2257,10 @@ PrefabInstance:
     - target: {fileID: 4946644223047531021, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: _sceneToTransitionTo
+      value: DownstairsHallway
       objectReference: {fileID: 0}
     - target: {fileID: 7468852923161896967, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_Name
