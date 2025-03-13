@@ -35,7 +35,7 @@ public class InteractDialgoue : MonoBehaviour
 	{
 		_ItemCollision = GetComponent<CollideCheck>();
 		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
-		_InteractAction = _PlayerInput.actions["Break"];
+		_InteractAction = _PlayerInput.actions["Interact"];
 	}
 
 	private void Update()
