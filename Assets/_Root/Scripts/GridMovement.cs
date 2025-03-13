@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EditorAttributes;
 using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -13,7 +14,7 @@ public class GridMovement : MonoBehaviour
 	public bool m_IsMoving;
 	public List<Vector3Int> m_Path = new();
 
-	[SerializeField]
+	[SerializeField, TagDropdown]
 	private List<string> _obstacleTags = new();
 	[SerializeField]
 	private List<Transform> _obstacles = new();
