@@ -22,14 +22,20 @@ public class ToggleLog : MonoBehaviour
 	private Button _SkipButton;
 	[Tooltip("The response panel"), SerializeField]
 	private GameObject _ResponsePanel;
+    [Tooltip("The Image child"), SerializeField]
+    private GameObject _ChildImage;
+    [SerializeField,Tooltip("The BACKLOG image ")]
+	private Sprite _OpenImage;
+    [SerializeField, Tooltip("The CLOSE image")]
+    private Sprite _CloseImage;
 
-	private Text buttonText;
 	private bool toggleLog;
 	private bool _IsPlayerListener;
+	private Image _ButtonImage;
 
 	private void Start()
 	{
-		buttonText = gameObject.GetComponentInChildren<Text>();
+		_ButtonImage = _ChildImage.GetComponent<Image>();
 	}
 
 	private void Update()
@@ -56,15 +62,15 @@ public class ToggleLog : MonoBehaviour
 				_ResponsePanel.SetActive(false);
 			// Stops the speed of the current portrait animation.
 			_PortraitAnimator.speed = 0f;
-			// Set the button's display text
-			buttonText.text = "Exit";
 			// Hide all other buttons
 			_ContinueButton.gameObject.SetActive(false);
 			_AutoButton.gameObject.SetActive(false);
 			_SkipButton.gameObject.SetActive(false);
-			// Turns off autoplay
-			DialogueManager.displaySettings.subtitleSettings.continueButton =
-				DisplaySettings.SubtitleSettings.ContinueButtonMode.Always;
+			// Change the button's image
+			_ButtonImage.sprite = _CloseImage;
+            // Turns off autoplay
+            DialogueManager.displaySettings.subtitleSettings.continueButton =
+			DisplaySettings.SubtitleSettings.ContinueButtonMode.Always;
 			// Pauses the pauses the dialogue system
 			_dsController.Pause();
 			// Opens and displays the dialogue history
@@ -76,15 +82,15 @@ public class ToggleLog : MonoBehaviour
             if (_IsPlayerListener)
                 _ResponsePanel.SetActive(true);
             // Returns the speed of the current portrait animation.
-            _PortraitAnimator.speed = 1.0f;
-			// Set the button's display text
-			buttonText.text = "History";
+            _PortraitAnimator.speed = 1.0f;;
 			// Show all other buttons
 			_ContinueButton.gameObject.SetActive(true);
 			_AutoButton.gameObject.SetActive(true);
 			_SkipButton.gameObject.SetActive(true);
-			// Unpauses the dialogue system
-			_dsController.Unpause();
+            // Change the button's image
+            _ButtonImage.sprite = _OpenImage;
+            // Unpauses the dialogue system
+            _dsController.Unpause();
 			// Hides the backlog window
 			_LogWindow.SetActive(false);
 		}

@@ -9,7 +9,7 @@ namespace GlueTrap
 {
 public class BreakableItem : MonoBehaviour
 {
-	[SerializeField, ReadOnly]
+	[SerializeField]
 	private string _PersistentID;
 	[SerializeField]
 	private bool _Log;
@@ -45,14 +45,7 @@ public class BreakableItem : MonoBehaviour
 	private void Awake()
 	{
 		// Obtain Game Manager.
-		var objs = GameObject.FindGameObjectsWithTag("Manager");
-		foreach (GameObject obj in objs)
-		{
-			var component = obj.GetComponent<GameManager>();
-			if (!component) continue;
-			_GameManager = component;
-			return;
-		}
+		_GameManager = Utils.GetGameManager();
 
 		_ItemCollision = GetComponent<CollideCheck>();
 	}
@@ -77,7 +70,8 @@ public class BreakableItem : MonoBehaviour
 	private void Update()
 	{
 		if (!_playerHeldItem) return;
-		_heldItemType = _playerHeldItem.playerHeldItem;
+		if (_playerHeldItem.playerHeldItem != null)
+			_heldItemType = _playerHeldItem.playerHeldItem.m_Item.m_Type;
 
 		if (_breakableAction.WasPressedThisFrame() && _ItemCollision.IsCollided)
 		{
@@ -95,8 +89,11 @@ public class BreakableItem : MonoBehaviour
 	private void Damage()
 	{
 		// Normal amount of damage if not held item or held item is ineffective.
-		if (_playerHeldItem.playerHeldItem != _effectiveItemType ||
-		    _playerHeldItem.playerHeldItem == ItemTypes.None)
+		_heldItemType = _playerHeldItem.playerHeldItem != null
+			? _playerHeldItem.playerHeldItem.m_Item.m_Type
+			: ItemTypes.None;
+		if (_heldItemType != _effectiveItemType ||
+		    _heldItemType == ItemTypes.None)
 		{
 			_itemHp--;
 			if (_Log)
@@ -134,12 +131,18 @@ public class BreakableItem : MonoBehaviour
 		}
 	}
 
+	[Button("Generate Persistent ID")]
+	private void GenerateID()
+	{
+		_PersistentID = Guid.NewGuid().ToString();
+	}
+
 #if UNITY_EDITOR
 	private void Reset()
 	{
 		// Assign a unique ID if it's empty.
 		if (string.IsNullOrEmpty(_PersistentID))
-			_PersistentID = Guid.NewGuid().ToString();
+			GenerateID();
 	}
 
 	private void OnValidate()
