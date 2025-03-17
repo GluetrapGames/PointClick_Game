@@ -12,6 +12,7 @@ namespace GlueTrap
         [SerializeField]
         private SerializedDictionary<string, Sprite> _SpriteDictionary;
         private string _SpeakerName;
+        //[SerializeField]
         private Image _Image;
 
         private void Start()
@@ -21,6 +22,7 @@ namespace GlueTrap
         private void OnConversationLine(Subtitle subtitle)
         {
             _SpeakerName = subtitle.speakerInfo.Name;
+            SetNamePlate();
         }
 
         private void SetNamePlate() 
