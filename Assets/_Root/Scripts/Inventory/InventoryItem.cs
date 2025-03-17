@@ -9,11 +9,19 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
 	IEndDragHandler
 {
 	public Image image;
-	public ItemTypes itemType;
 	[HideInInspector]
 	public Transform parentAfterDrag;
 	[HideInInspector]
 	public Transform parentBeforeDrag;
+
+	private GameManager _GameManager;
+	public InventoryItemData itemData;
+
+
+	private void Awake()
+	{
+		_GameManager = Utils.GetGameManager();
+	}
 
 	// Start is called before the first frame update
 	public void OnBeginDrag(PointerEventData eventData)
@@ -27,10 +35,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		//transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10);
-		Vector3 mousePosition =
-			new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
-				Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+		Vector3 mouseScreenPos =
+			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 mousePosition = new Vector2(mouseScreenPos.x, mouseScreenPos.y);
 		transform.position = mousePosition;
 	}
 

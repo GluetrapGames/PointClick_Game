@@ -1,3 +1,4 @@
+using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 	public GameObject pauseMenuUI;
 	public GameObject settingsMenuUI;
 	public GameObject onScreenButton;
-	public GameObject inventoryUI;
+	//public GameObject inventoryUI;
 
 	public GameObject firstSelectedPause;
 	public GameObject firstSelectedSettings;
@@ -24,13 +25,12 @@ public class PauseMenu : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Start()
 	{
 		playerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
-		inventoryUI = _GameManager.m_InventoryManager.m_Inventory.gameObject;
 		_menuAction = playerInput.actions["Menu"];
 		if (_menuAction == null) Debug.LogError("No menu action found");
 
@@ -45,27 +45,21 @@ public class PauseMenu : MonoBehaviour
 
 	private void Update()
 	{
-		if (_menuAction.WasPressedThisFrame())
-		{
-			Debug.Log("Pausing/Resuming");
-			if (paused)
-				Resume();
-			else
-				Pause();
-		}
+		if (!_menuAction.WasPressedThisFrame()) return;
+		Debug.Log("Pausing/Resuming");
+		if (paused)
+			Resume();
+		else
+			Pause();
 	}
 
 	public void Resume()
 	{
-		if (DialogueManager.IsConversationActive)
-			inventoryUI.SetActive(false);
-		else
-			inventoryUI.SetActive(true);
 		//inventoryUI.SetActive(true);
 		Time.timeScale = 1f;
 		paused = false;
 		pauseMenuParent.SetActive(false);
-		onScreenButton.SetActive(true);
+		//onScreenButton.SetActive(true);
 		pauseMenuUI.SetActive(false);
 		settingsMenuUI.SetActive(false);
 		EventSystem.current.SetSelectedGameObject(null);
@@ -76,7 +70,7 @@ public class PauseMenu : MonoBehaviour
 		//inventoryUI.SetActive(false);
 		pauseMenuParent.SetActive(true);
 		pauseMenuUI.SetActive(true);
-		onScreenButton.SetActive(false);
+		//onScreenButton.SetActive(false);
 		settingsMenuUI.SetActive(false);
 		EventSystem.current.SetSelectedGameObject(firstSelectedPause);
 		Time.timeScale = 0f;

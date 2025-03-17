@@ -23,7 +23,7 @@ public class InventoryControllerSupport : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Start()
@@ -103,7 +103,7 @@ public class InventoryControllerSupport : MonoBehaviour
 			{
 				slot.item.transform.SetParent(_GameManager.m_InventoryManager
 					.m_HeldItemSlot.transform);
-				heldItemSlot.playerHeldItem = slot.item.itemType;
+				heldItemSlot.playerHeldItem = slot.item.itemData;
 
 				if (_Log)
 				{
@@ -142,7 +142,7 @@ public class InventoryControllerSupport : MonoBehaviour
 					newHeldItemTransform.GetComponent<InventoryItem>();
 
 				slotComp.item = newHeldItem;
-				heldItemSlot.playerHeldItem = newHeldItem.itemType;
+				heldItemSlot.playerHeldItem = newHeldItem.itemData;
 
 				if (!_Log) return;
 				Debug.Log(
@@ -168,7 +168,7 @@ public class InventoryControllerSupport : MonoBehaviour
 				slot.item = currentHeldItem;
 
 				slotComp.item = null;
-				heldItemSlot.playerHeldItem = ItemTypes.None;
+				heldItemSlot.playerHeldItem = null;
 			}
 		}
 	}

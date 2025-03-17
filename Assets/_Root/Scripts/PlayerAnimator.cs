@@ -1,5 +1,6 @@
 using System;
 using EditorAttributes;
+using GlueTrap.Utilities;
 using UnityEngine;
 
 namespace GlueTrap
@@ -28,7 +29,7 @@ public class PlayerAnimator : MonoBehaviour
 	private void Awake()
 	{
 		_AnimationComponents = GetAnimationComponents();
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Start()
