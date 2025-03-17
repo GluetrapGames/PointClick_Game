@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GlueTrap
 {
@@ -11,11 +12,16 @@ namespace GlueTrap
 
         private void Awake()
         {
-            if (!hm_IsPlaying) 
-            { 
-                hm_IsPlaying = true;
-                AkSoundEngine.SetState("HouseMusic", "low");
-                AkSoundEngine.PostEvent("MusicHouse", gameObject); 
+            Debug.Log("Awake: " + SceneManager.GetActiveScene().name);
+
+            if (SceneManager.GetActiveScene().name != "MenuScene")
+            {
+                if (!hm_IsPlaying)
+                {
+                    hm_IsPlaying = true;
+                    AkSoundEngine.SetState("HouseMusic", "low");
+                    AkSoundEngine.PostEvent("MusicHouse", gameObject);
+                }
             }
         }
 

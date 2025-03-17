@@ -192,21 +192,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="albert_blab" ID="{C7BE8B2B-F935-4CDF-A13A-792957368953}" ShortID="339361336">
-											<PropertyList>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{C65FC359-BD7F-48FB-A28B-07BDD4A7CC10}">
-																<PropertyList>
-																	<Property Name="Max" Type="Real64" Value="100"/>
-																	<Property Name="Min" Type="Real64" Value="-200"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-											</PropertyList>
+										<Sound Name="dial_john_blab02" ID="{30F1440F-0CFA-4D2E-9046-69B1CB903DE5}" ShortID="78485859">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
@@ -216,23 +202,22 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="dial_alMcGuig_blab" ID="{058AF918-1FAE-4AF2-914E-8DF2EB7A4CA4}">
+												<AudioFileSource Name="dial_john_blab02" ID="{0BD3AF99-1090-41D0-9658-FF08C652C076}">
 													<PropertyList>
-														<Property Name="FadeInDuration" Type="Real64" Value="0.0160216957153232"/>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.0101956245461147"/>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0128082107843137"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0142313453159041"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="0.0480650871459695"/>
-														<Property Name="TrimEnd" Type="Real64" Value="0.112151870007263"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.0939268790849672"/>
 													</PropertyList>
 													<Language>SFX</Language>
-													<AudioFile>dial_alMcGuig_blab.wav</AudioFile>
+													<AudioFile>dial_john_blab02.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="1015922044"/>
+														<MediaID ID="200092242"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="dial_alMcGuig_blab" ID="{058AF918-1FAE-4AF2-914E-8DF2EB7A4CA4}" Platform="Linked"/>
+												<ActiveSource Name="dial_john_blab02" ID="{0BD3AF99-1090-41D0-9658-FF08C652C076}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -1716,7 +1701,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>5</Value>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1818,6 +1803,11 @@
 										</Sound>
 										<Sound Name="woodStep_003" ID="{8EF17A64-2617-4534-941C-5AAC9651180C}" ShortID="299997039">
 											<PropertyList>
+												<Property Name="Highpass" Type="int16">
+													<ValueList>
+														<Value>17</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>5</Value>
@@ -1864,7 +1854,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>4</Value>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1984,7 +1974,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>5</Value>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
