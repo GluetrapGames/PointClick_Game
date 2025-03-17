@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using EditorAttributes;
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -35,7 +36,7 @@ public class PlayerGridController : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 		m_Movement = GetComponent<GridMovement>();
 		_highlight = Instantiate(_highlightPrefab, transform, true);
 		_highlight.SetActive(false);
@@ -173,6 +174,7 @@ public class PlayerGridController : MonoBehaviour
 	// Coroutine that moves the player along the path until complete.
 	private IEnumerator MovementCoroutine()
 	{
+		Debug.Log("Moving");
 		while (m_Movement.m_IsMoving)
 		{
 			m_Movement.MoveToTile(m_MoveSpeed);

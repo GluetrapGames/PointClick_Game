@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GlueTrap.Utilities;
 using UnityEngine;
 
 namespace GlueTrap
@@ -24,7 +25,7 @@ public class NPCMovement : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 		_gridMovement = GetComponent<GridMovement>();
 	}
 

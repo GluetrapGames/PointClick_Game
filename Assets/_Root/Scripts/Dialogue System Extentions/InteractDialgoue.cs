@@ -1,3 +1,4 @@
+using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -21,21 +22,14 @@ public class InteractDialgoue : MonoBehaviour
 	private void Awake()
 	{
 		// Obtain Game Manager.
-		var objs = GameObject.FindGameObjectsWithTag("Manager");
-		foreach (GameObject obj in objs)
-		{
-			var component = obj.GetComponent<GameManager>();
-			if (!component) continue;
-			_GameManager = component;
-			return;
-		}
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Start()
 	{
 		_ItemCollision = GetComponent<CollideCheck>();
 		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
-		_InteractAction = _PlayerInput.actions["Interact"];
+		_InteractAction = _PlayerInput.actions["Break"];
 	}
 
 	private void Update()
