@@ -12,8 +12,10 @@ namespace GlueTrap
 
         private void Awake()
         {
-            Debug.Log("Awake: " + SceneManager.GetActiveScene().name);
+            //Debug.Log("Awake: " + SceneManager.GetActiveScene().name);
 
+            //If not in the menu scene and music is not already playing,
+            //Set initial state to low and post event
             if (SceneManager.GetActiveScene().name != "MenuScene")
             {
                 if (!hm_IsPlaying)
