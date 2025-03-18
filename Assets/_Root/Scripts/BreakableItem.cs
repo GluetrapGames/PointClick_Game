@@ -104,7 +104,7 @@ public class BreakableItem : MonoBehaviour
 	private void IncreaseEnvDM()
 	{
 		int EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-		DialogueLua.SetVariable("Env_DM_Meter", EnvDM + 3);
+		DialogueLua.SetVariable("Env_DM_Meter", EnvDM + 2);
 	}
 	
 	private void Damage()

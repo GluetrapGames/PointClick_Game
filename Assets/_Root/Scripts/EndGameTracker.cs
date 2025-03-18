@@ -32,8 +32,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
 
 	// 0 Money, 1 Crowbar, 2 Journal, 3 Keys, 4 Poetry, 5 Cigarettes, 6 Medicine
-	private bool[] _ItemHasCollected = {false, false, false, false, false, false, false};
-	private bool[] _ItemHasDM = {false, false, false, false, false, false, false};
+	public List<ItemTypes> m_CollectedItems = new();
 	
 	private GameManager _GameManager;
 
@@ -77,6 +76,11 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			}
 		}*/
 
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			Debug.LogWarning(DialogueLua.GetVariable("Collected_Item_List").ToString());
+		}
+		
 		if (!allItemsCollected /*|| !allPlantsDestroyed*/) return;
 		_IsGameOver = true;
 	}
@@ -117,19 +121,13 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 	private void UpdateDMValues()
 	{
-		int EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
 
-		var itemTypeList = m_EndItemTypes.ToList();
-		for(int i = 0; i < itemTypeList.Count; i++)
+		string collectedItems = "";
+		for (int i = 0; i < m_CollectedItems.Count; i++)
 		{
-			_ItemHasCollected[i] = itemTypeList[i].Value;
-			if (_ItemHasCollected[i] && !_ItemHasDM[i])
-			{
-				DialogueLua.SetVariable("Env_DM_Meter", EnvDM + 3);
-				_ItemHasDM[i] = true;
-			}
-		}
-		
+			collectedItems = collectedItems + $"{m_CollectedItems[i].ToString()}, ";
+		};
+		DialogueLua.SetVariable("Collected_Item_List", collectedItems);
 	}
 	
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
