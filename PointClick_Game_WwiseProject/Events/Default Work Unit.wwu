@@ -410,6 +410,43 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Ambience" ID="{10F8C119-D17E-4C40-834F-7DA805B12460}" ShortID="630528451">
+					<ChildrenList>
+						<Event Name="HouseBuzz" ID="{2E4257D4-EF2D-422C-854A-22E2501345AA}">
+							<ChildrenList>
+								<Action Name="" ID="{22BCD148-3DA2-4F44-99A8-BC45DA1B9DA3}" ShortID="386347474">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Noise" ID="{FE98274F-2EDB-422B-9D4E-E1F8440DF4DE}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="HouseTone" ID="{5080D261-A594-421D-8762-452073F8A800}">
+							<ChildrenList>
+								<Action Name="" ID="{111D0842-CE6E-4374-8B3A-8B3D2BF33E44}" ShortID="855888839">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Hum" ID="{2E15BFAB-7D03-4AE9-AF66-CF6726BC72AA}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="HouseCreak" ID="{5C4A45EF-EFEE-41C2-B2C5-42222D5E9513}">
+							<ChildrenList>
+								<Action Name="" ID="{E7903E48-09B5-4A00-A574-3BC2FC8CED2E}" ShortID="637679318">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Creaks" ID="{D3A59E07-10F1-46EE-99A9-BBB4651257C9}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

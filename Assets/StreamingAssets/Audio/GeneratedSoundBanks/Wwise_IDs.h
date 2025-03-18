@@ -17,6 +17,9 @@ namespace AK
         static const AkUniqueID BUG_SHELF = 584038952U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
+        static const AkUniqueID HOUSEBUZZ = 3161912504U;
+        static const AkUniqueID HOUSECREAK = 3508689533U;
+        static const AkUniqueID HOUSETONE = 1903191047U;
         static const AkUniqueID MATERIAL = 3865314626U;
         static const AkUniqueID MENU_BACK = 3063554414U;
         static const AkUniqueID MENU_HOVER = 309439191U;
