@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using EditorAttributes;
 using GlueTrap.Utilities;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -84,8 +85,28 @@ public class BreakableItem : MonoBehaviour
 		else if (_breakableAction.WasPressedThisFrame() &&
 		         !_ItemCollision.IsCollided)
 			Debug.Log("Damage failed to call, no collision detected");
+
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			OutputDMValues();
+		}
 	}
 
+	private void OutputDMValues()
+	{
+		int DialogueDM = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
+		int EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+
+		Debug.LogWarning($"Dialogue DM Value: {DialogueDM} - Environment DM Value: {EnvDM}");
+		
+	}
+
+	private void IncreaseEnvDM()
+	{
+		int EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+		DialogueLua.SetVariable("Env_DM_Meter", EnvDM + 3);
+	}
+	
 	private void Damage()
 	{
 		// Normal amount of damage if not held item or held item is ineffective.
@@ -96,12 +117,14 @@ public class BreakableItem : MonoBehaviour
 		    _heldItemType == ItemTypes.None)
 		{
 			_itemHp--;
+			IncreaseEnvDM();
 			if (_Log)
 				Debug.Log($"{name} took 1 damage! New HP = {_itemHp}");
 		}
 		else
 		{
 			_itemHp -= 2;
+			IncreaseEnvDM();
 			if (_Log)
 			{
 				Debug.Log(
@@ -127,6 +150,7 @@ public class BreakableItem : MonoBehaviour
 				gameObject.GetComponent<SpriteRenderer>().sprite = _sprites[1];
 				gameObject.GetComponent<BoxCollider2D>().enabled = false;
 				gameObject.transform.position -= _afterBreakOffset;
+				_GameManager.m_totalItemsDestroyed++;
 				break;
 		}
 	}

@@ -18,7 +18,9 @@ public enum ItemTypes
 	Crowbar = 6,
 	Tv = 7,
 	Mirror = 8,
-	Money = 9
+	Money = 9,
+	Cigarettes = 10,
+	Keys = 11
 }
 
 public enum BreakMaterialTypes
