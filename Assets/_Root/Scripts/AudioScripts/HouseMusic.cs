@@ -1,35 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace GlueTrap
 {
-    public class HouseMusic : MonoBehaviour
+    public class HouseMusic : Singleton<HouseMusic>
     {
-        private bool hm_IsPlaying = false;
-        public string hm_MusicState;
+        public string MusicState;
+        private bool _Activated;
 
-        private void Awake()
-        {
-            //Debug.Log("Awake: " + SceneManager.GetActiveScene().name);
-
-            //If not in the menu scene and music is not already playing,
-            //Set initial state to low and post event
-            if (SceneManager.GetActiveScene().name != "MenuScene")
-            {
-                if (!hm_IsPlaying)
-                {
-                    hm_IsPlaying = true;
-                    AkSoundEngine.SetState("HouseMusic", hm_MusicState);
-                    AkSoundEngine.PostEvent("MusicHouse", gameObject);
-                }
-            }
-        }
 
         public void setLow()
         {
-            if (hm_IsPlaying)
+            if (_Activated)
             {
                 AkSoundEngine.SetState("HouseMusic", "low");
             }
@@ -37,26 +22,38 @@ namespace GlueTrap
 
         public void setMid()
         {
-            if (hm_IsPlaying)
+            if (_Activated)
             {
                 AkSoundEngine.SetState("HouseMusic", "mid");
             }
         }
         public void setHigh()
         {
-            if (hm_IsPlaying)
+            if (_Activated)
             {
                 AkSoundEngine.SetState("HouseMusic", "high");
             }
         }
         public void setHigher()
         {
-            if (hm_IsPlaying)
+            if (_Activated)
             {
                 AkSoundEngine.SetState("HouseMusic", "higher");
             }
         }
 
-
+        public override void OnSceneChange(Scene scene, LoadSceneMode mode)
+        {
+            {
+                if (scene.name != "MenuScene" && !_Activated)
+                {
+                    _Activated = true;
+                    AkSoundEngine.SetState("HouseMusic", MusicState);
+                    AkSoundEngine.PostEvent("MusicHouse", gameObject);
+                    Debug.Log("Started music, " + _Activated);
+                    ;
+                }
+            }
+        }
     }
 }

@@ -1,26 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace GlueTrap
 {
-    public class AmbientSound : MonoBehaviour
+    public class AmbientSound : Singleton<AmbientSound>
     {
-        private bool amb_isPlaying;
-        private void Awake()
+        private bool _Activated;
+
+        public override void OnSceneChange(Scene scene, LoadSceneMode mode)
         {
             // If not on menu scene and is not currently playing
             // set playing to true and post the 3 ambient sounds simultaniously
-            if (SceneManager.GetActiveScene().name != "MenuScene")
+            if (scene.name != "MenuScene" && !_Activated)
             {
-                if (!amb_isPlaying)
-                {
-                    amb_isPlaying = true;
+                    _Activated = true;
                     AkSoundEngine.PostEvent("HouseTone", gameObject);
                     AkSoundEngine.PostEvent("HouseBuzz", gameObject);
                     AkSoundEngine.PostEvent("HouseCreak", gameObject);
-                }
+                    Debug.Log("Started ambience, " + _Activated);
             }
         }
     }
