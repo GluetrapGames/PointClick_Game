@@ -292,12 +292,6 @@
 								</Event>
 								<Event Name="bug_shelf" ID="{A0541994-7BC6-40BA-8BCA-BEA4DA92DEEC}">
 									<ChildrenList>
-										<Action Name="" ID="{5A1BB752-6BC7-44F4-8345-C90B539F61A3}" ShortID="980571030">
-											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="17"/>
-											</PropertyList>
-											<ReferenceList/>
-										</Action>
 										<Action Name="" ID="{B0B2EE54-6AFB-4D14-AD36-F1EAB773ECD1}" ShortID="663981567">
 											<PropertyList>
 												<Property Name="ActionType" Type="int16" Value="12"/>
@@ -405,16 +399,47 @@
 						</Folder>
 						<Event Name="Material" ID="{B295CD18-4F87-46B4-A977-2608347FB39C}">
 							<ChildrenList>
-								<Action Name="" ID="{6DEF06A1-2EC3-42EF-A740-BE4385C8663A}" ShortID="1072145738">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="17"/>
-									</PropertyList>
-									<ReferenceList/>
-								</Action>
 								<Action Name="" ID="{20CD1DC4-9752-4377-9F12-D39E91F28759}" ShortID="680625341">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="SwitchMaterial" ID="{4A8F7EBA-7D0F-4F20-9714-D36A384CEFF1}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Ambience" ID="{10F8C119-D17E-4C40-834F-7DA805B12460}" ShortID="630528451">
+					<ChildrenList>
+						<Event Name="HouseBuzz" ID="{2E4257D4-EF2D-422C-854A-22E2501345AA}">
+							<ChildrenList>
+								<Action Name="" ID="{22BCD148-3DA2-4F44-99A8-BC45DA1B9DA3}" ShortID="386347474">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Noise" ID="{FE98274F-2EDB-422B-9D4E-E1F8440DF4DE}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="HouseTone" ID="{5080D261-A594-421D-8762-452073F8A800}">
+							<ChildrenList>
+								<Action Name="" ID="{111D0842-CE6E-4374-8B3A-8B3D2BF33E44}" ShortID="855888839">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Hum" ID="{2E15BFAB-7D03-4AE9-AF66-CF6726BC72AA}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="HouseCreak" ID="{5C4A45EF-EFEE-41C2-B2C5-42222D5E9513}">
+							<ChildrenList>
+								<Action Name="" ID="{E7903E48-09B5-4A00-A574-3BC2FC8CED2E}" ShortID="637679318">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Creaks" ID="{D3A59E07-10F1-46EE-99A9-BBB4651257C9}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
