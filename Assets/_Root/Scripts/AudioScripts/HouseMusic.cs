@@ -45,7 +45,7 @@ namespace GlueTrap
         public override void OnSceneChange(Scene scene, LoadSceneMode mode)
         {
             {
-                if (scene.name != "MenuScene" && !_Activated)
+                if (scene.name != "MenuScene" && scene.name != "CourtroomIntro" && scene.name != "CourtroomEnding" && !_Activated)
                 {
                     _Activated = true;
                     AkSoundEngine.SetState("HouseMusic", MusicState);

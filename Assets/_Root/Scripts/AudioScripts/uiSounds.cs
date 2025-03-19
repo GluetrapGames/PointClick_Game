@@ -26,17 +26,19 @@ public class UiSound : MonoBehaviour
 	// Play sound when logo is clicked
 	public void logoOnClick()
 	{
-		AkSoundEngine.PostEvent("Albert_Blab", gameObject);
+		AkSoundEngine.SetSwitch("CharacterBlab", "Albert", gameObject);
+		AkSoundEngine.PostEvent("Blab", gameObject);
 	}
 
 	public void otherLogoOnClick()
 	{
-		AkSoundEngine.PostEvent("Lawyer_Blab", gameObject);
+		AkSoundEngine.SetSwitch("CharacterBlab", "Jack", gameObject);
+		AkSoundEngine.PostEvent("Blab", gameObject);
 	}
 
 	public void hintCue()
 	{
-		AkSoundEngine.PostEvent("Albert_Blab", gameObject);
+		AkSoundEngine.PostEvent("Blab", gameObject);
 	}
 }
 }
