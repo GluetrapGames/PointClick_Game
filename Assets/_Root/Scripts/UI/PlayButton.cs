@@ -28,6 +28,9 @@ public class PlayButton : MonoBehaviour
 		if (DialogueManager.IsConversationActive)
 			DialogueManager.StopAllConversations();
 
+		// Stops all audio
+		AkSoundEngine.StopAll();
+
         Time.timeScale = 1f;
 		SceneManager.LoadScene(0);
 	}

@@ -14,7 +14,7 @@ namespace GlueTrap
         {
             // If not on menu scene and is not currently playing
             // set playing to true and post the 3 ambient sounds simultaniously
-            if (scene.name != "MenuScene" && !_Activated)
+            if (scene.name != "MenuScene" && scene.name != "CourtroomIntro" && scene.name != "CourtroomEnding" && !_Activated)
             {
                     _Activated = true;
                     AkSoundEngine.PostEvent("HouseTone", gameObject);
