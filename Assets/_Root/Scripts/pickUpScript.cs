@@ -22,6 +22,8 @@ public class PickUpScript : MonoBehaviour
 	public bool m_Log;
 	[Header("Settings"), ReadOnly]
 	public bool m_IsClicked;
+	[Header("Settings"), ReadOnly]
+	public bool m_IsDropped;
 	[ReadOnly]
 	public bool m_ActivateVariable;
 	public InteractionDir m_InteractionDirection = InteractionDir.Left;
@@ -35,9 +37,9 @@ public class PickUpScript : MonoBehaviour
 	[SerializeField]
 	private bool _IsWallItem;
 	[SerializeField]
-	private ItemTypes _ItemType;
+	public ItemTypes _ItemType;
 	[SerializeField]
-	private GameObject _ItemPrefab;
+	public GameObject _ItemPrefab;
 
 
 	[Header("Dialogue Settings"), Tooltip("Will the item start dialogue"),
@@ -54,15 +56,7 @@ public class PickUpScript : MonoBehaviour
 	private void Awake()
 	{
 		// Obtain the Game Manager.
-		var objs = GameObject.FindGameObjectsWithTag("Manager");
-		foreach (GameObject obj in objs)
-		{
-			var component = obj.GetComponent<GameManager>();
-			if (!component) continue;
-			Debug.Log(component.GetComponent<GameManager>());
-			_GameManager = component;
-			return;
-		}
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Start()
@@ -72,19 +66,16 @@ public class PickUpScript : MonoBehaviour
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count > 0 &&
 		    _GameManager.m_InventoryManager.m_InventoryItems.TryGetValue(
 			    gameObject.name, out InventoryItemData inventoryItem))
-		{
 			itemCollected = inventoryItem.m_IsCollected;
-			Debug.Log(itemCollected);
-		}
 
 
-		if (itemCollected)
+		if (itemCollected && !m_IsDropped)
 		{
 			gameObject.SetActive(false);
 			m_IsClicked = true;
 			m_ActivateVariable = true;
 		}
-		else
+		else if (m_IsDropped || !itemCollected)
 		{
 			gameObject.SetActive(true);
 			m_IsClicked = false;
@@ -139,7 +130,7 @@ public class PickUpScript : MonoBehaviour
 		if (_StartConvo)
 			_ConvoObject.SetActive(true);
 
-		Debug.Log("Item collected");
+		if (m_Log) Debug.Log("Item collected");
 		m_ActivateVariable = true;
 		Destroy(gameObject);
 	}
@@ -198,7 +189,7 @@ public class PickUpScript : MonoBehaviour
 
 		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
 			Mathf.Infinity, layerMask);
-		Debug.Log(hit.collider);
+		if (m_Log) Debug.Log(hit.collider);
 
 		if (hit.collider && hit.collider.gameObject == gameObject)
 		{

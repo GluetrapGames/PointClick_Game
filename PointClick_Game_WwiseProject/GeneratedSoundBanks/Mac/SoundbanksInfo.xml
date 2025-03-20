@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C8B59BA7-3165-DAA2-1470-D90F6DF9168C}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F7A8B25E-4C0E-E958-208C-6ED7E7FE7671}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -33,6 +33,17 @@
 				<GameParameter Id="3273357900" Name="vol_sfx"/>
 				<GameParameter Id="3391499625" Name="vol_master"/>
 			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1848906592" Name="HouseMusic">
+					<States>
+						<State Id="289078192" Name="higher"/>
+						<State Id="545371365" Name="low"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1182670505" Name="mid"/>
+						<State Id="3550808449" Name="high"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="904554749" Name="BreakMaterial">
 					<Switches>
@@ -57,14 +68,19 @@
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2412606308" Name="Carpet"/>
+						<Switch Id="2637588553" Name="Tile"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{17CB20B7-EA68-0BA4-F0EA-83BD6E32B4B1}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2E8C43F0-350C-0A92-5069-447E20EAAC12}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="31616214" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_house_creaks-001.wav</ShortName>
+					<CachePath>SFX/amb_house_creaks-001_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="61938418" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_ceramic.wav</ShortName>
 					<CachePath>SFX/viol_break_ceramic_818F3B66.wem</CachePath>
@@ -85,6 +101,14 @@
 					<ShortName>viol_hit_electronic-001.wav</ShortName>
 					<CachePath>SFX/viol_hit_electronic-001_818F3B66.wem</CachePath>
 				</File>
+				<File Id="200092242" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>dial_john_blab02.wav</ShortName>
+					<CachePath>SFX/dial_john_blab02_AAB6020F.wem</CachePath>
+				</File>
+				<File Id="215169109" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>step_tile-004.wav</ShortName>
+					<CachePath>SFX/step_tile-004_818F3B66.wem</CachePath>
+				</File>
 				<File Id="216833292" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_woodCarpet-002.wav</ShortName>
 					<CachePath>SFX/step_woodCarpet-002_818F3B66.wem</CachePath>
@@ -93,6 +117,10 @@
 					<ShortName>step_woodCarpet-004.wav</ShortName>
 					<CachePath>SFX/step_woodCarpet-004_818F3B66.wem</CachePath>
 				</File>
+				<File Id="243031147" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_house_creaks-006.wav</ShortName>
+					<CachePath>SFX/amb_house_creaks-006_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="277770706" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_select.wav</ShortName>
 					<CachePath>SFX/ui_menu_select_3198CB9C.wem</CachePath>
@@ -100,6 +128,10 @@
 				<File Id="286209512" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>wood_light-004.wav</ShortName>
 					<CachePath>SFX/wood_light-004_818F3B66.wem</CachePath>
+				</File>
+				<File Id="359437438" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>step_tile-001.wav</ShortName>
+					<CachePath>SFX/step_tile-001_818F3B66.wem</CachePath>
 				</File>
 				<File Id="382891266" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_plant-001.wav</ShortName>
@@ -113,6 +145,18 @@
 					<ShortName>ui_letter.wav</ShortName>
 					<CachePath>SFX/ui_letter_818F3B66.wem</CachePath>
 				</File>
+				<File Id="471800072" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_house_creaks-005.wav</ShortName>
+					<CachePath>SFX/amb_house_creaks-005_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="508778594" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>step_tile-002.wav</ShortName>
+					<CachePath>SFX/step_tile-002_818F3B66.wem</CachePath>
+				</File>
+				<File Id="525460864" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>step_tile-003.wav</ShortName>
+					<CachePath>SFX/step_tile-003_818F3B66.wem</CachePath>
+				</File>
 				<File Id="532204821" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_taxidermy.wav</ShortName>
 					<CachePath>SFX/viol_break_taxidermy_818F3B66.wem</CachePath>
@@ -120,6 +164,10 @@
 				<File Id="534372370" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_weapon_swing-001.wav</ShortName>
 					<CachePath>SFX/viol_weapon_swing-001_818F3B66.wem</CachePath>
+				</File>
+				<File Id="556450385" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_house_noise.wav</ShortName>
+					<CachePath>SFX/amb_house_noise_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="560138299" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_taxidermy-001.wav</ShortName>
@@ -129,9 +177,17 @@
 					<ShortName>viol_break_bigGlass.wav</ShortName>
 					<CachePath>SFX/viol_break_bigGlass_818F3B66.wem</CachePath>
 				</File>
+				<File Id="602562853" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_house_tone-001.wav</ShortName>
+					<CachePath>SFX/amb_house_tone-001_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="604374767" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_back.wav</ShortName>
 					<CachePath>SFX/ui_menu_back_831DFFC4.wem</CachePath>
+				</File>
+				<File Id="655306073" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_house_creaks-004.wav</ShortName>
+					<CachePath>SFX/amb_house_creaks-004_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="685121363" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_wood2-001.wav</ShortName>
@@ -145,6 +201,14 @@
 					<ShortName>viol_hit_metal-001.wav</ShortName>
 					<CachePath>SFX/viol_hit_metal-001_818F3B66.wem</CachePath>
 				</File>
+				<File Id="701244824" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>high.wav</ShortName>
+					<CachePath>SFX/high_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="711482501" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>low.wav</ShortName>
+					<CachePath>SFX/low_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="718177124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_lawyer_blab.wav</ShortName>
 					<CachePath>SFX/dial_lawyer_blab_74894F2E.wem</CachePath>
@@ -157,9 +221,21 @@
 					<ShortName>wood_light-009.wav</ShortName>
 					<CachePath>SFX/wood_light-009_818F3B66.wem</CachePath>
 				</File>
+				<File Id="772522099" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mid.wav</ShortName>
+					<CachePath>SFX/mid_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="779487297" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_house_creaks-003.wav</ShortName>
+					<CachePath>SFX/amb_house_creaks-003_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="797840335" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>wood_light-010.wav</ShortName>
 					<CachePath>SFX/wood_light-010_818F3B66.wem</CachePath>
+				</File>
+				<File Id="798446541" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>higher.wav</ShortName>
+					<CachePath>SFX/higher_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="845512123" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_dialoguePopup.wav</ShortName>
@@ -172,6 +248,10 @@
 				<File Id="886830654" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_electronic.wav</ShortName>
 					<CachePath>SFX/viol_hit_electronic_818F3B66.wem</CachePath>
+				</File>
+				<File Id="908946443" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_house_creaks-002.wav</ShortName>
+					<CachePath>SFX/amb_house_creaks-002_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="917324197" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_woodCarpet-001.wav</ShortName>
@@ -211,7 +291,7 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="1527158674" Name="Blab" DurationType="OneShot" DurationMin="0.052356195" DurationMax="0.13150942">
+				<Event Id="1527158674" Name="Blab" DurationType="OneShot" DurationMin="0.058767837" DurationMax="0.13150942">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="3865235296"/>
@@ -222,7 +302,7 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="3678415638" Default="true"/>
 							<MediaRefs>
-								<MediaRef Id="1015922044"/>
+								<MediaRef Id="200092242"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -243,7 +323,7 @@
 						<MediaRef Id="1071037576"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="0.6645363">
+				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="1.4487923">
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="2412606308"/>
@@ -263,7 +343,44 @@
 								<MediaRef Id="943812538"/>
 							</MediaRefs>
 						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="2637588553"/>
+							<MediaRefs>
+								<MediaRef Id="215169109"/>
+								<MediaRef Id="359437438"/>
+								<MediaRef Id="508778594"/>
+								<MediaRef Id="525460864"/>
+							</MediaRefs>
+						</SwitchContainer>
 					</SwitchContainers>
+				</Event>
+				<Event Id="3198831486" Name="glass_cupboard" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
+					<MediaRefs>
+						<MediaRef Id="685121363"/>
+						<MediaRef Id="874754579"/>
+						<MediaRef Id="947122152"/>
+						<MediaRef Id="1071037576"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3161912504" Name="HouseBuzz" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<MediaRefs>
+						<MediaRef Id="556450385"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3508689533" Name="HouseCreak" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="31616214"/>
+						<MediaRef Id="243031147"/>
+						<MediaRef Id="471800072"/>
+						<MediaRef Id="655306073"/>
+						<MediaRef Id="779487297"/>
+						<MediaRef Id="908946443"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1903191047" Name="HouseTone" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<MediaRefs>
+						<MediaRef Id="602562853"/>
+					</MediaRefs>
 				</Event>
 				<Event Id="3865314626" Name="Material" DurationType="OneShot" DurationMin="0.3437951" DurationMax="2.4581919">
 					<SwitchContainers>
@@ -324,11 +441,6 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="2607556080" Name="menu" DurationType="OneShot" DurationMin="183.48619" DurationMax="183.48619">
-					<MediaRefs>
-						<MediaRef Id="73779194"/>
-					</MediaRefs>
-				</Event>
 				<Event Id="3063554414" Name="menu_back" DurationType="OneShot" DurationMin="0.39407054" DurationMax="0.39407054">
 					<MediaRefs>
 						<MediaRef Id="604374767"/>
@@ -342,6 +454,39 @@
 				<Event Id="4203375351" Name="menu_select" DurationType="OneShot" DurationMin="0.36712962" DurationMax="0.36712962">
 					<MediaRefs>
 						<MediaRef Id="277770706"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1154458182" Name="MusicHouse" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1848906592" Id="545371365"/>
+							<MediaRefs>
+								<MediaRef Id="711482501"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1848906592" Id="3550808449"/>
+							<MediaRefs>
+								<MediaRef Id="701244824"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1848906592" Id="1182670505"/>
+							<MediaRefs>
+								<MediaRef Id="772522099"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1848906592" Id="289078192"/>
+							<MediaRefs>
+								<MediaRef Id="798446541"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="4082046343" Name="MusicMenu" DurationType="OneShot" DurationMin="183.48619" DurationMax="183.48619">
+					<MediaRefs>
+						<MediaRef Id="73779194"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1627434233" Name="player_pickup" DurationType="OneShot" DurationMin="0.7288333" DurationMax="0.7288333">
@@ -408,6 +553,17 @@
 			<GameParameters>
 				<GameParameter Id="223679447" Name="vol_loud"/>
 			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1848906592" Name="HouseMusic">
+					<States>
+						<State Id="289078192" Name="higher"/>
+						<State Id="545371365" Name="low"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1182670505" Name="mid"/>
+						<State Id="3550808449" Name="high"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="904554749" Name="BreakMaterial">
 					<Switches>
@@ -432,10 +588,11 @@
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2412606308" Name="Carpet"/>
+						<Switch Id="2637588553" Name="Tile"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{370E5500-23B3-3E2A-8761-6EF69D66D681}</FileHash>
+	<FileHash>{292971B0-9E00-5860-B93A-CC2C8CF8849E}</FileHash>
 </SoundBanksInfo>

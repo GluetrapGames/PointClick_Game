@@ -26,9 +26,10 @@ public class SceneTransistion : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	private void OnTriggerStay2D(Collider2D other)
 	{
-		StartCoroutine(LoadScene(_sceneToTransitionTo));
+		if (other.CompareTag("Feet"))
+			StartCoroutine(LoadScene(_sceneToTransitionTo));
 	}
 
 	public void CallFromConversationEnd()

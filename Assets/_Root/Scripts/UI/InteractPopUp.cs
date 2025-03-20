@@ -1,3 +1,4 @@
+using GlueTrap.Utilities;
 using UnityEngine;
 
 namespace GlueTrap
@@ -5,7 +6,7 @@ namespace GlueTrap
 public class InteractPopUp : MonoBehaviour
 {
 	public float interactionRadius = 3f;
-	public GameObject interactionUI;
+	public InteractionPanel interactionUI;
 
 	[SerializeField]
 	private bool _Log;
@@ -16,7 +17,7 @@ public class InteractPopUp : MonoBehaviour
 
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 		_collisionCheck = GetComponent<CollideCheck>();
 	}
 
@@ -30,30 +31,30 @@ public class InteractPopUp : MonoBehaviour
 
 	private void DrawInteractUI()
 	{
-		if (!interactionUI.GetComponent<InteractionPanel>().isDrawn &&
-		    _collisionCheck.IsCollided)
+		switch (interactionUI.isDrawn)
 		{
-			interactionUI.SetActive(true);
-			interactionUI.GetComponent<InteractionPanel>().isDrawn = true;
-			interactionUI.GetComponent<InteractionPanel>().drawnBy = gameObject;
-			if (_Log)
+			case false when _collisionCheck.IsCollided:
 			{
-				Debug.Log("Drawing interaction UI, drawn by " +
-				          gameObject.name);
+				interactionUI.gameObject.SetActive(true);
+				interactionUI.isDrawn = true;
+				interactionUI.drawnBy = gameObject;
+				if (_Log)
+				{
+					Debug.Log("Drawing interaction UI, drawn by " +
+					          gameObject.name);
+				}
+
+				break;
 			}
-		}
-		else if (!interactionUI.GetComponent<InteractionPanel>().isDrawn &&
-		         !_collisionCheck.IsCollided)
-			return;
-		else if (interactionUI.GetComponent<InteractionPanel>().isDrawn &&
-		         !_collisionCheck.IsCollided)
-		{
-			if (interactionUI.GetComponent<InteractionPanel>().drawnBy ==
-			    gameObject)
+			case false when !_collisionCheck.IsCollided:
+				return;
+			case true when !_collisionCheck.IsCollided:
 			{
-				interactionUI.GetComponent<InteractionPanel>().isDrawn = false;
-				interactionUI.GetComponent<InteractionPanel>().drawnBy = null;
-				interactionUI.SetActive(false);
+				if (interactionUI.drawnBy != gameObject) return;
+				interactionUI.isDrawn = false;
+				interactionUI.drawnBy = null;
+				interactionUI.gameObject.SetActive(false);
+				break;
 			}
 		}
 	}

@@ -17,7 +17,7 @@ public class FootstepSounds : MonoBehaviour
 	// Idk why this isnt working, Adam found a workaround for now.
 	private void Awake()
 	{
-		_GameManager = FindFirstObjectByType<GameManager>();
+		_GameManager = Utils.GetGameManager();
 	}
 
 	private void Update()

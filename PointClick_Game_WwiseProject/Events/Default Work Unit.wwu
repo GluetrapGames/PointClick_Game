@@ -5,12 +5,23 @@
 			<ChildrenList>
 				<Folder Name="Music" ID="{460DFC57-8F3D-4C84-9422-7605840AA6C2}" ShortID="341061156">
 					<ChildrenList>
-						<Event Name="menu" ID="{A86B29B5-B6C7-4B34-A936-6F214D6F43F5}">
+						<Event Name="MusicMenu" ID="{A86B29B5-B6C7-4B34-A936-6F214D6F43F5}">
 							<ChildrenList>
 								<Action Name="" ID="{6830FD54-FD5D-4CD4-AF0A-A190C0E633CE}" ShortID="436221503">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="MusicHouse" ID="{163A39F5-7694-4655-A94C-67B74885B51C}">
+							<ChildrenList>
+								<Action Name="" ID="{2BFAAE3F-141E-41AA-9D66-31590F1254B3}" ShortID="35722533">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Music" ID="{5DFE2C84-FAF6-4EAF-BA44-8D6082703469}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -281,12 +292,6 @@
 								</Event>
 								<Event Name="bug_shelf" ID="{A0541994-7BC6-40BA-8BCA-BEA4DA92DEEC}">
 									<ChildrenList>
-										<Action Name="" ID="{5A1BB752-6BC7-44F4-8345-C90B539F61A3}" ShortID="980571030">
-											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="17"/>
-											</PropertyList>
-											<ReferenceList/>
-										</Action>
 										<Action Name="" ID="{B0B2EE54-6AFB-4D14-AD36-F1EAB773ECD1}" ShortID="663981567">
 											<PropertyList>
 												<Property Name="ActionType" Type="int16" Value="12"/>
@@ -350,20 +355,91 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="glass_cupboard" ID="{1A5C0D18-D19C-4DDD-AF49-DAE10D6DAA8C}">
+									<ChildrenList>
+										<Action Name="" ID="{2DCAFB94-7093-46D3-ABA9-85DBF2B5F2C5}" ShortID="198281713">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="12"/>
+												<Property Name="Volume" Type="Real64" Value="-8"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Glass" ID="{C5DC2137-4B36-443B-8C9A-16C74142CDA9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{FA767D49-A74E-4D4B-902A-7062BEF180CD}" ShortID="1047192597">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="12"/>
+												<Property Name="Volume" Type="Real64" Value="-3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wood" ID="{61A9B060-F790-40A1-8F0F-E13AF155FC13}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{BAC183F5-A90D-4054-9945-94BD485D60A1}" ShortID="950316806">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Glass" ID="{C5DC2137-4B36-443B-8C9A-16C74142CDA9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{2D46114B-4A63-4BCF-A8F3-D508EBE5D1B0}" ShortID="421315665">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wood" ID="{61A9B060-F790-40A1-8F0F-E13AF155FC13}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Event Name="Material" ID="{B295CD18-4F87-46B4-A977-2608347FB39C}">
 							<ChildrenList>
-								<Action Name="" ID="{6DEF06A1-2EC3-42EF-A740-BE4385C8663A}" ShortID="1072145738">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="17"/>
-									</PropertyList>
-									<ReferenceList/>
-								</Action>
 								<Action Name="" ID="{20CD1DC4-9752-4377-9F12-D39E91F28759}" ShortID="680625341">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="SwitchMaterial" ID="{4A8F7EBA-7D0F-4F20-9714-D36A384CEFF1}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Ambience" ID="{10F8C119-D17E-4C40-834F-7DA805B12460}" ShortID="630528451">
+					<ChildrenList>
+						<Event Name="HouseBuzz" ID="{2E4257D4-EF2D-422C-854A-22E2501345AA}">
+							<ChildrenList>
+								<Action Name="" ID="{22BCD148-3DA2-4F44-99A8-BC45DA1B9DA3}" ShortID="386347474">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Noise" ID="{FE98274F-2EDB-422B-9D4E-E1F8440DF4DE}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="HouseTone" ID="{5080D261-A594-421D-8762-452073F8A800}">
+							<ChildrenList>
+								<Action Name="" ID="{111D0842-CE6E-4374-8B3A-8B3D2BF33E44}" ShortID="855888839">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Hum" ID="{2E15BFAB-7D03-4AE9-AF66-CF6726BC72AA}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="HouseCreak" ID="{5C4A45EF-EFEE-41C2-B2C5-42222D5E9513}">
+							<ChildrenList>
+								<Action Name="" ID="{E7903E48-09B5-4A00-A574-3BC2FC8CED2E}" ShortID="637679318">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Creaks" ID="{D3A59E07-10F1-46EE-99A9-BBB4651257C9}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

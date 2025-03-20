@@ -1,7 +1,6 @@
 using EditorAttributes;
 using Piper;
 using PixelCrushers.DialogueSystem;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using CharacterInfo = PixelCrushers.DialogueSystem.CharacterInfo;
@@ -46,8 +45,9 @@ public class TTSExtension : MonoBehaviour
 		Object prefab = AssetDatabase.LoadAssetAtPath(
 			"Assets/_Root/Prefabs/Piper Manager.prefab", typeof(GameObject));
 		_PiperManager = FindFirstObjectByType<PiperManager>();
-		if (_PiperManager == null)
-			_PiperManager = Instantiate(prefab).GetComponent<PiperManager>();
+		if (_PiperManager != null) return;
+		var obj = Instantiate(prefab) as GameObject;
+		_PiperManager = obj?.GetComponent<PiperManager>();
 	}
 #endif
 
