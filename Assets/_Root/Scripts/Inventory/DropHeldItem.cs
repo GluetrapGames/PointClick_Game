@@ -78,6 +78,8 @@ public class DropHeldItem : MonoBehaviour
 		pickupInstance.GetComponent<SpriteRenderer>().sprite = component.sprite;
 		pickupInstance.transform.position =
 			_GameManager.m_Player.transform.position;
+		pickupInstance.transform.localScale = new Vector3(0.35f, 0.35f, 1f);
+		pickupInstance.GetComponent<BoxCollider2D>().size = new Vector2(3.5f, 3.5f);
 		Destroy(_heldItem.gameObject);
 		pickupInstance.SetActive(true);
 	}
