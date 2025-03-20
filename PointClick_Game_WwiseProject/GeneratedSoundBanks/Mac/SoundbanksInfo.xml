@@ -64,6 +64,15 @@
 						<Switch Id="3865235296" Name="Jack"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="3016565752" Name="PickupItem">
+					<Switches>
+						<Switch Id="1837441319" Name="Crowbar"/>
+						<Switch Id="2215982805" Name="Keys"/>
+						<Switch Id="3126687001" Name="Paper"/>
+						<Switch Id="3848582449" Name="Bottle"/>
+						<Switch Id="4172726428" Name="Cash"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="3287431056" Name="FootstepMaterial">
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
@@ -73,7 +82,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2E8C43F0-350C-0A92-5069-447E20EAAC12}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FEF7573B-AF4B-9DD4-F190-B8E58EDE666D}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -112,6 +121,10 @@
 				<File Id="216833292" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_woodCarpet-002.wav</ShortName>
 					<CachePath>SFX/step_woodCarpet-002_818F3B66.wem</CachePath>
+				</File>
+				<File Id="221075044" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_takeCash_02.wav</ShortName>
+					<CachePath>SFX/player_takeCash_02_818F3B66.wem</CachePath>
 				</File>
 				<File Id="237387029" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_woodCarpet-004.wav</ShortName>
@@ -164,6 +177,10 @@
 				<File Id="534372370" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_weapon_swing-001.wav</ShortName>
 					<CachePath>SFX/viol_weapon_swing-001_818F3B66.wem</CachePath>
+				</File>
+				<File Id="538967076" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_takePaper.wav</ShortName>
+					<CachePath>SFX/player_takePaper_818F3B66.wem</CachePath>
 				</File>
 				<File Id="556450385" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_noise.wav</ShortName>
@@ -273,6 +290,10 @@
 					<ShortName>ui_menu_hover.wav</ShortName>
 					<CachePath>SFX/ui_menu_hover_8447143A.wem</CachePath>
 				</File>
+				<File Id="997645561" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>stinger-001.wav</ShortName>
+					<CachePath>SFX/stinger-001_818F3B66.wem</CachePath>
+				</File>
 				<File Id="1015922044" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_alMcGuig_blab.wav</ShortName>
 					<CachePath>SFX/dial_alMcGuig_blab_8A50D783.wem</CachePath>
@@ -280,6 +301,10 @@
 				<File Id="1032843977" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_plant.wav</ShortName>
 					<CachePath>SFX/viol_hit_plant_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1035665132" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_takeBottle.wav</ShortName>
+					<CachePath>SFX/player_takeBottle_818F3B66.wem</CachePath>
 				</File>
 				<File Id="1060580719" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_ceramic-001.wav</ShortName>
@@ -362,7 +387,7 @@
 						<MediaRef Id="1071037576"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3161912504" Name="HouseBuzz" DurationType="OneShot" DurationMin="0" DurationMax="0">
+				<Event Id="3161912504" Name="HouseBuzz" DurationType="OneShot" DurationMin="33" DurationMax="33">
 					<MediaRefs>
 						<MediaRef Id="556450385"/>
 					</MediaRefs>
@@ -377,7 +402,7 @@
 						<MediaRef Id="908946443"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1903191047" Name="HouseTone" DurationType="OneShot" DurationMin="0" DurationMax="0">
+				<Event Id="1903191047" Name="HouseTone" DurationType="OneShot" DurationMin="33" DurationMax="33">
 					<MediaRefs>
 						<MediaRef Id="602562853"/>
 					</MediaRefs>
@@ -489,10 +514,36 @@
 						<MediaRef Id="73779194"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1627434233" Name="player_pickup" DurationType="OneShot" DurationMin="0.7288333" DurationMax="0.7288333">
+				<Event Id="1627434233" Name="player_pickup" DurationType="OneShot" DurationMin="2.1953125" DurationMax="2.5434375">
 					<MediaRefs>
-						<MediaRef Id="144182143"/>
+						<MediaRef Id="997645561"/>
 					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3016565752" Id="3848582449"/>
+							<MediaRefs>
+								<MediaRef Id="1035665132"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3016565752" Id="2215982805" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="144182143"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3016565752" Id="3126687001"/>
+							<MediaRefs>
+								<MediaRef Id="538967076"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3016565752" Id="4172726428"/>
+							<MediaRefs>
+								<MediaRef Id="221075044"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
 				</Event>
 				<Event Id="2570475550" Name="record_player" DurationType="OneShot" DurationMin="0.55547" DurationMax="0.7573042">
 					<MediaRefs>
@@ -502,7 +553,6 @@
 						<MediaRef Id="886830654"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1732588570" Name="StopBlab" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2596245103" Name="StopFootstep" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="729991629" Name="SwingWeapon" DurationType="OneShot" DurationMin="0.20709683" DurationMax="0.2647209">
 					<MediaRefs>
@@ -584,6 +634,15 @@
 						<Switch Id="3865235296" Name="Jack"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="3016565752" Name="PickupItem">
+					<Switches>
+						<Switch Id="1837441319" Name="Crowbar"/>
+						<Switch Id="2215982805" Name="Keys"/>
+						<Switch Id="3126687001" Name="Paper"/>
+						<Switch Id="3848582449" Name="Bottle"/>
+						<Switch Id="4172726428" Name="Cash"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="3287431056" Name="FootstepMaterial">
 					<Switches>
 						<Switch Id="2058049674" Name="Wood"/>
@@ -594,5 +653,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{292971B0-9E00-5860-B93A-CC2C8CF8849E}</FileHash>
+	<FileHash>{4DED2C97-B5F1-FE28-F863-598B04853ECA}</FileHash>
 </SoundBanksInfo>

@@ -161,7 +161,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d9cd24203029844a94de634f59516731
     GuidInternal: 
-    m_lastTime: -8584598198812388353
+    m_lastTime: -8584591363127939804
     List:
     - name: Main
       guid: fff4323f282c4e4bbef4b6e13128fb3a
@@ -189,7 +189,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584592150675737544
+    m_lastTime: -8584591363900278662
     List:
     - name: Ambience
       guid: 19c1f8107ed1404c834f7da805b12460
@@ -369,8 +369,8 @@ MonoBehaviour:
         guid: d457422e2def2c42854a22e2501345aa
       Path: Events\Default Work Unit\Ambience\HouseBuzz
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 33
+      minDuration: 33
     - name: HouseCreak
       guid: ef454a5ceeefc241b2c542222d5e9513
       id: 3508689533
@@ -409,8 +409,8 @@ MonoBehaviour:
         guid: 61d2805094a51d428762452073f8a800
       Path: Events\Default Work Unit\Ambience\HouseTone
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 33
+      minDuration: 33
     - name: In-Game
       guid: 1476956ed61ce744829fc7491b42af15
       id: 1714047475
@@ -632,8 +632,8 @@ MonoBehaviour:
         guid: 8f0aad23b825d241866844a27aa828a0
       Path: Events\Default Work Unit\Player\player_pickup
       maxAttenuation: 0
-      maxDuration: 0.7288333
-      minDuration: 0.7288333
+      maxDuration: 2.5434375
+      minDuration: 2.1953125
     - name: Point-n-click
       guid: dde7b5765219fd49b10c5d4374e727c5
       id: 884647459
@@ -700,26 +700,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: StopBlab
-      guid: 7483e9c4009bed46b9d2b8237dbd26be
-      id: 1732588570
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Dialogue
-        ObjectType: 4
-        guid: 1a5ab7e86bddf5499262cd911481f821
-      - ElementName: StopBlab
-        ObjectType: 3
-        guid: 7483e9c4009bed46b9d2b8237dbd26be
-      Path: Events\Default Work Unit\Dialogue\StopBlab
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
     - name: StopFootstep
       guid: 531ab5a835342b4f8d51fc2c275759a7
       id: 2596245103
@@ -1193,7 +1173,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584592150665968699
+    m_lastTime: -8584591366381738041
     List:
     - name: BreakMaterial
       guid: 52371375a5837847ab5b8d4e1a0afc3a
@@ -1470,6 +1450,104 @@ MonoBehaviour:
         - ElementName: Wood
           ObjectType: 10
           guid: 53845efc2ea6d94090e68c909764684b
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: PickupItem
+      guid: 5e2127f9c4a99d42b14aa8d05b2d08df
+      id: 3016565752
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+      - ElementName: PickupItem
+        ObjectType: 11
+        guid: 5e2127f9c4a99d42b14aa8d05b2d08df
+      Path: Switches\Default Work Unit\PickupItem
+      values:
+      - name: Bottle
+        guid: 140e5d12ed4ce342a42ce3c956c88120
+        id: 3848582449
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: PickupItem
+          ObjectType: 11
+          guid: 5e2127f9c4a99d42b14aa8d05b2d08df
+        - ElementName: Bottle
+          ObjectType: 10
+          guid: 140e5d12ed4ce342a42ce3c956c88120
+      - name: Cash
+        guid: e29381001770b24e958432419678c55b
+        id: 4172726428
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: PickupItem
+          ObjectType: 11
+          guid: 5e2127f9c4a99d42b14aa8d05b2d08df
+        - ElementName: Cash
+          ObjectType: 10
+          guid: e29381001770b24e958432419678c55b
+      - name: Crowbar
+        guid: 21e650da966692429072ce3da2222765
+        id: 1837441319
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: PickupItem
+          ObjectType: 11
+          guid: 5e2127f9c4a99d42b14aa8d05b2d08df
+        - ElementName: Crowbar
+          ObjectType: 10
+          guid: 21e650da966692429072ce3da2222765
+      - name: Keys
+        guid: 84cd010eb251a5469b0f0d32951f59df
+        id: 2215982805
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: PickupItem
+          ObjectType: 11
+          guid: 5e2127f9c4a99d42b14aa8d05b2d08df
+        - ElementName: Keys
+          ObjectType: 10
+          guid: 84cd010eb251a5469b0f0d32951f59df
+      - name: Paper
+        guid: ce19ef50f9d56941947ee0b800f58c65
+        id: 3126687001
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: PickupItem
+          ObjectType: 11
+          guid: 5e2127f9c4a99d42b14aa8d05b2d08df
+        - ElementName: Paper
+          ObjectType: 10
+          guid: ce19ef50f9d56941947ee0b800f58c65
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []

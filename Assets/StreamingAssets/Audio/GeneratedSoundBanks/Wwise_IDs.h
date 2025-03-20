@@ -28,7 +28,6 @@ namespace AK
         static const AkUniqueID MUSICMENU = 4082046343U;
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
-        static const AkUniqueID STOPBLAB = 1732588570U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
         static const AkUniqueID SWINGWEAPON = 729991629U;
         static const AkUniqueID TAXI_ANIMAL = 3811696612U;
@@ -100,6 +99,20 @@ namespace AK
                 static const AkUniqueID WOOD = 2058049674U;
             } // namespace SWITCH
         } // namespace FOOTSTEPMATERIAL
+
+        namespace PICKUPITEM
+        {
+            static const AkUniqueID GROUP = 3016565752U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID BOTTLE = 3848582449U;
+                static const AkUniqueID CASH = 4172726428U;
+                static const AkUniqueID CROWBAR = 1837441319U;
+                static const AkUniqueID KEYS = 2215982805U;
+                static const AkUniqueID PAPER = 3126687001U;
+            } // namespace SWITCH
+        } // namespace PICKUPITEM
 
     } // namespace SWITCHES
 

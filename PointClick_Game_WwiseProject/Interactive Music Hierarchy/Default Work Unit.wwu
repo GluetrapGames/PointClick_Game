@@ -10,7 +10,7 @@
 								<Property Name="Tempo" Type="Real64" Value="85"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-7</Value>
+										<Value>-5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -941,7 +941,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>4</Value>
+												<Value>5</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1798,7 +1798,20 @@
 										</Reference>
 										<Reference Name="PlaylistRoot">
 											<Custom>
-												<MusicPlaylistItem Name="" ID="{500D11DA-55F8-41A6-902F-8751B2D970BD}" ShortID="127057593"/>
+												<MusicPlaylistItem Name="" ID="{500D11DA-55F8-41A6-902F-8751B2D970BD}" ShortID="127057593">
+													<ChildrenList>
+														<MusicPlaylistItem Name="" ID="{9CDE95D4-70DC-47E2-A5E8-889CB2E785F5}" ShortID="13796888">
+															<PropertyList>
+																<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Segment">
+																	<ObjectRef Name="amb_house_noise" ID="{667F9627-C544-4B4F-A034-8CCEBF88ECB9}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+																</Reference>
+															</ReferenceList>
+														</MusicPlaylistItem>
+													</ChildrenList>
+												</MusicPlaylistItem>
 											</Custom>
 										</Reference>
 										<Reference Name="TransitionRoot">
@@ -1937,7 +1950,20 @@
 										</Reference>
 										<Reference Name="PlaylistRoot">
 											<Custom>
-												<MusicPlaylistItem Name="" ID="{A9808453-D7F0-4871-85A8-C3F7747E558C}" ShortID="982707733"/>
+												<MusicPlaylistItem Name="" ID="{A9808453-D7F0-4871-85A8-C3F7747E558C}" ShortID="982707733">
+													<ChildrenList>
+														<MusicPlaylistItem Name="" ID="{891B082E-0A74-49BF-9810-8E0A172A0338}" ShortID="128152626">
+															<PropertyList>
+																<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Segment">
+																	<ObjectRef Name="amb_house_tone-001" ID="{DA46F428-51B9-4922-97EB-24B1E1BB66C3}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+																</Reference>
+															</ReferenceList>
+														</MusicPlaylistItem>
+													</ChildrenList>
+												</MusicPlaylistItem>
 											</Custom>
 										</Reference>
 										<Reference Name="TransitionRoot">
