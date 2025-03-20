@@ -2137,11 +2137,6 @@
 								<MusicSegment Name="amb_court_hum" ID="{A6F99DFC-D66A-4D46-BB2B-BEB620827D52}" ShortID="348676438">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="64319.2743764172"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>4</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2273,11 +2268,6 @@
 								<MusicSegment Name="amb_court_buzz" ID="{E4D2C76E-01B7-4EFC-BD7E-E70CF1F3984D}" ShortID="342320153">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="64319.25"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>3</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2364,6 +2354,13 @@
 							</ChildrenList>
 						</MusicPlaylistContainer>
 						<MusicPlaylistContainer Name="Court Coughs" ID="{C39028D6-1FC4-4DB4-B796-7180C2494E42}" ShortID="230655624">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
@@ -2374,38 +2371,21 @@
 								<Reference Name="PlaylistRoot">
 									<Custom>
 										<MusicPlaylistItem Name="" ID="{F8C48827-E702-4F01-A47D-DA2BC52C2AF7}" ShortID="1028323230">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{6ED77EE3-AB15-441F-8DE3-170D0FD0576F}" ShortID="321893895">
+												<MusicPlaylistItem Name="" ID="{DD5394D5-A979-42ED-A243-C189EEF544FE}" ShortID="947031399">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Segment">
-															<ObjectRef Name="amb_court_cough-001" ID="{AA867FCA-1BAD-4479-8CD0-B7889BF28275}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+															<ObjectRef Name="amb_court_cough-004" ID="{261A3592-C5B2-49CB-A642-5550B054D6D4}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
 												<MusicPlaylistItem Name="" ID="{554301CE-DF44-4966-AE3A-850E60719293}" ShortID="982827159">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Segment">
-															<ObjectRef Name="silence" ID="{300834FC-B8EC-4175-8D1B-F3AAB92C5A88}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-														</Reference>
-													</ReferenceList>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{3C931FE2-1AB9-4E15-BE30-CE96ECCCE2C4}" ShortID="939053186">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Segment">
-															<ObjectRef Name="amb_court_cough-002" ID="{F6B4C187-C3B0-4652-9442-2C441F51D956}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-														</Reference>
-													</ReferenceList>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{861726D4-A690-410D-A546-DF64872AFF46}" ShortID="627692156">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
@@ -2425,6 +2405,26 @@
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{861726D4-A690-410D-A546-DF64872AFF46}" ShortID="627692156">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="silence" ID="{300834FC-B8EC-4175-8D1B-F3AAB92C5A88}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{3C931FE2-1AB9-4E15-BE30-CE96ECCCE2C4}" ShortID="939053186">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="amb_court_cough-002" ID="{F6B4C187-C3B0-4652-9442-2C441F51D956}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
 												<MusicPlaylistItem Name="" ID="{C06020FF-CAE5-4F9F-9312-216B85527B50}" ShortID="420370085">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
@@ -2435,13 +2435,13 @@
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{DD5394D5-A979-42ED-A243-C189EEF544FE}" ShortID="947031399">
+												<MusicPlaylistItem Name="" ID="{6ED77EE3-AB15-441F-8DE3-170D0FD0576F}" ShortID="321893895">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Segment">
-															<ObjectRef Name="amb_court_cough-004" ID="{261A3592-C5B2-49CB-A642-5550B054D6D4}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+															<ObjectRef Name="amb_court_cough-001" ID="{AA867FCA-1BAD-4479-8CD0-B7889BF28275}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
@@ -2913,7 +2913,7 @@
 								</MusicSegment>
 								<MusicSegment Name="silence" ID="{300834FC-B8EC-4175-8D1B-F3AAB92C5A88}" ShortID="178797734">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="5875"/>
+										<Property Name="EndPosition" Type="Real64" Value="3041.23430962343"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2963,57 +2963,7 @@
 													<MusicCue Name="Exit Cue" ID="{EF7F938E-3B63-4451-BC02-A3ADE3B18F23}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="1"/>
-															<Property Name="TimeMs" Type="Real64" Value="5875"/>
-														</PropertyList>
-													</MusicCue>
-												</Local>
-											</Reference>
-											<Reference>
-												<Local>
-													<MusicCue Name="" ID="{7BE034D7-152A-457B-B33A-14597E15336C}">
-														<PropertyList>
-															<Property Name="CueType" Type="int16" Value="2"/>
-															<Property Name="TimeMs" Type="Real64" Value="500"/>
-														</PropertyList>
-													</MusicCue>
-												</Local>
-											</Reference>
-											<Reference>
-												<Local>
-													<MusicCue Name="" ID="{6D2B8CC0-BFBF-4016-A718-0E1D539D2D0B}">
-														<PropertyList>
-															<Property Name="CueType" Type="int16" Value="2"/>
-															<Property Name="TimeMs" Type="Real64" Value="2000"/>
-														</PropertyList>
-													</MusicCue>
-												</Local>
-											</Reference>
-											<Reference>
-												<Local>
-													<MusicCue Name="" ID="{97688EC8-4734-4D35-88A9-EFF159C48614}">
-														<PropertyList>
-															<Property Name="CueType" Type="int16" Value="2"/>
-															<Property Name="TimeMs" Type="Real64" Value="3814.5077721943"/>
-														</PropertyList>
-													</MusicCue>
-												</Local>
-											</Reference>
-											<Reference>
-												<Local>
-													<MusicCue Name="" ID="{4393C436-4E65-4E0C-B275-24AC75D406C9}">
-														<PropertyList>
-															<Property Name="CueType" Type="int16" Value="2"/>
-															<Property Name="TimeMs" Type="Real64" Value="2945.85748743719"/>
-														</PropertyList>
-													</MusicCue>
-												</Local>
-											</Reference>
-											<Reference>
-												<Local>
-													<MusicCue Name="" ID="{9CAD8150-6A88-4894-B3B4-86B1DC00456E}">
-														<PropertyList>
-															<Property Name="CueType" Type="int16" Value="2"/>
-															<Property Name="TimeMs" Type="Real64" Value="5625"/>
+															<Property Name="TimeMs" Type="Real64" Value="3019.60251046025"/>
 														</PropertyList>
 													</MusicCue>
 												</Local>
@@ -3029,7 +2979,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+									<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 								</Reference>
 								<Reference Name="PlaylistRoot">
 									<Custom>
@@ -3072,6 +3022,11 @@
 										<Property Name="Lowpass" Type="int16">
 											<ValueList>
 												<Value>36</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
