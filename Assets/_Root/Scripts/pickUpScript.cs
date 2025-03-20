@@ -57,6 +57,21 @@ public class PickUpScript : MonoBehaviour
 	{
 		// Obtain the Game Manager.
 		_GameManager = Utils.GetGameManager();
+
+		// Resize the collision bounds.
+		// Only supports BoxCollider2D!
+		Sprite spriteObj = GetComponent<SpriteRenderer>().sprite;
+		var boxCollider = GetComponent<BoxCollider2D>();
+		// Calculate X & Y bounds based on sprite.
+		var boundsSize = new Vector2(
+			spriteObj.bounds.size.x - (spriteObj.border.x + sprite.border.z) /
+			spriteObj.pixelsPerUnit,
+			spriteObj.bounds.size.y - (spriteObj.border.w + sprite.border.y) /
+			spriteObj.pixelsPerUnit
+		);
+		if (!boxCollider) return;
+		boxCollider.size = boundsSize;
+		boxCollider.offset = Vector2.zero;
 	}
 
 	private void Start()
