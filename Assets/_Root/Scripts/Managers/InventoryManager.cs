@@ -30,18 +30,12 @@ public class InventoryManager : Singleton<InventoryManager>
 		base.Awake();
 		_GameManager = Utils.GetGameManager();
 		// Get the Inventory.
-		GameObject inventoryObject = GameObject.FindWithTag("Inventory");
-		if (!inventoryObject)
-		{
-			Debug.LogWarning(
-				"Cannot find 'Inventory Canvas' in the scene.");
-			inventoryObject = Instantiate(_InventoryPrefab, transform);
-		}
+		GameObject inventoryObject = Instantiate(_InventoryPrefab, transform);
+		m_Inventory = inventoryObject.transform;
 
 		m_DropHeldItem =
 			FindFirstObjectByType<DropHeldItem>(FindObjectsInactive.Include);
 
-		m_Inventory = inventoryObject.transform;
 		GetInventory();
 	}
 
