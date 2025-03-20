@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 using EditorAttributes;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
@@ -40,6 +41,7 @@ public class PickUpScript : MonoBehaviour
 	public ItemTypes _ItemType;
 	[SerializeField]
 	public GameObject _ItemPrefab;
+	public PickupSounds _pickupSounds;
 
 
 	[Header("Dialogue Settings"), Tooltip("Will the item start dialogue"),
@@ -125,6 +127,7 @@ public class PickUpScript : MonoBehaviour
 
 		_ = _GameManager.m_InventoryManager.CollectItem(
 			new ItemData(gameObject.name, _ItemType, sprite));
+			_pickupSounds.onPickup();
 
 		// If the object plays a dialogue after pickup
 		if (_StartConvo)

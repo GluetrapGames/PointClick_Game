@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 5261773267661514526}
   - component: {fileID: 5456944970616690933}
   - component: {fileID: 108372546632361976}
+  - component: {fileID: -6292723398293010150}
   - component: {fileID: 6196828713650799960}
   m_Layer: 0
   m_Name: PickupPrefab
@@ -220,8 +221,22 @@ MonoBehaviour:
   _IsWallItem: 0
   _ItemType: 0
   _ItemPrefab: {fileID: 0}
+  _pickupSounds: {fileID: -6292723398293010150}
   _StartConvo: 0
   _ConvoObject: {fileID: 0}
+--- !u!114 &-6292723398293010150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886572549212060879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6797e7391a0db7742949544dd938d30c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 
 --- !u!61 &6196828713650799960
 BoxCollider2D:
   m_ObjectHideFlags: 0

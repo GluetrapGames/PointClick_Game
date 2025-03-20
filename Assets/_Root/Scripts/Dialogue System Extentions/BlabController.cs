@@ -18,14 +18,30 @@ public class BlabController : MonoBehaviour
 	private bool _Log;
 
 	public TextMeshProTypewriterEffect m_TypeWritterEffect;
-	private float _LastAudioTime;
 	private string _SpeakerName;
 	private bool isBlabbing = false;
+	private bool fuckyou = false;
+	private float blabSpeed = 0.1f;
 
 
-	// When a conversation line begins, gets the current speaker's name
-	// And calls for audio to play.
-	private void OnConversationLine(Subtitle subtitle)
+        private void Update()
+        {
+			if (_LogWindow.activeInHierarchy)
+			{
+				StopActorClip();
+			}
+			//else
+			//{
+			//PlayActorClip();
+   //         }
+			
+
+            
+        }
+
+        // When a conversation line begins, gets the current speaker's name
+        // And calls for audio to play.
+        private void OnConversationLine(Subtitle subtitle)
 	{
 		_SpeakerName = subtitle.speakerInfo.Name;
 		PlayActorClip();
@@ -40,8 +56,7 @@ public class BlabController : MonoBehaviour
 			if (!isBlabbing)
 			{
 				isBlabbing = true;
-                InvokeRepeating("postBlab", 0f, 0.1f);
-
+                InvokeRepeating("postBlab", 0f, blabSpeed);
             }
 			
 	}
