@@ -82,10 +82,18 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FEF7573B-AF4B-9DD4-F190-B8E58EDE666D}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{0E5CDDD0-B74C-EDB6-07FC-609398077651}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="2700846" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_court_cough-003.wav</ShortName>
+					<CachePath>SFX/amb_court_cough-003_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="28743199" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_court_cough-005.wav</ShortName>
+					<CachePath>SFX/amb_court_cough-005_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="31616214" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_creaks-001.wav</ShortName>
 					<CachePath>SFX/amb_house_creaks-001_FBC78EF0.wem</CachePath>
@@ -94,9 +102,17 @@
 					<ShortName>viol_break_ceramic.wav</ShortName>
 					<CachePath>SFX/viol_break_ceramic_818F3B66.wem</CachePath>
 				</File>
+				<File Id="65148548" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_court_clock.wav</ShortName>
+					<CachePath>SFX/amb_court_clock_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="73779194" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>track_menu.wav</ShortName>
 					<CachePath>SFX/track_menu_818F3B66.wem</CachePath>
+				</File>
+				<File Id="124322530" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_court_cough-001.wav</ShortName>
+					<CachePath>SFX/amb_court_cough-001_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="144182143" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>player_takeItem_001.wav</ShortName>
@@ -125,6 +141,10 @@
 				<File Id="221075044" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>player_takeCash_02.wav</ShortName>
 					<CachePath>SFX/player_takeCash_02_818F3B66.wem</CachePath>
+				</File>
+				<File Id="223107153" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_court_cough-004.wav</ShortName>
+					<CachePath>SFX/amb_court_cough-004_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="237387029" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_woodCarpet-004.wav</ShortName>
@@ -162,6 +182,10 @@
 					<ShortName>amb_house_creaks-005.wav</ShortName>
 					<CachePath>SFX/amb_house_creaks-005_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="473419309" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_court_hum.wav</ShortName>
+					<CachePath>SFX/amb_court_hum_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="508778594" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_tile-002.wav</ShortName>
 					<CachePath>SFX/step_tile-002_818F3B66.wem</CachePath>
@@ -190,6 +214,10 @@
 					<ShortName>viol_break_taxidermy-001.wav</ShortName>
 					<CachePath>SFX/viol_break_taxidermy-001_818F3B66.wem</CachePath>
 				</File>
+				<File Id="584904381" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_court_buzz.wav</ShortName>
+					<CachePath>SFX/amb_court_buzz_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="599646490" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_bigGlass.wav</ShortName>
 					<CachePath>SFX/viol_break_bigGlass_818F3B66.wem</CachePath>
@@ -201,6 +229,10 @@
 				<File Id="604374767" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_back.wav</ShortName>
 					<CachePath>SFX/ui_menu_back_831DFFC4.wem</CachePath>
+				</File>
+				<File Id="625574116" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_court_cough-002.wav</ShortName>
+					<CachePath>SFX/amb_court_cough-002_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="655306073" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_creaks-004.wav</ShortName>
@@ -346,6 +378,30 @@
 						<MediaRef Id="874754579"/>
 						<MediaRef Id="947122152"/>
 						<MediaRef Id="1071037576"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="316795645" Name="CourtBuzz" DurationType="OneShot" DurationMin="64.31925" DurationMax="64.31925">
+					<MediaRefs>
+						<MediaRef Id="473419309"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3307117116" Name="CourtClock" DurationType="OneShot" DurationMin="64" DurationMax="64">
+					<MediaRefs>
+						<MediaRef Id="65148548"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2070691372" Name="CourtCough" DurationType="OneShot" DurationMin="35.364998" DurationMax="35.364998">
+					<MediaRefs>
+						<MediaRef Id="2700846"/>
+						<MediaRef Id="28743199"/>
+						<MediaRef Id="124322530"/>
+						<MediaRef Id="223107153"/>
+						<MediaRef Id="625574116"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1112129076" Name="CourtHum" DurationType="OneShot" DurationMin="64.319275" DurationMax="64.319275">
+					<MediaRefs>
+						<MediaRef Id="584904381"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="1.4487923">
@@ -653,5 +709,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{4DED2C97-B5F1-FE28-F863-598B04853ECA}</FileHash>
+	<FileHash>{4B537FBE-8A69-3FAC-A830-CAF1AB9ED4EB}</FileHash>
 </SoundBanksInfo>

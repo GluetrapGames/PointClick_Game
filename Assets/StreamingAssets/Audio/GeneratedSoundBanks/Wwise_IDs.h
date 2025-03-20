@@ -15,6 +15,10 @@ namespace AK
     {
         static const AkUniqueID BLAB = 1527158674U;
         static const AkUniqueID BUG_SHELF = 584038952U;
+        static const AkUniqueID COURTBUZZ = 316795645U;
+        static const AkUniqueID COURTCLOCK = 3307117116U;
+        static const AkUniqueID COURTCOUGH = 2070691372U;
+        static const AkUniqueID COURTHUM = 1112129076U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
