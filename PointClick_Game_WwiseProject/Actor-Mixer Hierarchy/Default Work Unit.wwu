@@ -193,6 +193,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="dial_john_blab02" ID="{30F1440F-0CFA-4D2E-9046-69B1CB903DE5}" ShortID="78485859">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-50</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
@@ -222,6 +229,70 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Judge" ID="{5FABAD91-F0B9-4B5F-9EA9-FC6D765C146F}" ShortID="999575871">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-280</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{AAA67258-09C8-41FD-A8A9-99670935DFF5}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="350"/>
+															<Property Name="Min" Type="Real64" Value="-350"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="dial_judge_blab" ID="{67F14819-8B65-4CB5-8205-D4A0A82E7AF3}" ShortID="718541717">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="dial_judge_blab" ID="{35BBC39B-2A34-4C47-9080-BE3AA0D53DEE}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.00974026416122004"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.00779221132897603"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0107892156862745"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.0698302015250543"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>dial_judge_blab.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="739141563"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="dial_judge_blab" ID="{35BBC39B-2A34-4C47-9080-BE3AA0D53DEE}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
@@ -233,6 +304,9 @@
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="John" ID="{8B4E9059-0022-4339-9840-70341935AE01}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Judge" ID="{5FABAD91-F0B9-4B5F-9EA9-FC6D765C146F}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
@@ -252,6 +326,12 @@
 										<SwitchRef Name="Albert" ID="{58219A30-EDA7-4DDA-A30B-6FEBABFD6B45}"/>
 										<ItemList>
 											<ItemRef Name="Albert" ID="{DEB88614-3463-4D49-AB9E-73613CD9921C}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Judge" ID="{06E1D39D-3BD5-410A-9011-4A68F3A2095E}"/>
+										<ItemList>
+											<ItemRef Name="Judge" ID="{5FABAD91-F0B9-4B5F-9EA9-FC6D765C146F}"/>
 										</ItemList>
 									</Grouping>
 								</GroupingList>
@@ -669,8 +749,14 @@
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
 										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="Keys" ID="{0E01CD84-51B2-46A5-9B0F-0D32951F59DF}" WorkUnitID="{E4A43D3A-8B1D-446E-AF5C-80B4C62B3FDD}"/>
+										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="PickupItem" ID="{F927215E-A9C4-429D-B14A-A8D05B2D08DF}" WorkUnitID="{E4A43D3A-8B1D-446E-AF5C-80B4C62B3FDD}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -776,6 +862,28 @@
 												<ActiveSource Name="player_takeCash_02" ID="{0A3E2678-0AD8-4602-8DD6-E72E3A83FE5A}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="player_takePills" ID="{FCE115CB-743A-4F56-A9CC-05020022E61B}" ShortID="688779848">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="player_takePills" ID="{E4607D61-E9C8-43DF-BCF0-65F3454E8450}">
+													<Language>SFX</Language>
+													<AudioFile>player_takePills.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="279270167"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="player_takePills" ID="{E4607D61-E9C8-43DF-BCF0-65F3454E8450}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupingBehaviorList>
@@ -791,7 +899,42 @@
 											<GroupingBehavior>
 												<ItemRef Name="player_takePaper" ID="{AEAF11CA-4D7B-4B98-BFCA-1A695D8748AC}"/>
 											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="player_takePills" ID="{FCE115CB-743A-4F56-A9CC-05020022E61B}"/>
+											</GroupingBehavior>
 										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Bottle" ID="{125D0E14-4CED-42E3-A42C-E3C956C88120}"/>
+												<ItemList>
+													<ItemRef Name="player_takeBottle" ID="{144A74C1-2364-4947-A2B1-9EFC0F4F1410}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Pills" ID="{6145361D-A954-486E-B4E9-000D070E0850}"/>
+												<ItemList>
+													<ItemRef Name="player_takePills" ID="{FCE115CB-743A-4F56-A9CC-05020022E61B}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Keys" ID="{0E01CD84-51B2-46A5-9B0F-0D32951F59DF}"/>
+												<ItemList>
+													<ItemRef Name="player_takeKeys" ID="{6E59FE6C-10B3-4163-8E07-14442C9CCF52}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Paper" ID="{50EF19CE-D5F9-4169-947E-E0B800F58C65}"/>
+												<ItemList>
+													<ItemRef Name="player_takePaper" ID="{AEAF11CA-4D7B-4B98-BFCA-1A695D8748AC}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Cash" ID="{008193E2-7017-4EB2-9584-32419678C55B}"/>
+												<ItemList>
+													<ItemRef Name="player_takeCash_02" ID="{9CB695AA-2522-4764-997F-55F198C4C1BA}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
 							</ChildrenList>

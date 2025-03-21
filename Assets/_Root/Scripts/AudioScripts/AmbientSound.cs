@@ -44,6 +44,12 @@ namespace GlueTrap
                 CourtAmbience();
                 Debug.Log("Court Ambience = " + _CourtActivated);
             }
+
+            if (scene.name == "MenuScene")
+            {
+                AkSoundEngine.StopAll();
+                AkSoundEngine.PostEvent("MusicMenu", gameObject);
+            }
         }
     }
 }

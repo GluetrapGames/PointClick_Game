@@ -89,6 +89,7 @@ namespace AK
                 static const AkUniqueID ALBERT = 1449413731U;
                 static const AkUniqueID JACK = 3865235296U;
                 static const AkUniqueID JOHN = 3678415638U;
+                static const AkUniqueID JUDGE = 1425203646U;
             } // namespace SWITCH
         } // namespace CHARACTERBLAB
 
@@ -115,6 +116,7 @@ namespace AK
                 static const AkUniqueID CROWBAR = 1837441319U;
                 static const AkUniqueID KEYS = 2215982805U;
                 static const AkUniqueID PAPER = 3126687001U;
+                static const AkUniqueID PILLS = 1791995239U;
             } // namespace SWITCH
         } // namespace PICKUPITEM
 

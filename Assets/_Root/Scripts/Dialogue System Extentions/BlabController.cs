@@ -30,13 +30,6 @@ public class BlabController : MonoBehaviour
 			{
 				StopActorClip();
 			}
-			//else
-			//{
-			//PlayActorClip();
-   //         }
-			
-
-            
         }
 
         // When a conversation line begins, gets the current speaker's name
