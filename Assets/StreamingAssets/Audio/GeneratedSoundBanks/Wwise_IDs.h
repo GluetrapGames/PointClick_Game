@@ -15,8 +15,15 @@ namespace AK
     {
         static const AkUniqueID BLAB = 1527158674U;
         static const AkUniqueID BUG_SHELF = 584038952U;
+        static const AkUniqueID COURTBUZZ = 316795645U;
+        static const AkUniqueID COURTCLOCK = 3307117116U;
+        static const AkUniqueID COURTCOUGH = 2070691372U;
+        static const AkUniqueID COURTHUM = 1112129076U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
+        static const AkUniqueID HOUSEBUZZ = 3161912504U;
+        static const AkUniqueID HOUSECREAK = 3508689533U;
+        static const AkUniqueID HOUSETONE = 1903191047U;
         static const AkUniqueID MATERIAL = 3865314626U;
         static const AkUniqueID MENU_BACK = 3063554414U;
         static const AkUniqueID MENU_HOVER = 309439191U;
@@ -25,7 +32,6 @@ namespace AK
         static const AkUniqueID MUSICMENU = 4082046343U;
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
-        static const AkUniqueID STOPBLAB = 1732588570U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
         static const AkUniqueID SWINGWEAPON = 729991629U;
         static const AkUniqueID TAXI_ANIMAL = 3811696612U;
@@ -93,9 +99,24 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID CARPET = 2412606308U;
+                static const AkUniqueID TILE = 2637588553U;
                 static const AkUniqueID WOOD = 2058049674U;
             } // namespace SWITCH
         } // namespace FOOTSTEPMATERIAL
+
+        namespace PICKUPITEM
+        {
+            static const AkUniqueID GROUP = 3016565752U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID BOTTLE = 3848582449U;
+                static const AkUniqueID CASH = 4172726428U;
+                static const AkUniqueID CROWBAR = 1837441319U;
+                static const AkUniqueID KEYS = 2215982805U;
+                static const AkUniqueID PAPER = 3126687001U;
+            } // namespace SWITCH
+        } // namespace PICKUPITEM
 
     } // namespace SWITCHES
 
