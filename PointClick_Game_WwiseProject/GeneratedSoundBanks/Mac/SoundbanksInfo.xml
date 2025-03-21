@@ -84,7 +84,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{DD751A47-D7DD-3D50-C274-A6357A35D17A}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1C950070-52CF-960A-4DE6-18549B2943E8}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -303,6 +303,10 @@
 				<File Id="874754579" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_glass-001.wav</ShortName>
 					<CachePath>SFX/viol_break_glass-001_818F3B66.wem</CachePath>
+				</File>
+				<File Id="886243449" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_takeCrowbar.wav</ShortName>
+					<CachePath>SFX/player_takeCrowbar_818F3B66.wem</CachePath>
 				</File>
 				<File Id="886830654" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_electronic.wav</ShortName>
@@ -604,6 +608,12 @@
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3016565752" Id="1837441319"/>
+							<MediaRefs>
+								<MediaRef Id="886243449"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3016565752" Id="2215982805" Default="true"/>
 							<MediaRefs>
 								<MediaRef Id="144182143"/>
@@ -733,5 +743,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{902F577F-89DA-4A31-DA6B-9C4AA1C1280F}</FileHash>
+	<FileHash>{99931968-EFE3-AB51-35B9-8020E5CB3FB0}</FileHash>
 </SoundBanksInfo>
