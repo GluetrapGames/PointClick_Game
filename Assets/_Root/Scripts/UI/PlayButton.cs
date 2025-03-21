@@ -12,7 +12,7 @@ public class PlayButton : MonoBehaviour
 
 	public void PlayGame()
 	{
-		StartCoroutine(LoadScene("CourtroomIntro"));
+		StartCoroutine(LoadScene("CourtScene 1"));
 		AkSoundEngine.StopAll();
 	}
 
