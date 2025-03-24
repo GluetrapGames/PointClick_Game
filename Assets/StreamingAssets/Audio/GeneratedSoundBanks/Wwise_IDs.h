@@ -32,6 +32,7 @@ namespace AK
         static const AkUniqueID MUSICMENU = 4082046343U;
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
+        static const AkUniqueID ROOMTRANSITION = 712272009U;
         static const AkUniqueID STOPCLOCK = 4199481009U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
         static const AkUniqueID SWINGWEAPON = 729991629U;

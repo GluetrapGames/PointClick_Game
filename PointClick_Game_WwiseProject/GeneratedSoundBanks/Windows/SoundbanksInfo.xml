@@ -84,7 +84,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EEB77F22-2529-353A-3C6E-4320C9CFFB35}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3A98383F-6467-9A81-9D2A-EE05696C5C89}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -295,6 +295,10 @@
 				<File Id="798446541" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>higher.wav</ShortName>
 					<CachePath>SFX/higher_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="837599648" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roomTransition.wav</ShortName>
+					<CachePath>SFX/roomTransition_D6404BC0.wem</CachePath>
 				</File>
 				<File Id="845512123" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_dialoguePopup.wav</ShortName>
@@ -656,6 +660,11 @@
 						<MediaRef Id="886830654"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="712272009" Name="RoomTransition" DurationType="OneShot" DurationMin="1.6072339" DurationMax="1.9436206">
+					<MediaRefs>
+						<MediaRef Id="837599648"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="4199481009" Name="StopClock" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2596245103" Name="StopFootstep" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="729991629" Name="SwingWeapon" DurationType="OneShot" DurationMin="0.20709683" DurationMax="0.2647209">
@@ -762,5 +771,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D7EBD5EB-4D4F-3EE9-1413-2CE2C0455F7B}</FileHash>
+	<FileHash>{E4282810-3371-03B3-57CF-AAE3D9FD6F6C}</FileHash>
 </SoundBanksInfo>

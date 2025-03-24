@@ -11,6 +11,7 @@ public class SceneTransistion : MonoBehaviour
 	private string _sceneToTransitionTo;
 
 	private Animator _crossfadeAnimator;
+	private bool _isPlaying = false;
 
 
 	private void Awake()
@@ -29,8 +30,20 @@ public class SceneTransistion : MonoBehaviour
 	private void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.CompareTag("Feet"))
-			StartCoroutine(LoadScene(_sceneToTransitionTo));
-	}
+			{
+                StartCoroutine(LoadScene(_sceneToTransitionTo));
+
+                // Play scene transition sound
+                if (!_isPlaying)
+                {
+                    AkSoundEngine.PostEvent("RoomTransition", gameObject);
+                    _isPlaying = true;
+                }
+            }
+			
+
+            
+        }
 
 	public void CallFromConversationEnd()
 	{
