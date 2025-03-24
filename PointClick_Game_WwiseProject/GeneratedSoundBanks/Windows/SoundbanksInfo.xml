@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{A87FE0FC-5736-2BB8-7AB8-9B3337AE373E}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{6DEE3CB5-B5F6-BEE2-8C9D-7ADF505E9DCF}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -84,7 +84,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2ED2E074-9BEA-6EA4-5E3F-C8AC9EA22933}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EEB77F22-2529-353A-3C6E-4320C9CFFB35}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -361,6 +361,11 @@
 					<CachePath>SFX/viol_break_glass_818F3B66.wem</CachePath>
 				</File>
 			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="484890516" Name="Church_Small_Wood" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</ShareSets>
+			</Plugins>
 			<Events>
 				<Event Id="1527158674" Name="Blab" DurationType="OneShot" DurationMin="0.056701366" DurationMax="0.13150942">
 					<SwitchContainers>
@@ -409,6 +414,11 @@
 					<MediaRefs>
 						<MediaRef Id="65148548"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="484890516"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="2070691372" Name="CourtCough" DurationType="Infinite">
 					<MediaRefs>
@@ -418,6 +428,11 @@
 						<MediaRef Id="223107153"/>
 						<MediaRef Id="625574116"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="484890516"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="1112129076" Name="CourtHum" DurationType="OneShot" DurationMin="64.319275" DurationMax="64.319275">
 					<MediaRefs>
@@ -641,10 +656,19 @@
 						<MediaRef Id="886830654"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4199481009" Name="StopClock" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2596245103" Name="StopFootstep" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="729991629" Name="SwingWeapon" DurationType="OneShot" DurationMin="0.20709683" DurationMax="0.2647209">
 					<MediaRefs>
 						<MediaRef Id="534372370"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1780595170" Name="table_ceramic" DurationType="OneShot" DurationMin="1.6721798" DurationMax="2.4581919">
+					<MediaRefs>
+						<MediaRef Id="61938418"/>
+						<MediaRef Id="685121363"/>
+						<MediaRef Id="947122152"/>
+						<MediaRef Id="1060580719"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3811696612" Name="taxi_animal" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
@@ -738,5 +762,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{C8CB922D-5F62-04C1-0E6D-ED8101E4B084}</FileHash>
+	<FileHash>{D7EBD5EB-4D4F-3EE9-1413-2CE2C0455F7B}</FileHash>
 </SoundBanksInfo>

@@ -373,6 +373,45 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="table_ceramic" ID="{74AD8BC5-373A-4A00-A309-F60E6669B60D}">
+									<ChildrenList>
+										<Action Name="" ID="{75B59E44-6321-4B2B-9E36-5B3047CF987F}" ShortID="644891335">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="12"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wood" ID="{61A9B060-F790-40A1-8F0F-E13AF155FC13}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{79392AC8-5044-404E-8187-D9C136A0E26B}" ShortID="699008845">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="12"/>
+												<Property Name="Volume" Type="Real64" Value="-3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ceramic" ID="{67767E42-7670-494C-BABE-4F12AAC882A3}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{20C4D968-71BE-4783-BB4E-B55A2B58BE01}" ShortID="253482754">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wood" ID="{61A9B060-F790-40A1-8F0F-E13AF155FC13}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{7572C4D3-E8A3-4DC6-97AF-6AF5A101EFF2}" ShortID="334523613">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ceramic" ID="{67767E42-7670-494C-BABE-4F12AAC882A3}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Event Name="Material" ID="{B295CD18-4F87-46B4-A977-2608347FB39C}">
@@ -470,6 +509,46 @@
 													<ObjectRef Name="Court Clock" ID="{53E6026D-207C-4BFA-8365-75F4A9515FF4}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 												</Reference>
 											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="StopClock" ID="{8E635352-B79A-43E6-92B3-84C80CAF6E5F}">
+									<ChildrenList>
+										<Action Name="" ID="{9B46DAB8-1D99-4F96-AE43-B6A5BDD47BBC}" ShortID="519709616">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="3"/>
+											</PropertyList>
+											<ReferenceList/>
+											<ChildrenList>
+												<EventActionException Name="" ID="{D90329C2-A33F-402E-A7FF-E85BF075EA41}">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="House Music" ID="{5DFE2C84-FAF6-4EAF-BA44-8D6082703469}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+														</Reference>
+													</ReferenceList>
+												</EventActionException>
+												<EventActionException Name="" ID="{94D91B8D-B22F-49CD-A586-637C23F75504}">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="House Creaks" ID="{D3A59E07-10F1-46EE-99A9-BBB4651257C9}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+														</Reference>
+													</ReferenceList>
+												</EventActionException>
+												<EventActionException Name="" ID="{C04F7EDB-7CD0-498F-8DA6-AFF13AB4E3B7}">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="House Hum" ID="{2E15BFAB-7D03-4AE9-AF66-CF6726BC72AA}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+														</Reference>
+													</ReferenceList>
+												</EventActionException>
+												<EventActionException Name="" ID="{D8E556E1-35CA-480B-B738-B92F510B137F}">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="House Noise" ID="{FE98274F-2EDB-422B-9D4E-E1F8440DF4DE}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+														</Reference>
+													</ReferenceList>
+												</EventActionException>
+											</ChildrenList>
 										</Action>
 									</ChildrenList>
 								</Event>
