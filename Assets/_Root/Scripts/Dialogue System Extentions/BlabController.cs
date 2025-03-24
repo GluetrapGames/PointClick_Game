@@ -20,7 +20,6 @@ public class BlabController : MonoBehaviour
 	public TextMeshProTypewriterEffect m_TypeWritterEffect;
 	private string _SpeakerName;
 	private bool isBlabbing = false;
-	private bool fuckyou = false;
 	private float blabSpeed = 0.1f;
 
 
@@ -42,13 +41,13 @@ public class BlabController : MonoBehaviour
         // When a conversation line begins, gets the current speaker's name
         // And calls for audio to play.
         private void OnConversationLine(Subtitle subtitle)
-	{
-		_SpeakerName = subtitle.speakerInfo.Name;
-		PlayActorClip();
-		AkSoundEngine.SetSwitch("CharacterBlab", _SpeakerName, gameObject);
-		if (_Log) Debug.Log(_SpeakerName);
+		{
+			_SpeakerName = subtitle.speakerInfo.Name;
+			PlayActorClip();
+			AkSoundEngine.SetSwitch("CharacterBlab", _SpeakerName, gameObject);
+			if (_Log) Debug.Log(_SpeakerName);
 
-	}
+		}
 
 	// Posts Wwise event in loop
 	public void PlayActorClip()
