@@ -1,39 +1,34 @@
 using AYellowpaper.SerializedCollections;
 using PixelCrushers.DialogueSystem;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace GlueTrap
 {
-    public class NameplateSwap : MonoBehaviour
-    {
-        [SerializeField]
-        private SerializedDictionary<string, Sprite> _SpriteDictionary;
-        private string _SpeakerName;
-        //[SerializeField]
-        private Image _Image;
+public class NameplateSwap : MonoBehaviour
+{
+	[SerializeField]
+	private SerializedDictionary<string, Sprite> _SpriteDictionary = new();
 
-        private void Start()
-        {
-            _Image = GetComponent<Image>();
-        }
-        private void OnConversationLine(Subtitle subtitle)
-        {
-            _SpeakerName = subtitle.speakerInfo.Name;
-            SetNamePlate();
-        }
+	private Image _Image;
+	private string _SpeakerName;
 
-        private void SetNamePlate() 
-        {
-            foreach (var kvp in _SpriteDictionary) 
-            {
-                if (kvp.Key == _SpeakerName) 
-                {
-                    _Image.sprite = kvp.Value;
-                }
-            }
-        }
-    }
+	private void Awake()
+	{
+		_Image = GetComponent<Image>();
+	}
+
+	private void OnConversationLine(Subtitle subtitle)
+	{
+		if (_SpeakerName == subtitle.speakerInfo.Name) return;
+		_SpeakerName = subtitle.speakerInfo.Name;
+		SetNamePlate();
+	}
+
+	private void SetNamePlate()
+	{
+		if (_SpriteDictionary.TryGetValue(_SpeakerName, out Sprite sprite))
+			_Image.sprite = sprite;
+	}
+}
 }
