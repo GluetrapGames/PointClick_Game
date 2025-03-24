@@ -56,43 +56,46 @@ public class ToggleLog : MonoBehaviour
 	{
 		toggleLog = !toggleLog;
 
-		if (toggleLog) // When the backlog is showing
+		if (DialogueManager.isConversationActive)
 		{
-			if(_IsPlayerListener)
-				_ResponsePanel.SetActive(false);
-			// Stops the speed of the current portrait animation.
-			_PortraitAnimator.speed = 0f;
-			// Hide all other buttons
-			_ContinueButton.gameObject.SetActive(false);
-			_AutoButton.gameObject.SetActive(false);
-			_SkipButton.gameObject.SetActive(false);
-			// Change the button's image
-			_ButtonImage.sprite = _CloseImage;
-            // Turns off autoplay
-            DialogueManager.displaySettings.subtitleSettings.continueButton =
-			DisplaySettings.SubtitleSettings.ContinueButtonMode.Always;
-			// Pauses the pauses the dialogue system
-			_dsController.Pause();
-			// Opens and displays the dialogue history
-			_blExample.ShowBackLog();
-			_blExample.OpenLogWindow();
-		}
-		else // When the backlog is hidden
-		{
-            if (_IsPlayerListener)
-                _ResponsePanel.SetActive(true);
-            // Returns the speed of the current portrait animation.
-            _PortraitAnimator.speed = 1.0f;;
-			// Show all other buttons
-			_ContinueButton.gameObject.SetActive(true);
-			_AutoButton.gameObject.SetActive(true);
-			_SkipButton.gameObject.SetActive(true);
-            // Change the button's image
-            _ButtonImage.sprite = _OpenImage;
-            // Unpauses the dialogue system
-            _dsController.Unpause();
-			// Hides the backlog window
-			_LogWindow.SetActive(false);
+			if (toggleLog) // When the backlog is showing
+			{
+				if (_IsPlayerListener)
+					_ResponsePanel.SetActive(false);
+				// Stops the speed of the current portrait animation.
+				_PortraitAnimator.speed = 0f;
+				// Hide all other buttons
+				_ContinueButton.gameObject.SetActive(false);
+				_AutoButton.gameObject.SetActive(false);
+				_SkipButton.gameObject.SetActive(false);
+				// Change the button's image
+				_ButtonImage.sprite = _CloseImage;
+				// Turns off autoplay
+				DialogueManager.displaySettings.subtitleSettings.continueButton =
+				DisplaySettings.SubtitleSettings.ContinueButtonMode.Always;
+				// Pauses the pauses the dialogue system
+				_dsController.Pause();
+				// Opens and displays the dialogue history
+				_blExample.ShowBackLog();
+				_blExample.OpenLogWindow();
+			}
+			else // When the backlog is hidden
+			{
+				if (_IsPlayerListener)
+					_ResponsePanel.SetActive(true);
+				// Returns the speed of the current portrait animation.
+				_PortraitAnimator.speed = 1.0f; ;
+				// Show all other buttons
+				_ContinueButton.gameObject.SetActive(true);
+				_AutoButton.gameObject.SetActive(true);
+				_SkipButton.gameObject.SetActive(true);
+				// Change the button's image
+				_ButtonImage.sprite = _OpenImage;
+				// Unpauses the dialogue system
+				_dsController.Unpause();
+				// Hides the backlog window
+				_LogWindow.SetActive(false);
+			}
 		}
 	}
 }
