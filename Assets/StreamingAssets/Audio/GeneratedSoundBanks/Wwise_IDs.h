@@ -19,6 +19,8 @@ namespace AK
         static const AkUniqueID COURTCLOCK = 3307117116U;
         static const AkUniqueID COURTCOUGH = 2070691372U;
         static const AkUniqueID COURTHUM = 1112129076U;
+        static const AkUniqueID FLAT_PHONE = 2449505461U;
+        static const AkUniqueID FLATMUSIC = 1369071785U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
@@ -33,6 +35,7 @@ namespace AK
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
         static const AkUniqueID ROOMTRANSITION = 712272009U;
+        static const AkUniqueID STOP_PHONE = 4262240428U;
         static const AkUniqueID STOPCLOCK = 4199481009U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
         static const AkUniqueID SWINGWEAPON = 729991629U;
@@ -92,6 +95,8 @@ namespace AK
                 static const AkUniqueID JACK = 3865235296U;
                 static const AkUniqueID JOHN = 3678415638U;
                 static const AkUniqueID JUDGE = 1425203646U;
+                static const AkUniqueID MARK = 2809578926U;
+                static const AkUniqueID NARRATOR = 3272864290U;
             } // namespace SWITCH
         } // namespace CHARACTERBLAB
 

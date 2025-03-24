@@ -7,6 +7,18 @@
 					<ChildrenList>
 						<SwitchContainer Name="SwitchBlab" ID="{AA8ED00E-F095-42E4-B610-8EF92B38DCB9}" ShortID="431058310">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{110179AF-E648-4E90-AF08-6901BBECED66}">
+												<PropertyList>
+													<Property Name="Max" Type="Real64" Value="200"/>
+													<Property Name="Min" Type="Real64" Value="-350"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>5</Value>
@@ -293,6 +305,85 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="Narrator" ID="{CFD70388-D20C-40C2-877D-6878FD0BD8DA}" ShortID="3096357">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{1306F829-32CE-4D4D-AF8B-05C44E414209}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Min" Type="Real64" Value="-350"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<SourcePlugin Name="Silence" ID="{65B27FBD-0EC1-4267-8E59-0581A7A2326F}" ShortID="280657127" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
+											<PropertyList>
+												<Property Name="Length" Type="Real32" Value="0.1"/>
+											</PropertyList>
+											<Language>SFX</Language>
+										</SourcePlugin>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Silence" ID="{65B27FBD-0EC1-4267-8E59-0581A7A2326F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Mark" ID="{35EC9D55-D273-406A-A7A7-D2D739AA5F39}" ShortID="863987634">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F3867454-C2CB-41FE-A896-CC22A8114036}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-350"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dial_mark_blab" ID="{CF7C521B-E7E1-4283-8169-0306A2E3F4C9}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.00559674509237875"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0117826212471132"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0294565531177829"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.105749025692841"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>dial_mark_blab.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="601427843"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dial_mark_blab" ID="{CF7C521B-E7E1-4283-8169-0306A2E3F4C9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
@@ -303,7 +394,13 @@
 										<ItemRef Name="Jack" ID="{1027A652-4EFC-482E-B297-5BFD8EEF48B2}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
+										<ItemRef Name="Mark" ID="{35EC9D55-D273-406A-A7A7-D2D739AA5F39}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
 										<ItemRef Name="John" ID="{8B4E9059-0022-4339-9840-70341935AE01}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Narrator" ID="{CFD70388-D20C-40C2-877D-6878FD0BD8DA}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Judge" ID="{5FABAD91-F0B9-4B5F-9EA9-FC6D765C146F}"/>
@@ -329,9 +426,21 @@
 										</ItemList>
 									</Grouping>
 									<Grouping>
+										<SwitchRef Name="Mark" ID="{35BD4E70-199D-4B7F-8A5B-603A4D1FEA89}"/>
+										<ItemList>
+											<ItemRef Name="Mark" ID="{35EC9D55-D273-406A-A7A7-D2D739AA5F39}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
 										<SwitchRef Name="Judge" ID="{06E1D39D-3BD5-410A-9011-4A68F3A2095E}"/>
 										<ItemList>
 											<ItemRef Name="Judge" ID="{5FABAD91-F0B9-4B5F-9EA9-FC6D765C146F}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Narrator" ID="{62FD05E9-5DB0-465F-BD49-9CFE6C81CB3A}"/>
+										<ItemList>
+											<ItemRef Name="Narrator" ID="{CFD70388-D20C-40C2-877D-6878FD0BD8DA}"/>
 										</ItemList>
 									</Grouping>
 								</GroupingList>
@@ -2437,6 +2546,50 @@
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Environment" ID="{F2B03B88-D9AD-4137-B09A-2089E9349CC8}" ShortID="568765615">
+					<ChildrenList>
+						<Folder Name="JohnFlat" ID="{2B5B764D-E0BC-459A-B366-37B90E2A5E2F}" ShortID="889760821">
+							<ChildrenList>
+								<Sound Name="env_phone" ID="{01C31F2F-E30A-458A-B000-54BC4474A984}" ShortID="383927160">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>37</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="env_rotaryRing" ID="{89099CA9-44C5-4586-A914-211A8A189E8C}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.328143523864511"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="1.10162468725943"/>
+												<Property Name="TrimEnd" Type="Real64" Value="19.6651726087375"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>env_rotaryRing.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="920463551"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="env_rotaryRing" ID="{89099CA9-44C5-4586-A914-211A8A189E8C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

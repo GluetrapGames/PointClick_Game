@@ -27,6 +27,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="FlatMusic" ID="{923CA1E9-D5E9-422E-9B6D-C61FE1D9E688}">
+							<ChildrenList>
+								<Action Name="" ID="{D5430A00-252E-4393-9CE3-41A98B8071F6}" ShortID="29861121">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Flat Music" ID="{2040F2CC-6F3C-4146-BCF3-ADCB19D3AAF2}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Dialogue" ID="{E8B75A1A-DD6B-49F5-9262-CD911481F821}" ShortID="1032286017">
@@ -565,6 +576,40 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Environment" ID="{E738E568-AB1F-4AB8-BFB0-90D977F1E0B2}" ShortID="123622223">
+					<ChildrenList>
+						<Event Name="Flat_Phone" ID="{6041FB7E-D9FE-4F89-9EC6-E3C90182CB9A}">
+							<ChildrenList>
+								<Action Name="" ID="{B3FDF700-AE94-4FBA-9112-874FF98878F8}" ShortID="20029130">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="env_phone" ID="{01C31F2F-E30A-458A-B000-54BC4474A984}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_Phone" ID="{00C571E3-E4DF-418C-B1C4-262086D7DC0A}">
+							<ChildrenList>
+								<Action Name="" ID="{DC5EA5F5-92D9-4ADE-AD19-BC4D703794D8}" ShortID="824695938">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+									</PropertyList>
+									<ReferenceList/>
+									<ChildrenList>
+										<EventActionException Name="" ID="{035A91EE-CB3E-4204-A288-1EC108B4B9A5}">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Flat Music" ID="{2040F2CC-6F3C-4146-BCF3-ADCB19D3AAF2}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</EventActionException>
+									</ChildrenList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

@@ -43,7 +43,7 @@ namespace GlueTrap
             }
 
             // Same but for Court
-            if ((scene.name == "CourtroomIntro" || scene.name == "CourtroomEnding") && !_CourtActivated)
+            if ((scene.name == "CourtScene 1" || scene.name == "CourtScene 2" || scene.name == "CourtScene 3" || scene.name == "CourtScene 4") && !_CourtActivated)
             {
                 CourtAmbience();
                 Debug.Log("Court Ambience = " + _CourtActivated);

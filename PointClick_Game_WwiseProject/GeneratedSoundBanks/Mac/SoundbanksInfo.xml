@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{543C93CD-DC60-A741-B56A-52EEB78026D0}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E0F45947-DF69-FC11-DAC9-0362B34E3182}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -61,6 +61,8 @@
 					<Switches>
 						<Switch Id="1425203646" Name="Judge"/>
 						<Switch Id="1449413731" Name="Albert"/>
+						<Switch Id="2809578926" Name="Mark"/>
+						<Switch Id="3272864290" Name="Narrator"/>
 						<Switch Id="3678415638" Name="John"/>
 						<Switch Id="3865235296" Name="Jack"/>
 					</Switches>
@@ -84,7 +86,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3A98383F-6467-9A81-9D2A-EE05696C5C89}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FB7D98DE-C347-1F3C-1C8A-27FF7F2D9975}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -99,6 +101,10 @@
 				<File Id="31616214" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_creaks-001.wav</ShortName>
 					<CachePath>SFX/amb_house_creaks-001_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="34123589" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>onboardingMusic.wav</ShortName>
+					<CachePath>SFX/onboardingMusic_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="61938418" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_ceramic.wav</ShortName>
@@ -228,6 +234,10 @@
 					<ShortName>viol_break_bigGlass.wav</ShortName>
 					<CachePath>SFX/viol_break_bigGlass_818F3B66.wem</CachePath>
 				</File>
+				<File Id="601427843" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>dial_mark_blab.wav</ShortName>
+					<CachePath>SFX/dial_mark_blab_55FE7E02.wem</CachePath>
+				</File>
 				<File Id="602562853" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_tone-001.wav</ShortName>
 					<CachePath>SFX/amb_house_tone-001_FBC78EF0.wem</CachePath>
@@ -298,7 +308,7 @@
 				</File>
 				<File Id="837599648" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roomTransition.wav</ShortName>
-					<CachePath>SFX/roomTransition_D6404BC0.wem</CachePath>
+					<CachePath>SFX/roomTransition_C28C2B1C.wem</CachePath>
 				</File>
 				<File Id="845512123" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_dialoguePopup.wav</ShortName>
@@ -323,6 +333,10 @@
 				<File Id="917324197" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_woodCarpet-001.wav</ShortName>
 					<CachePath>SFX/step_woodCarpet-001_818F3B66.wem</CachePath>
+				</File>
+				<File Id="920463551" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_rotaryRing.wav</ShortName>
+					<CachePath>SFX/env_rotaryRing_58D23250.wem</CachePath>
 				</File>
 				<File Id="920958933" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_hover.wav</ShortName>
@@ -366,6 +380,9 @@
 				</File>
 			</Media>
 			<Plugins>
+				<Custom>
+					<Plugin Id="280657127" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
+				</Custom>
 				<ShareSets>
 					<Plugin Id="484890516" Name="Church_Small_Wood" LibName="Wwise RoomVerb" LibId="7733251"/>
 				</ShareSets>
@@ -392,10 +409,24 @@
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="2809578926"/>
+							<MediaRefs>
+								<MediaRef Id="601427843"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="1425203646"/>
 							<MediaRefs>
 								<MediaRef Id="739141563"/>
 							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="3272864290"/>
+							<PluginRefs>
+								<Custom>
+									<PluginRef Id="280657127"/>
+								</Custom>
+							</PluginRefs>
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
@@ -441,6 +472,16 @@
 				<Event Id="1112129076" Name="CourtHum" DurationType="OneShot" DurationMin="64.319275" DurationMax="64.319275">
 					<MediaRefs>
 						<MediaRef Id="584904381"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2449505461" Name="Flat_Phone" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="920463551"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1369071785" Name="FlatMusic" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="34123589"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="1.4487923">
@@ -665,6 +706,7 @@
 						<MediaRef Id="837599648"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4262240428" Name="Stop_Phone" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="4199481009" Name="StopClock" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2596245103" Name="StopFootstep" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="729991629" Name="SwingWeapon" DurationType="OneShot" DurationMin="0.20709683" DurationMax="0.2647209">
@@ -747,6 +789,8 @@
 					<Switches>
 						<Switch Id="1425203646" Name="Judge"/>
 						<Switch Id="1449413731" Name="Albert"/>
+						<Switch Id="2809578926" Name="Mark"/>
+						<Switch Id="3272864290" Name="Narrator"/>
 						<Switch Id="3678415638" Name="John"/>
 						<Switch Id="3865235296" Name="Jack"/>
 					</Switches>
@@ -771,5 +815,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{AA6F62F4-539C-ACDC-0C76-E32372F85846}</FileHash>
+	<FileHash>{3460E6EC-9D30-ED43-56BE-DBC311D92110}</FileHash>
 </SoundBanksInfo>
