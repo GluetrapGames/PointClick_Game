@@ -39,7 +39,6 @@ namespace AK
         static const AkUniqueID UI_DIALOGUEPOPUP = 3452930546U;
         static const AkUniqueID UI_HOVER = 2118900976U;
         static const AkUniqueID UI_LETTER = 500465782U;
-        static const AkUniqueID UI_POINT = 4228838608U;
         static const AkUniqueID UI_SELECT = 2774129122U;
     } // namespace EVENTS
 
