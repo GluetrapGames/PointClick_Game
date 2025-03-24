@@ -1,5 +1,6 @@
 using System;
 using EditorAttributes;
+using GlueTrap.Scriptable_Objects;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
@@ -18,6 +19,9 @@ public class PickUpScript : MonoBehaviour
 		Bottom = 3
 	}
 
+	[OnValueChanged(nameof(UpdateObject))]
+	public CollectableItemData m_CollectableItemData;
+
 	[Tooltip("Log all major points of interests in the script.")]
 	public bool m_Log;
 	[Header("Settings"), ReadOnly]
@@ -32,14 +36,11 @@ public class PickUpScript : MonoBehaviour
 	[Range(1f, 3f)]
 	public float m_ControllerInteractionDistance = 1f;
 	public string pickupEvent = "player_pickup";
-	public Sprite sprite;
 
 	[SerializeField]
 	private bool _IsWallItem;
 	[SerializeField]
 	public ItemTypes _ItemType;
-	[SerializeField]
-	public GameObject _ItemPrefab;
 
 
 	[Header("Dialogue Settings"), Tooltip("Will the item start dialogue"),
@@ -52,30 +53,21 @@ public class PickUpScript : MonoBehaviour
 	private Grid _GizmoGrid;
 	private bool _SlotFound;
 
+	public PolygonCollider2D m_HighlightCollider { get; private set; }
+
 
 	private void Awake()
 	{
 		// Obtain the Game Manager.
 		_GameManager = Utils.GetGameManager();
-
-		// Resize the collision bounds.
-		// Only supports BoxCollider2D!
-		Sprite spriteObj = GetComponent<SpriteRenderer>().sprite;
-		var boxCollider = GetComponent<BoxCollider2D>();
-		// Calculate X & Y bounds based on sprite.
-		var boundsSize = new Vector2(
-			spriteObj.bounds.size.x - (spriteObj.border.x + sprite.border.z) /
-			spriteObj.pixelsPerUnit,
-			spriteObj.bounds.size.y - (spriteObj.border.w + sprite.border.y) /
-			spriteObj.pixelsPerUnit
-		);
-		if (!boxCollider) return;
-		boxCollider.size = boundsSize;
-		boxCollider.offset = Vector2.zero;
+		m_HighlightCollider = GetComponentInChildren<PolygonCollider2D>();
 	}
 
 	private void Start()
 	{
+		if (m_CollectableItemData) RetrieveData();
+		if (ReCalculateCollisionBounds()) return;
+
 		// Check if any items where collected.
 		var itemCollected = false;
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count > 0 &&
@@ -133,13 +125,54 @@ public class PickUpScript : MonoBehaviour
 		else if (m_Log) Debug.Log("Player is NOT within one tile radius.");
 	}
 
+	private bool ReCalculateCollisionBounds()
+	{
+		// Resize the collision bounds.
+		// Only supports BoxCollider2D!
+		Sprite spriteObj = GetComponent<SpriteRenderer>().sprite;
+		var boxCollider = GetComponent<BoxCollider2D>();
+		// Calculate X & Y bounds based on sprite.
+		var boundsSize = new Vector2(
+			spriteObj.bounds.size.x -
+			(spriteObj.border.x + spriteObj.border.z) /
+			spriteObj.pixelsPerUnit,
+			spriteObj.bounds.size.y -
+			(spriteObj.border.w + spriteObj.border.y) /
+			spriteObj.pixelsPerUnit
+		);
+		if (!boxCollider) return true;
+		boxCollider.size = boundsSize;
+		boxCollider.offset = Vector2.zero;
+		return false;
+	}
+
+	private void RetrieveData()
+	{
+		GetComponent<SpriteRenderer>().sprite = m_CollectableItemData.m_Sprite;
+		transform.localScale = m_CollectableItemData.m_Size;
+		m_InteractionDirection = m_CollectableItemData.m_InteractionDirection;
+		m_PickUpDistance = m_CollectableItemData.m_PickUpDistance;
+		m_ControllerInteractionDistance =
+			m_CollectableItemData.m_ControllerInteractionDistance;
+		pickupEvent = m_CollectableItemData.m_PickupEvent;
+		_IsWallItem = m_CollectableItemData.m_IsWallItem;
+		_ItemType = m_CollectableItemData.m_ItemType;
+	}
+
 
 	private void Collected()
 	{
 		DialogueManager.ShowAlert($"{name} has been collected!");
 
-		_ = _GameManager.m_InventoryManager.CollectItem(
-			new ItemData(gameObject.name, _ItemType, sprite));
+		// Obtain the highlighter collider path.
+		PathData highlighterPath = new(0, m_HighlightCollider.GetPath(0));
+
+		// Setup item data.
+		ItemData itemData = new(gameObject.name, _ItemType,
+			GetComponent<SpriteRenderer>().sprite, m_CollectableItemData,
+			highlighterPath);
+
+		_ = _GameManager.m_InventoryManager.CollectItem(itemData);
 
 		// If the object plays a dialogue after pickup
 		if (_StartConvo)
@@ -334,6 +367,13 @@ public class PickUpScript : MonoBehaviour
 			Gizmos.DrawWireSphere(transform.position,
 				m_ControllerInteractionDistance);
 		}
+	}
+
+	private void UpdateObject()
+	{
+		if (this == null) return;
+		if (m_CollectableItemData) RetrieveData();
+		if (ReCalculateCollisionBounds()) return;
 	}
 #endif
 }

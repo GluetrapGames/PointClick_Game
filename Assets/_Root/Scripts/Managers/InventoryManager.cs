@@ -53,9 +53,9 @@ public class InventoryManager : Singleton<InventoryManager>
 	{
 		// Get the inventory slots.
 		m_InventorySlots.Clear();
-		var slots =
-			FindObjectsByType<InventorySlot>(FindObjectsInactive.Include,
-				FindObjectsSortMode.None);
+		List<InventorySlot> slots = new();
+		Utils.FindChildrenByType<InventorySlot, InventorySlot>(m_Inventory,
+			slots, c => c);
 
 		foreach (InventorySlot slot in slots)
 			m_InventorySlots.Add(slot.transform);

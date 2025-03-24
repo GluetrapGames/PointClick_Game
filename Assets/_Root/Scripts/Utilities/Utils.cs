@@ -7,6 +7,20 @@ namespace GlueTrap.Utilities
 {
 public static class Utils
 {
+	/// <summary>
+	///     Recursively searches for child components of type <typeparamref name="U" />
+	///     within a given parent transform,
+	///     applies a selector function to convert them to type
+	///     <typeparamref name="T" />, and adds them to the result list.
+	/// </summary>
+	/// <typeparam name="U">The component type to search for.</typeparam>
+	/// <typeparam name="T">The type of data to store in the result list.</typeparam>
+	/// <param name="parent">The root transform to start searching from.</param>
+	/// <param name="result">A list to store the selected results.</param>
+	/// <param name="selector">
+	///     A function that converts found components of type
+	///     <typeparamref name="U" /> into type <typeparamref name="T" />.
+	/// </param>
 	public static void FindChildrenByType<U, T>(Transform parent,
 		List<T> result, Func<U, T> selector) where U : Component
 	{
@@ -23,8 +37,8 @@ public static class Utils
 	/// <summary>
 	///     Return the Transform the desired spawner object.
 	/// </summary>
-	/// <param name="tag">The tag to look by</param>
-	/// <param name="name">The name of the spawner to filter by</param>
+	/// <param name="tag">The tag to look by.</param>
+	/// <param name="name">The name of the spawner to filter by.</param>
 	/// <returns></returns>
 	public static Transform FindSpawner(string tag, string name)
 	{
@@ -41,7 +55,7 @@ public static class Utils
 	///     Return the Transform the desired spawner object.
 	///     Default search tag is "Spawner".
 	/// </summary>
-	/// <param name="name">The name of the spawner to filter by</param>
+	/// <param name="name">The name of the spawner to filter by.</param>
 	/// <returns></returns>
 	public static Transform FindSpawner(string name)
 	{

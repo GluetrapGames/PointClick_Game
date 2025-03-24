@@ -52,12 +52,13 @@ public class DropHeldItem : MonoBehaviour
 		// Return if retrieval of held item failed.
 		if (!GetHeldItem()) return;
 
+		ItemData itemData = _heldItemData.m_Item;
 		// Find the collected item, and mark it as uncollected.
 		var keys =
 			_GameManager.m_InventoryManager.m_InventoryItems.Keys.ToList();
 		foreach (var key in keys.Where(key =>
 			         _GameManager.m_InventoryManager.m_InventoryItems
-				         .ContainsKey(_heldItemData.m_Item.m_Name)))
+				         .ContainsKey(itemData.m_Name)))
 		{
 			_heldItemData.m_IsCollected = false;
 			InventoryItemData newData = _heldItemData;
@@ -68,16 +69,29 @@ public class DropHeldItem : MonoBehaviour
 		GameObject pickupInstance =
 			Instantiate(_pickupPrefab, m_PickupParent.transform);
 		var component = pickupInstance.GetComponent<PickUpScript>();
-		pickupInstance.name = _heldItemData.m_Item.m_Name;
-		component._ItemType = _heldItemData.m_Item.m_Type;
-		component.sprite = _heldItemData.m_Item.m_Sprite;
+
+		// Setup item.
+		pickupInstance.GetComponent<SpriteRenderer>().sprite =
+			itemData.m_Sprite;
+		pickupInstance.name = itemData.m_Name;
+		component._ItemType = itemData.m_Type;
+		component.m_CollectableItemData = itemData.m_CollectableData;
 		component.m_IsClicked = false;
 		component.m_IsDropped = true;
-		component._ItemPrefab = _itemPrefab;
 		component.pickupEvent = "player_pickup";
-		pickupInstance.GetComponent<SpriteRenderer>().sprite = component.sprite;
+
+		// Setup highlighter collider if possible.
+		PathData highlighterPathData = itemData.m_HighlightColliderPath;
+		if (highlighterPathData != null)
+		{
+			component.m_HighlightCollider.SetPath(highlighterPathData.m_Index,
+				highlighterPathData.m_Points);
+		}
+
+		// Finish up object setup.
 		pickupInstance.transform.position =
 			_GameManager.m_Player.transform.position;
+
 		Destroy(_heldItem.gameObject);
 		pickupInstance.SetActive(true);
 	}
