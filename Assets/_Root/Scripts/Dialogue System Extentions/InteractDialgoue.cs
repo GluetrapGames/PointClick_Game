@@ -10,7 +10,7 @@ public class InteractDialgoue : MonoBehaviour
 	[SerializeField, Tooltip("The title of the conversation to be played.")]
 	private string _ConversationTitle;
 	[SerializeField,
-	 Tooltip("Tick if the conversation is to only be pplayed once.")]
+	 Tooltip("Tick if the conversation is to only be played once.")]
 	private bool _PlayOnce;
 
 	private GameManager _GameManager;
