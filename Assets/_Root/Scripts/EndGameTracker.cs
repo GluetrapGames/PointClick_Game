@@ -3,6 +3,7 @@ using System.Linq;
 using AYellowpaper.SerializedCollections;
 using EditorAttributes;
 using GlueTrap.Utilities;
+using PixelCrushers.DialogueSystem;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,6 +31,9 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	[SerializeField, ReadOnly]
 	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
 
+	// 0 Money, 1 Crowbar, 2 Journal, 3 Keys, 4 Poetry, 5 Cigarettes, 6 Medicine
+	public List<ItemTypes> m_CollectedItems = new();
+	
 	private GameManager _GameManager;
 
 
@@ -72,6 +76,11 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			}
 		}*/
 
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			Debug.LogWarning(DialogueLua.GetVariable("Collected_Item_List").ToString());
+		}
+		
 		if (!allItemsCollected /*|| !allPlantsDestroyed*/) return;
 		_IsGameOver = true;
 	}
@@ -105,8 +114,22 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		// Apply updates.
 		foreach (var update in updates)
 			m_EndItemTypes[update.Key] = update.Value;
+
+		UpdateDMValues();
+
 	}
 
+	private void UpdateDMValues()
+	{
+
+		string collectedItems = "";
+		for (int i = 0; i < m_CollectedItems.Count; i++)
+		{
+			collectedItems = collectedItems + $"{m_CollectedItems[i].ToString()}, ";
+		};
+		DialogueLua.SetVariable("Collected_Item_List", collectedItems);
+	}
+	
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
 		// Get Albert's spawner.

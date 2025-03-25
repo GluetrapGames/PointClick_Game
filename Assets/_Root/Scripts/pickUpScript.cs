@@ -125,6 +125,11 @@ public class PickUpScript : MonoBehaviour
 	{
 		DialogueManager.ShowAlert($"{name} has been collected!");
 
+		if (!_GameManager.m_EndGameTracker.m_CollectedItems.Contains(_ItemType))
+		{
+			_GameManager.m_EndGameTracker.m_CollectedItems.Add(_ItemType);
+		}
+		
 		_ = _GameManager.m_InventoryManager.CollectItem(
 			new ItemData(gameObject.name, _ItemType, sprite));
 			_pickupSounds.onPickup();
