@@ -19,8 +19,6 @@ namespace AK
         static const AkUniqueID COURTCLOCK = 3307117116U;
         static const AkUniqueID COURTCOUGH = 2070691372U;
         static const AkUniqueID COURTHUM = 1112129076U;
-        static const AkUniqueID FLAT_PHONE = 2449505461U;
-        static const AkUniqueID FLATMUSIC = 1369071785U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
@@ -30,14 +28,22 @@ namespace AK
         static const AkUniqueID MENU_BACK = 3063554414U;
         static const AkUniqueID MENU_HOVER = 309439191U;
         static const AkUniqueID MENU_SELECT = 4203375351U;
+        static const AkUniqueID MUSICFLAT = 924244327U;
         static const AkUniqueID MUSICHOUSE = 1154458182U;
         static const AkUniqueID MUSICMENU = 4082046343U;
+        static const AkUniqueID PHONEHANG = 616151339U;
+        static const AkUniqueID PHONEPICKUP = 3512872207U;
+        static const AkUniqueID PHONERING = 3074298065U;
+        static const AkUniqueID PHONESLAM = 1097061028U;
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
         static const AkUniqueID ROOMTRANSITION = 712272009U;
-        static const AkUniqueID STOP_PHONE = 4262240428U;
         static const AkUniqueID STOPCLOCK = 4199481009U;
+        static const AkUniqueID STOPCOURTAMB = 795797694U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
+        static const AkUniqueID STOPHOUSEAMB = 1087974357U;
+        static const AkUniqueID STOPMUSIC = 1917263390U;
+        static const AkUniqueID STOPPHONE = 2049428263U;
         static const AkUniqueID SWINGWEAPON = 729991629U;
         static const AkUniqueID TABLE_CERAMIC = 1780595170U;
         static const AkUniqueID TAXI_ANIMAL = 3811696612U;
@@ -107,6 +113,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID CARPET = 2412606308U;
+                static const AkUniqueID GRASS = 4248645337U;
                 static const AkUniqueID TILE = 2637588553U;
                 static const AkUniqueID WOOD = 2058049674U;
             } // namespace SWITCH

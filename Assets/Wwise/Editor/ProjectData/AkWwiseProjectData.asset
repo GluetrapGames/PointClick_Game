@@ -161,7 +161,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d9cd24203029844a94de634f59516731
     GuidInternal: 
-    m_lastTime: -8584587646181865328
+    m_lastTime: -8584587012933224829
     List:
     - name: Main
       guid: fff4323f282c4e4bbef4b6e13128fb3a
@@ -189,7 +189,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584587646183464429
+    m_lastTime: -8584586894564728760
     List:
     - name: Ambience
       guid: 19c1f8107ed1404c834f7da805b12460
@@ -309,8 +309,8 @@ MonoBehaviour:
         guid: ae3e4b617326814fb018e741ce9cf5fe
       Path: Events\Default Work Unit\Ambience\Court\CourtBuzz
       maxAttenuation: 0
-      maxDuration: 64.31925
-      minDuration: 64.31925
+      maxDuration: -1
+      minDuration: -1
     - name: CourtClock
       guid: 24b0e434b58a244aad153a3271c48604
       id: 3307117116
@@ -332,8 +332,8 @@ MonoBehaviour:
         guid: 24b0e434b58a244aad153a3271c48604
       Path: Events\Default Work Unit\Ambience\Court\CourtClock
       maxAttenuation: 0
-      maxDuration: 64
-      minDuration: 64
+      maxDuration: -1
+      minDuration: -1
     - name: CourtCough
       guid: a3483835422ed246b5069bc41423adb5
       id: 2070691372
@@ -378,23 +378,6 @@ MonoBehaviour:
         guid: a0294785a2f1524f87b8d2a6653f03de
       Path: Events\Default Work Unit\Ambience\Court\CourtHum
       maxAttenuation: 0
-      maxDuration: 64.319275
-      minDuration: 64.319275
-    - name: Dialogue
-      guid: 1a5ab7e86bddf5499262cd911481f821
-      id: 3930136735
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Dialogue
-        ObjectType: 4
-        guid: 1a5ab7e86bddf5499262cd911481f821
-      Path: Events\Default Work Unit\Dialogue
-      maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
     - name: Dialogue
@@ -420,8 +403,25 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Dialogue
+      guid: 1a5ab7e86bddf5499262cd911481f821
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: 1a5ab7e86bddf5499262cd911481f821
+      Path: Events\Default Work Unit\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Environment
-      guid: 68e538e71fabb84abfb090d977f1e0b2
+      guid: 9dc7572aa80da94ab9b129ee57fa36ab
       id: 1229948536
       PathAndIcons:
       - ElementName: Events
@@ -432,48 +432,8 @@ MonoBehaviour:
         guid: 7cc921f24aa35747af5bb83f091dfcc7
       - ElementName: Environment
         ObjectType: 4
-        guid: 68e538e71fabb84abfb090d977f1e0b2
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
       Path: Events\Default Work Unit\Environment
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Flat_Phone
-      guid: 7efb4160fed9894f9ec6e3c90182cb9a
-      id: 2449505461
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Environment
-        ObjectType: 4
-        guid: 68e538e71fabb84abfb090d977f1e0b2
-      - ElementName: Flat_Phone
-        ObjectType: 3
-        guid: 7efb4160fed9894f9ec6e3c90182cb9a
-      Path: Events\Default Work Unit\Environment\Flat_Phone
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: FlatMusic
-      guid: e9a13c92e9d52e429b6dc61fe1d9e688
-      id: 1369071785
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Music
-        ObjectType: 4
-        guid: 57fc0d463d8f844c94227605840aa6c2
-      - ElementName: FlatMusic
-        ObjectType: 3
-        guid: e9a13c92e9d52e429b6dc61fe1d9e688
-      Path: Events\Default Work Unit\Music\FlatMusic
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -755,6 +715,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: MusicFlat
+      guid: b8f85903ccf8584b8e3c9bd6a198584e
+      id: 924244327
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Music
+        ObjectType: 4
+        guid: 57fc0d463d8f844c94227605840aa6c2
+      - ElementName: MusicFlat
+        ObjectType: 3
+        guid: b8f85903ccf8584b8e3c9bd6a198584e
+      Path: Events\Default Work Unit\Music\MusicFlat
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: MusicHouse
       guid: f5393a1694765546a94c67b74885b51c
       id: 1154458182
@@ -795,6 +775,86 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 183.48619
       minDuration: 183.48619
+    - name: PhoneHang
+      guid: e2b23a5167947a429d2ee0ef4a70f1ff
+      id: 616151339
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: PhoneHang
+        ObjectType: 3
+        guid: e2b23a5167947a429d2ee0ef4a70f1ff
+      Path: Events\Default Work Unit\Environment\PhoneHang
+      maxAttenuation: 0
+      maxDuration: 9.235583
+      minDuration: 9.235583
+    - name: PhonePickup
+      guid: 95a402317e414a4ebeeaa38f102a771f
+      id: 3512872207
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: PhonePickup
+        ObjectType: 3
+        guid: 95a402317e414a4ebeeaa38f102a771f
+      Path: Events\Default Work Unit\Environment\PhonePickup
+      maxAttenuation: 0
+      maxDuration: 0.25750333
+      minDuration: 0.25750333
+    - name: PhoneRing
+      guid: bf1f4e079337a744af09c8d68469e48b
+      id: 3074298065
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: PhoneRing
+        ObjectType: 3
+        guid: bf1f4e079337a744af09c8d68469e48b
+      Path: Events\Default Work Unit\Environment\PhoneRing
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PhoneSlam
+      guid: 7ba5d2e5d5c2b840af06cc6db7bf767f
+      id: 1097061028
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: PhoneSlam
+        ObjectType: 3
+        guid: 7ba5d2e5d5c2b840af06cc6db7bf767f
+      Path: Events\Default Work Unit\Environment\PhoneSlam
+      maxAttenuation: 0
+      maxDuration: 1.1565759
+      minDuration: 1.1565759
     - name: Player
       guid: 5c8290c8e37faa4a95149f3d400053f5
       id: 1069431850
@@ -895,26 +955,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Stop_Phone
-      guid: e371c500dfe48c41b1c4262086d7dc0a
-      id: 4262240428
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Environment
-        ObjectType: 4
-        guid: 68e538e71fabb84abfb090d977f1e0b2
-      - ElementName: Stop_Phone
-        ObjectType: 3
-        guid: e371c500dfe48c41b1c4262086d7dc0a
-      Path: Events\Default Work Unit\Environment\Stop_Phone
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
     - name: StopClock
       guid: 5253638e9ab7e64392b384c80caf6e5f
       id: 4199481009
@@ -938,6 +978,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: StopCourtAmb
+      guid: 306250a7c7004648ad0a2409cb657be5
+      id: 795797694
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: Court
+        ObjectType: 4
+        guid: e1b307b74cefd34f97b4ee094ed72370
+      - ElementName: StopCourtAmb
+        ObjectType: 3
+        guid: 306250a7c7004648ad0a2409cb657be5
+      Path: Events\Default Work Unit\Ambience\Court\StopCourtAmb
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: StopFootstep
       guid: 531ab5a835342b4f8d51fc2c275759a7
       id: 2596245103
@@ -955,6 +1018,69 @@ MonoBehaviour:
         ObjectType: 3
         guid: 531ab5a835342b4f8d51fc2c275759a7
       Path: Events\Default Work Unit\Player\StopFootstep
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: StopHouseAmb
+      guid: 46bbb2738418dc489fe5ceefb10d310d
+      id: 1087974357
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: House
+        ObjectType: 4
+        guid: 2ad2b3882cb7fc488ee989fa11347832
+      - ElementName: StopHouseAmb
+        ObjectType: 3
+        guid: 46bbb2738418dc489fe5ceefb10d310d
+      Path: Events\Default Work Unit\Ambience\House\StopHouseAmb
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: StopMusic
+      guid: bc2a6e0c297e554798a8e1da8562d169
+      id: 1917263390
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Music
+        ObjectType: 4
+        guid: 57fc0d463d8f844c94227605840aa6c2
+      - ElementName: StopMusic
+        ObjectType: 3
+        guid: bc2a6e0c297e554798a8e1da8562d169
+      Path: Events\Default Work Unit\Music\StopMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: StopPhone
+      guid: 06289bce4abe3e47b37b129c5b82fb07
+      id: 2049428263
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: StopPhone
+        ObjectType: 3
+        guid: 06289bce4abe3e47b37b129c5b82fb07
+      Path: Events\Default Work Unit\Environment\StopPhone
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -1408,7 +1534,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584587646181851376
+    m_lastTime: -8584586995556055389
     List:
     - name: BreakMaterial
       guid: 52371375a5837847ab5b8d4e1a0afc3a
@@ -1636,7 +1762,7 @@ MonoBehaviour:
           ObjectType: 10
           guid: 9dd3e106d53b0a4190114a68f3a2095e
       - name: Mark
-        guid: 704ebd359d197f4b8a5b603a4d1fea89
+        guid: f918ac2841ee134cb32010100d121904
         id: 2809578926
         PathAndIcons:
         - ElementName: Switches
@@ -1650,9 +1776,9 @@ MonoBehaviour:
           guid: 5a48078c2adf144d9ae3807451041c61
         - ElementName: Mark
           ObjectType: 10
-          guid: 704ebd359d197f4b8a5b603a4d1fea89
+          guid: f918ac2841ee134cb32010100d121904
       - name: Narrator
-        guid: e905fd62b05d5f46bd499cfe6c81cb3a
+        guid: c12d79b6ec43a54da10aa7bf1d7fb301
         id: 3272864290
         PathAndIcons:
         - ElementName: Switches
@@ -1666,7 +1792,7 @@ MonoBehaviour:
           guid: 5a48078c2adf144d9ae3807451041c61
         - ElementName: Narrator
           ObjectType: 10
-          guid: e905fd62b05d5f46bd499cfe6c81cb3a
+          guid: c12d79b6ec43a54da10aa7bf1d7fb301
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
@@ -1701,6 +1827,22 @@ MonoBehaviour:
         - ElementName: Carpet
           ObjectType: 10
           guid: 494b56312e2309438a155ca423acf2be
+      - name: Grass
+        guid: cc2fed9a263d70449e7127921f8a5c8d
+        id: 4248645337
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: FootstepMaterial
+          ObjectType: 11
+          guid: 7eea7f35eee6c848bd60b873dafa003a
+        - ElementName: Grass
+          ObjectType: 10
+          guid: cc2fed9a263d70449e7127921f8a5c8d
       - name: Tile
         guid: cdd40f901274fd4095c126917a02d143
         id: 2637588553
@@ -1865,7 +2007,7 @@ MonoBehaviour:
     m_lastTime: -8584598198812368407
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0600000007000000080000000b00000023000000
+  ExpandedWaapiItemIds: 0600000007000000080000000b0000004b000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

@@ -2102,6 +2102,9 @@
 								<Reference Name="PlaylistRoot">
 									<Custom>
 										<MusicPlaylistItem Name="" ID="{81D46152-E5FB-4DED-987E-B017E2D09016}" ShortID="1044181393">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
 											<ChildrenList>
 												<MusicPlaylistItem Name="" ID="{CF44A08D-C4F2-499A-8F33-C7CE2C4846B6}" ShortID="965907935">
 													<PropertyList>
@@ -2233,6 +2236,9 @@
 								<Reference Name="PlaylistRoot">
 									<Custom>
 										<MusicPlaylistItem Name="" ID="{3E2478C4-CAC9-4D3A-823B-9DB4BDAF0F16}" ShortID="540050909">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
 											<ChildrenList>
 												<MusicPlaylistItem Name="" ID="{CDBF6F05-70C7-4CD1-808C-95412AD54BCD}" ShortID="937201559">
 													<PropertyList>
@@ -3004,6 +3010,9 @@
 								<Reference Name="PlaylistRoot">
 									<Custom>
 										<MusicPlaylistItem Name="" ID="{4013A6A8-8B66-4D27-8DC4-03DCB37A0F7F}" ShortID="392751274">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
 											<ChildrenList>
 												<MusicPlaylistItem Name="" ID="{C115EBB1-EBE5-49A6-9D48-91F598051BF4}" ShortID="797159752">
 													<PropertyList>
@@ -3151,11 +3160,11 @@
 						</MusicPlaylistContainer>
 					</ChildrenList>
 				</Folder>
-				<MusicPlaylistContainer Name="Flat Music" ID="{2040F2CC-6F3C-4146-BCF3-ADCB19D3AAF2}" ShortID="511756055">
+				<MusicPlaylistContainer Name="FlatMusic" ID="{36A8C335-77D4-4D9D-9303-18B3BE3D0EE3}" ShortID="651306463">
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-6</Value>
+								<Value>-18</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -3168,18 +3177,18 @@
 						</Reference>
 						<Reference Name="PlaylistRoot">
 							<Custom>
-								<MusicPlaylistItem Name="" ID="{3C08230C-8847-4CAF-B475-29CEF288C770}" ShortID="1004401708">
+								<MusicPlaylistItem Name="" ID="{93C1A35E-4B8C-4932-BEAA-08CB03193B35}" ShortID="29487392">
 									<PropertyList>
 										<Property Name="LoopCount" Type="int16" Value="0"/>
 									</PropertyList>
 									<ChildrenList>
-										<MusicPlaylistItem Name="" ID="{8E169D14-D259-42F0-80A2-767BF63B78B1}" ShortID="788074885">
+										<MusicPlaylistItem Name="" ID="{29DA49FF-B565-4A69-91AB-EF44388E9595}" ShortID="759675393">
 											<PropertyList>
 												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Segment">
-													<ObjectRef Name="onboardingMusic" ID="{DB835BF3-6402-41B2-A8F2-0D3FDBDF434B}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+													<ObjectRef Name="onboardingMusic" ID="{19EA8942-DBE9-48C1-AD05-A153AEBF27D0}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 												</Reference>
 											</ReferenceList>
 										</MusicPlaylistItem>
@@ -3189,21 +3198,30 @@
 						</Reference>
 						<Reference Name="TransitionRoot">
 							<Custom>
-								<MusicTransition Name="Root" ID="{FD6B35BA-0065-4F58-835C-DFDC7D421F1D}">
+								<MusicTransition Name="Root" ID="{8E95E22A-4842-4FF4-956E-044138738A33}">
 									<PropertyList>
 										<Property Name="IsFolder" Type="bool" Value="True"/>
 									</PropertyList>
 									<ChildrenList>
-										<MusicTransition Name="Transition" ID="{312314D5-BE61-41F7-AB8C-031A810BE8AA}">
+										<MusicTransition Name="Transition" ID="{529C82D4-9828-4D6E-A568-ED00EB9FB571}">
 											<PropertyList>
 												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
 											</PropertyList>
 											<TransitionInfo>
-												<DestinationFadeIn>
-													<MusicFade Name="Destination Fade-in" ID="{A0631DA7-0008-4407-A302-8E1A1784BDCE}">
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{8EC05340-CDB8-4A71-8555-BE104C53BDD6}">
 														<PropertyList>
-															<Property Name="FadeCurve" Type="int16" Value="5"/>
-															<Property Name="FadeOffset" Type="Real64" Value="-0.5"/>
+															<Property Name="FadeCurve" Type="int16" Value="3"/>
+															<Property Name="FadeOffset" Type="Real64" Value="0.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{0FAB42BA-11E2-4212-80AA-41ED91A4ECB9}">
+														<PropertyList>
 															<Property Name="FadeTime" Type="Real64" Value="1"/>
 														</PropertyList>
 													</MusicFade>
@@ -3217,7 +3235,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<MusicSegment Name="onboardingMusic" ID="{DB835BF3-6402-41B2-A8F2-0D3FDBDF434B}" ShortID="1049343378">
+						<MusicSegment Name="onboardingMusic" ID="{19EA8942-DBE9-48C1-AD05-A153AEBF27D0}" ShortID="408970253">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="71700.1360544218"/>
 							</PropertyList>
@@ -3230,14 +3248,14 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicTrack Name="onboardingMusic" ID="{0FEA68DC-6341-42D0-90C4-1D218DA31C41}" ShortID="436410336">
+								<MusicTrack Name="onboardingMusic" ID="{3E718106-12D5-42AA-B7ED-FCAF8D7EFF70}" ShortID="869585941">
 									<ReferenceList>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
 										</Reference>
 										<Reference Name="TransitionRoot">
 											<Custom>
-												<MusicTransition Name="Root" ID="{DF21BAA2-A976-4AAA-AA2A-32D2B6204BB1}">
+												<MusicTransition Name="Root" ID="{F69BBBAA-5892-4E4C-A57E-E882B60B1BB4}">
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
@@ -3247,11 +3265,11 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="onboardingMusic" ID="{2CC3A3DF-1D41-4D14-B647-7A3E09BAFFF7}">
+										<AudioFileSource Name="onboardingMusic" ID="{CE311710-7DDF-484A-8101-43F7E43AE1B1}">
 											<Language>SFX</Language>
 											<AudioFile>onboardingMusic.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="34123589"/>
+												<MediaID ID="526647247"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
@@ -3259,18 +3277,18 @@
 										<ObjectList Name="Sequences">
 											<Reference>
 												<Local>
-													<MusicTrackSequence Name="" ID="{A7401C7D-F231-4E77-BEFD-5F4537EE668C}">
+													<MusicTrackSequence Name="" ID="{B43BD5BF-6DED-4480-9874-E0C39B621BDC}">
 														<ObjectLists>
 															<ObjectList Name="Clips">
 																<Reference>
 																	<Local>
-																		<MusicClip Name="onboardingMusic" ID="{2D7DB9D0-B821-47CA-B1AC-5A84EE72F3E8}">
+																		<MusicClip Name="onboardingMusic" ID="{969EB6C7-CBDD-474C-905E-94BFC374656F}">
 																			<PropertyList>
 																				<Property Name="EndTrimOffset" Type="Real64" Value="71700.1360544218"/>
-																				<Property Name="FadeInDuration" Type="Real64" Value="881.327457050944"/>
-																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																				<Property Name="FadeInDuration" Type="Real64" Value="93.289387667822"/>
+																				<Property Name="FadeOutDuration" Type="Real64" Value="1075.81845800985"/>
 																			</PropertyList>
-																			<AudioSourceRef Name="onboardingMusic" ID="{2CC3A3DF-1D41-4D14-B647-7A3E09BAFFF7}"/>
+																			<AudioSourceRef Name="onboardingMusic" ID="{CE311710-7DDF-484A-8101-43F7E43AE1B1}"/>
 																		</MusicClip>
 																	</Local>
 																</Reference>
@@ -3287,19 +3305,19 @@
 								<ObjectList Name="Cues">
 									<Reference>
 										<Local>
-											<MusicCue Name="Entry Cue" ID="{C300A0AF-D687-4CAC-897E-32924CD89F91}">
+											<MusicCue Name="Entry Cue" ID="{5DA5AE83-5212-4E03-82F4-22B3A5B3C7CE}">
 												<PropertyList>
-													<Property Name="TimeMs" Type="Real64" Value="1059.58883649029"/>
+													<Property Name="TimeMs" Type="Real64" Value="1103.92442073589"/>
 												</PropertyList>
 											</MusicCue>
 										</Local>
 									</Reference>
 									<Reference>
 										<Local>
-											<MusicCue Name="Exit Cue" ID="{992E18CA-0EB2-40A4-A5B5-E249087F632E}">
+											<MusicCue Name="Exit Cue" ID="{A9C81821-3F55-443E-9452-2A09EF19B80A}">
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="1"/>
-													<Property Name="TimeMs" Type="Real64" Value="63716.346149372"/>
+													<Property Name="TimeMs" Type="Real64" Value="63701.1725545619"/>
 												</PropertyList>
 											</MusicCue>
 										</Local>
