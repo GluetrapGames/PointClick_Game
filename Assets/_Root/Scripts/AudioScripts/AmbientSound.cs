@@ -9,14 +9,13 @@ namespace GlueTrap
 {
     public class AmbientSound : Singleton<AmbientSound>
     {
-        private bool _HouseActivated;
-        private bool _CourtActivated;
-        private bool _ClockActivated;
+        private bool _HouseActivated = false;
+        private bool _CourtActivated = false;
+        private bool _ClockActivated = false;
 
         private void HouseAmbience()
         {
             _HouseActivated = true;
-            AkSoundEngine.SetRTPCValue("CourtReverb", 0, gameObject);
             AkSoundEngine.PostEvent("HouseTone", gameObject);
             AkSoundEngine.PostEvent("HouseBuzz", gameObject);
             AkSoundEngine.PostEvent("HouseCreak", gameObject);
@@ -30,14 +29,14 @@ namespace GlueTrap
             AkSoundEngine.PostEvent("CourtClock", gameObject);
         }
 
+
         public override void OnSceneChange(Scene scene, LoadSceneMode mode)
         {
             // On scene change, If not on menu scene and is not currently playing,
             // set playing to true and post.
-            if (scene.name != "MenuScene" && scene.name != "CourtroomIntro" && scene.name != "CourtroomEnding" && !_HouseActivated)
+            if ((scene.name != "MenuScene" && scene.name != "CourtScene 1" && scene.name != "CourtScene 2" && scene.name != "CourtScene 3" && scene.name != "CourtScene 4") && !_HouseActivated)
             {
-                AkSoundEngine.StopAll();
-                _CourtActivated = false;
+                StopCourt();
                 HouseAmbience();
                 Debug.Log("House Ambience = " + _HouseActivated);
             }
@@ -45,11 +44,12 @@ namespace GlueTrap
             // Same but for Court
             if ((scene.name == "CourtScene 1" || scene.name == "CourtScene 2" || scene.name == "CourtScene 3" || scene.name == "CourtScene 4") && !_CourtActivated)
             {
+                StopHouse();
                 CourtAmbience();
                 Debug.Log("Court Ambience = " + _CourtActivated);
             }
-                
-            // Starts clock ambience for living room only
+
+            // Starts clock ambiance for living room only
             if (scene.name == "LivingRoom")
             {
                 if (!_ClockActivated)
@@ -59,7 +59,7 @@ namespace GlueTrap
                     Debug.Log("Clock Ambience = " + _ClockActivated);
                 }
             }
-
+            // Stops clock ambiance once living room is left
             if (scene.name != "LivingRoom")
             {
                 if (_ClockActivated)
@@ -69,13 +69,25 @@ namespace GlueTrap
                 }
             }
 
-
             // Stops all sound and plays menu music
             if (scene.name == "MenuScene")
             {
                 AkSoundEngine.StopAll();
                 AkSoundEngine.PostEvent("MusicMenu", gameObject);
             }
+
         }
+        private void StopCourt()
+        {
+            _CourtActivated = false;
+            AkSoundEngine.PostEvent("StopCourtAmb", gameObject);
+        }
+
+        private void StopHouse()
+        {
+            _HouseActivated = false;
+            AkSoundEngine.PostEvent("StopHouseAmb", gameObject);
+        }
+
     }
 }

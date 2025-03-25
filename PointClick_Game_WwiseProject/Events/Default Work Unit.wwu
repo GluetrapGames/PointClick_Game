@@ -27,12 +27,46 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="FlatMusic" ID="{923CA1E9-D5E9-422E-9B6D-C61FE1D9E688}">
+						<Event Name="MusicFlat" ID="{0359F8B8-F8CC-4B58-8E3C-9BD6A198584E}">
 							<ChildrenList>
-								<Action Name="" ID="{D5430A00-252E-4393-9CE3-41A98B8071F6}" ShortID="29861121">
+								<Action Name="" ID="{3774B4C5-2646-43B5-B860-1F1F6734E992}" ShortID="813024531">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Flat Music" ID="{2040F2CC-6F3C-4146-BCF3-ADCB19D3AAF2}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+											<ObjectRef Name="FlatMusic" ID="{36A8C335-77D4-4D9D-9303-18B3BE3D0EE3}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="StopMusic" ID="{0C6E2ABC-7E29-4755-98A8-E1DA8562D169}">
+							<ChildrenList>
+								<Action Name="" ID="{AA3589CE-E71C-4AA3-9406-3E9954B24888}" ShortID="368216344">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{2CCBA6F8-BDB3-42F1-8D62-538F6B14B152}" ShortID="379869321">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="House Music" ID="{5DFE2C84-FAF6-4EAF-BA44-8D6082703469}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{17FE8D96-C649-40C2-A483-BC97C1AE8E97}" ShortID="294678825">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FlatMusic" ID="{36A8C335-77D4-4D9D-9303-18B3BE3D0EE3}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -486,6 +520,40 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="StopHouseAmb" ID="{73B2BB46-1884-48DC-9FE5-CEEFB10D310D}">
+									<ChildrenList>
+										<Action Name="" ID="{789B75D5-8965-461F-9D75-C3EB2A216005}" ShortID="407412009">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="House Creaks" ID="{D3A59E07-10F1-46EE-99A9-BBB4651257C9}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{0AEF9267-6559-4062-A051-D14751AF1439}" ShortID="478535700">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="House Hum" ID="{2E15BFAB-7D03-4AE9-AF66-CF6726BC72AA}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{2556E493-DAE5-4B23-8912-661087B6F864}" ShortID="204797336">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="House Noise" ID="{FE98274F-2EDB-422B-9D4E-E1F8440DF4DE}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Court" ID="{B707B3E1-EF4C-4FD3-97B4-EE094ED72370}" ShortID="397785059">
@@ -574,39 +642,121 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="StopCourtAmb" ID="{A7506230-00C7-4846-AD0A-2409CB657BE5}">
+									<ChildrenList>
+										<Action Name="" ID="{DBB6E753-F8B7-4C87-AD0A-01CEAE7752C1}" ShortID="96109136">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Court Clock" ID="{53E6026D-207C-4BFA-8365-75F4A9515FF4}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{1E457F48-A7E1-421C-BF5D-166BD7E72C25}" ShortID="223229147">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Court Coughs" ID="{C39028D6-1FC4-4DB4-B796-7180C2494E42}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{240D6C90-0EFC-4967-B9E3-2632D77923A6}" ShortID="615557434">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Court Hum" ID="{2FDD9E9F-A7F2-4B07-95ED-706E659349CE}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{2EB9F964-46F6-4D79-849F-B77FDFDE98D8}" ShortID="766637418">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Court Noise" ID="{ABF45296-E0F4-4DC2-A8BC-F4DE9BD63FA5}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Environment" ID="{E738E568-AB1F-4AB8-BFB0-90D977F1E0B2}" ShortID="123622223">
+				<Folder Name="Environment" ID="{2A57C79D-0DA8-4AA9-B9B1-29EE57FA36AB}" ShortID="442546150">
 					<ChildrenList>
-						<Event Name="Flat_Phone" ID="{6041FB7E-D9FE-4F89-9EC6-E3C90182CB9A}">
+						<Event Name="PhoneRing" ID="{074E1FBF-3793-44A7-AF09-C8D68469E48B}">
 							<ChildrenList>
-								<Action Name="" ID="{B3FDF700-AE94-4FBA-9112-874FF98878F8}" ShortID="20029130">
+								<Action Name="" ID="{4CBDB24A-4A6F-4526-920C-DAE0CF8B7371}" ShortID="369226566">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="env_phone" ID="{01C31F2F-E30A-458A-B000-54BC4474A984}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+											<ObjectRef Name="PhoneRing" ID="{57F09F20-130C-47CD-A2EA-986223656685}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Stop_Phone" ID="{00C571E3-E4DF-418C-B1C4-262086D7DC0A}">
+						<Event Name="StopPhone" ID="{CE9B2806-BE4A-473E-B37B-129C5B82FB07}">
 							<ChildrenList>
-								<Action Name="" ID="{DC5EA5F5-92D9-4ADE-AD19-BC4D703794D8}" ShortID="824695938">
+								<Action Name="" ID="{8BF6C05D-F0C6-44F8-84DB-ED274D94539A}" ShortID="564102048">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="3"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
-									<ReferenceList/>
-									<ChildrenList>
-										<EventActionException Name="" ID="{035A91EE-CB3E-4204-A288-1EC108B4B9A5}">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Flat Music" ID="{2040F2CC-6F3C-4146-BCF3-ADCB19D3AAF2}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-												</Reference>
-											</ReferenceList>
-										</EventActionException>
-									</ChildrenList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PhoneRing" ID="{57F09F20-130C-47CD-A2EA-986223656685}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{77F075E4-53E4-438E-AE02-1EDB519FF86C}" ShortID="403185303">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="env_hangUp" ID="{582C0A0C-A959-4766-8D90-9E002DF6D006}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="PhonePickup" ID="{3102A495-417E-4E4A-BEEA-A38F102A771F}">
+							<ChildrenList>
+								<Action Name="" ID="{1206E03F-EFDC-4BC8-ABC6-ED872740D3FA}" ShortID="757840739">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="env_phonePickup" ID="{972ECFCE-5E55-4A21-8EBE-05578BEDE505}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="PhoneSlam" ID="{E5D2A57B-C2D5-40B8-AF06-CC6DB7BF767F}">
+							<ChildrenList>
+								<Action Name="" ID="{30F49E55-1932-4453-9CEE-FBDF78BAB5ED}" ShortID="808467980">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="env_phoneSlam" ID="{60B92F39-E749-423A-87F4-B973594C1C11}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="PhoneHang" ID="{513AB2E2-9467-427A-9D2E-E0EF4A70F1FF}">
+							<ChildrenList>
+								<Action Name="" ID="{F5A5A809-095B-41D4-847A-80DEB1EDE17E}" ShortID="527681909">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="env_hangUp" ID="{582C0A0C-A959-4766-8D90-9E002DF6D006}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>

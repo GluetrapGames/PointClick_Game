@@ -33,7 +33,7 @@ public class ButtonSound : MonoBehaviour
 	public void otherLogoOnClick()
 	{
             AkSoundEngine.SetSwitch("CharacterBlab", "Jack", gameObject);
-            AkSoundEngine.PostEvent("Lawyer_Blab", gameObject);
+            AkSoundEngine.PostEvent("Blab", gameObject);
 	}
 }
 }
