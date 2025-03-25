@@ -1851,6 +1851,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &1359993080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6919461585917286453, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
+  m_PrefabInstance: {fileID: 6012768208401853088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1359993086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359993080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6d1756998b4754c9517d9a1f8a85ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1462807179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2912,6 +2929,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 1338766524171544051, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1359993086}
+    - target: {fileID: 1338766524171544051, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: onHover
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338766524171544051, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlueTrap.ButtonSound, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4194736064490948195, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
       propertyPath: m_Name
       value: Options
@@ -2920,10 +2949,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5767896417794449561, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1359993086}
+    - target: {fileID: 5767896417794449561, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: otherLogoOnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767896417794449561, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlueTrap.ButtonSound, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6919461585917286453, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1359993086}
   m_SourcePrefab: {fileID: 100100000, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
