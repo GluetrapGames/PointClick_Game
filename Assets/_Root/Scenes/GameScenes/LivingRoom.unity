@@ -1785,6 +1785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 8
+  m_ExitPoint: 10
   _sceneToTransitionTo: DiningRoom
 --- !u!61 &1019590227
 BoxCollider2D:
@@ -2363,6 +2365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 7
+  m_ExitPoint: 2
   _sceneToTransitionTo: DownstairsHallway
 --- !u!61 &1270491359
 BoxCollider2D:
@@ -3032,6 +3036,14 @@ PrefabInstance:
     - target: {fileID: 4946644223047531021, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_ExitPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_EntryPoint
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: _sceneToTransitionTo

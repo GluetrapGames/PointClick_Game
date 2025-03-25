@@ -883,6 +883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 3
+  m_ExitPoint: 9
   _sceneToTransitionTo: DiningRoom
 --- !u!61 &184833556
 BoxCollider2D:
@@ -1131,6 +1133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 5
+  m_ExitPoint: 15
   _sceneToTransitionTo: Hallway1
 --- !u!61 &210817270
 BoxCollider2D:
@@ -1245,7 +1249,7 @@ GameObject:
   - component: {fileID: 212445860}
   - component: {fileID: 212445859}
   m_Layer: 0
-  m_Name: LivingRoom2
+  m_Name: LivingRoom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1278,6 +1282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 1
+  m_ExitPoint: 6
   _sceneToTransitionTo: LivingRoom
 --- !u!61 &212445860
 BoxCollider2D:
@@ -3107,8 +3113,12 @@ PrefabInstance:
       value: d0a6a709-a266-4405-a782-ee83cfb0439f
       objectReference: {fileID: 0}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: _BreakMaterial
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _effectiveItemType
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _afterBreakOffset.x
@@ -3117,14 +3127,6 @@ PrefabInstance:
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _afterBreakOffset.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
-      propertyPath: _BreakMaterial
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
-      propertyPath: _effectiveItemType
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _sprites.Array.size
@@ -4000,6 +4002,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 4
+  m_ExitPoint: 12
   _sceneToTransitionTo: Kitchen
 --- !u!61 &1292975926
 BoxCollider2D:
@@ -5529,6 +5533,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1315743652066154780, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315743652066154780, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: _sceneToTransitionTo
+      value: MenuScene
+      objectReference: {fileID: 0}
     - target: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5606,12 +5618,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_ExitPoint
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_EntryPoint
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: _sceneToTransitionTo
       value: LivingRoom
       objectReference: {fileID: 0}
     - target: {fileID: 7468852923161896967, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_Name
-      value: LivingRoom1
+      value: LivingRoom2
       objectReference: {fileID: 0}
     - target: {fileID: 7468852923161896967, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_IsActive
@@ -5625,20 +5645,20 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
-      insertIndex: 1
+      insertIndex: 0
       addedObject: {fileID: 212445858}
     - targetCorrespondingSourceObject: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       insertIndex: 2
-      addedObject: {fileID: 1983512076}
-    - targetCorrespondingSourceObject: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
-      insertIndex: 3
       addedObject: {fileID: 184833554}
     - targetCorrespondingSourceObject: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
-      insertIndex: 4
+      insertIndex: 3
       addedObject: {fileID: 1292975924}
     - targetCorrespondingSourceObject: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
-      insertIndex: 5
+      insertIndex: 4
       addedObject: {fileID: 210817268}
+    - targetCorrespondingSourceObject: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1983512076}
     - targetCorrespondingSourceObject: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       insertIndex: 6
       addedObject: {fileID: 2132188595}
@@ -7052,6 +7072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 26
+  m_ExitPoint: 14
   _sceneToTransitionTo: DownstairsBathroom
 --- !u!61 &1983512078
 BoxCollider2D:
@@ -7186,20 +7208,20 @@ PrefabInstance:
       value: 1054d9fd-cf84-466b-ae46-4009ae379bb2
       objectReference: {fileID: 0}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
-      propertyPath: _afterBreakOffset.x
-      value: -1.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
-      propertyPath: _afterBreakOffset.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _BreakMaterial
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _effectiveItemType
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: _afterBreakOffset.x
+      value: -1.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
+      propertyPath: _afterBreakOffset.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2188445504314987934, guid: 8d229f9b798fe464f9f2a1c853d9c807, type: 3}
       propertyPath: _sprites.Array.size
@@ -7593,6 +7615,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 0
+  m_ExitPoint: 0
   _sceneToTransitionTo: MenuScene
 --- !u!61 &2132188597
 BoxCollider2D:

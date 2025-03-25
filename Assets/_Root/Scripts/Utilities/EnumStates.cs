@@ -85,6 +85,7 @@ public enum RoomEntryPoints
 	UpBathroom = 22,
 	TaxHallwayA = 23,
 	TaxHallwayB = 24,
-	Taxidermy = 25
+	Taxidermy = 25,
+	DownHallwayF = 26
 }
 }

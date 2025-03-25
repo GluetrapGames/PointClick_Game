@@ -13,6 +13,12 @@ namespace GlueTrap
 {
 public class GameManager : Singleton<GameManager>
 {
+	[ReadOnly]
+	public bool m_HasEntered;
+	[ReadOnly]
+	public RoomEntryPoints m_RoomPoint = RoomEntryPoints.None;
+	public int m_totalItemsDestroyed;
+
 	[SerializeField, ReadOnly]
 	private States _CurrentState = States.Moving;
 	[SerializeField, SceneDropdown]
@@ -25,7 +31,6 @@ public class GameManager : Singleton<GameManager>
 	private Transform _PlayerSpawnPoint;
 
 	private States _PreviousState;
-
 	public InventoryManager m_InventoryManager { get; private set; }
 	public EndGameTracker m_EndGameTracker { get; private set; }
 	public PlayerGridController m_Player { get; private set; }
@@ -35,8 +40,7 @@ public class GameManager : Singleton<GameManager>
 	public Camera m_Camera { get; private set; }
 	public List<string> m_NoneGameplayScenes => _NoneGameplayScenes;
 	public Scene m_CurrentScene { get; private set; }
-	public int m_totalItemsDestroyed;
-	
+
 
 	protected override void Awake()
 	{

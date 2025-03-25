@@ -1949,6 +1949,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: OnScreenButtons
       objectReference: {fileID: 0}
+    - target: {fileID: 1021209439045767467, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021209439045767467, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021209439045767467, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021209439045767467, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227983943506379342, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227983943506379342, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227983943506379342, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227983943506379342, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2287981681786524141, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2135,6 +2167,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_ExitPoint
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_EntryPoint
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: _sceneToTransitionTo
       value: TaxidermyRoom
       objectReference: {fileID: 0}
@@ -2150,7 +2190,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4840931336603244209, guid: 39f061461b043427484cb898c93a89ad, type: 3}
-      insertIndex: 1
+      insertIndex: 0
       addedObject: {fileID: 1764826144}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39f061461b043427484cb898c93a89ad, type: 3}
@@ -2540,6 +2580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 23
+  m_ExitPoint: 19
   _sceneToTransitionTo: Hallway1
 --- !u!61 &1764826146
 BoxCollider2D:

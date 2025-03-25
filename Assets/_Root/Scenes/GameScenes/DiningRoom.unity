@@ -3747,12 +3747,20 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_ExitPoint
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+      propertyPath: m_EntryPoint
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: _sceneToTransitionTo
-      value: DownstairsHallway
+      value: LivingRoom
       objectReference: {fileID: 0}
     - target: {fileID: 7468852923161896967, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_Name
-      value: DownstairsHall
+      value: LivingRoom
       objectReference: {fileID: 0}
     - target: {fileID: 9123357558529462298, guid: 39f061461b043427484cb898c93a89ad, type: 3}
       propertyPath: m_Name
@@ -4523,7 +4531,7 @@ GameObject:
   - component: {fileID: 1801070537}
   - component: {fileID: 1801070536}
   m_Layer: 0
-  m_Name: DownstairsHall (1)
+  m_Name: DownstairsHall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4556,6 +4564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 9
+  m_ExitPoint: 3
   _sceneToTransitionTo: DownstairsHallway
 --- !u!61 &1801070537
 BoxCollider2D:
@@ -4738,6 +4748,38 @@ PrefabInstance:
     - target: {fileID: 12643661017127414, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
       propertyPath: m_Name
       value: OnScreenButtons
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021209439045767467, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021209439045767467, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021209439045767467, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021209439045767467, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227983943506379342, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227983943506379342, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227983943506379342, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227983943506379342, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2287981681786524141, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
       propertyPath: m_Pivot.x
@@ -4944,6 +4986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EntryPoint: 11
+  m_ExitPoint: 13
   _sceneToTransitionTo: Kitchen
 --- !u!61 &1970696838
 BoxCollider2D:
