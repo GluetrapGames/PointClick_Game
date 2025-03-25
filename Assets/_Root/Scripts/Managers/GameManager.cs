@@ -35,6 +35,9 @@ public class GameManager : Singleton<GameManager>
 	public Camera m_Camera { get; private set; }
 	public List<string> m_NoneGameplayScenes => _NoneGameplayScenes;
 	public Scene m_CurrentScene { get; private set; }
+	public List<string> m_UniqueRoomList;
+	public int m_TotalUniqueRooms;
+	public bool m_hasCrowbar;
 	public int m_totalItemsDestroyed;
 	
 
