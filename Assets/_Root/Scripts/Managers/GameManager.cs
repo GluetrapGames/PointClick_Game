@@ -35,7 +35,8 @@ public class GameManager : Singleton<GameManager>
 	public Camera m_Camera { get; private set; }
 	public List<string> m_NoneGameplayScenes => _NoneGameplayScenes;
 	public Scene m_CurrentScene { get; private set; }
-
+	public int m_totalItemsDestroyed;
+	
 
 	protected override void Awake()
 	{
