@@ -61,7 +61,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			if (!DialogueManager.isConversationActive)
 			{
 				var transition = GameObject.Find("ToCS4");
-				var transComp = transition.GetComponent<SceneTransistion>();
+				var transComp = transition.GetComponent<SceneTransition>();
 				transComp.CallFromConversationEnd();
 				_IsGameOver = false;
 			}

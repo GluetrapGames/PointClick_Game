@@ -39,6 +39,8 @@ public class GameManager : Singleton<GameManager>
 	public int m_TotalUniqueRooms;
 	public bool m_hasCrowbar;
 	public int m_totalItemsDestroyed;
+	public bool m_HasEntered;
+	public RoomEntryPoints m_RoomPoint = RoomEntryPoints.None;
 	
 
 	protected override void Awake()
