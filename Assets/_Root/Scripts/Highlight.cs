@@ -26,6 +26,13 @@ public class Highlight : MonoBehaviour
 	private Color _DefaultOutlineColour;
 	[SerializeField, ReadOnly]
 	private float _DefaultOutlineThickness;
+	[SerializeField]
+	private bool _UseCustomValues;
+	[SerializeField, EnableField(nameof(_UseCustomValues)),
+	 ColorUsage(true, true)]
+	private Color _CustomShowOutlineColour;
+	[SerializeField, EnableField(nameof(_UseCustomValues))]
+	private float _CustomShowOutlineThickness = 1f;
 
 	[Header("Debug Options"), SerializeField,
 	 ButtonField(nameof(GetRef), "Get References")]
@@ -114,8 +121,14 @@ public class Highlight : MonoBehaviour
 
 	public void Show()
 	{
-		_Material.SetColor(s_OutlineColour, _DefaultOutlineColour);
-		_Material.SetFloat(s_OutlineThickness, _DefaultOutlineThickness);
+		_Material.SetColor(s_OutlineColour,
+			_UseCustomValues
+				? _CustomShowOutlineColour
+				: _DefaultOutlineColour);
+		_Material.SetFloat(s_OutlineThickness,
+			_UseCustomValues
+				? _CustomShowOutlineThickness
+				: _DefaultOutlineThickness);
 	}
 }
 }
