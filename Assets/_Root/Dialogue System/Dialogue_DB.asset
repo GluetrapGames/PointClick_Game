@@ -550,6 +550,34 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: CustomFieldType_Text
+  - id: 21
+    fields:
+    - title: Name
+      value: Albert_Death_Type
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: Murder
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 22
+    fields:
+    - title: Name
+      value: Sentence_Length
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
   conversations:
   - id: 1
     fields:
@@ -7521,7 +7549,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: Variable["Clues_Found"] = Variable["Clues_Found"] + 1
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -7569,7 +7597,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Variable["Clues_Found"] >= 2
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8326,15 +8354,9 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 24
-        originDialogueID: 12
-        destinationConversationID: 24
-        destinationDialogueID: 16
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
-      userScript: Variable["Clues_Found"] = Variable["Clues_Found"] + 1
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -8509,58 +8531,9 @@ MonoBehaviour:
         y: 105.858246
         width: 160
         height: 30
-    - id: 16
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: I should call [em1]Jack[/em1], he'll know what to do about this.
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 24
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Variable["Clues_Found"] >= 2
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 652.5886
-        y: 262.13916
-        width: 160
-        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 17.47937, y: 46.179634}
-    canvasZoom: 0.70187575
+    canvasScrollPosition: {x: 44.990944, y: 55.114693}
+    canvasZoom: 0.73000026
   - id: 27
     fields:
     - title: Title
@@ -12321,8 +12294,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 992.2571, y: 166.03128}
-    canvasZoom: 0.6100007
+    canvasScrollPosition: {x: 1212.6024, y: 1291.7297}
+    canvasZoom: 0.8200005
   - id: 28
     fields:
     - title: Title
@@ -20578,8 +20551,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 363.44788, y: 1001.3267}
-    canvasZoom: 0.7000017
+    canvasScrollPosition: {x: 0, y: 35.956512}
+    canvasZoom: 0.28000188
   - id: 48
     fields:
     - title: Title
@@ -23245,7 +23218,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 70.81323, y: 846.54315}
+    canvasScrollPosition: {x: 100.81299, y: 647.4986}
     canvasZoom: 0.6400013
   - id: 50
     fields:
@@ -25636,8 +25609,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: John you have shulked around [var=Rooms_Entered], EVENTS (INCL. EXPLORATION),
-          , Item Pickups, and broken ENV DESTRUCTION assorted pieces of property.
+        value: John you have disrespected your employer, broken into someones home...
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -25655,7 +25627,7 @@ MonoBehaviour:
       - originConversationID: 53
         originDialogueID: 1
         destinationConversationID: 53
-        destinationDialogueID: 2
+        destinationDialogueID: 13
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -25722,7 +25694,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 396
-        y: 144
+        y: 192
         width: 160
         height: 30
     - id: 3
@@ -25779,7 +25751,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 396
-        y: 192
+        y: 240
         width: 160
         height: 30
     - id: 4
@@ -25835,7 +25807,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 396
-        y: 240
+        y: 288
         width: 160
         height: 30
     - id: 5
@@ -25861,8 +25833,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: GUILTY of Aggravated Burglary, CRIMES under Act ACTS, (repeat crimes
-          committed by player for each act of the law they fall under),
+        value: GUILTY of Aggravated Burglary, Breaking and entering...
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -25880,7 +25851,13 @@ MonoBehaviour:
       - originConversationID: 53
         originDialogueID: 5
         destinationConversationID: 53
-        destinationDialogueID: 6
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
+      - originConversationID: 53
+        originDialogueID: 5
+        destinationConversationID: 53
+        destinationDialogueID: 15
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -25891,7 +25868,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 396
-        y: 288
+        y: 336
         width: 160
         height: 30
     - id: 6
@@ -25917,8 +25894,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: and worst of all... ALBERT CRIME under ACT. You have been sentenced
-          to SENTENCE in prison.
+        value: and worst of all... Voluntary Manslaughter under Homicide Act 1957
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -25936,18 +25912,18 @@ MonoBehaviour:
       - originConversationID: 53
         originDialogueID: 6
         destinationConversationID: 53
-        destinationDialogueID: 7
+        destinationDialogueID: 12
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: 'Variable["Albert_Death_Type"] == "Manslaughter" and '
+      userScript: Variable["Sentence_Length"] = Variable["Sentence_Length"] + 18
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 396
-        y: 336
+        x: 120
+        y: 540
         width: 160
         height: 30
     - id: 7
@@ -25995,13 +25971,492 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
+        x: 420
+        y: 696
+        width: 160
+        height: 30
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: and worst of all... Murder under Homicide Act 1957
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 8
+        destinationConversationID: 53
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["Albert_Death_Type"] == "Murder"
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 300
+        y: 540
+        width: 160
+        height: 30
+    - id: 9
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: and worst of all... Grievious bodily harm under Offences Against the
+          Person Act 1861.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 9
+        destinationConversationID: 53
+        destinationDialogueID: 12
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["Albert_Death_Type"] == "GBH"
+      userScript: Variable["Sentence_Length"] = Variable["Sentence_Length"] + 24
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 492
+        y: 540
+        width: 160
+        height: 30
+    - id: 10
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: and worst of all... Grievious bodily harm and attempted murder under
+          Offences Against the Person Act 1861.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 10
+        destinationConversationID: 53
+        destinationDialogueID: 12
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["Albert_Death_Type"] == "GBH_Murder"
+      userScript: Variable["Sentence_Length"] = Variable["Sentence_Length"] + 30
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 672
+        y: 540
+        width: 160
+        height: 30
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: You have been sentenced to LIFE in prison.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 11
+        destinationConversationID: 53
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 312
+        y: 612
+        width: 160
+        height: 30
+    - id: 12
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: You have been sentenced to [var=Sentence_Length] years in prison.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 12
+        destinationConversationID: 53
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 492
+        y: 612
+        width: 160
+        height: 30
+    - id: 13
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Stolen [var=Collected_Item_List], and broken [var=Items_Broken] assorted
+          pieces of property.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 13
+        destinationConversationID: 53
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
         x: 396
+        y: 144
+        width: 160
+        height: 30
+    - id: 14
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Destruction of property, Theft, Trespassing...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 14
+        destinationConversationID: 53
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      - originConversationID: 53
+        originDialogueID: 14
+        destinationConversationID: 53
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      - originConversationID: 53
+        originDialogueID: 14
+        destinationConversationID: 53
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      - originConversationID: 53
+        originDialogueID: 14
+        destinationConversationID: 53
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["Items_Broken"] >= 0
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 504
+        y: 396
+        width: 160
+        height: 30
+    - id: 15
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Theft, Trespassing...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 15
+        destinationConversationID: 53
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      - originConversationID: 53
+        originDialogueID: 15
+        destinationConversationID: 53
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      - originConversationID: 53
+        originDialogueID: 15
+        destinationConversationID: 53
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      - originConversationID: 53
+        originDialogueID: 15
+        destinationConversationID: 53
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["Items_Broken"] == 0
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 288
         y: 396
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 69.798195, y: 36.244514}
-    canvasZoom: 0.7600002
+    canvasScrollPosition: {x: 42.571533, y: 147.63248}
+    canvasZoom: 0.7900002
   - id: 54
     fields:
     - title: Title

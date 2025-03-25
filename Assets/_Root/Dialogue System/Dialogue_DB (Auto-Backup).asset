@@ -466,6 +466,48 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: CustomFieldType_Text
+  - id: 18
+    fields:
+    - title: Name
+      value: Money_Collected
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 19
+    fields:
+    - title: Name
+      value: Clues_Found
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 20
+    fields:
+    - title: Name
+      value: Final_Phonecall
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
   - id: 8
     fields:
     - title: Name
@@ -498,20 +540,6 @@ MonoBehaviour:
     fields:
     - title: Name
       value: Collected_Item_List
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: Initial Value
-      value: 
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: Description
-      value: 
-      type: 0
-      typeString: CustomFieldType_Text
-  - id: 18
-    fields:
-    - title: Name
-      value: New Variable 18
       type: 0
       typeString: CustomFieldType_Text
     - title: Initial Value
@@ -21472,6 +21500,12 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 49
+        originDialogueID: 0
+        destinationConversationID: 49
+        destinationDialogueID: 30
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -21527,15 +21561,16 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["Clues_Found"] >= 2 and (Variable["Money_Collected"]
+        == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 720
-        y: 96
+        x: 528
+        y: 132
         width: 160
         height: 30
     - id: 2
@@ -21589,8 +21624,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 720
-        y: 144
+        x: 528
+        y: 180
         width: 160
         height: 30
     - id: 3
@@ -21644,8 +21679,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 720
-        y: 192
+        x: 528
+        y: 228
         width: 160
         height: 30
     - id: 4
@@ -21699,8 +21734,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 720
-        y: 240
+        x: 528
+        y: 276
         width: 160
         height: 30
     - id: 5
@@ -21767,8 +21802,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 720
-        y: 288
+        x: 528
+        y: 324
         width: 160
         height: 30
     - id: 6
@@ -21823,8 +21858,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 348
+        x: 168
+        y: 384
         width: 160
         height: 30
     - id: 7
@@ -21880,8 +21915,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 720
-        y: 348
+        x: 528
+        y: 384
         width: 160
         height: 30
     - id: 8
@@ -21930,8 +21965,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 948
-        y: 348
+        x: 756
+        y: 384
         width: 160
         height: 30
     - id: 9
@@ -21985,8 +22020,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 396
+        x: 168
+        y: 432
         width: 160
         height: 30
     - id: 10
@@ -22040,8 +22075,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 444
+        x: 168
+        y: 480
         width: 160
         height: 30
     - id: 11
@@ -22096,8 +22131,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 492
+        x: 168
+        y: 528
         width: 160
         height: 30
     - id: 12
@@ -22151,8 +22186,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 540
+        x: 168
+        y: 576
         width: 160
         height: 30
     - id: 13
@@ -22207,8 +22242,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 588
+        x: 168
+        y: 624
         width: 160
         height: 30
     - id: 14
@@ -22262,8 +22297,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 648
+        x: 168
+        y: 684
         width: 160
         height: 30
     - id: 15
@@ -22317,8 +22352,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 696
+        x: 168
+        y: 732
         width: 160
         height: 30
     - id: 16
@@ -22379,8 +22414,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 756
+        x: 168
+        y: 792
         width: 160
         height: 30
     - id: 17
@@ -22435,8 +22470,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 264
-        y: 804
+        x: 72
+        y: 840
         width: 160
         height: 30
     - id: 18
@@ -22491,8 +22526,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 456
-        y: 804
+        x: 264
+        y: 840
         width: 160
         height: 30
     - id: 19
@@ -22546,8 +22581,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 864
+        x: 168
+        y: 900
         width: 160
         height: 30
     - id: 20
@@ -22601,8 +22636,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 912
+        x: 168
+        y: 948
         width: 160
         height: 30
     - id: 21
@@ -22657,8 +22692,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 960
+        x: 168
+        y: 996
         width: 160
         height: 30
     - id: 22
@@ -22713,8 +22748,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 1008
+        x: 168
+        y: 1044
         width: 160
         height: 30
     - id: 23
@@ -22756,14 +22791,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["Final_Phonecall"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 732
-        y: 1020
+        x: 540
+        y: 1056
         width: 160
         height: 30
     - id: 24
@@ -22817,8 +22852,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 720
-        y: 398
+        x: 528
+        y: 432
         width: 160
         height: 30
     - id: 25
@@ -22873,8 +22908,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 720
-        y: 448
+        x: 528
+        y: 480
         width: 160
         height: 30
     - id: 26
@@ -22934,8 +22969,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 720
-        y: 504
+        x: 528
+        y: 540
         width: 160
         height: 30
     - id: 27
@@ -22990,8 +23025,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 612
-        y: 564
+        x: 420
+        y: 600
         width: 160
         height: 30
     - id: 28
@@ -23046,8 +23081,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 816
-        y: 564
+        x: 624
+        y: 600
         width: 160
         height: 30
     - id: 29
@@ -23101,13 +23136,62 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 612
-        y: 614
+        x: 420
+        y: 648
+        width: 160
+        height: 30
+    - id: 30
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: funny phonecall text here
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 888
+        y: 132
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 246.68878, y: 94.329025}
-    canvasZoom: 0.3100014
+    canvasScrollPosition: {x: 394.56238, y: 0}
+    canvasZoom: 0.6400013
   - id: 50
     fields:
     - title: Title
