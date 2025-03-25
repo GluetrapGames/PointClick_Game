@@ -87,7 +87,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{7B8C69C0-A8F7-DB29-711B-FFE5750C1764}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FD674DF2-061A-E7AE-6293-8052E974734E}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -468,8 +468,9 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="584038952" Name="bug_shelf" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
+				<Event Id="584038952" Name="bug_shelf" DurationType="OneShot" DurationMin="0.76646316" DurationMax="1.7208999">
 					<MediaRefs>
+						<MediaRef Id="534372370"/>
 						<MediaRef Id="685121363"/>
 						<MediaRef Id="699494019"/>
 						<MediaRef Id="718932789"/>
@@ -542,8 +543,9 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="3198831486" Name="glass_cupboard" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
+				<Event Id="3198831486" Name="glass_cupboard" DurationType="OneShot" DurationMin="0.76646316" DurationMax="1.7208999">
 					<MediaRefs>
+						<MediaRef Id="534372370"/>
 						<MediaRef Id="685121363"/>
 						<MediaRef Id="874754579"/>
 						<MediaRef Id="947122152"/>
@@ -570,7 +572,10 @@
 						<MediaRef Id="602562853"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3865314626" Name="Material" DurationType="OneShot" DurationMin="0.3437951" DurationMax="2.4581919">
+				<Event Id="3865314626" Name="Material" DurationType="OneShot" DurationMin="0.44379508" DurationMax="2.5581918">
+					<MediaRefs>
+						<MediaRef Id="534372370"/>
+					</MediaRefs>
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="904554749" Id="2449969375"/>
@@ -752,12 +757,15 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="2570475550" Name="record_player" DurationType="OneShot" DurationMin="0.55547" DurationMax="0.7573042">
+				<Event Id="2570475550" Name="record_player" DurationType="OneShot" DurationMin="0.76646316" DurationMax="1.7208999">
 					<MediaRefs>
 						<MediaRef Id="195012293"/>
+						<MediaRef Id="534372370"/>
+						<MediaRef Id="685121363"/>
 						<MediaRef Id="699494019"/>
 						<MediaRef Id="718932789"/>
 						<MediaRef Id="886830654"/>
+						<MediaRef Id="947122152"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="712272009" Name="RoomTransition" DurationType="OneShot" DurationMin="1.6072339" DurationMax="1.9436206">
@@ -777,17 +785,19 @@
 						<MediaRef Id="534372370"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1780595170" Name="table_ceramic" DurationType="OneShot" DurationMin="1.6721798" DurationMax="2.4581919">
+				<Event Id="1780595170" Name="table_ceramic" DurationType="OneShot" DurationMin="1.7721798" DurationMax="2.5581918">
 					<MediaRefs>
 						<MediaRef Id="61938418"/>
+						<MediaRef Id="534372370"/>
 						<MediaRef Id="685121363"/>
 						<MediaRef Id="947122152"/>
 						<MediaRef Id="1060580719"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3811696612" Name="taxi_animal" DurationType="OneShot" DurationMin="0.66646314" DurationMax="1.6208999">
+				<Event Id="3811696612" Name="taxi_animal" DurationType="OneShot" DurationMin="0.76646316" DurationMax="1.7208999">
 					<MediaRefs>
 						<MediaRef Id="532204821"/>
+						<MediaRef Id="534372370"/>
 						<MediaRef Id="560138299"/>
 						<MediaRef Id="685121363"/>
 						<MediaRef Id="874754579"/>
@@ -879,5 +889,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A089379C-8A85-3E4C-763F-277E34F0166B}</FileHash>
+	<FileHash>{B4EF6303-A91B-8AF4-C97C-FFA6AFD222E1}</FileHash>
 </SoundBanksInfo>
