@@ -62,6 +62,16 @@ public class PickUpScript : MonoBehaviour
 
 	private void Start()
 	{
+		// Recalculate collision bounds.
+		var boxCollider = GetComponent<BoxCollider2D>();
+		var spriteRenderer = GetComponent<SpriteRenderer>();
+		Sprite spriteObj = null;
+		if (spriteRenderer)
+			spriteObj = spriteRenderer.sprite;
+		if (!spriteObj ||
+		    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
+			Debug.LogWarning($"<{name}>: Failed to resize Collision Bounds!");
+
 		// Check if any items where collected.
 		var itemCollected = false;
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count > 0 &&

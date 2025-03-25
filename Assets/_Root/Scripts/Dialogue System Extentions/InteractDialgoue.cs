@@ -37,12 +37,22 @@ public class InteractDialgoue : MonoBehaviour
 	{
 		// Obtain Game Manager.
 		_GameManager = Utils.GetGameManager();
+		_ItemCollision = GetComponent<CollideCheck>();
+		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
 	}
 
 	private void Start()
 	{
-		_ItemCollision = GetComponent<CollideCheck>();
-		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
+		// Recalculate collision bounds.
+		var boxCollider = GetComponent<BoxCollider2D>();
+		var spriteRenderer = GetComponent<SpriteRenderer>();
+		Sprite spriteObj = null;
+		if (spriteRenderer)
+			spriteObj = spriteRenderer.sprite;
+		if (!spriteObj ||
+		    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
+			Debug.LogWarning($"<{name}>: Failed to resize Collision Bounds!");
+
 		_InteractAction = _PlayerInput.actions["Break"];
 	}
 

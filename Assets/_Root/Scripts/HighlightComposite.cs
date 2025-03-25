@@ -8,7 +8,7 @@ namespace GlueTrap
 {
 public class HighlightComposite : MonoBehaviour
 {
-	[SerializeField]
+	[SerializeField, ReadOnly]
 	private List<Highlight> _highlights = new();
 	private GameManager _GameManager;
 

@@ -60,8 +60,28 @@ public static class Utils
 			.FirstOrDefault(component => component);
 	}
 
-	public static void RecalculateCollisionBounds()
+	/// <summary>
+	///     Resizes the collision bounds of a desired object.
+	///     Only supports BoxCollider2D!
+	/// </summary>
+	/// <param name="sprite">Sprite to resize to.</param>
+	/// <param name="boxCollider">Collider to resize.</param>
+	/// <returns></returns>
+	public static bool RecalculateCollisionBounds(Sprite sprite,
+		ref BoxCollider2D boxCollider)
 	{
+		if (!sprite || !boxCollider) return false;
+
+		// Calculate X & Y bounds based on sprite.
+		var boundsSize = new Vector2(
+			sprite.bounds.size.x - (sprite.border.x + sprite.border.z) /
+			sprite.pixelsPerUnit,
+			sprite.bounds.size.y - (sprite.border.w + sprite.border.y) /
+			sprite.pixelsPerUnit
+		);
+		boxCollider.size = boundsSize;
+		boxCollider.offset = Vector2.zero;
+		return true;
 	}
 }
 }
