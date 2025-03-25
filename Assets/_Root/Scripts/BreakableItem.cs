@@ -106,7 +106,7 @@ public class BreakableItem : MonoBehaviour
 		bool crowbarCollected = DialogueLua.GetVariable("Crowbar_Collected").asBool;
 
 		Debug.LogWarning($"Dialogue DM Value: {DialogueDM} - Environment DM Value: {EnvDM} - Rooms Entered: {roomsEntered} - TV Broken: {tvBroken.ToString()} - Items Broken: {itemsBroken.ToString()} - Crowbar Collected: {crowbarCollected.ToString()}");
-		
+		Debug.LogWarning($"END GAME TRACKING: Money Collected: {DialogueLua.GetVariable("Money_Collected").asString} - Clues Found: {DialogueLua.GetVariable("Clues_Found").asString}");
 	}
 
 	private void IncreaseEnvDM()
