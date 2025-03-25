@@ -4,12 +4,15 @@ using UnityEngine;
 
 namespace GlueTrap
 {
+[RequireComponent(typeof(PolygonCollider2D))]
 public class Highlight : MonoBehaviour
 {
 	private static readonly int s_OutlineColour =
 		Shader.PropertyToID("_Outline_Colour");
 	private static readonly int s_OutlineThickness =
 		Shader.PropertyToID("_Outline_Thickness");
+
+	public bool m_UsedByComposite;
 
 	[SerializeField,
 	 Tooltip("If the script should grab references from the child object.")]
@@ -23,6 +26,14 @@ public class Highlight : MonoBehaviour
 	private Color _DefaultOutlineColour;
 	[SerializeField, ReadOnly]
 	private float _DefaultOutlineThickness;
+	[SerializeField]
+	private bool _UseCustomValues;
+	[SerializeField, EnableField(nameof(_UseCustomValues)),
+	 ColorUsage(true, true)]
+	private Color _CustomShowOutlineColour;
+	[SerializeField, EnableField(nameof(_UseCustomValues))]
+	private float _CustomShowOutlineThickness = 1f;
+
 	[Header("Debug Options"), SerializeField,
 	 ButtonField(nameof(GetRef), "Get References")]
 	private Void _ButtonHolder;
@@ -83,12 +94,14 @@ public class Highlight : MonoBehaviour
 
 	private void Update()
 	{
+		// Ignore if used by composite.
+		if (m_UsedByComposite) return;
+
 		Vector2 mousePos =
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
-		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
-			Mathf.Infinity, LayerMask.GetMask("Highlighter"));
+		var colliderComp = GetComponent<Collider2D>();
 
-		if (hit.collider && hit.collider == GetComponent<Collider2D>())
+		if (colliderComp.OverlapPoint(mousePos))
 			Show();
 		else
 			Hide();
@@ -100,16 +113,22 @@ public class Highlight : MonoBehaviour
 		Awake();
 	}
 
-	private void Hide()
+	public void Hide()
 	{
 		_Material.SetColor(s_OutlineColour, Color.black);
 		_Material.SetFloat(s_OutlineThickness, 0f);
 	}
 
-	private void Show()
+	public void Show()
 	{
-		_Material.SetColor(s_OutlineColour, _DefaultOutlineColour);
-		_Material.SetFloat(s_OutlineThickness, _DefaultOutlineThickness);
+		_Material.SetColor(s_OutlineColour,
+			_UseCustomValues
+				? _CustomShowOutlineColour
+				: _DefaultOutlineColour);
+		_Material.SetFloat(s_OutlineThickness,
+			_UseCustomValues
+				? _CustomShowOutlineThickness
+				: _DefaultOutlineThickness);
 	}
 }
 }
