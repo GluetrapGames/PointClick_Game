@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{6DEE3CB5-B5F6-BEE2-8C9D-7ADF505E9DCF}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{FC129FD9-01AB-53EC-FF1B-81EA4A2C8B1C}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -62,6 +62,7 @@
 						<Switch Id="1425203646" Name="Judge"/>
 						<Switch Id="1449413731" Name="Albert"/>
 						<Switch Id="2809578926" Name="Mark"/>
+						<Switch Id="3272864290" Name="Narrator"/>
 						<Switch Id="3678415638" Name="John"/>
 						<Switch Id="3865235296" Name="Jack"/>
 					</Switches>
@@ -81,11 +82,12 @@
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2412606308" Name="Carpet"/>
 						<Switch Id="2637588553" Name="Tile"/>
+						<Switch Id="4248645337" Name="Grass"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{DB9F1958-5F1B-939F-C788-90614EF7C8DC}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{6AF3BDAE-2735-C31D-B4DB-BA04D48F5EC0}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -173,6 +175,10 @@
 					<ShortName>env_rotaryRing_withPositioning.wav</ShortName>
 					<CachePath>SFX/env_rotaryRing_withPositioning_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="344631608" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>leafstep_light-003.wav</ShortName>
+					<CachePath>SFX/leafstep_light-003_C75B67F4.wem</CachePath>
+				</File>
 				<File Id="359437438" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_tile-001.wav</ShortName>
 					<CachePath>SFX/step_tile-001_818F3B66.wem</CachePath>
@@ -196,6 +202,10 @@
 				<File Id="473419309" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_court_hum.wav</ShortName>
 					<CachePath>SFX/amb_court_hum_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="503942609" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>leafstep_light-008.wav</ShortName>
+					<CachePath>SFX/leafstep_light-008_44A06A98.wem</CachePath>
 				</File>
 				<File Id="508778594" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_tile-002.wav</ShortName>
@@ -256,6 +266,10 @@
 				<File Id="655306073" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_creaks-004.wav</ShortName>
 					<CachePath>SFX/amb_house_creaks-004_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="666753951" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>leafstep_light-001.wav</ShortName>
+					<CachePath>SFX/leafstep_light-001_B1D5485B.wem</CachePath>
 				</File>
 				<File Id="685121363" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_wood2-001.wav</ShortName>
@@ -319,7 +333,7 @@
 				</File>
 				<File Id="874307624" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_mark_blab.wav</ShortName>
-					<CachePath>SFX/dial_mark_blab_79CE9770.wem</CachePath>
+					<CachePath>SFX/dial_mark_blab_DB4B51CF.wem</CachePath>
 				</File>
 				<File Id="874754579" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_glass-001.wav</ShortName>
@@ -357,6 +371,10 @@
 					<ShortName>ui_menu_hover.wav</ShortName>
 					<CachePath>SFX/ui_menu_hover_8447143A.wem</CachePath>
 				</File>
+				<File Id="984449425" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>leafstep_light-006.wav</ShortName>
+					<CachePath>SFX/leafstep_light-006_04D6A43B.wem</CachePath>
+				</File>
 				<File Id="997645561" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>stinger-001.wav</ShortName>
 					<CachePath>SFX/stinger-001_818F3B66.wem</CachePath>
@@ -383,7 +401,7 @@
 				</File>
 				<File Id="1069501619" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>env_phoneNoSlam.wav</ShortName>
-					<CachePath>SFX/env_phoneNoSlam_6319D7BA.wem</CachePath>
+					<CachePath>SFX/env_phoneNoSlam_9FFDE2DC.wem</CachePath>
 				</File>
 				<File Id="1071037576" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_glass.wav</ShortName>
@@ -391,6 +409,9 @@
 				</File>
 			</Media>
 			<Plugins>
+				<Custom>
+					<Plugin Id="577001919" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
+				</Custom>
 				<ShareSets>
 					<Plugin Id="484890516" Name="Church_Small_Wood" LibName="Wwise RoomVerb" LibId="7733251"/>
 				</ShareSets>
@@ -421,6 +442,14 @@
 							<MediaRefs>
 								<MediaRef Id="739141563"/>
 							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="3272864290"/>
+							<PluginRefs>
+								<Custom>
+									<PluginRef Id="577001919"/>
+								</Custom>
+							</PluginRefs>
 						</SwitchContainer>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1352502929" Id="2809578926"/>
@@ -492,6 +521,15 @@
 								<MediaRef Id="753263382"/>
 								<MediaRef Id="797840335"/>
 								<MediaRef Id="943812538"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="3287431056" Id="4248645337"/>
+							<MediaRefs>
+								<MediaRef Id="344631608"/>
+								<MediaRef Id="503942609"/>
+								<MediaRef Id="666753951"/>
+								<MediaRef Id="984449425"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -808,6 +846,7 @@
 						<Switch Id="1425203646" Name="Judge"/>
 						<Switch Id="1449413731" Name="Albert"/>
 						<Switch Id="2809578926" Name="Mark"/>
+						<Switch Id="3272864290" Name="Narrator"/>
 						<Switch Id="3678415638" Name="John"/>
 						<Switch Id="3865235296" Name="Jack"/>
 					</Switches>
@@ -827,10 +866,11 @@
 						<Switch Id="2058049674" Name="Wood"/>
 						<Switch Id="2412606308" Name="Carpet"/>
 						<Switch Id="2637588553" Name="Tile"/>
+						<Switch Id="4248645337" Name="Grass"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A4B1763F-D610-0A4C-226D-1E9EE98C12CF}</FileHash>
+	<FileHash>{6D018761-285A-8999-3E37-98FE4B265D8A}</FileHash>
 </SoundBanksInfo>

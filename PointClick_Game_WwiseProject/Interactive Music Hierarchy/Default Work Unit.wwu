@@ -3164,7 +3164,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-12</Value>
+								<Value>-18</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -3205,6 +3205,7 @@
 									<ChildrenList>
 										<MusicTransition Name="Transition" ID="{529C82D4-9828-4D6E-A568-ED00EB9FB571}">
 											<PropertyList>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
 											</PropertyList>
 											<TransitionInfo>
@@ -3218,6 +3219,13 @@
 														</PropertyList>
 													</MusicFade>
 												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{0FAB42BA-11E2-4212-80AA-41ED91A4ECB9}">
+														<PropertyList>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
 											</TransitionInfo>
 										</MusicTransition>
 									</ChildrenList>

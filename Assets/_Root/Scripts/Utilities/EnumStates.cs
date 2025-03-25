@@ -52,7 +52,7 @@ public enum MaterialTypes
 	Tile = 3,
 	Glass = 4,
 	Metal = 5,
-	Dirt = 6,
+	Grass = 6,
 	Stone = 7
 }
 }

@@ -337,6 +337,27 @@
 										<ActiveSource Name="dial_mark_blab" ID="{1650744E-1BD3-4EEA-B12F-CADB77FAD464}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="Narrator" ID="{436D4DEA-CDB8-44B9-97E9-436EB2B3462D}" ShortID="930612036">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<SourcePlugin Name="Silence" ID="{760B1E1E-0395-4423-A696-0CCF631381BB}" ShortID="577001919" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
+											<PropertyList>
+												<Property Name="Length" Type="Real32" Value="0.1"/>
+											</PropertyList>
+											<Language>SFX</Language>
+										</SourcePlugin>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Silence" ID="{760B1E1E-0395-4423-A696-0CCF631381BB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
@@ -354,6 +375,9 @@
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Mark" ID="{2628A7D8-B4E4-4C50-A29B-9B0B293A3E09}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Narrator" ID="{436D4DEA-CDB8-44B9-97E9-436EB2B3462D}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
@@ -379,6 +403,12 @@
 										<SwitchRef Name="Judge" ID="{06E1D39D-3BD5-410A-9011-4A68F3A2095E}"/>
 										<ItemList>
 											<ItemRef Name="Judge" ID="{5FABAD91-F0B9-4B5F-9EA9-FC6D765C146F}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Narrator" ID="{B6792DC1-43EC-4DA5-A10A-A7BF1D7FB301}"/>
+										<ItemList>
+											<ItemRef Name="Narrator" ID="{436D4DEA-CDB8-44B9-97E9-436EB2B3462D}"/>
 										</ItemList>
 									</Grouping>
 									<Grouping>
@@ -2455,11 +2485,149 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Grass" ID="{39B99E43-FD85-4E2A-9A9C-CEB5280A9C09}" ShortID="759088276">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{79F94746-F920-48BC-A0A8-F37BFBD92F23}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-150"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="leafstep_light-001" ID="{2F845535-9408-4DF8-A63D-1EBB5E5D1C08}" ShortID="285425725">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="leafstep_light-001" ID="{BA4BF8B4-2225-4366-9CA2-2E1A3369FB7E}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.171706702686916"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.369287018107477"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>leafstep_light-001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="666753951"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="leafstep_light-001" ID="{BA4BF8B4-2225-4366-9CA2-2E1A3369FB7E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="leafstep_light-003" ID="{E5C77793-FE45-4F9B-8DB6-9F0A8B3803E4}" ShortID="823640565">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="leafstep_light-003" ID="{B2CF0FF9-BF20-47EC-B9F0-DFD81748FFD5}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.180215123637072"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.280093384929907"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>leafstep_light-003.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="344631608"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="leafstep_light-003" ID="{B2CF0FF9-BF20-47EC-B9F0-DFD81748FFD5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="leafstep_light-006" ID="{5E4FC692-00C8-484F-A57A-3CFB811EA797}" ShortID="387414576">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="leafstep_light-006" ID="{F70666EF-9019-4896-912D-BF9D66C7843B}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0982471767912773"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.308138872663551"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>leafstep_light-006.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="984449425"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="leafstep_light-006" ID="{F70666EF-9019-4896-912D-BF9D66C7843B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="leafstep_light-008" ID="{1EF1A727-7312-4940-844A-3E60CEAD0573}" ShortID="71775343">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="leafstep_light-008" ID="{F5EAFDCB-F4AC-45E5-B67B-D8FA4790B61A}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.1205933605919"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.295245813862928"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>leafstep_light-008.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="503942609"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="leafstep_light-008" ID="{F5EAFDCB-F4AC-45E5-B67B-D8FA4790B61A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
 										<ItemRef Name="Wood" ID="{F8009D18-7A2D-437E-80C7-11DCC0ABA005}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Grass" ID="{39B99E43-FD85-4E2A-9A9C-CEB5280A9C09}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Carpet" ID="{E46F136A-9A21-4798-8370-BB4F60171C12}"/>
@@ -2482,6 +2650,12 @@
 										</ItemList>
 									</Grouping>
 									<Grouping>
+										<SwitchRef Name="Grass" ID="{9AED2FCC-3D26-4470-9E71-27921F8A5C8D}"/>
+										<ItemList>
+											<ItemRef Name="Grass" ID="{39B99E43-FD85-4E2A-9A9C-CEB5280A9C09}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
 										<SwitchRef Name="Tile" ID="{900FD4CD-7412-40FD-95C1-26917A02D143}"/>
 										<ItemList>
 											<ItemRef Name="Tile" ID="{5D46C2A5-F5AD-43C1-9C7A-933D92CED419}"/>
@@ -2500,6 +2674,11 @@
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
 										<Value>33</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2546,7 +2725,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-22</Value>
+										<Value>-10</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2601,6 +2780,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="env_phoneSlam" ID="{60B92F39-E749-423A-87F4-B973594C1C11}" ShortID="2610961">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E20ACE2F-7FFD-402D-8DCB-C3FF14D98C00}"/>

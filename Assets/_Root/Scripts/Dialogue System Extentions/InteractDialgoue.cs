@@ -54,12 +54,6 @@ public class InteractDialgoue : MonoBehaviour
 		}
 		else
 			DialogueManager.StartConversation(_ConversationTitle);
-
-		if (_ConversationTitle == "MarkPhoneCall")
-			{
-				AkSoundEngine.PostEvent("StopPhone", gameObject);
-				AkSoundEngine.PostEvent("PhonePickup", gameObject);
-			}
 	}
 }
 }

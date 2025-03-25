@@ -102,6 +102,7 @@ namespace AK
                 static const AkUniqueID JOHN = 3678415638U;
                 static const AkUniqueID JUDGE = 1425203646U;
                 static const AkUniqueID MARK = 2809578926U;
+                static const AkUniqueID NARRATOR = 3272864290U;
             } // namespace SWITCH
         } // namespace CHARACTERBLAB
 
@@ -112,6 +113,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID CARPET = 2412606308U;
+                static const AkUniqueID GRASS = 4248645337U;
                 static const AkUniqueID TILE = 2637588553U;
                 static const AkUniqueID WOOD = 2058049674U;
             } // namespace SWITCH
