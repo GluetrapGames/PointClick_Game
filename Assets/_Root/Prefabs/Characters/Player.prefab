@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 3661671528087318030}
   - component: {fileID: 3811311875681059491}
   - component: {fileID: 8869049621572334531}
+  - component: {fileID: -4406224074735752727}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -182,8 +183,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.09103507, y: 1.2926502}
-  m_Size: {x: 1.0993209, y: 3.5853004}
+  m_Offset: {x: 0.091035075, y: 1.0594511}
+  m_Size: {x: 1.0993209, y: 3.1189022}
   m_Direction: 0
 --- !u!50 &8370068909710215596
 Rigidbody2D:
@@ -347,6 +348,20 @@ MonoBehaviour:
   _Log: 0
   whatMaterial: 0
   footstepSpeed: 0.5
+--- !u!114 &-4406224074735752727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485669108317632510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8499de952c55d7b468b5fc033174830c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
 --- !u!1 &9033717235172527478
 GameObject:
   m_ObjectHideFlags: 0

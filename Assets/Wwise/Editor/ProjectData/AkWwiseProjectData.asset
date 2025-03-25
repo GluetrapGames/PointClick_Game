@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit 2
     guid: fef77f58d05ca5478965ec9b4d689c75
     GuidInternal: 
-    m_lastTime: -8584615558191612203
+    m_lastTime: -8584598198812368407
     List: []
   - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     PathAndIcons:
@@ -37,7 +37,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 5909de92d8ac4141b7fe347eabe5cda5
     GuidInternal: 
-    m_lastTime: -8584615558191612203
+    m_lastTime: -8584598198812358432
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -51,7 +51,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: a003960deb8bdf468e97a26af7e6ab6c
     GuidInternal: 
-    m_lastTime: -8584615558194940034
+    m_lastTime: -8584587863116916271
     List:
     - name: Dialogue
       guid: 13d5f7f34eace145936fbb7376e25110
@@ -161,7 +161,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d9cd24203029844a94de634f59516731
     GuidInternal: 
-    m_lastTime: -8584590521781894518
+    m_lastTime: -8584587646181865328
     List:
     - name: Main
       guid: fff4323f282c4e4bbef4b6e13128fb3a
@@ -189,7 +189,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584590521797830165
+    m_lastTime: -8584587646183464429
     List:
     - name: Ambience
       guid: 19c1f8107ed1404c834f7da805b12460
@@ -227,7 +227,7 @@ MonoBehaviour:
       Path: Events\Default Work Unit\Dialogue\Blab
       maxAttenuation: 0
       maxDuration: 0.13150942
-      minDuration: 0.058767837
+      minDuration: 0.056701366
     - name: Breaks
       guid: ffbfc00e79fb7a42963fab89f9270ee8
       id: 1008011617
@@ -417,6 +417,63 @@ MonoBehaviour:
         ObjectType: 4
         guid: ec2bcc2c0764444b83ea433766c8f3ff
       Path: Events\Default Work Unit\UI\In-Game\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Environment
+      guid: 68e538e71fabb84abfb090d977f1e0b2
+      id: 1229948536
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 68e538e71fabb84abfb090d977f1e0b2
+      Path: Events\Default Work Unit\Environment
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Flat_Phone
+      guid: 7efb4160fed9894f9ec6e3c90182cb9a
+      id: 2449505461
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 68e538e71fabb84abfb090d977f1e0b2
+      - ElementName: Flat_Phone
+        ObjectType: 3
+        guid: 7efb4160fed9894f9ec6e3c90182cb9a
+      Path: Events\Default Work Unit\Environment\Flat_Phone
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FlatMusic
+      guid: e9a13c92e9d52e429b6dc61fe1d9e688
+      id: 1369071785
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Music
+        ObjectType: 4
+        guid: 57fc0d463d8f844c94227605840aa6c2
+      - ElementName: FlatMusic
+        ObjectType: 3
+        guid: e9a13c92e9d52e429b6dc61fe1d9e688
+      Path: Events\Default Work Unit\Music\FlatMusic
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -773,31 +830,8 @@ MonoBehaviour:
         guid: 8f0aad23b825d241866844a27aa828a0
       Path: Events\Default Work Unit\Player\player_pickup
       maxAttenuation: 0
-      maxDuration: 2.1953125
+      maxDuration: 2.5434375
       minDuration: 2.1953125
-    - name: Point-n-click
-      guid: dde7b5765219fd49b10c5d4374e727c5
-      id: 884647459
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: UI
-        ObjectType: 4
-        guid: ba03455f55cd504796403d3470dd40b1
-      - ElementName: In-Game
-        ObjectType: 4
-        guid: 1476956ed61ce744829fc7491b42af15
-      - ElementName: Point-n-click
-        ObjectType: 4
-        guid: dde7b5765219fd49b10c5d4374e727c5
-      Path: Events\Default Work Unit\UI\In-Game\Point-n-click
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: record_player
       guid: d7aea8b9d925d849a5e95ef0067fa7d7
       id: 2570475550
@@ -821,6 +855,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.7573042
       minDuration: 0.55547
+    - name: RoomTransition
+      guid: d6d1fbfd3d2d4c41b0d9e4ce098959ef
+      id: 712272009
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Player
+        ObjectType: 4
+        guid: 5c8290c8e37faa4a95149f3d400053f5
+      - ElementName: RoomTransition
+        ObjectType: 3
+        guid: d6d1fbfd3d2d4c41b0d9e4ce098959ef
+      Path: Events\Default Work Unit\Player\RoomTransition
+      maxAttenuation: 0
+      maxDuration: 1.9436206
+      minDuration: 1.6072339
     - name: Specific
       guid: a3b780ca44d0c84a9411b3224f6da948
       id: 902158961
@@ -841,6 +895,49 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Stop_Phone
+      guid: e371c500dfe48c41b1c4262086d7dc0a
+      id: 4262240428
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 68e538e71fabb84abfb090d977f1e0b2
+      - ElementName: Stop_Phone
+        ObjectType: 3
+        guid: e371c500dfe48c41b1c4262086d7dc0a
+      Path: Events\Default Work Unit\Environment\Stop_Phone
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: StopClock
+      guid: 5253638e9ab7e64392b384c80caf6e5f
+      id: 4199481009
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: Court
+        ObjectType: 4
+        guid: e1b307b74cefd34f97b4ee094ed72370
+      - ElementName: StopClock
+        ObjectType: 3
+        guid: 5253638e9ab7e64392b384c80caf6e5f
+      Path: Events\Default Work Unit\Ambience\Court\StopClock
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: StopFootstep
       guid: 531ab5a835342b4f8d51fc2c275759a7
       id: 2596245103
@@ -881,6 +978,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.2647209
       minDuration: 0.20709683
+    - name: table_ceramic
+      guid: c58bad743a37004aa309f60e6669b60d
+      id: 1780595170
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Breaks
+        ObjectType: 4
+        guid: ffbfc00e79fb7a42963fab89f9270ee8
+      - ElementName: Specific
+        ObjectType: 4
+        guid: a3b780ca44d0c84a9411b3224f6da948
+      - ElementName: table_ceramic
+        ObjectType: 3
+        guid: c58bad743a37004aa309f60e6669b60d
+      Path: Events\Default Work Unit\Breaks\Specific\table_ceramic
+      maxAttenuation: 0
+      maxDuration: 2.4581919
+      minDuration: 1.6721798
     - name: taxi_animal
       guid: 2ef1ee6852a50e42af9a8aafedc2a198
       id: 3811696612
@@ -1025,32 +1145,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.12972917
       minDuration: 0.12972917
-    - name: ui_point
-      guid: 5c69c9c9d9cc574aa7f740e67bb616b5
-      id: 4228838608
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: UI
-        ObjectType: 4
-        guid: ba03455f55cd504796403d3470dd40b1
-      - ElementName: In-Game
-        ObjectType: 4
-        guid: 1476956ed61ce744829fc7491b42af15
-      - ElementName: Point-n-click
-        ObjectType: 4
-        guid: dde7b5765219fd49b10c5d4374e727c5
-      - ElementName: ui_point
-        ObjectType: 3
-        guid: 5c69c9c9d9cc574aa7f740e67bb616b5
-      Path: Events\Default Work Unit\UI\In-Game\Point-n-click\ui_point
-      maxAttenuation: 0
-      maxDuration: 0.36712962
-      minDuration: 0.36712962
     - name: ui_select
       guid: 6037f1feddc61d409f8fa515f83fe027
       id: 2774129122
@@ -1089,7 +1183,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584615558199699002
+    m_lastTime: -8584587863116825978
     List:
     - name: vol_dialogue
       guid: d375c4070ca9a54aa883e10fff410998
@@ -1202,7 +1296,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: aaef3b61817689459787a303f0cc8de8
     GuidInternal: 
-    m_lastTime: -8584598929747164172
+    m_lastTime: -8584587863117026438
     List:
     - name: HouseMusic
       guid: 72cc6de581d4f34e9d6bb785c2b8771d
@@ -1314,7 +1408,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584590521781884374
+    m_lastTime: -8584587646181851376
     List:
     - name: BreakMaterial
       guid: 52371375a5837847ab5b8d4e1a0afc3a
@@ -1525,6 +1619,54 @@ MonoBehaviour:
         - ElementName: John
           ObjectType: 10
           guid: 1a073fcdc5ed844f9b956516cb5d9ef2
+      - name: Judge
+        guid: 9dd3e106d53b0a4190114a68f3a2095e
+        id: 1425203646
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: CharacterBlab
+          ObjectType: 11
+          guid: 5a48078c2adf144d9ae3807451041c61
+        - ElementName: Judge
+          ObjectType: 10
+          guid: 9dd3e106d53b0a4190114a68f3a2095e
+      - name: Mark
+        guid: 704ebd359d197f4b8a5b603a4d1fea89
+        id: 2809578926
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: CharacterBlab
+          ObjectType: 11
+          guid: 5a48078c2adf144d9ae3807451041c61
+        - ElementName: Mark
+          ObjectType: 10
+          guid: 704ebd359d197f4b8a5b603a4d1fea89
+      - name: Narrator
+        guid: e905fd62b05d5f46bd499cfe6c81cb3a
+        id: 3272864290
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: CharacterBlab
+          ObjectType: 11
+          guid: 5a48078c2adf144d9ae3807451041c61
+        - ElementName: Narrator
+          ObjectType: 10
+          guid: e905fd62b05d5f46bd499cfe6c81cb3a
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
@@ -1689,6 +1831,22 @@ MonoBehaviour:
         - ElementName: Paper
           ObjectType: 10
           guid: ce19ef50f9d56941947ee0b800f58c65
+      - name: Pills
+        guid: 1d36456154a96e48b4e9000d070e0850
+        id: 1791995239
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: PickupItem
+          ObjectType: 11
+          guid: 5e2127f9c4a99d42b14aa8d05b2d08df
+        - ElementName: Pills
+          ObjectType: 10
+          guid: 1d36456154a96e48b4e9000d070e0850
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
@@ -1704,10 +1862,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 8aff68e09ca652408bd2e782fdf49389
     GuidInternal: 
-    m_lastTime: -8584615558191622599
+    m_lastTime: -8584598198812368407
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 06000000070000000b000000
+  ExpandedWaapiItemIds: 0600000007000000080000000b00000023000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

@@ -29,8 +29,10 @@ public class BreakableItem : MonoBehaviour
 	private List<Sprite> _sprites;
 	[SerializeField]
 	private EventTypes _EventType;
+	[SerializeField]
+	private BreakMaterialTypes _BreakMaterial;
 
-	private InputAction _breakableAction;
+    private InputAction _breakableAction;
 	private EndGameTracker _EndGameTracker;
 	private GameManager _GameManager;
 	private ItemTypes _heldItemType;
@@ -77,7 +79,7 @@ public class BreakableItem : MonoBehaviour
 		{
 			if (_Log) Debug.Log("Damage Called");
 			Damage();
-			AkSoundEngine.SetSwitch("BreakMaterial", _ItemType.ToString(),
+			AkSoundEngine.SetSwitch("BreakMaterial", _BreakMaterial.ToString(),
 				gameObject);
 			AkSoundEngine.PostEvent(_EventType.ToString(), gameObject);
 		}

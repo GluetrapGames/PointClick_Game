@@ -19,6 +19,8 @@ namespace AK
         static const AkUniqueID COURTCLOCK = 3307117116U;
         static const AkUniqueID COURTCOUGH = 2070691372U;
         static const AkUniqueID COURTHUM = 1112129076U;
+        static const AkUniqueID FLAT_PHONE = 2449505461U;
+        static const AkUniqueID FLATMUSIC = 1369071785U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
@@ -32,14 +34,17 @@ namespace AK
         static const AkUniqueID MUSICMENU = 4082046343U;
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
+        static const AkUniqueID ROOMTRANSITION = 712272009U;
+        static const AkUniqueID STOP_PHONE = 4262240428U;
+        static const AkUniqueID STOPCLOCK = 4199481009U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
         static const AkUniqueID SWINGWEAPON = 729991629U;
+        static const AkUniqueID TABLE_CERAMIC = 1780595170U;
         static const AkUniqueID TAXI_ANIMAL = 3811696612U;
         static const AkUniqueID UI_BACK = 2024222415U;
         static const AkUniqueID UI_DIALOGUEPOPUP = 3452930546U;
         static const AkUniqueID UI_HOVER = 2118900976U;
         static const AkUniqueID UI_LETTER = 500465782U;
-        static const AkUniqueID UI_POINT = 4228838608U;
         static const AkUniqueID UI_SELECT = 2774129122U;
     } // namespace EVENTS
 
@@ -89,6 +94,9 @@ namespace AK
                 static const AkUniqueID ALBERT = 1449413731U;
                 static const AkUniqueID JACK = 3865235296U;
                 static const AkUniqueID JOHN = 3678415638U;
+                static const AkUniqueID JUDGE = 1425203646U;
+                static const AkUniqueID MARK = 2809578926U;
+                static const AkUniqueID NARRATOR = 3272864290U;
             } // namespace SWITCH
         } // namespace CHARACTERBLAB
 
@@ -115,6 +123,7 @@ namespace AK
                 static const AkUniqueID CROWBAR = 1837441319U;
                 static const AkUniqueID KEYS = 2215982805U;
                 static const AkUniqueID PAPER = 3126687001U;
+                static const AkUniqueID PILLS = 1791995239U;
             } // namespace SWITCH
         } // namespace PICKUPITEM
 

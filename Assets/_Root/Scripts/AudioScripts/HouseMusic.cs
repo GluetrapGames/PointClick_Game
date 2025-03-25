@@ -10,6 +10,7 @@ namespace GlueTrap
     {
         public string MusicState;
         private bool _Activated;
+        private bool _JohnActivated;
 
 
         public void setLow()
@@ -45,7 +46,7 @@ namespace GlueTrap
         public override void OnSceneChange(Scene scene, LoadSceneMode mode)
         {
             {
-                if (scene.name != "MenuScene" && scene.name != "CourtroomIntro" && scene.name != "CourtroomEnding" && !_Activated)
+                if (scene.name != "MenuScene" && scene.name != "John's Flat" && scene.name != "CourtScene 1" && scene.name != "CourtScene 2" && scene.name != "CourtScene 3" && scene.name != "CourtScene 4" && !_Activated)
                 {
                     _Activated = true;
                     AkSoundEngine.SetState("HouseMusic", MusicState);
@@ -53,6 +54,20 @@ namespace GlueTrap
                     Debug.Log("Started music, " + _Activated);
                     ;
                 }
+
+                //if (scene.name == "John's Flat" && !_JohnActivated)
+                //{
+                //    _JohnActivated = true;
+                //    AkSoundEngine.PostEvent("FlatMusic", gameObject);
+                //    ;
+                //}
+
+                //if (scene.name != "John's Flat" && _JohnActivated)
+                //{
+                //    AkSoundEngine.StopAll();
+                //    Debug.Log("Stopped john flat");
+                //    ;
+                //}
             }
         }
     }

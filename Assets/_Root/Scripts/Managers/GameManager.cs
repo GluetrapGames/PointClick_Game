@@ -155,16 +155,17 @@ public class GameManager : Singleton<GameManager>
 
 		// Get the Grid and the Navmesh.
 		m_Grid = FindFirstObjectByType<Grid>();
-		m_NavMesh = GameObject.FindGameObjectWithTag("NavMesh")
-			.GetComponent<Tilemap>();
+		var navMeshObj = GameObject.FindGameObjectWithTag("NavMesh");
 
 		// Make sure that both objects could be found.
-		if (!m_Grid || !m_NavMesh)
+		if (!m_Grid || !navMeshObj)
 		{
-			Debug.LogError(
+			Debug.LogWarning(
 				"The Grid or walkable Tilemap could not be found in the scene!");
 			return;
 		}
+
+		m_NavMesh = navMeshObj.GetComponent<Tilemap>();
 
 		// Get Player spawner.
 		_PlayerSpawnPoint = Utils.FindSpawner("PlayerSpawner");
