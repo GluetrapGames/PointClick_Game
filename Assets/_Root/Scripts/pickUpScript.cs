@@ -138,6 +138,12 @@ public class PickUpScript : MonoBehaviour
 		if (_StartConvo)
 			_ConvoObject.SetActive(true);
 
+		if (_ItemType == ItemTypes.Crowbar)
+		{
+			_GameManager.m_hasCrowbar = true;
+			DialogueLua.SetVariable("Crowbar_Collected", _GameManager.m_hasCrowbar);
+		}
+		
 		if (m_Log) Debug.Log("Item collected");
 		m_ActivateVariable = true;
 		Destroy(gameObject);

@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &178764474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5859709132813599024, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+  m_PrefabInstance: {fileID: 1943296683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &284299678
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +295,7 @@ MonoBehaviour:
     onConversationEnd:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1943296684}
+        - m_Target: {fileID: 178764474}
           m_TargetAssemblyTypeName: GlueTrap.SceneTransistion, Assembly-CSharp
           m_MethodName: CallFromConversationEnd
           m_Mode: 1
@@ -961,22 +972,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1315743652066154780, guid: 39f061461b043427484cb898c93a89ad, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39f061461b043427484cb898c93a89ad, type: 3}
---- !u!114 &1943296684 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1315743652066154780, guid: 39f061461b043427484cb898c93a89ad, type: 3}
-  m_PrefabInstance: {fileID: 1943296683}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2036028580
 GameObject:
   m_ObjectHideFlags: 0
