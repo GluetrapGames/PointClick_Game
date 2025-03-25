@@ -33,6 +33,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private int _cluesFound;
 	public bool m_hasMoney;
 	private bool _moneySet;
+	private bool _albertSpawned;
 	
 	// 0 Money, 1 Crowbar, 2 Journal, 3 Keys, 4 Poetry, 5 Cigarettes, 6 Medicine
 	public List<ItemTypes> m_CollectedItems = new();
@@ -48,7 +49,25 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 	private void Update()
 	{
-		if (_IsGameOver) return;
+		if (_IsGameOver)
+		{
+			if (!_albertSpawned)
+			{
+				SpawnAlbert();
+				Debug.LogError("Albert spawned");
+				_albertSpawned = true;
+			}
+
+			if (!DialogueManager.isConversationActive)
+			{
+				var transition = GameObject.Find("ToCS4");
+				var transComp = transition.GetComponent<SceneTransistion>();
+				transComp.CallFromConversationEnd();
+				_IsGameOver = false;
+			}
+			
+			return;
+		}
 
 		TrackEndGameItems();
 
@@ -88,6 +107,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		}
 		
 		if (!endGame /*|| !allPlantsDestroyed*/) return;
+		Debug.LogWarning("GAME END, SPAWNING ALBERT");
 		_IsGameOver = true;
 	}
 
@@ -142,24 +162,35 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		};
 		DialogueLua.SetVariable("Collected_Item_List", collectedItems);
 	}
-	
+
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
+		
+	}
+
+	public void SpawnAlbert()
+	{
+		if (!_IsGameOver)
+		{
+			Debug.LogError("Can't Spawn Albert!");
+			return;
+		}
+		
+		var albertConvoObject = GameObject.Find("Albert");
+		albertConvoObject.GetComponent<DialogueSystemTrigger>().enabled = true;
+		albertConvoObject.GetComponent<DialogueSystemEvents>().enabled = true;
+		
 		// Get Albert's spawner.
 		_AlbertSpawPoint = Utils.FindSpawner("AlbertSpawner");
 
 		// Check for GameOver.
 		if (_IsGameOver && SceneManager.GetActiveScene() ==
-		    SceneManager.GetSceneByName("Downstairs_Hallway"))
+		    SceneManager.GetSceneByName("DownstairsHallway"))
 		{
+			Debug.LogError("GAME OVER CHECK PASSED");
 			Instantiate(_AlbertPrefab, _AlbertSpawPoint.position,
 				quaternion.identity);
 		}
-
-		// Make sure we are in a gameplay scene.
-		if (_GameManager.m_NoneGameplayScenes.Any(noneGameplayScene =>
-			    scene.name == noneGameplayScene))
-			return;
 
 		// Get breakable items and add/update the list.
 		var newItems =
