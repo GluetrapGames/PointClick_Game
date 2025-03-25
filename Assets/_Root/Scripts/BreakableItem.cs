@@ -32,6 +32,8 @@ public class BreakableItem : MonoBehaviour
 	private EventTypes _EventType;
 	[SerializeField]
 	private BreakMaterialTypes _BreakMaterial;
+	[SerializeField]
+	private bool _isTV = false;
 
     private InputAction _breakableAction;
 	private EndGameTracker _EndGameTracker;
@@ -98,9 +100,13 @@ public class BreakableItem : MonoBehaviour
 	{
 		int DialogueDM = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
 		int EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+		int roomsEntered = DialogueLua.GetVariable("Rooms_Entered").asInt;
+		bool tvBroken = DialogueLua.GetVariable("TV_Broken").asBool;
+		int itemsBroken = DialogueLua.GetVariable("Items_Broken").asInt;
+		bool crowbarCollected = DialogueLua.GetVariable("Crowbar_Collected").asBool;
 
-		Debug.LogWarning($"Dialogue DM Value: {DialogueDM} - Environment DM Value: {EnvDM}");
-		
+		Debug.LogWarning($"Dialogue DM Value: {DialogueDM} - Environment DM Value: {EnvDM} - Rooms Entered: {roomsEntered} - TV Broken: {tvBroken.ToString()} - Items Broken: {itemsBroken.ToString()} - Crowbar Collected: {crowbarCollected.ToString()}");
+		Debug.LogWarning($"END GAME TRACKING: Money Collected: {DialogueLua.GetVariable("Money_Collected").asString} - Clues Found: {DialogueLua.GetVariable("Clues_Found").asString}");
 	}
 
 	private void IncreaseEnvDM()
@@ -153,6 +159,8 @@ public class BreakableItem : MonoBehaviour
 				gameObject.GetComponent<BoxCollider2D>().enabled = false;
 				gameObject.transform.position -= _afterBreakOffset;
 				_GameManager.m_totalItemsDestroyed++;
+				DialogueLua.SetVariable("Items_Broken", _GameManager.m_totalItemsDestroyed);
+				if(_isTV) DialogueLua.SetVariable("TV_Broken", true);
 				break;
 		}
 	}

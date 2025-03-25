@@ -70,7 +70,7 @@ public class PauseMenu : MonoBehaviour
 		//inventoryUI.SetActive(false);
 		_GameManager.ChangeGameState(States.InMenus);
 		pauseMenuParent.SetActive(true);
-		//pauseMenuUI.SetActive(true);
+		pauseMenuUI.SetActive(true);
 		onScreenButton.SetActive(false);
 		settingsMenuUI.SetActive(false);
 		EventSystem.current.SetSelectedGameObject(firstSelectedPause);

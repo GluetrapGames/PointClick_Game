@@ -30,7 +30,11 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private bool _Log;
 	[SerializeField, ReadOnly]
 	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
-
+	private int _cluesFound;
+	public bool m_hasMoney;
+	private bool _moneySet;
+	private bool _albertSpawned;
+	
 	// 0 Money, 1 Crowbar, 2 Journal, 3 Keys, 4 Poetry, 5 Cigarettes, 6 Medicine
 	public List<ItemTypes> m_CollectedItems = new();
 	
@@ -45,7 +49,25 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 	private void Update()
 	{
-		if (_IsGameOver) return;
+		if (_IsGameOver)
+		{
+			if (!_albertSpawned)
+			{
+				SpawnAlbert();
+				Debug.LogError("Albert spawned");
+				_albertSpawned = true;
+			}
+
+			if (!DialogueManager.isConversationActive)
+			{
+				var transition = GameObject.Find("ToCS4");
+				var transComp = transition.GetComponent<SceneTransistion>();
+				transComp.CallFromConversationEnd();
+				_IsGameOver = false;
+			}
+			
+			return;
+		}
 
 		TrackEndGameItems();
 
@@ -57,12 +79,15 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		}
 
 		// Check if everything that was needed was collected or destroyed.
-		var allItemsCollected = false;
+		/*var allItemsCollected = false;
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
 		{
 			allItemsCollected = m_EndItemTypes.Values.All(value => value);
 			if (!allItemsCollected) return;
-		}
+		}*/
+
+		bool endGame = DialogueLua.GetVariable("Final_Phonecall").asBool;
+		
 		/*var allPlantsDestroyed = false;
 		if (_DestroyedItems.Count != 0 && _BreakableItems.Count != 0 &&
 		    _GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
@@ -81,12 +106,20 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			Debug.LogWarning(DialogueLua.GetVariable("Collected_Item_List").ToString());
 		}
 		
-		if (!allItemsCollected /*|| !allPlantsDestroyed*/) return;
+		if (!endGame /*|| !allPlantsDestroyed*/) return;
+		Debug.LogWarning("GAME END, SPAWNING ALBERT");
 		_IsGameOver = true;
 	}
 
 	private void TrackEndGameItems()
 	{
+
+		if (DialogueLua.GetVariable("Money_Collected").asBool && !_moneySet)
+		{
+			m_hasMoney = true;
+			_moneySet = true;
+		}
+		
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count <= 0) return;
 
 		Dictionary<ItemTypes, bool> keysToUpdate = new();
@@ -129,24 +162,35 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		};
 		DialogueLua.SetVariable("Collected_Item_List", collectedItems);
 	}
-	
+
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
+		
+	}
+
+	public void SpawnAlbert()
+	{
+		if (!_IsGameOver)
+		{
+			Debug.LogError("Can't Spawn Albert!");
+			return;
+		}
+		
+		var albertConvoObject = GameObject.Find("Albert");
+		albertConvoObject.GetComponent<DialogueSystemTrigger>().enabled = true;
+		albertConvoObject.GetComponent<DialogueSystemEvents>().enabled = true;
+		
 		// Get Albert's spawner.
 		_AlbertSpawPoint = Utils.FindSpawner("AlbertSpawner");
 
 		// Check for GameOver.
 		if (_IsGameOver && SceneManager.GetActiveScene() ==
-		    SceneManager.GetSceneByName("Hallway1"))
+		    SceneManager.GetSceneByName("DownstairsHallway"))
 		{
+			Debug.LogError("GAME OVER CHECK PASSED");
 			Instantiate(_AlbertPrefab, _AlbertSpawPoint.position,
 				quaternion.identity);
 		}
-
-		// Make sure we are in a gameplay scene.
-		if (_GameManager.m_NoneGameplayScenes.Any(noneGameplayScene =>
-			    scene.name == noneGameplayScene))
-			return;
 
 		// Get breakable items and add/update the list.
 		var newItems =
