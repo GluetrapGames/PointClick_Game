@@ -92,10 +92,9 @@ public class Highlight : MonoBehaviour
 
 		Vector2 mousePos =
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
-		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
-			Mathf.Infinity, LayerMask.GetMask("Highlighter"));
+		var colliderComp = GetComponent<Collider2D>();
 
-		if (hit.collider && hit.collider == GetComponent<Collider2D>())
+		if (colliderComp.OverlapPoint(mousePos))
 			Show();
 		else
 			Hide();
@@ -107,13 +106,13 @@ public class Highlight : MonoBehaviour
 		Awake();
 	}
 
-	private void Hide()
+	public void Hide()
 	{
 		_Material.SetColor(s_OutlineColour, Color.black);
 		_Material.SetFloat(s_OutlineThickness, 0f);
 	}
 
-	private void Show()
+	public void Show()
 	{
 		_Material.SetColor(s_OutlineColour, _DefaultOutlineColour);
 		_Material.SetFloat(s_OutlineThickness, _DefaultOutlineThickness);
