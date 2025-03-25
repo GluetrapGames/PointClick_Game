@@ -59,5 +59,9 @@ public static class Utils
 		return objs.Select(obj => obj.GetComponent<GameManager>())
 			.FirstOrDefault(component => component);
 	}
+
+	public static void RecalculateCollisionBounds()
+	{
+	}
 }
 }

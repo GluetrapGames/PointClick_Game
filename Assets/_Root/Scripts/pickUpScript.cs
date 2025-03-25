@@ -1,5 +1,4 @@
 using System;
-using System.Security.Cryptography.X509Certificates;
 using EditorAttributes;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
@@ -126,13 +125,11 @@ public class PickUpScript : MonoBehaviour
 		DialogueManager.ShowAlert($"{name} has been collected!");
 
 		if (!_GameManager.m_EndGameTracker.m_CollectedItems.Contains(_ItemType))
-		{
 			_GameManager.m_EndGameTracker.m_CollectedItems.Add(_ItemType);
-		}
-		
+
 		_ = _GameManager.m_InventoryManager.CollectItem(
 			new ItemData(gameObject.name, _ItemType, sprite));
-			_pickupSounds.onPickup();
+		_pickupSounds.onPickup();
 
 		// If the object plays a dialogue after pickup
 		if (_StartConvo)
@@ -192,8 +189,8 @@ public class PickUpScript : MonoBehaviour
 		Vector2 mousePos =
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
 
-		// Create a layer mask to ignore the "Player" layer.
-		var layerMask = ~LayerMask.GetMask("Player");
+		// Create a layer mask to ignore the "Player" & "Highlighter" layers.
+		var layerMask = ~LayerMask.GetMask("Player", "Highlighter");
 
 		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
 			Mathf.Infinity, layerMask);
