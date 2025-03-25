@@ -2,11 +2,14 @@ using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 namespace GlueTrap
 {
 public class InteractDialgoue : MonoBehaviour
 {
+	public bool m_Log;
+
 	[SerializeField, Tooltip("The title of the conversation to be played.")]
 	private string _ConversationTitle;
 	[SerializeField,
@@ -16,6 +19,7 @@ public class InteractDialgoue : MonoBehaviour
 	private GameManager _GameManager;
 	private bool _HasPlayedOnce;
 	private InputAction _InteractAction;
+	private bool _IsDestinationSet;
 	private CollideCheck _ItemCollision;
 	private PlayerInput _PlayerInput;
 
@@ -34,9 +38,70 @@ public class InteractDialgoue : MonoBehaviour
 
 	private void Update()
 	{
-		// Check if the interact key was pressed and the player was within the collision zone
-		if (_InteractAction.WasPressedThisFrame() && _ItemCollision.IsCollided)
-			PlayConversation();
+		MouseInteraction();
+
+		// Once the destination is set and the Player reached it, play the conversion.
+		if (_GameManager.m_Player.m_Movement.m_IsMoving ||
+		    !_IsDestinationSet) return;
+		_IsDestinationSet = false;
+		PlayConversation();
+	}
+
+	private void MouseInteraction()
+	{
+		if (!Input.GetMouseButtonDown(0))
+			return;
+
+		Vector2 mousePos =
+			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
+
+		// Create a layer mask to ignore the "Player" layer.
+		var layerMask = ~LayerMask.GetMask("Player");
+
+		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
+			Mathf.Infinity, layerMask);
+		if (m_Log) Debug.Log(hit.collider);
+
+		if (hit.collider && hit.collider.gameObject == gameObject)
+			HandleWallFunction();
+	}
+
+	// Handle wall item functionality.
+	private void HandleWallFunction()
+	{
+		Vector3Int cellPosition =
+			_GameManager.m_Grid.WorldToCell(transform.position);
+
+		if (m_Log)
+			Debug.Log($"Before Loop: {cellPosition}");
+
+		// Find a valid tile within range.
+		while (!_GameManager.m_NavMesh.HasTile(cellPosition) &&
+		       cellPosition.y > -100)
+		{
+			cellPosition.y--;
+			if (m_Log) Debug.Log($"In Loop: {cellPosition}");
+		}
+
+		// If no valid tile is found, output a warning.
+		if (!_GameManager.m_NavMesh.HasTile(cellPosition))
+		{
+			Debug.LogWarning(
+				$"No valid tile found in range of 100 tiles: {cellPosition}");
+			return;
+		}
+
+		if (m_Log)
+		{
+			Debug.Log($"After Loop: {cellPosition}");
+			_GameManager.m_NavMesh.SetTileFlags(cellPosition,
+				TileFlags.None); // Allow colour modification.
+			_GameManager.m_NavMesh.SetColor(cellPosition, Color.green);
+		}
+
+		// Move the player to the target tile.
+		_ = _GameManager.m_Player.SetPlayerDestination(cellPosition);
+		_IsDestinationSet = true;
 	}
 
 	// Plays the conversation
