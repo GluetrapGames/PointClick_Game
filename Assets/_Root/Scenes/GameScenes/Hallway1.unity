@@ -2332,6 +2332,17 @@ Transform:
   - {fileID: 1434891614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799366248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3131110638340060787, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+  m_PrefabInstance: {fileID: 4923121342735307422}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f627f94b60a47c42acca11fb851d769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &812575643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8676,6 +8687,11 @@ Transform:
   - {fileID: 574289984}
   m_Father: {fileID: 792868575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1454299995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2763458240055672709, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+  m_PrefabInstance: {fileID: 2144120935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1470981160
 GameObject:
   m_ObjectHideFlags: 0
@@ -10355,6 +10371,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3314618516946187227, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 799366248}
+    - target: {fileID: 3314618516946187227, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: toggle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10483,6 +10507,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3131110638340060787, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: _ScreenLogButton
+      value: 
+      objectReference: {fileID: 1454299995}
+    - target: {fileID: 3131110638340060787, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: _ScreenPauseButton
+      value: 
+      objectReference: {fileID: 1207311464}
     - target: {fileID: 4907337676841382082, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
