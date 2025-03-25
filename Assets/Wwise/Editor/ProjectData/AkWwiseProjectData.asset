@@ -13,19 +13,6 @@ MonoBehaviour:
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
   AcousticTextureWwu:
-  - PhysicalPath: Virtual Acoustics\Default Work Unit 2.wwu
-    PathAndIcons:
-    - ElementName: Virtual Acoustics
-      ObjectType: 5
-      guid: 00000000000000000000000000000000
-    - ElementName: Default Work Unit 2
-      ObjectType: 12
-      guid: fef77f58d05ca5478965ec9b4d689c75
-    ParentPath: Virtual Acoustics\Default Work Unit 2
-    guid: fef77f58d05ca5478965ec9b4d689c75
-    GuidInternal: 
-    m_lastTime: -8584598198812368407
-    List: []
   - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: Virtual Acoustics
@@ -161,7 +148,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d9cd24203029844a94de634f59516731
     GuidInternal: 
-    m_lastTime: -8584587012933224829
+    m_lastTime: -8584586865192418734
     List:
     - name: Main
       guid: fff4323f282c4e4bbef4b6e13128fb3a
@@ -189,7 +176,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584586894564728760
+    m_lastTime: -8584586841111682870
     List:
     - name: Ambience
       guid: 19c1f8107ed1404c834f7da805b12460
@@ -381,6 +368,23 @@ MonoBehaviour:
       maxDuration: -1
       minDuration: -1
     - name: Dialogue
+      guid: 1a5ab7e86bddf5499262cd911481f821
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: 1a5ab7e86bddf5499262cd911481f821
+      Path: Events\Default Work Unit\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Dialogue
       guid: ec2bcc2c0764444b83ea433766c8f3ff
       id: 3930136735
       PathAndIcons:
@@ -400,23 +404,6 @@ MonoBehaviour:
         ObjectType: 4
         guid: ec2bcc2c0764444b83ea433766c8f3ff
       Path: Events\Default Work Unit\UI\In-Game\Dialogue
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Dialogue
-      guid: 1a5ab7e86bddf5499262cd911481f821
-      id: 3930136735
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Dialogue
-        ObjectType: 4
-        guid: 1a5ab7e86bddf5499262cd911481f821
-      Path: Events\Default Work Unit\Dialogue
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -775,6 +762,49 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 183.48619
       minDuration: 183.48619
+    - name: Outside
+      guid: d27393c04f6d7c4abf8d8fdf6b8dc867
+      id: 438105790
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: Outside
+        ObjectType: 4
+        guid: d27393c04f6d7c4abf8d8fdf6b8dc867
+      Path: Events\Default Work Unit\Ambience\Outside
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: OutsideAmbiance
+      guid: 14400474c1d8dd4eb8d91596d7fd70d3
+      id: 668538670
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: Outside
+        ObjectType: 4
+        guid: d27393c04f6d7c4abf8d8fdf6b8dc867
+      - ElementName: OutsideAmbiance
+        ObjectType: 3
+        guid: 14400474c1d8dd4eb8d91596d7fd70d3
+      Path: Events\Default Work Unit\Ambience\Outside\OutsideAmbiance
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: PhoneHang
       guid: e2b23a5167947a429d2ee0ef4a70f1ff
       id: 616151339
@@ -1061,6 +1091,29 @@ MonoBehaviour:
         ObjectType: 3
         guid: bc2a6e0c297e554798a8e1da8562d169
       Path: Events\Default Work Unit\Music\StopMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: StopOutsideAmb
+      guid: ca6774e56ce67d4793adcd3926eacc3c
+      id: 252616046
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: Outside
+        ObjectType: 4
+        guid: d27393c04f6d7c4abf8d8fdf6b8dc867
+      - ElementName: StopOutsideAmb
+        ObjectType: 3
+        guid: ca6774e56ce67d4793adcd3926eacc3c
+      Path: Events\Default Work Unit\Ambience\Outside\StopOutsideAmb
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -1534,7 +1587,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584586995556055389
+    m_lastTime: -8584586865192262489
     List:
     - name: BreakMaterial
       guid: 52371375a5837847ab5b8d4e1a0afc3a

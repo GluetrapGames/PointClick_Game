@@ -31,6 +31,7 @@ namespace AK
         static const AkUniqueID MUSICFLAT = 924244327U;
         static const AkUniqueID MUSICHOUSE = 1154458182U;
         static const AkUniqueID MUSICMENU = 4082046343U;
+        static const AkUniqueID OUTSIDEAMBIANCE = 668538670U;
         static const AkUniqueID PHONEHANG = 616151339U;
         static const AkUniqueID PHONEPICKUP = 3512872207U;
         static const AkUniqueID PHONERING = 3074298065U;
@@ -43,6 +44,7 @@ namespace AK
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
         static const AkUniqueID STOPHOUSEAMB = 1087974357U;
         static const AkUniqueID STOPMUSIC = 1917263390U;
+        static const AkUniqueID STOPOUTSIDEAMB = 252616046U;
         static const AkUniqueID STOPPHONE = 2049428263U;
         static const AkUniqueID SWINGWEAPON = 729991629U;
         static const AkUniqueID TABLE_CERAMIC = 1780595170U;

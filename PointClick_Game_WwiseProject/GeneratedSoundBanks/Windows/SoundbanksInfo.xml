@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{FC129FD9-01AB-53EC-FF1B-81EA4A2C8B1C}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{42C4C521-3004-2896-3614-B2591F47B7B9}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -87,7 +87,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{6AF3BDAE-2735-C31D-B4DB-BA04D48F5EC0}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{7B8C69C0-A8F7-DB29-711B-FFE5750C1764}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -175,9 +175,13 @@
 					<ShortName>env_rotaryRing_withPositioning.wav</ShortName>
 					<CachePath>SFX/env_rotaryRing_withPositioning_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="319024924" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_outsideNoise.wav</ShortName>
+					<CachePath>SFX/amb_outsideNoise_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="344631608" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>leafstep_light-003.wav</ShortName>
-					<CachePath>SFX/leafstep_light-003_C75B67F4.wem</CachePath>
+					<CachePath>SFX/leafstep_light-003_BC908236.wem</CachePath>
 				</File>
 				<File Id="359437438" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_tile-001.wav</ShortName>
@@ -190,6 +194,10 @@
 				<File Id="404540059" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_back.wav</ShortName>
 					<CachePath>SFX/ui_back_818F3B66.wem</CachePath>
+				</File>
+				<File Id="448191663" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_outsideTone.wav</ShortName>
+					<CachePath>SFX/amb_outsideTone_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="456918740" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_letter.wav</ShortName>
@@ -205,7 +213,7 @@
 				</File>
 				<File Id="503942609" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>leafstep_light-008.wav</ShortName>
-					<CachePath>SFX/leafstep_light-008_44A06A98.wem</CachePath>
+					<CachePath>SFX/leafstep_light-008_3A2674D0.wem</CachePath>
 				</File>
 				<File Id="508778594" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_tile-002.wav</ShortName>
@@ -269,7 +277,7 @@
 				</File>
 				<File Id="666753951" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>leafstep_light-001.wav</ShortName>
-					<CachePath>SFX/leafstep_light-001_B1D5485B.wem</CachePath>
+					<CachePath>SFX/leafstep_light-001_92E287BB.wem</CachePath>
 				</File>
 				<File Id="685121363" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_wood2-001.wav</ShortName>
@@ -331,6 +339,10 @@
 					<ShortName>ui_dialoguePopup.wav</ShortName>
 					<CachePath>SFX/ui_dialoguePopup_818F3B66.wem</CachePath>
 				</File>
+				<File Id="858275127" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>amb_outsideCarPass.wav</ShortName>
+					<CachePath>SFX/amb_outsideCarPass_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="874307624" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_mark_blab.wav</ShortName>
 					<CachePath>SFX/dial_mark_blab_DB4B51CF.wem</CachePath>
@@ -373,7 +385,7 @@
 				</File>
 				<File Id="984449425" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>leafstep_light-006.wav</ShortName>
-					<CachePath>SFX/leafstep_light-006_04D6A43B.wem</CachePath>
+					<CachePath>SFX/leafstep_light-006_02A60CFD.wem</CachePath>
 				</File>
 				<File Id="997645561" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>stinger-001.wav</ShortName>
@@ -412,9 +424,6 @@
 				<Custom>
 					<Plugin Id="577001919" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
 				</Custom>
-				<ShareSets>
-					<Plugin Id="484890516" Name="Church_Small_Wood" LibName="Wwise RoomVerb" LibId="7733251"/>
-				</ShareSets>
 			</Plugins>
 			<Events>
 				<Event Id="1527158674" Name="Blab" DurationType="OneShot" DurationMin="0.056701366" DurationMax="0.13150942">
@@ -478,11 +487,6 @@
 					<MediaRefs>
 						<MediaRef Id="65148548"/>
 					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="484890516"/>
-						</ShareSets>
-					</PluginRefs>
 				</Event>
 				<Event Id="2070691372" Name="CourtCough" DurationType="Infinite">
 					<MediaRefs>
@@ -492,11 +496,6 @@
 						<MediaRef Id="223107153"/>
 						<MediaRef Id="625574116"/>
 					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="484890516"/>
-						</ShareSets>
-					</PluginRefs>
 				</Event>
 				<Event Id="1112129076" Name="CourtHum" DurationType="Infinite">
 					<MediaRefs>
@@ -683,6 +682,13 @@
 						<MediaRef Id="73779194"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="668538670" Name="OutsideAmbiance" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="319024924"/>
+						<MediaRef Id="448191663"/>
+						<MediaRef Id="858275127"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="616151339" Name="PhoneHang" DurationType="OneShot" DurationMin="9.235583" DurationMax="9.235583">
 					<MediaRefs>
 						<MediaRef Id="1028143134"/>
@@ -764,6 +770,7 @@
 				<Event Id="2596245103" Name="StopFootstep" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1087974357" Name="StopHouseAmb" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1917263390" Name="StopMusic" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="252616046" Name="StopOutsideAmb" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2049428263" Name="StopPhone" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="729991629" Name="SwingWeapon" DurationType="OneShot" DurationMin="0.20709683" DurationMax="0.2647209">
 					<MediaRefs>
@@ -872,5 +879,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6D018761-285A-8999-3E37-98FE4B265D8A}</FileHash>
+	<FileHash>{6A944C52-A0EA-C17F-DFF4-095223D5A07F}</FileHash>
 </SoundBanksInfo>

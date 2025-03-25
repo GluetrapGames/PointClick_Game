@@ -688,6 +688,69 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Outside" ID="{C09373D2-6D4F-4A7C-BF8D-8FDF6B8DC867}" ShortID="626686954">
+							<ChildrenList>
+								<Event Name="OutsideAmbiance" ID="{74044014-D8C1-4EDD-B8D9-1596D7FD70D3}">
+									<ChildrenList>
+										<Action Name="" ID="{2E7FBBC0-8B55-4973-9565-6089BC9A7C64}" ShortID="734584057">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Outside Car" ID="{0D140852-0857-4870-925D-8B763B38160A}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{C0648ED9-836C-475B-B42F-14EB939294DA}" ShortID="403196245">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="OutsideHum" ID="{D67379FC-8D11-479E-8682-793BF7B5A57A}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{42BA7D59-63B3-4619-A9B6-E2A24C29580D}" ShortID="440158340">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="OutsideNoise" ID="{49410C95-9B71-4283-BB9F-15BF48493B31}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="StopOutsideAmb" ID="{E57467CA-E66C-477D-93AD-CD3926EACC3C}">
+									<ChildrenList>
+										<Action Name="" ID="{84084A05-0E3E-4E95-AA41-BEFFBA510FDD}" ShortID="983746240">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Outside Car" ID="{0D140852-0857-4870-925D-8B763B38160A}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{6F1E6543-D31C-4A1E-A35D-D2391AAEE26B}" ShortID="982277302">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="OutsideHum" ID="{D67379FC-8D11-479E-8682-793BF7B5A57A}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{EF9F7DD0-5E9E-451E-828E-82FD22BF7DC2}" ShortID="253982813">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="OutsideNoise" ID="{49410C95-9B71-4283-BB9F-15BF48493B31}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{2A57C79D-0DA8-4AA9-B9B1-29EE57FA36AB}" ShortID="442546150">

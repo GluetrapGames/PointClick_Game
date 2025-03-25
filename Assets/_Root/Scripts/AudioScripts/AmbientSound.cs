@@ -13,6 +13,7 @@ namespace GlueTrap
         private bool _HouseActivated = false;
         private bool _CourtActivated = false;
         private bool _ClockActivated = false;
+        private bool _OutsideActivated = false;
         public bool Log;
 
         private void HouseAmbience()
@@ -31,6 +32,12 @@ namespace GlueTrap
             AkSoundEngine.PostEvent("CourtClock", gameObject);
         }
 
+        private void OutsideAmbiance()
+        {
+            _OutsideActivated = true;
+            AkSoundEngine.PostEvent("OutsideAmbiance", gameObject);
+        }
+
         // NOTE FOR PHONE CALL SCRIPT----------------------------------------------------
         //void OnConversationLine(Subtitle subtitle)
         //{
@@ -47,9 +54,11 @@ namespace GlueTrap
             // set playing to true and post.
             if ((scene.name != "MenuScene" && scene.name != "CourtScene 1" && scene.name != "CourtScene 2" && scene.name != "CourtScene 3" && scene.name != "CourtScene 4") && !_HouseActivated)
             {
+                OutsideAmbiance();
                 StopCourt();
                 if (scene.name != "Outside")
                 {
+                    StopOutside();
                     HouseAmbience();
                     Debug.Log("House Ambience = " + _HouseActivated);
                 }
@@ -106,5 +115,10 @@ namespace GlueTrap
             AkSoundEngine.PostEvent("StopHouseAmb", gameObject);
         }
 
+        private void StopOutside()
+        {
+            _OutsideActivated = false;
+            AkSoundEngine.PostEvent("StopOutsideAmb", gameObject);
+        }
     }
 }
