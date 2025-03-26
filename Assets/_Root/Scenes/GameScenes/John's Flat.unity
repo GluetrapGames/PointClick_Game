@@ -1959,12 +1959,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919398143}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 16
+  trigger: 1024
   condition:
     luaConditions: []
     questConditions: []
@@ -2956,6 +2956,97 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bc4cedad540f6837169911598b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1290345452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1290345455}
+  - component: {fileID: 1290345454}
+  - component: {fileID: 1290345453}
+  m_Layer: 0
+  m_Name: Flat's Title Card
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1290345453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290345452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f167d4fc6a99aa948a03f8ababa7e67a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation: JohnFlat_EntryDialogue
+  conversationActor: {fileID: 919398144}
+  conversationConversant: {fileID: 243700207}
+  _Log: 0
+  _LogClipLengths: 0
+  _ObscuringObjects:
+  - {fileID: 1470981160}
+  - {fileID: 757449048}
+  - {fileID: 1827723195}
+  _UseFadeOut: 1
+  _StatingFrameFadeOutTime: 265
+  _FadeSpeed: 1
+--- !u!328 &1290345454
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290345452}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: cc54f5ab693a41c4ea613341a9be21b1, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 0
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &1290345455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290345452}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1374695881
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,6 +3556,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 739489776048684821, guid: 00541914ffcf5b04e8733f615cdb8a1a, type: 3}
   m_PrefabInstance: {fileID: 5926812711672258219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1827723195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7468852923161896967, guid: 39f061461b043427484cb898c93a89ad, type: 3}
+  m_PrefabInstance: {fileID: 1635499748}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1852512659
 GameObject:
@@ -7573,3 +7669,4 @@ SceneRoots:
   - {fileID: 1635499748}
   - {fileID: 4923121342735307422}
   - {fileID: 801629001}
+  - {fileID: 1290345455}

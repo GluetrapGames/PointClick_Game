@@ -177,6 +177,8 @@ public class PlayerGridController : MonoBehaviour
 	// Coroutine that moves the player along the path until complete.
 	private IEnumerator MovementCoroutine()
 	{
+		if (!gameObject.activeInHierarchy) yield return false;
+
 		while (m_Movement.m_IsMoving)
 		{
 			m_Movement.MoveToTile(m_MoveSpeed);

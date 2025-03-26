@@ -26,14 +26,27 @@ public class SceneTransition : MonoBehaviour
 		_GameManager = Utils.GetGameManager();
 
 		if (!transform.parent) return;
-		// Find the Cross-fade animation from one the children.
-		var parentChildren =
-			transform.parent.GetComponentsInChildren<Transform>();
-		foreach (Transform child in parentChildren)
+		// Search itself, its parent, and all of its children's components.
+		GameObject targetObject = GameObject.Find("----SceneTransisitions----");
+
+		if (targetObject)
 		{
-			_crossfadeAnimator = child.GetComponent<Animator>();
+			// Search itself and all of its children for the Animator component
+			_crossfadeAnimator = targetObject.GetComponent<Animator>();
 			if (_crossfadeAnimator) return;
+
+			// Search all children of the target object.
+			var children = targetObject.GetComponentsInChildren<Transform>();
+			foreach (Transform child in children)
+			{
+				_crossfadeAnimator = child.GetComponent<Animator>();
+				if (_crossfadeAnimator) return;
+			}
 		}
+
+		// If the target object is not found or no Animator is found, proceed parent.
+		_crossfadeAnimator = transform.parent.GetComponent<Animator>();
+		if (_crossfadeAnimator) return;
 	}
 
 	private void OnEnable()

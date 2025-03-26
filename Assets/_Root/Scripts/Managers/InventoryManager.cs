@@ -47,7 +47,16 @@ public class InventoryManager : Singleton<InventoryManager>
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
-		if (_GameManager.m_CurrentState == States.InMenus) return;
+		if (_GameManager.m_CurrentState == States.InMenus)
+		{
+			m_Inventory.gameObject.SetActive(false);
+			return;
+		}
+
+		// Enable the inventory if it's disabled.
+		if (!m_Inventory.gameObject.activeInHierarchy)
+			m_Inventory.gameObject.SetActive(true);
+
 		// Find the dropped object parent, if possible.
 		GameObject obj = GameObject.Find("----Pickups----");
 		if (obj == null)

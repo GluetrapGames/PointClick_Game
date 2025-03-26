@@ -8,11 +8,14 @@ using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using UnityEngine.Video;
 
 namespace GlueTrap
 {
 public class GameManager : Singleton<GameManager>
 {
+	public RoomEntryPoints m_RoomPoint = RoomEntryPoints.None;
+
 	[SerializeField, ReadOnly]
 	private States _CurrentState = States.Moving;
 	[SerializeField, SceneDropdown]
@@ -23,14 +26,16 @@ public class GameManager : Singleton<GameManager>
 	private GameObject _PlayerPrefab;
 	[SerializeField, ReadOnly]
 	private Transform _PlayerSpawnPoint;
+
 	public List<string> m_UniqueRoomList;
 	public int m_TotalUniqueRooms;
 	public bool m_hasCrowbar;
 	public int m_totalItemsDestroyed;
 	public bool m_HasEntered;
-	public RoomEntryPoints m_RoomPoint = RoomEntryPoints.None;
-
 	private States _PreviousState;
+	private string _PreviousTitleCard;
+	private TitleCard _TitleCard;
+	private bool _TitleCardPlayed;
 
 	public InventoryManager m_InventoryManager { get; private set; }
 	public EndGameTracker m_EndGameTracker { get; private set; }
@@ -56,6 +61,18 @@ public class GameManager : Singleton<GameManager>
 	{
 		if (DialogueManager.IsConversationActive)
 			ChangeGameState(States.Talking);
+
+		// If the scene has a TitleCard, set the Player's and UI visibility
+		// based on if the TitleCard is playing or not.
+		if (_TitleCard && !_TitleCardPlayed)
+		{
+			m_Player.gameObject.SetActive(!_TitleCard.m_IsPlaying);
+			m_InventoryManager.m_Inventory.gameObject.SetActive(
+				!_TitleCard.m_IsPlaying);
+
+			if (!_TitleCard.m_IsPlaying)
+				_PreviousTitleCard = _TitleCard.name;
+		}
 
 		switch (m_CurrentState)
 		{
@@ -144,6 +161,8 @@ public class GameManager : Singleton<GameManager>
 		if (m_Player)
 			m_Player.m_Movement.m_Path.Clear();
 
+		HandleCameraLogic(scene);
+
 		// Make ignore gameplay logic if in a non-gameplay scene.
 		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
 			    scene.name == noneGameplayScene))
@@ -154,25 +173,11 @@ public class GameManager : Singleton<GameManager>
 			return;
 		}
 
-		// If this is a gameplay scene and the Player is not active, turn them on.
-		ChangeGameState(States.Moving);
-		if (!m_Player.gameObject.activeInHierarchy)
-			m_Player.gameObject.SetActive(true);
-
-		// Handle Camera logic.
-		var virtualCamera =
-			m_Camera.GetComponentInParent<CinemachineVirtualCamera>();
-		UpdateWorldCanvases();
-		// If the follow target is null, make it the player.
-		if (virtualCamera.m_Follow == null)
-			virtualCamera.m_Follow = m_Player.transform;
-
-		// Remove the camera's follow target if on the Outside scene.
-		if (scene.name == "Outside")
-		{
-			virtualCamera.m_Follow = null;
-			virtualCamera.transform.position = new Vector3(0f, 0f, -10f);
-		}
+		// Try and get a Title Card object.
+		_TitleCard = FindFirstObjectByType<TitleCard>();
+		_TitleCardPlayed = _TitleCard?.name == _PreviousTitleCard;
+		if (_TitleCardPlayed)
+			_TitleCard?.gameObject.SetActive(false);
 
 		// Get the Grid and the Navmesh.
 		m_Grid = FindFirstObjectByType<Grid>();
@@ -203,6 +208,32 @@ public class GameManager : Singleton<GameManager>
 		m_Player.SetPositionInGrid(_PlayerSpawnPoint.position);
 	}
 
+	private void HandleCameraLogic(Scene scene)
+	{
+		// If this is a gameplay scene and the Player is not active, turn them on.
+		ChangeGameState(States.Moving);
+		if (!m_Player.gameObject.activeInHierarchy)
+			m_Player.gameObject.SetActive(true);
+
+		// Handle Camera logic.
+		var virtualCamera =
+			m_Camera.GetComponentInParent<CinemachineVirtualCamera>();
+
+		UpdateWorldCanvases();
+		UpdateVideoPlayers();
+
+		// If the follow target is null, make it the player.
+		if (virtualCamera.m_Follow == null)
+			virtualCamera.m_Follow = m_Player.transform;
+
+		// Remove the camera's follow target if on the Outside scene.
+		if (scene.name == "Outside")
+		{
+			virtualCamera.m_Follow = null;
+			virtualCamera.transform.position = new Vector3(0f, 0f, -10f);
+		}
+	}
+
 	private void UpdateWorldCanvases()
 	{
 		var obj = FindObjectsByType<Canvas>(FindObjectsInactive.Include,
@@ -210,6 +241,17 @@ public class GameManager : Singleton<GameManager>
 
 		foreach (Canvas canvas in obj)
 			canvas.worldCamera = m_Camera;
+	}
+
+	private void UpdateVideoPlayers()
+	{
+		var obj = FindObjectsByType<VideoPlayer>(FindObjectsInactive.Include,
+			FindObjectsSortMode.None);
+
+		foreach (VideoPlayer vidPlayer in obj)
+			if (vidPlayer.renderMode is VideoRenderMode.CameraFarPlane
+			    or VideoRenderMode.CameraNearPlane)
+				vidPlayer.targetCamera = m_Camera;
 	}
 
 	public void ChangeGameState(States newState)
