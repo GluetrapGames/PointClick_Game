@@ -23,6 +23,12 @@ public class GameManager : Singleton<GameManager>
 	private GameObject _PlayerPrefab;
 	[SerializeField, ReadOnly]
 	private Transform _PlayerSpawnPoint;
+	public List<string> m_UniqueRoomList;
+	public int m_TotalUniqueRooms;
+	public bool m_hasCrowbar;
+	public int m_totalItemsDestroyed;
+	public bool m_HasEntered;
+	public RoomEntryPoints m_RoomPoint = RoomEntryPoints.None;
 
 	private States _PreviousState;
 
@@ -35,13 +41,7 @@ public class GameManager : Singleton<GameManager>
 	public Camera m_Camera { get; private set; }
 	public List<string> m_NoneGameplayScenes => _NoneGameplayScenes;
 	public Scene m_CurrentScene { get; private set; }
-	public List<string> m_UniqueRoomList;
-	public int m_TotalUniqueRooms;
-	public bool m_hasCrowbar;
-	public int m_totalItemsDestroyed;
-	public bool m_HasEntered;
-	public RoomEntryPoints m_RoomPoint = RoomEntryPoints.None;
-	
+
 
 	protected override void Awake()
 	{
@@ -119,7 +119,7 @@ public class GameManager : Singleton<GameManager>
 		_PlayerSpawnPoint = Utils.FindSpawner("PlayerSpawner");
 		Vector3 spawnPos = _PlayerSpawnPoint
 			? _PlayerSpawnPoint.position
-			: Vector3.zero;
+			: new Vector3(0f, 0f, 9.99f);
 
 		// Make sure we don't already have the Player.
 		var obj = FindFirstObjectByType<PlayerGridController>();
@@ -144,7 +144,7 @@ public class GameManager : Singleton<GameManager>
 		if (m_Player)
 			m_Player.m_Movement.m_Path.Clear();
 
-		// Make sure we are in a gameplay scene.
+		// Make ignore gameplay logic if in a non-gameplay scene.
 		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
 			    scene.name == noneGameplayScene))
 		{
@@ -158,6 +158,21 @@ public class GameManager : Singleton<GameManager>
 		ChangeGameState(States.Moving);
 		if (!m_Player.gameObject.activeInHierarchy)
 			m_Player.gameObject.SetActive(true);
+
+		// Handle Camera logic.
+		var virtualCamera =
+			m_Camera.GetComponentInParent<CinemachineVirtualCamera>();
+		UpdateWorldCanvases();
+		// If the follow target is null, make it the player.
+		if (virtualCamera.m_Follow == null)
+			virtualCamera.m_Follow = m_Player.transform;
+
+		// Remove the camera's follow target if on the Outside scene.
+		if (scene.name == "Outside")
+		{
+			virtualCamera.m_Follow = null;
+			virtualCamera.transform.position = new Vector3(0f, 0f, -10f);
+		}
 
 		// Get the Grid and the Navmesh.
 		m_Grid = FindFirstObjectByType<Grid>();
@@ -186,6 +201,15 @@ public class GameManager : Singleton<GameManager>
 
 		// Update Player position.
 		m_Player.SetPositionInGrid(_PlayerSpawnPoint.position);
+	}
+
+	private void UpdateWorldCanvases()
+	{
+		var obj = FindObjectsByType<Canvas>(FindObjectsInactive.Include,
+			FindObjectsSortMode.None);
+
+		foreach (Canvas canvas in obj)
+			canvas.worldCamera = m_Camera;
 	}
 
 	public void ChangeGameState(States newState)

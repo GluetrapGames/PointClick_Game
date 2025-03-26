@@ -75,7 +75,9 @@ public class SceneTransition : MonoBehaviour
 			if (obj.m_EntryPoint == _GameManager.m_RoomPoint &&
 			    obj.m_ExitPoint != RoomEntryPoints.None)
 			{
-				_GameManager.m_Player.SetPositionInGrid(obj.transform.position);
+				Vector3 newPos = obj.transform.position;
+				newPos.z = 9.99f;
+				_GameManager.m_Player.SetPositionInGrid(newPos);
 				break;
 			}
 
