@@ -176,7 +176,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584586009780711980
+    m_lastTime: -8584585971396213883
     List:
     - name: Ambience
       guid: 19c1f8107ed1404c834f7da805b12460
@@ -368,23 +368,6 @@ MonoBehaviour:
       maxDuration: -1
       minDuration: -1
     - name: Dialogue
-      guid: 1a5ab7e86bddf5499262cd911481f821
-      id: 3930136735
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Dialogue
-        ObjectType: 4
-        guid: 1a5ab7e86bddf5499262cd911481f821
-      Path: Events\Default Work Unit\Dialogue
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Dialogue
       guid: ec2bcc2c0764444b83ea433766c8f3ff
       id: 3930136735
       PathAndIcons:
@@ -407,6 +390,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Dialogue
+      guid: 1a5ab7e86bddf5499262cd911481f821
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: 1a5ab7e86bddf5499262cd911481f821
+      Path: Events\Default Work Unit\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Environment
       guid: 9dc7572aa80da94ab9b129ee57fa36ab
       id: 1229948536
@@ -421,6 +421,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
       Path: Events\Default Work Unit\Environment
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Flat
+      guid: dd963c2b5c06b742aa5bf2b237f53fc5
+      id: 2931383624
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: Flat
+        ObjectType: 4
+        guid: dd963c2b5c06b742aa5bf2b237f53fc5
+      Path: Events\Default Work Unit\Ambience\Flat
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -487,6 +507,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.7046875
       minDuration: 0.7046875
+    - name: GameShow
+      guid: 7c02b62753c72e4cac9bb5dfb3a77ed2
+      id: 1875833188
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: Flat
+        ObjectType: 4
+        guid: dd963c2b5c06b742aa5bf2b237f53fc5
+      - ElementName: GameShow
+        ObjectType: 3
+        guid: 7c02b62753c72e4cac9bb5dfb3a77ed2
+      Path: Events\Default Work Unit\Ambience\Flat\GameShow
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: glass_cupboard
       guid: 180d5c1a9cd1dd4daf49dae10d6daa8c
       id: 3198831486
@@ -1506,7 +1549,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584586152433675577
+    m_lastTime: -8584585971396523319
     List:
     - name: vol_dialogue
       guid: d375c4070ca9a54aa883e10fff410998
@@ -1525,6 +1568,23 @@ MonoBehaviour:
         ObjectType: 13
         guid: d375c4070ca9a54aa883e10fff410998
       Path: Game Parameters\Default Work Unit\Volume\vol_dialogue
+    - name: vol_gameShow
+      guid: 1bea4db4dc66554a94c983867cacfcd5
+      id: 4202393254
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2e9cb6d90aac234bb9dfd552a0729065
+      - ElementName: Volume
+        ObjectType: 4
+        guid: c02806cb7e2f824db4040f8d72f554bd
+      - ElementName: vol_gameShow
+        ObjectType: 13
+        guid: 1bea4db4dc66554a94c983867cacfcd5
+      Path: Game Parameters\Default Work Unit\Volume\vol_gameShow
     - name: vol_loud
       guid: 8dbb35ec9f27b04b99f4685c961dce5f
       id: 223679447

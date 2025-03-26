@@ -30,6 +30,7 @@ public class EnvironmentSounds : MonoBehaviour
 			case 1:
 				AkSoundEngine.PostEvent("StopPhone", gameObject);
 				AkSoundEngine.PostEvent("PhonePickup", gameObject);
+				AkSoundEngine.SetRTPCValue("vol_gameShow", 25f);
 				break;
 			case 31:
 				AkSoundEngine.PostEvent("PhoneHang", gameObject);
@@ -37,6 +38,7 @@ public class EnvironmentSounds : MonoBehaviour
 			case 32:
 				AkSoundEngine.PostEvent("PhoneSlam", gameObject);
 				AkSoundEngine.PostEvent("StopPhone", gameObject);
+				AkSoundEngine.SetRTPCValue("vol_gameShow", 75f);
 				break;
             }
         }

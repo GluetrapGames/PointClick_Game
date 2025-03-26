@@ -38,16 +38,6 @@ namespace GlueTrap
             AkSoundEngine.PostEvent("OutsideAmbiance", gameObject);
         }
 
-        // NOTE FOR PHONE CALL SCRIPT----------------------------------------------------
-        //void OnConversationLine(Subtitle subtitle)
-        //{
-        //    if (subtitle.dialogueEntry.conversationID == numba)
-        //    {
-
-        //    }
-        //}
-
-
         public override void OnSceneChange(Scene scene, LoadSceneMode mode)
         {
             // On scene change, If not on menu scene and is not currently playing,
@@ -61,6 +51,11 @@ namespace GlueTrap
                     StopOutside();
                     HouseAmbience();
                     Debug.Log("House Ambience = " + _HouseActivated);
+                }
+
+                if (scene.name == "John's Flat")
+                {
+                    AkSoundEngine.PostEvent("GameShow", gameObject);
                 }
 
             }

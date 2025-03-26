@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E5FFC2DE-F8C6-FE07-E722-522E9AC9A4E2}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{1668BD0B-E059-B002-9B70-B24BBEE4E2E0}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -32,6 +32,7 @@
 				<GameParameter Id="2119574057" Name="vol_dialogue"/>
 				<GameParameter Id="3273357900" Name="vol_sfx"/>
 				<GameParameter Id="3391499625" Name="vol_master"/>
+				<GameParameter Id="4202393254" Name="vol_gameShow"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="1369071785" Name="FlatMusic">
@@ -93,7 +94,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3D489F26-2E99-98EB-8096-8F62B3DF8043}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2432E5C8-6DE5-DAA1-EA19-1473B1057265}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -260,6 +261,10 @@
 				<File Id="560138299" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_break_taxidermy-001.wav</ShortName>
 					<CachePath>SFX/viol_break_taxidermy-001_818F3B66.wem</CachePath>
+				</File>
+				<File Id="569836259" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_gameShow.wav</ShortName>
+					<CachePath>SFX/env_gameShow_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="584904381" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_court_buzz.wav</ShortName>
@@ -564,6 +569,11 @@
 				<Event Id="627991214" Name="FridgeOpen" DurationType="OneShot" DurationMin="0.7046875" DurationMax="0.7046875">
 					<MediaRefs>
 						<MediaRef Id="887318230"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1875833188" Name="GameShow" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="569836259"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3198831486" Name="glass_cupboard" DurationType="OneShot" DurationMin="0.76646316" DurationMax="1.7208999">
@@ -874,6 +884,7 @@
 			</Events>
 			<GameParameters>
 				<GameParameter Id="223679447" Name="vol_loud"/>
+				<GameParameter Id="4202393254" Name="vol_gameShow"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="1369071785" Name="FlatMusic">
@@ -936,5 +947,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{37EC97B7-7725-8D56-6D94-E8BEEDB31DE2}</FileHash>
+	<FileHash>{E0DA24D8-C859-BE38-465C-5E7A15AEDBBA}</FileHash>
 </SoundBanksInfo>

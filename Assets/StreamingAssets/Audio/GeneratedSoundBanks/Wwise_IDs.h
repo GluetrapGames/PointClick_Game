@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID COURTHUM = 1112129076U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID FRIDGEOPEN = 627991214U;
+        static const AkUniqueID GAMESHOW = 1875833188U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
         static const AkUniqueID HOUSECREAK = 3508689533U;
@@ -155,6 +156,7 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID VOL_DIALOGUE = 2119574057U;
+        static const AkUniqueID VOL_GAMESHOW = 4202393254U;
         static const AkUniqueID VOL_LOUD = 223679447U;
         static const AkUniqueID VOL_MASTER = 3391499625U;
         static const AkUniqueID VOL_MUSIC = 1004648580U;
