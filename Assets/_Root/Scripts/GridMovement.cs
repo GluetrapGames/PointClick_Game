@@ -229,8 +229,12 @@ public class GridMovement : MonoBehaviour
 
 		transform.position = targetPosition;
 		m_CurrentPathIndex++;
-		if (m_CurrentPathIndex >= m_Path.Count)
-			m_IsMoving = false;
+
+		// Once reached, clear the path data.
+		if (m_CurrentPathIndex < m_Path.Count) return;
+		m_Path.Clear();
+		m_CurrentPathIndex = 0;
+		m_IsMoving = false;
 	}
 
 	// Coroutine that calls MoveToTile until the path is complete.

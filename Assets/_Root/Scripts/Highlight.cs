@@ -94,8 +94,14 @@ public class Highlight : MonoBehaviour
 
 	private void Update()
 	{
-		// Ignore if used by composite.
+		// Ignore if used by composite or is not moving, ignore.
 		if (m_UsedByComposite) return;
+		// Only allow highlighting when not talking or in menus.
+		if (_GameManager.m_CurrentState != States.Moving)
+		{
+			Hide();
+			return;
+		}
 
 		Vector2 mousePos =
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);

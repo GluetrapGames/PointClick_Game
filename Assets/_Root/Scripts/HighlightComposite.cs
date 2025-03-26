@@ -29,20 +29,45 @@ public class HighlightComposite : MonoBehaviour
 
 	private void Update()
 	{
+		// Only allow highlighting when not talking or in menus.
+		if (_GameManager.m_CurrentState != States.Moving)
+		{
+			HideAll();
+			return;
+		}
+
 		Vector2 mousePos =
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
 		var colliderComp = GetComponent<Collider2D>();
 
 		if (colliderComp.OverlapPoint(mousePos))
-		{
-			foreach (Highlight highlight in _highlights)
-				highlight.Show();
-		}
+			ShowAll();
 		else
+			HideAll();
+	}
+
+	private void ShowAll()
+	{
+		if (_highlights.Count <= 0)
 		{
-			foreach (Highlight highlight in _highlights)
-				highlight.Hide();
+			Debug.LogWarning($"<{this}> Highlights are empty!");
+			return;
 		}
+
+		foreach (Highlight highlight in _highlights)
+			highlight.Show();
+	}
+
+	private void HideAll()
+	{
+		if (_highlights.Count <= 0)
+		{
+			Debug.LogWarning($"<{this}> Highlights are empty!");
+			return;
+		}
+
+		foreach (Highlight highlight in _highlights)
+			highlight.Hide();
 	}
 
 	private void CombineColliders()
