@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID COURTCOUGH = 2070691372U;
         static const AkUniqueID COURTHUM = 1112129076U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
+        static const AkUniqueID FRIDGEOPEN = 627991214U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
         static const AkUniqueID HOUSECREAK = 3508689533U;
@@ -32,6 +33,8 @@ namespace AK
         static const AkUniqueID MUSICHOUSE = 1154458182U;
         static const AkUniqueID MUSICMENU = 4082046343U;
         static const AkUniqueID OUTSIDEAMBIANCE = 668538670U;
+        static const AkUniqueID OVENCLOSE = 1111768629U;
+        static const AkUniqueID OVENOPEN = 3458950111U;
         static const AkUniqueID PHONEHANG = 616151339U;
         static const AkUniqueID PHONEPICKUP = 3512872207U;
         static const AkUniqueID PHONERING = 3074298065U;
@@ -58,6 +61,17 @@ namespace AK
 
     namespace STATES
     {
+        namespace FLATMUSIC
+        {
+            static const AkUniqueID GROUP = 1369071785U;
+
+            namespace STATE
+            {
+                static const AkUniqueID BEGIN = 349818688U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace FLATMUSIC
+
         namespace HOUSEMUSIC
         {
             static const AkUniqueID GROUP = 1848906592U;

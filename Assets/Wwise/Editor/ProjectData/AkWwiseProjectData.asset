@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 5909de92d8ac4141b7fe347eabe5cda5
     GuidInternal: 
-    m_lastTime: -8584598198812358432
+    m_lastTime: -8584586152421954796
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: a003960deb8bdf468e97a26af7e6ab6c
     GuidInternal: 
-    m_lastTime: -8584587863116916271
+    m_lastTime: -8584586152427130362
     List:
     - name: Dialogue
       guid: 13d5f7f34eace145936fbb7376e25110
@@ -148,7 +148,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d9cd24203029844a94de634f59516731
     GuidInternal: 
-    m_lastTime: -8584586154188629255
+    m_lastTime: -8584586122196848529
     List:
     - name: Main
       guid: fff4323f282c4e4bbef4b6e13128fb3a
@@ -176,7 +176,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584586154213106113
+    m_lastTime: -8584586009780711980
     List:
     - name: Ambience
       guid: 19c1f8107ed1404c834f7da805b12460
@@ -444,6 +444,49 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.4487923
       minDuration: 0.1712196
+    - name: Fridge
+      guid: 83e06b0f0a34f04bac688c03f112f314
+      id: 2337612214
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Fridge
+        ObjectType: 4
+        guid: 83e06b0f0a34f04bac688c03f112f314
+      Path: Events\Default Work Unit\Environment\Fridge
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FridgeOpen
+      guid: 0cdb9f7eea2ef14b997639490d9cc994
+      id: 627991214
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Fridge
+        ObjectType: 4
+        guid: 83e06b0f0a34f04bac688c03f112f314
+      - ElementName: FridgeOpen
+        ObjectType: 3
+        guid: 0cdb9f7eea2ef14b997639490d9cc994
+      Path: Events\Default Work Unit\Environment\Fridge\FridgeOpen
+      maxAttenuation: 0
+      maxDuration: 0.7046875
+      minDuration: 0.7046875
     - name: glass_cupboard
       guid: 180d5c1a9cd1dd4daf49dae10d6daa8c
       id: 3198831486
@@ -805,6 +848,92 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Oven
+      guid: 8b5194053ea20b4a940b2cd323c20d3e
+      id: 3677122683
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Oven
+        ObjectType: 4
+        guid: 8b5194053ea20b4a940b2cd323c20d3e
+      Path: Events\Default Work Unit\Environment\Oven
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: OvenClose
+      guid: 8fb3c9554133434eb6b3f8bed88e832e
+      id: 1111768629
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Oven
+        ObjectType: 4
+        guid: 8b5194053ea20b4a940b2cd323c20d3e
+      - ElementName: OvenClose
+        ObjectType: 3
+        guid: 8fb3c9554133434eb6b3f8bed88e832e
+      Path: Events\Default Work Unit\Environment\Oven\OvenClose
+      maxAttenuation: 0
+      maxDuration: 1.1205312
+      minDuration: 1.1205312
+    - name: OvenOpen
+      guid: 6ea6f6718b810d40a1aea379e1eea043
+      id: 3458950111
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Oven
+        ObjectType: 4
+        guid: 8b5194053ea20b4a940b2cd323c20d3e
+      - ElementName: OvenOpen
+        ObjectType: 3
+        guid: 6ea6f6718b810d40a1aea379e1eea043
+      Path: Events\Default Work Unit\Environment\Oven\OvenOpen
+      maxAttenuation: 0
+      maxDuration: 0.86815625
+      minDuration: 0.86815625
+    - name: Phone
+      guid: 93e0a01ac86d644289e31e48389f8b75
+      id: 3104856687
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
+      Path: Events\Default Work Unit\Environment\Phone
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: PhoneHang
       guid: e2b23a5167947a429d2ee0ef4a70f1ff
       id: 616151339
@@ -818,10 +947,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: PhoneHang
         ObjectType: 3
         guid: e2b23a5167947a429d2ee0ef4a70f1ff
-      Path: Events\Default Work Unit\Environment\PhoneHang
+      Path: Events\Default Work Unit\Environment\Phone\PhoneHang
       maxAttenuation: 0
       maxDuration: 9.235583
       minDuration: 9.235583
@@ -838,10 +970,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: PhonePickup
         ObjectType: 3
         guid: 95a402317e414a4ebeeaa38f102a771f
-      Path: Events\Default Work Unit\Environment\PhonePickup
+      Path: Events\Default Work Unit\Environment\Phone\PhonePickup
       maxAttenuation: 0
       maxDuration: 0.25750333
       minDuration: 0.25750333
@@ -858,10 +993,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: PhoneRing
         ObjectType: 3
         guid: bf1f4e079337a744af09c8d68469e48b
-      Path: Events\Default Work Unit\Environment\PhoneRing
+      Path: Events\Default Work Unit\Environment\Phone\PhoneRing
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -878,10 +1016,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: PhoneSlam
         ObjectType: 3
         guid: 7ba5d2e5d5c2b840af06cc6db7bf767f
-      Path: Events\Default Work Unit\Environment\PhoneSlam
+      Path: Events\Default Work Unit\Environment\Phone\PhoneSlam
       maxAttenuation: 0
       maxDuration: 1.1565759
       minDuration: 1.1565759
@@ -1130,10 +1271,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: StopPhone
         ObjectType: 3
         guid: 06289bce4abe3e47b37b129c5b82fb07
-      Path: Events\Default Work Unit\Environment\StopPhone
+      Path: Events\Default Work Unit\Environment\Phone\StopPhone
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -1362,7 +1506,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584587863116825978
+    m_lastTime: -8584586152433675577
     List:
     - name: vol_dialogue
       guid: d375c4070ca9a54aa883e10fff410998
@@ -1475,8 +1619,58 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: aaef3b61817689459787a303f0cc8de8
     GuidInternal: 
-    m_lastTime: -8584587863117026438
+    m_lastTime: -8584586042774259807
     List:
+    - name: FlatMusic
+      guid: 60efac30605f2e4497ac1b0bf46606a2
+      id: 1369071785
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aaef3b61817689459787a303f0cc8de8
+      - ElementName: FlatMusic
+        ObjectType: 9
+        guid: 60efac30605f2e4497ac1b0bf46606a2
+      Path: States\Default Work Unit\FlatMusic
+      values:
+      - name: Begin
+        guid: dcecf3d504e7834885a9843ce0f70fc3
+        id: 349818688
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: aaef3b61817689459787a303f0cc8de8
+        - ElementName: FlatMusic
+          ObjectType: 9
+          guid: 60efac30605f2e4497ac1b0bf46606a2
+        - ElementName: Begin
+          ObjectType: 8
+          guid: dcecf3d504e7834885a9843ce0f70fc3
+      - name: None
+        guid: 7f3b071847a0304b8e228b29118116dd
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: aaef3b61817689459787a303f0cc8de8
+        - ElementName: FlatMusic
+          ObjectType: 9
+          guid: 60efac30605f2e4497ac1b0bf46606a2
+        - ElementName: None
+          ObjectType: 8
+          guid: 7f3b071847a0304b8e228b29118116dd
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
     - name: HouseMusic
       guid: 72cc6de581d4f34e9d6bb785c2b8771d
       id: 1848906592
@@ -1587,7 +1781,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584586154188613960
+    m_lastTime: -8584586122196848529
     List:
     - name: BreakMaterial
       guid: 52371375a5837847ab5b8d4e1a0afc3a
@@ -2057,10 +2251,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 8aff68e09ca652408bd2e782fdf49389
     GuidInternal: 
-    m_lastTime: -8584598198812368407
+    m_lastTime: -8584586152421954796
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0600000007000000080000000b0000004b000000
+  ExpandedWaapiItemIds: 0600000007000000080000000b0000000f00000010000000110000004b000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

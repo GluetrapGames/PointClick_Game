@@ -1156,10 +1156,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
@@ -1167,7 +1175,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 855947280}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 855947280}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 855947280}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
@@ -1175,11 +1199,35 @@ PrefabInstance:
       value: PlayRingSounds
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayOvenSounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlayFridgeSounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GlueTrap.PhoneCallSounds, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GlueTrap.EnvironmentSounds, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GlueTrap.EnvironmentSounds, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4907337676841382082, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}

@@ -4,14 +4,16 @@ Event	ID	Name			Wwise Object Path	Notes
 	316795645	CourtBuzz			\Default Work Unit\Ambience\Court\CourtBuzz	
 	500465782	ui_letter			\Default Work Unit\UI\In-Game\Dialogue\ui_letter	
 	584038952	bug_shelf			\Default Work Unit\Breaks\Specific\bug_shelf	
-	616151339	PhoneHang			\Default Work Unit\Environment\PhoneHang	
+	616151339	PhoneHang			\Default Work Unit\Environment\Phone\PhoneHang	
+	627991214	FridgeOpen			\Default Work Unit\Environment\Fridge\FridgeOpen	
 	668538670	OutsideAmbiance			\Default Work Unit\Ambience\Outside\OutsideAmbiance	
 	712272009	RoomTransition			\Default Work Unit\Player\RoomTransition	
 	729991629	SwingWeapon			\Default Work Unit\Player\SwingWeapon	
 	795797694	StopCourtAmb			\Default Work Unit\Ambience\Court\StopCourtAmb	
 	924244327	MusicFlat			\Default Work Unit\Music\MusicFlat	
 	1087974357	StopHouseAmb			\Default Work Unit\Ambience\House\StopHouseAmb	
-	1097061028	PhoneSlam			\Default Work Unit\Environment\PhoneSlam	
+	1097061028	PhoneSlam			\Default Work Unit\Environment\Phone\PhoneSlam	
+	1111768629	OvenClose			\Default Work Unit\Environment\Oven\OvenClose	
 	1112129076	CourtHum			\Default Work Unit\Ambience\Court\CourtHum	
 	1154458182	MusicHouse			\Default Work Unit\Music\MusicHouse	
 	1527158674	Blab			\Default Work Unit\Dialogue\Blab	
@@ -21,20 +23,21 @@ Event	ID	Name			Wwise Object Path	Notes
 	1903191047	HouseTone			\Default Work Unit\Ambience\House\HouseTone	
 	1917263390	StopMusic			\Default Work Unit\Music\StopMusic	
 	2024222415	ui_back			\Default Work Unit\UI\In-Game\Dialogue\ui_back	
-	2049428263	StopPhone			\Default Work Unit\Environment\StopPhone	
+	2049428263	StopPhone			\Default Work Unit\Environment\Phone\StopPhone	
 	2070691372	CourtCough			\Default Work Unit\Ambience\Court\CourtCough	
 	2118900976	ui_hover			\Default Work Unit\UI\In-Game\Dialogue\ui_hover	
 	2570475550	record_player			\Default Work Unit\Breaks\Specific\record_player	
 	2596245103	StopFootstep			\Default Work Unit\Player\StopFootstep	
 	2774129122	ui_select			\Default Work Unit\UI\In-Game\Dialogue\ui_select	
 	3063554414	menu_back			\Default Work Unit\UI\Menu\menu_back	
-	3074298065	PhoneRing			\Default Work Unit\Environment\PhoneRing	
+	3074298065	PhoneRing			\Default Work Unit\Environment\Phone\PhoneRing	
 	3161912504	HouseBuzz			\Default Work Unit\Ambience\House\HouseBuzz	
 	3198831486	glass_cupboard			\Default Work Unit\Breaks\Specific\glass_cupboard	
 	3307117116	CourtClock			\Default Work Unit\Ambience\Court\CourtClock	
 	3452930546	ui_dialoguePopup			\Default Work Unit\UI\In-Game\Dialogue\ui_dialoguePopup	
+	3458950111	OvenOpen			\Default Work Unit\Environment\Oven\OvenOpen	
 	3508689533	HouseCreak			\Default Work Unit\Ambience\House\HouseCreak	
-	3512872207	PhonePickup			\Default Work Unit\Environment\PhonePickup	
+	3512872207	PhonePickup			\Default Work Unit\Environment\Phone\PhonePickup	
 	3811696612	taxi_animal			\Default Work Unit\Breaks\Specific\taxi_animal	
 	3865314626	Material			\Default Work Unit\Breaks\Material	
 	4082046343	MusicMenu			\Default Work Unit\Music\MusicMenu	
@@ -74,9 +77,12 @@ Switch	ID	Name	Switch Group			Notes
 	4248645337	Grass	FootstepMaterial			
 
 State Group	ID	Name			Wwise Object Path	Notes
+	1369071785	FlatMusic			\Default Work Unit\FlatMusic	
 	1848906592	HouseMusic			\Default Work Unit\HouseMusic	
 
 State	ID	Name	State Group			Notes
+	349818688	Begin	FlatMusic			
+	748895195	None	FlatMusic			
 	289078192	higher	HouseMusic			
 	545371365	low	HouseMusic			
 	748895195	None	HouseMusic			
@@ -90,86 +96,89 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	577001919	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Narrator\Silence	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	2700846	amb_court_cough-003	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-003_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-003\amb_court_cough-003		192096
-	28743199	amb_court_cough-005	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-005_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-005\amb_court_cough-005		119136
-	31616214	amb_house_creaks-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-001_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-001\amb_house_creaks-001		256096
-	61938418	viol_break_ceramic	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_ceramic_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Ceramic\viol_break_ceramic		360472
-	65148548	amb_court_clock	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_clock_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Clock\amb_court_clock\amb_court_clock		8192096
-	73779194	track_menu	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\track_menu_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\track_menu		35229444
-	124322530	amb_court_cough-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-001_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-001\amb_court_cough-001		128096
-	144182143	player_takeKeys	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takeItem_001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takeKeys		140032
-	164611052	step_woodCarpet-003	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_woodCarpet-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Carpet\step_woodCarpet-003		63352
-	195012293	viol_hit_electronic-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_electronic-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Electronic\viol_hit_electronic-001		128156
-	200092242	dial_john_blab02	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_john_blab02_AAB6020F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\John\dial_john_blab02		18128
-	215169109	step_tile-004	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_tile-004_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Tile\step_tile-004		231092
-	216833292	step_woodCarpet-002	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_woodCarpet-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Carpet\step_woodCarpet-002		64616
-	221075044	player_takeCash_02	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takeCash_02_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takeCash_02		488436
-	223107153	amb_court_cough-004	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-004_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-004\amb_court_cough-004		135776
-	237387029	step_woodCarpet-004	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_woodCarpet-004_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Carpet\step_woodCarpet-004		46904
-	243031147	amb_house_creaks-006	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-006_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-006\amb_house_creaks-006		768096
-	277770706	ui_menu_select	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_menu_select_3198CB9C.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_select		70584
-	279270167	player_takePills	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takePills_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takePills		132936
-	286209512	woodStep_001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\wood_light-004_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Wood\woodStep_001		36996
-	310977452	PhoneRing	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_rotaryRing_withPositioning_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\PhoneRing		3263496
-	319024924	amb_outsideNoise	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_outsideNoise_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Outside\OutsideNoise\amb_outsideNoise\amb_outsideNoise		2181856
-	344631608	leafstep_light-003	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\leafstep_light-003_BC908236.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Grass\leafstep_light-003		53872
-	359437438	step_tile-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_tile-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Tile\step_tile-001		214152
-	382891266	viol_hit_plant-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_plant-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Plant\viol_hit_plant-001		59772
-	404540059	ui_back	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_back_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_back		88144
-	448191663	amb_outsideTone	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_outsideTone_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Outside\OutsideHum\amb_outsideTone\amb_outsideTone		2181856
-	456918740	ui_letter	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_letter_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_letter		25004
-	471800072	amb_house_creaks-005	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-005_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-005\amb_house_creaks-005		512096
-	473419309	amb_court_hum	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_hum_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Noise\amb_court_buzz\amb_court_hum		4116528
-	503942609	leafstep_light-008	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\leafstep_light-008_3A2674D0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Grass\leafstep_light-008		56784
-	508778594	step_tile-002	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_tile-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Tile\step_tile-002		219020
-	525460864	step_tile-003	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_tile-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Tile\step_tile-003		217364
-	526647247	onboardingMusic	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\onboardingMusic_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\FlatMusic\onboardingMusic\onboardingMusic		12648000
-	532204821	viol_break_taxidermy	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_taxidermy_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Taxidermy\viol_break_taxidermy		86188
-	534372370	viol_weapon_swing-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_weapon_swing-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\weaponSwing\viol_weapon_swing-001		44728
-	538967076	player_takePaper	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takePaper_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takePaper		110648
-	556450385	amb_house_noise	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_noise_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Noise\amb_house_noise\amb_house_noise		4224096
-	560138299	viol_break_taxidermy-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_taxidermy-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Taxidermy\viol_break_taxidermy-001		86188
-	584904381	amb_court_buzz	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_buzz_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Hum\amb_court_hum\amb_court_buzz		11346016
-	599646490	viol_break_bigGlass	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_bigGlass_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\BigGlass\viol_break_bigGlass		377072
-	602562853	amb_house_tone-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_tone-001_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Hum\amb_house_tone-001\amb_house_tone-001		4224096
-	604374767	ui_menu_back	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_menu_back_831DFFC4.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_back		75756
-	611916014	env_phoneSlam	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_phoneSlam_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\env_phoneSlam		204116
-	625574116	amb_court_cough-002	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-002_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-002\amb_court_cough-002		192096
-	655306073	amb_house_creaks-004	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-004_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-004\amb_house_creaks-004		512096
-	666753951	leafstep_light-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\leafstep_light-001_92E287BB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Grass\leafstep_light-001		71000
-	685121363	viol_hit_wood2-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_wood2-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Wood\viol_hit_wood2-001		147936
-	687109068	ui_select	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_select_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_select		40720
-	699494019	viol_hit_metal-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_metal-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Metal\viol_hit_metal-001		72216
-	701244824	high	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\high_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\House Music\PlayHigh\high\high		6509592
-	711482501	low	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\low_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\House Music\PlayLow\low\low		6522072
-	718177124	jack_blab	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_lawyer_blab_74894F2E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Jack\jack_blab		20724
-	718932789	viol_hit_metal	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_metal_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Metal\viol_hit_metal		114064
-	739141563	dial_judge_blab	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_judge_blab_079991E4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Judge\dial_judge_blab		7656
-	753263382	woodStep_004	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\wood_light-009_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Wood\woodStep_004		115420
-	772522099	mid	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\mid_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\House Music\PlayMid\mid\mid		6701160
-	779487297	amb_house_creaks-003	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-003_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-003\amb_house_creaks-003		512096
-	797840335	woodStep_003	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\wood_light-010_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Wood\woodStep_003		110792
-	798446541	higher	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\higher_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\House Music\PlayHigher\higher\higher		6502704
-	837599648	roomTransition	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\roomTransition_C28C2B1C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\roomTransition		337004
-	845512123	ui_dialoguePopup	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_dialoguePopup_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_dialoguePopup		215236
-	858275127	amb_outsideCarPass	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_outsideCarPass_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Outside\Outside Car\amb_outsideCarPass\amb_outsideCarPass		1940496
-	874307624	Mark	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_mark_blab_DB4B51CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Mark		10280
-	874754579	viol_break_glass-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_glass-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Glass\viol_break_glass-001		67112
-	886243449	player_takeCrowbar	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takeCrowbar_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takeCrowbar		159140
-	886830654	viol_hit_electronic	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_electronic_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Electronic\viol_hit_electronic		113088
-	908946443	amb_house_creaks-002	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-002_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-002\amb_house_creaks-002		512096
-	917324197	step_woodCarpet-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_woodCarpet-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Carpet\step_woodCarpet-001		77556
-	920958933	ui_hover	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_hover_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_hover		19740
-	943812538	woodStep_002	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\wood_light-008_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Wood\woodStep_002		63684
-	947122152	viol_hit_wood2-002	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_wood2-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Wood\viol_hit_wood2-002		228576
-	976753790	ui_menu_hover	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_menu_hover_8447143A.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_hover		7068
-	984449425	leafstep_light-006	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\leafstep_light-006_02A60CFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Grass\leafstep_light-006		59260
-	997645561	stinger	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\stinger-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\stinger		281096
-	1015922044	albert_blab	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_alMcGuig_blab_8A50D783.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Albert\albert_blab		12400
-	1028143134	env_hangUp	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_hangUp_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\env_hangUp		1773376
-	1032843977	viol_hit_plant	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_plant_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Plant\viol_hit_plant		93036
-	1035665132	player_takeBottle	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takeBottle_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takeBottle		131772
-	1060580719	viol_break_ceramic-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_ceramic-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Ceramic\viol_break_ceramic-001		420576
-	1069501619	env_phonePickup	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_phoneNoSlam_9FFDE2DC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\env_phonePickup		45520
-	1071037576	viol_break_glass	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_glass_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Glass\viol_break_glass		89144
+	2700846	amb_court_cough-003	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-003_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-003\amb_court_cough-003		192096
+	15126662	env_ovenOpen	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_ovenOpen_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Oven\env_ovenOpen		111220
+	28743199	amb_court_cough-005	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-005_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-005\amb_court_cough-005		119136
+	31616214	amb_house_creaks-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-001_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-001\amb_house_creaks-001		256096
+	61938418	viol_break_ceramic	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_ceramic_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Ceramic\viol_break_ceramic		360472
+	65148548	amb_court_clock	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_clock_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Clock\amb_court_clock\amb_court_clock		8192096
+	73779194	track_menu	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\track_menu_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\track_menu		35229444
+	99772853	env_ovenClose	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_ovenClose_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Oven\env_ovenClose		143524
+	124322530	amb_court_cough-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-001_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-001\amb_court_cough-001		128096
+	144182143	player_takeKeys	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takeItem_001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takeKeys		140032
+	164611052	step_woodCarpet-003	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_woodCarpet-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Carpet\step_woodCarpet-003		63352
+	195012293	viol_hit_electronic-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_electronic-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Electronic\viol_hit_electronic-001		128156
+	200092242	dial_john_blab02	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_john_blab02_AAB6020F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\John\dial_john_blab02		18128
+	215169109	step_tile-004	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_tile-004_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Tile\step_tile-004		231092
+	216833292	step_woodCarpet-002	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_woodCarpet-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Carpet\step_woodCarpet-002		64616
+	221075044	player_takeCash_02	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takeCash_02_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takeCash_02		488436
+	223107153	amb_court_cough-004	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-004_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-004\amb_court_cough-004		135776
+	237387029	step_woodCarpet-004	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_woodCarpet-004_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Carpet\step_woodCarpet-004		46904
+	243031147	amb_house_creaks-006	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-006_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-006\amb_house_creaks-006		768096
+	277770706	ui_menu_select	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_menu_select_3198CB9C.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_select		70584
+	279270167	player_takePills	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takePills_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takePills		132936
+	286209512	woodStep_001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\wood_light-004_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Wood\woodStep_001		36996
+	310977452	PhoneRing	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_rotaryRing_withPositioning_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Phone\PhoneRing		3263496
+	319024924	amb_outsideNoise	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_outsideNoise_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Outside\OutsideNoise\amb_outsideNoise\amb_outsideNoise		2181856
+	344631608	leafstep_light-003	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\leafstep_light-003_BC908236.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Grass\leafstep_light-003		53872
+	359437438	step_tile-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_tile-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Tile\step_tile-001		214152
+	382891266	viol_hit_plant-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_plant-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Plant\viol_hit_plant-001		59772
+	404540059	ui_back	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_back_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_back		88144
+	448191663	amb_outsideTone	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_outsideTone_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Outside\OutsideHum\amb_outsideTone\amb_outsideTone		2181856
+	456918740	ui_letter	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_letter_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_letter		25004
+	471800072	amb_house_creaks-005	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-005_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-005\amb_house_creaks-005		512096
+	473419309	amb_court_hum	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_hum_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Noise\amb_court_buzz\amb_court_hum		4116528
+	503942609	leafstep_light-008	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\leafstep_light-008_3A2674D0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Grass\leafstep_light-008		56784
+	508778594	step_tile-002	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_tile-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Tile\step_tile-002		219020
+	525460864	step_tile-003	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_tile-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Tile\step_tile-003		217364
+	526647247	onboardingMusic	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\onboardingMusic_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\SwitchFlat\FlatMusic\onboardingMusic\onboardingMusic		12648000
+	532204821	viol_break_taxidermy	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_taxidermy_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Taxidermy\viol_break_taxidermy		86188
+	534372370	viol_weapon_swing-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_weapon_swing-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\weaponSwing\viol_weapon_swing-001		44728
+	538967076	player_takePaper	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takePaper_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takePaper		110648
+	556450385	amb_house_noise	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_noise_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Noise\amb_house_noise\amb_house_noise		4224096
+	560138299	viol_break_taxidermy-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_taxidermy-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Taxidermy\viol_break_taxidermy-001		86188
+	584904381	amb_court_buzz	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_buzz_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Hum\amb_court_hum\amb_court_buzz		11346016
+	599646490	viol_break_bigGlass	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_bigGlass_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\BigGlass\viol_break_bigGlass		377072
+	602562853	amb_house_tone-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_tone-001_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Hum\amb_house_tone-001\amb_house_tone-001		4224096
+	604374767	ui_menu_back	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_menu_back_831DFFC4.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_back		75756
+	611916014	env_phoneSlam	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_phoneSlam_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Phone\env_phoneSlam		204116
+	625574116	amb_court_cough-002	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_court_cough-002_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-002\amb_court_cough-002		192096
+	655306073	amb_house_creaks-004	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-004_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-004\amb_house_creaks-004		512096
+	666753951	leafstep_light-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\leafstep_light-001_92E287BB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Grass\leafstep_light-001		71000
+	685121363	viol_hit_wood2-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_wood2-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Wood\viol_hit_wood2-001		147936
+	687109068	ui_select	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_select_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_select		40720
+	699494019	viol_hit_metal-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_metal-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Metal\viol_hit_metal-001		72216
+	701244824	high	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\high_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\House Music\PlayHigh\high\high		6509592
+	711482501	low	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\low_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\House Music\PlayLow\low\low		6522072
+	718177124	jack_blab	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_lawyer_blab_74894F2E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Jack\jack_blab		20724
+	718932789	viol_hit_metal	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_metal_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Metal\viol_hit_metal		114064
+	739141563	dial_judge_blab	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_judge_blab_079991E4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Judge\dial_judge_blab		7656
+	753263382	woodStep_004	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\wood_light-009_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Wood\woodStep_004		115420
+	772522099	mid	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\mid_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\House Music\PlayMid\mid\mid		6701160
+	779487297	amb_house_creaks-003	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-003_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-003\amb_house_creaks-003		512096
+	797840335	woodStep_003	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\wood_light-010_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Wood\woodStep_003		110792
+	798446541	higher	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\higher_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\House Music\PlayHigher\higher\higher		6502704
+	831157436	player_takeCrowbar	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takeCrowbar-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takeCrowbar		122308
+	837599648	roomTransition	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\roomTransition_C28C2B1C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\roomTransition		337004
+	845512123	ui_dialoguePopup	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_dialoguePopup_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_dialoguePopup		215236
+	858275127	amb_outsideCarPass	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_outsideCarPass_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Outside\Outside Car\amb_outsideCarPass\amb_outsideCarPass		1940496
+	874307624	Mark	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_mark_blab_DB4B51CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Mark		10280
+	874754579	viol_break_glass-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_glass-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Glass\viol_break_glass-001		67112
+	886830654	viol_hit_electronic	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_electronic_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Electronic\viol_hit_electronic		113088
+	887318230	env_fridgeOpen	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_fridgeOpen_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Fridge\env_fridgeOpen		135396
+	908946443	amb_house_creaks-002	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\amb_house_creaks-002_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\House\Ambience\House Creaks\amb_house_creaks-002\amb_house_creaks-002		512096
+	917324197	step_woodCarpet-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\step_woodCarpet-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Carpet\step_woodCarpet-001		77556
+	920958933	ui_hover	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_hover_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\In-Game\Dialogue\ui_hover		19740
+	943812538	woodStep_002	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\wood_light-008_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Wood\woodStep_002		63684
+	947122152	viol_hit_wood2-002	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_wood2-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Wood\viol_hit_wood2-002		228576
+	976753790	ui_menu_hover	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\ui_menu_hover_8447143A.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_hover		7068
+	984449425	leafstep_light-006	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\leafstep_light-006_02A60CFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Grass\leafstep_light-006		59260
+	997645561	stinger	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\stinger-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\stinger		281096
+	1015922044	albert_blab	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\dial_alMcGuig_blab_8A50D783.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Albert\albert_blab		12400
+	1028143134	env_hangUp	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_hangUp_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Phone\env_hangUp		1773376
+	1032843977	viol_hit_plant	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_hit_plant_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Plant\viol_hit_plant		93036
+	1035665132	player_takeBottle	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\player_takeBottle_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takeBottle		131772
+	1060580719	viol_break_ceramic-001	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_ceramic-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Ceramic\viol_break_ceramic-001		420576
+	1069501619	env_phonePickup	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\env_phoneNoSlam_9FFDE2DC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Phone\env_phonePickup		45520
+	1071037576	viol_break_glass	E:\Uni\Y3\DES315\git\PointClick_Game\PointClick_Game_WwiseProject\.cache\Windows\SFX\viol_break_glass_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Glass\viol_break_glass		89144
 

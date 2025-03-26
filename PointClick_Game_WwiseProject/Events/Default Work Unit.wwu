@@ -32,7 +32,7 @@
 								<Action Name="" ID="{3774B4C5-2646-43B5-B860-1F1F6734E992}" ShortID="813024531">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="FlatMusic" ID="{36A8C335-77D4-4D9D-9303-18B3BE3D0EE3}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+											<ObjectRef Name="SwitchFlat" ID="{4C1E70B6-FC31-43A6-82EE-E43E8BC62FF0}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -66,7 +66,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="FlatMusic" ID="{36A8C335-77D4-4D9D-9303-18B3BE3D0EE3}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+											<ObjectRef Name="SwitchFlat" ID="{4C1E70B6-FC31-43A6-82EE-E43E8BC62FF0}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -892,74 +892,129 @@
 				</Folder>
 				<Folder Name="Environment" ID="{2A57C79D-0DA8-4AA9-B9B1-29EE57FA36AB}" ShortID="442546150">
 					<ChildrenList>
-						<Event Name="PhoneRing" ID="{074E1FBF-3793-44A7-AF09-C8D68469E48B}">
+						<Folder Name="Phone" ID="{1AA0E093-6DC8-4264-89E3-1E48389F8B75}" ShortID="1057146767">
 							<ChildrenList>
-								<Action Name="" ID="{4CBDB24A-4A6F-4526-920C-DAE0CF8B7371}" ShortID="369226566">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="PhoneRing" ID="{57F09F20-130C-47CD-A2EA-986223656685}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
+								<Event Name="PhoneHang" ID="{513AB2E2-9467-427A-9D2E-E0EF4A70F1FF}">
+									<ChildrenList>
+										<Action Name="" ID="{F5A5A809-095B-41D4-847A-80DEB1EDE17E}" ShortID="527681909">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="env_hangUp" ID="{582C0A0C-A959-4766-8D90-9E002DF6D006}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="PhonePickup" ID="{3102A495-417E-4E4A-BEEA-A38F102A771F}">
+									<ChildrenList>
+										<Action Name="" ID="{1206E03F-EFDC-4BC8-ABC6-ED872740D3FA}" ShortID="757840739">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="env_phonePickup" ID="{972ECFCE-5E55-4A21-8EBE-05578BEDE505}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{1633B33D-953D-4C0D-9562-D41E4E4C8599}" ShortID="13990204">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="22"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Begin" ID="{D5F3ECDC-E704-4883-85A9-843CE0F70FC3}" WorkUnitID="{613BEFAA-7681-4589-9787-A303F0CC8DE8}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="PhoneSlam" ID="{E5D2A57B-C2D5-40B8-AF06-CC6DB7BF767F}">
+									<ChildrenList>
+										<Action Name="" ID="{30F49E55-1932-4453-9CEE-FBDF78BAB5ED}" ShortID="808467980">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="env_phoneSlam" ID="{60B92F39-E749-423A-87F4-B973594C1C11}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="PhoneRing" ID="{074E1FBF-3793-44A7-AF09-C8D68469E48B}">
+									<ChildrenList>
+										<Action Name="" ID="{4CBDB24A-4A6F-4526-920C-DAE0CF8B7371}" ShortID="369226566">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="PhoneRing" ID="{57F09F20-130C-47CD-A2EA-986223656685}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="StopPhone" ID="{CE9B2806-BE4A-473E-B37B-129C5B82FB07}">
+									<ChildrenList>
+										<Action Name="" ID="{8BF6C05D-F0C6-44F8-84DB-ED274D94539A}" ShortID="564102048">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="PhoneRing" ID="{57F09F20-130C-47CD-A2EA-986223656685}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{77F075E4-53E4-438E-AE02-1EDB519FF86C}" ShortID="403185303">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="env_hangUp" ID="{582C0A0C-A959-4766-8D90-9E002DF6D006}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
-						</Event>
-						<Event Name="StopPhone" ID="{CE9B2806-BE4A-473E-B37B-129C5B82FB07}">
+						</Folder>
+						<Folder Name="Oven" ID="{0594518B-A23E-4A0B-940B-2CD323C20D3E}" ShortID="804769952">
 							<ChildrenList>
-								<Action Name="" ID="{8BF6C05D-F0C6-44F8-84DB-ED274D94539A}" ShortID="564102048">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="PhoneRing" ID="{57F09F20-130C-47CD-A2EA-986223656685}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{77F075E4-53E4-438E-AE02-1EDB519FF86C}" ShortID="403185303">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="env_hangUp" ID="{582C0A0C-A959-4766-8D90-9E002DF6D006}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
+								<Event Name="OvenOpen" ID="{71F6A66E-818B-400D-A1AE-A379E1EEA043}">
+									<ChildrenList>
+										<Action Name="" ID="{640EDAAB-FD1B-4DE4-8FD7-5D58AAB8A2F3}" ShortID="934012104">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="env_ovenOpen" ID="{12A501A6-D791-4410-9460-978B4A8056CF}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="OvenClose" ID="{55C9B38F-3341-4E43-B6B3-F8BED88E832E}">
+									<ChildrenList>
+										<Action Name="" ID="{73FC00C7-7484-496F-A786-7B02DB15CCEE}" ShortID="108876795">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="env_ovenClose" ID="{8764785D-55CA-4D9B-9E68-26ADAD4CD06D}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
-						</Event>
-						<Event Name="PhonePickup" ID="{3102A495-417E-4E4A-BEEA-A38F102A771F}">
+						</Folder>
+						<Folder Name="Fridge" ID="{0F6BE083-340A-4BF0-AC68-8C03F112F314}" ShortID="678645903">
 							<ChildrenList>
-								<Action Name="" ID="{1206E03F-EFDC-4BC8-ABC6-ED872740D3FA}" ShortID="757840739">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="env_phonePickup" ID="{972ECFCE-5E55-4A21-8EBE-05578BEDE505}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
+								<Event Name="FridgeOpen" ID="{7E9FDB0C-2EEA-4BF1-9976-39490D9CC994}">
+									<ChildrenList>
+										<Action Name="" ID="{860D51F7-BA5E-4C06-88CD-13A3C6A53017}" ShortID="223380917">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="env_fridgeOpen" ID="{AC7CB27E-6B69-4439-8D8A-100037A715C9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
-						</Event>
-						<Event Name="PhoneSlam" ID="{E5D2A57B-C2D5-40B8-AF06-CC6DB7BF767F}">
-							<ChildrenList>
-								<Action Name="" ID="{30F49E55-1932-4453-9CEE-FBDF78BAB5ED}" ShortID="808467980">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="env_phoneSlam" ID="{60B92F39-E749-423A-87F4-B973594C1C11}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="PhoneHang" ID="{513AB2E2-9467-427A-9D2E-E0EF4A70F1FF}">
-							<ChildrenList>
-								<Action Name="" ID="{F5A5A809-095B-41D4-847A-80DEB1EDE17E}" ShortID="527681909">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="env_hangUp" ID="{582C0A0C-A959-4766-8D90-9E002DF6D006}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

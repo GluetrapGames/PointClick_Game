@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{ABD6C1D2-0EA3-1D56-2504-432921C3CB59}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{68F8304D-E4E4-EA63-8730-4130316D5ECC}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -34,6 +34,12 @@
 				<GameParameter Id="3391499625" Name="vol_master"/>
 			</GameParameters>
 			<StateGroups>
+				<StateGroup Id="1369071785" Name="FlatMusic">
+					<States>
+						<State Id="349818688" Name="Begin"/>
+						<State Id="748895195" Name="None"/>
+					</States>
+				</StateGroup>
 				<StateGroup Id="1848906592" Name="HouseMusic">
 					<States>
 						<State Id="289078192" Name="higher"/>
@@ -87,13 +93,17 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FD674DF2-061A-E7AE-6293-8052E974734E}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3D489F26-2E99-98EB-8096-8F62B3DF8043}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
 				<File Id="2700846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_court_cough-003.wav</ShortName>
 					<CachePath>SFX/amb_court_cough-003_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="15126662" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_ovenOpen.wav</ShortName>
+					<CachePath>SFX/env_ovenOpen_818F3B66.wem</CachePath>
 				</File>
 				<File Id="28743199" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_court_cough-005.wav</ShortName>
@@ -114,6 +124,10 @@
 				<File Id="73779194" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>track_menu.wav</ShortName>
 					<CachePath>SFX/track_menu_818F3B66.wem</CachePath>
+				</File>
+				<File Id="99772853" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_ovenClose.wav</ShortName>
+					<CachePath>SFX/env_ovenClose_818F3B66.wem</CachePath>
 				</File>
 				<File Id="124322530" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_court_cough-001.wav</ShortName>
@@ -331,6 +345,10 @@
 					<ShortName>higher.wav</ShortName>
 					<CachePath>SFX/higher_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="831157436" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_takeCrowbar-001.wav</ShortName>
+					<CachePath>SFX/player_takeCrowbar-001_818F3B66.wem</CachePath>
+				</File>
 				<File Id="837599648" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roomTransition.wav</ShortName>
 					<CachePath>SFX/roomTransition_C28C2B1C.wem</CachePath>
@@ -351,13 +369,13 @@
 					<ShortName>viol_break_glass-001.wav</ShortName>
 					<CachePath>SFX/viol_break_glass-001_818F3B66.wem</CachePath>
 				</File>
-				<File Id="886243449" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>player_takeCrowbar.wav</ShortName>
-					<CachePath>SFX/player_takeCrowbar_818F3B66.wem</CachePath>
-				</File>
 				<File Id="886830654" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_electronic.wav</ShortName>
 					<CachePath>SFX/viol_hit_electronic_818F3B66.wem</CachePath>
+				</File>
+				<File Id="887318230" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_fridgeOpen.wav</ShortName>
+					<CachePath>SFX/env_fridgeOpen_818F3B66.wem</CachePath>
 				</File>
 				<File Id="908946443" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_creaks-002.wav</ShortName>
@@ -543,6 +561,11 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="627991214" Name="FridgeOpen" DurationType="OneShot" DurationMin="0.7046875" DurationMax="0.7046875">
+					<MediaRefs>
+						<MediaRef Id="887318230"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3198831486" Name="glass_cupboard" DurationType="OneShot" DurationMin="0.76646316" DurationMax="1.7208999">
 					<MediaRefs>
 						<MediaRef Id="534372370"/>
@@ -650,9 +673,14 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="924244327" Name="MusicFlat" DurationType="Infinite">
-					<MediaRefs>
-						<MediaRef Id="526647247"/>
-					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1369071785" Id="349818688"/>
+							<MediaRefs>
+								<MediaRef Id="526647247"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
 				</Event>
 				<Event Id="1154458182" Name="MusicHouse" DurationType="Infinite">
 					<SwitchContainers>
@@ -694,6 +722,16 @@
 						<MediaRef Id="858275127"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1111768629" Name="OvenClose" DurationType="OneShot" DurationMin="1.1205312" DurationMax="1.1205312">
+					<MediaRefs>
+						<MediaRef Id="99772853"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3458950111" Name="OvenOpen" DurationType="OneShot" DurationMin="0.86815625" DurationMax="0.86815625">
+					<MediaRefs>
+						<MediaRef Id="15126662"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="616151339" Name="PhoneHang" DurationType="OneShot" DurationMin="9.235583" DurationMax="9.235583">
 					<MediaRefs>
 						<MediaRef Id="1028143134"/>
@@ -703,6 +741,9 @@
 					<MediaRefs>
 						<MediaRef Id="1069501619"/>
 					</MediaRefs>
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1369071785" Id="349818688" Name="Begin"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="3074298065" Name="PhoneRing" DurationType="Infinite">
 					<MediaRefs>
@@ -734,7 +775,7 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3016565752" Id="1837441319"/>
 							<MediaRefs>
-								<MediaRef Id="886243449"/>
+								<MediaRef Id="831157436"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -835,6 +876,12 @@
 				<GameParameter Id="223679447" Name="vol_loud"/>
 			</GameParameters>
 			<StateGroups>
+				<StateGroup Id="1369071785" Name="FlatMusic">
+					<States>
+						<State Id="349818688" Name="Begin"/>
+						<State Id="748895195" Name="None"/>
+					</States>
+				</StateGroup>
 				<StateGroup Id="1848906592" Name="HouseMusic">
 					<States>
 						<State Id="289078192" Name="higher"/>
@@ -889,5 +936,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{B4EF6303-A91B-8AF4-C97C-FFA6AFD222E1}</FileHash>
+	<FileHash>{E29FE262-FDD8-B2D2-FD24-2F799879ED57}</FileHash>
 </SoundBanksInfo>
