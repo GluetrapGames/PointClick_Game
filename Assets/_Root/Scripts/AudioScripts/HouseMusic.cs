@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using EditorAttributes.Editor;
 using GlueTrap.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
