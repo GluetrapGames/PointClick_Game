@@ -12,7 +12,7 @@ public class PlayButton : MonoBehaviour
 
 	public void PlayGame()
 	{
-		StartCoroutine(LoadScene("CourtroomIntro"));
+		StartCoroutine(LoadScene("CourtScene 1"));
 		AkSoundEngine.StopAll();
 	}
 
@@ -27,6 +27,9 @@ public class PlayButton : MonoBehaviour
 		// Check if converssaton is playing and cancel it
 		if (DialogueManager.IsConversationActive)
 			DialogueManager.StopAllConversations();
+
+		// Stops all audio
+		AkSoundEngine.StopAll();
 
         Time.timeScale = 1f;
 		SceneManager.LoadScene(0);

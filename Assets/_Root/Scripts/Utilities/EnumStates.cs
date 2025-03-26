@@ -18,7 +18,9 @@ public enum ItemTypes
 	Crowbar = 6,
 	Tv = 7,
 	Mirror = 8,
-	Money = 9
+	Money = 9,
+	Cigarettes = 10,
+	Keys = 11
 }
 
 public enum BreakMaterialTypes
@@ -42,6 +44,7 @@ public enum EventTypes
 	record_player = 3,
 	taxi_animal = 4,
 	glass_cupboard = 5,
+	table_ceramic = 6
 }
 
 public enum MaterialTypes
@@ -51,7 +54,38 @@ public enum MaterialTypes
 	Tile = 3,
 	Glass = 4,
 	Metal = 5,
-	Dirt = 6,
+	Grass = 6,
 	Stone = 7
+}
+
+public enum RoomEntryPoints
+{
+	None = 0,
+	DownHallwayA = 1,
+	DownHallwayB = 2,
+	DownHallwayC = 3,
+	DownHallwayD = 4,
+	DownHallwayE = 5,
+	LivingRoomA = 6,
+	LivingRoomB = 7,
+	LivingRoomC = 8,
+	DiningRoomA = 9,
+	DiningRoomB = 10,
+	DiningRoomC = 11,
+	KitchenA = 12,
+	KitchenB = 13,
+	DownBathroom = 14,
+	UpHallwayA = 15,
+	UpHallwayB = 16,
+	UpHallwayC = 17,
+	UpHallwayD = 18,
+	UpHallwayE = 19,
+	MasterBedroom = 20,
+	SpareBedroom = 21,
+	UpBathroom = 22,
+	TaxHallwayA = 23,
+	TaxHallwayB = 24,
+	Taxidermy = 25,
+	DownHallwayF = 26
 }
 }

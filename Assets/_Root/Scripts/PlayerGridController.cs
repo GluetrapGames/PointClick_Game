@@ -33,6 +33,9 @@ public class PlayerGridController : MonoBehaviour
 	private Coroutine _moveCoroutine;
 	private bool _usingController;
 
+	public bool m_DestinationReached { get; private set; }
+	public Vector3Int m_Destination { get; private set; }
+
 
 	private void Awake()
 	{
@@ -174,20 +177,22 @@ public class PlayerGridController : MonoBehaviour
 	// Coroutine that moves the player along the path until complete.
 	private IEnumerator MovementCoroutine()
 	{
-		Debug.Log("Moving");
 		while (m_Movement.m_IsMoving)
 		{
 			m_Movement.MoveToTile(m_MoveSpeed);
 			yield return null;
 		}
 
+		m_DestinationReached = true;
 		_moveCoroutine = null;
 	}
 
 	public Vector3Int SetPlayerDestination(Vector3Int targetPosition)
 	{
+		m_DestinationReached = false;
 		// Set new target position.
 		m_Movement.SetDestination(targetPosition);
+		m_Destination = targetPosition;
 		_moveCoroutine ??= StartCoroutine(MovementCoroutine());
 
 		m_Movement.m_PreviousTilePosition = targetPosition;
