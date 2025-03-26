@@ -5,14 +5,17 @@ namespace GlueTrap
 {
 public class PhoneCallSounds : MonoBehaviour
 {
-	private bool _PhoneRinging;
+	[SerializeField]
+	private bool _Log;
 
 	public void PlayRingSounds()
 	{
 		DialogueEntry dialogueEntry = DialogueManager.currentConversationState
 			.subtitle.dialogueEntry;
 		var conversationID = dialogueEntry.conversationID;
-		Debug.Log(conversationID);
+		if (_Log) Debug.Log(conversationID);
+
+		// Based on conversation played, do something.
 		if (conversationID == 56)
 			AkSoundEngine.PostEvent("PhoneRing", gameObject);
 		if (conversationID != 59) return;

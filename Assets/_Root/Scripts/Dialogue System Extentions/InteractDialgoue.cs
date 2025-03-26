@@ -25,11 +25,11 @@ public class InteractDialgoue : MonoBehaviour
 	[SerializeField,
 	 Tooltip("Tick if the conversation is to only be played once.")]
 	private bool _PlayOnce;
+	private Vector3Int _CellPosition;
 
 	private GameManager _GameManager;
 	private bool _HasPlayedOnce;
 	private InputAction _InteractAction;
-	private bool _IsDestinationSet;
 	private CollideCheck _ItemCollision;
 	private PlayerInput _PlayerInput;
 
@@ -58,12 +58,15 @@ public class InteractDialgoue : MonoBehaviour
 
 	private void Update()
 	{
+		// Don't allow interaction if in conversation or menus.
+		if (_GameManager.m_CurrentState is States.Talking or States.InMenus)
+			return;
+
 		MouseInteraction();
 
-		// Once the destination is set and the Player reached it, play the conversion.
-		if (_GameManager.m_Player.m_Movement.m_IsMoving ||
-		    !_IsDestinationSet) return;
-		_IsDestinationSet = false;
+		// Play the conversion once the Player has reached the object.
+		if (!_GameManager.m_Player.m_DestinationReached ||
+		    _GameManager.m_Player.m_Destination != _CellPosition) return;
 		PlayConversation();
 	}
 
@@ -100,25 +103,24 @@ public class InteractDialgoue : MonoBehaviour
 
 		// Determine movement direction based on InteractionDir.
 		Vector3Int step;
-		var rangelimit = 100;
-
+		var rangeLimit = 100;
 		switch (m_InteractionDirection)
 		{
 			case InteractionDir.Left:
 				step = Vector3Int.left;
-				rangelimit = cellPosition.x - rangelimit;
+				rangeLimit = cellPosition.x - rangeLimit;
 				break;
 			case InteractionDir.Right:
 				step = Vector3Int.right;
-				rangelimit = cellPosition.x + rangelimit;
+				rangeLimit = cellPosition.x + rangeLimit;
 				break;
 			case InteractionDir.Top:
 				step = Vector3Int.up;
-				rangelimit = cellPosition.y + rangelimit;
+				rangeLimit = cellPosition.y + rangeLimit;
 				break;
 			case InteractionDir.Bottom:
 				step = Vector3Int.down;
-				rangelimit = cellPosition.y - rangelimit;
+				rangeLimit = cellPosition.y - rangeLimit;
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
@@ -126,8 +128,8 @@ public class InteractDialgoue : MonoBehaviour
 
 		// Find a valid tile within range.
 		while (!_GameManager.m_NavMesh.HasTile(cellPosition) && (step.x == 0
-			       ? cellPosition.y != rangelimit
-			       : cellPosition.x != rangelimit))
+			       ? cellPosition.y != rangeLimit
+			       : cellPosition.x != rangeLimit))
 		{
 			cellPosition += step;
 			if (m_Log) Debug.Log($"In Loop: {cellPosition}");
@@ -149,9 +151,11 @@ public class InteractDialgoue : MonoBehaviour
 			_GameManager.m_NavMesh.SetColor(cellPosition, Color.green);
 		}
 
+		// Update object's cell position.
+		_CellPosition = cellPosition;
+
 		// Move the player to the target tile.
 		_ = _GameManager.m_Player.SetPlayerDestination(cellPosition);
-		_IsDestinationSet = true;
 	}
 
 
