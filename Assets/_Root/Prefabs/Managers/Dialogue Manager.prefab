@@ -4241,7 +4241,6 @@ GameObject:
   - component: {fileID: 2743780151474386427}
   - component: {fileID: 5887267758425006540}
   - component: {fileID: 8159718538501613356}
-  - component: {fileID: 5924029371875448514}
   - component: {fileID: 8245143411105375939}
   - component: {fileID: 3070393090031453752}
   m_Layer: 5
@@ -4354,7 +4353,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5924029371875448514}
+      - m_Target: {fileID: 6268798526493132704}
         m_TargetAssemblyTypeName: GlueTrap.ToggleLog, Assembly-CSharp
         m_MethodName: toggle
         m_Mode: 1
@@ -4366,29 +4365,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5924029371875448514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5067476050936609411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f627f94b60a47c42acca11fb851d769, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _PortraitAnimator: {fileID: 8345379604612598943}
-  _LogWindow: {fileID: 7245937312735746106}
-  _dsController: {fileID: 735322560433207770}
-  _blExample: {fileID: 8915859035810219472}
-  _ContinueButton: {fileID: 3073381880939199626}
-  _AutoButton: {fileID: 7113476913465749328}
-  _SkipButton: {fileID: 1222639956880067163}
-  _ResponsePanel: {fileID: 9030160187868976340}
-  _ChildImage: {fileID: 5022778670574970360}
-  _OpenImage: {fileID: 1561867566708083125, guid: c78b297bebe40da4998acc249e93b00e, type: 3}
-  _CloseImage: {fileID: -7877229825462887920, guid: 3b6ac29f15b819041bcf07a55699ff03, type: 3}
 --- !u!114 &8245143411105375939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4516,6 +4492,7 @@ GameObject:
   - component: {fileID: 5611445638909772410}
   - component: {fileID: 4294386428629630845}
   - component: {fileID: 3622066628121306706}
+  - component: {fileID: 6268798526493132704}
   m_Layer: 5
   m_Name: Runic Standard Dialogue UI
   m_TagString: Untagged
@@ -4603,6 +4580,31 @@ MonoBehaviour:
   stopSkipAllOnResponseMenu: 1
   stopSkipAllOnConversationEnd: 1
   dontSkipAllOnLastConversationLine: 0
+--- !u!114 &6268798526493132704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5249895857057793686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f627f94b60a47c42acca11fb851d769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PortraitAnimator: {fileID: 8345379604612598943}
+  _LogWindow: {fileID: 7245937312735746106}
+  _dsController: {fileID: 735322560433207770}
+  _blExample: {fileID: 8915859035810219472}
+  _ContinueButton: {fileID: 3073381880939199626}
+  _AutoButton: {fileID: 7113476913465749328}
+  _SkipButton: {fileID: 1222639956880067163}
+  _ResponsePanel: {fileID: 9030160187868976340}
+  _ChildImage: {fileID: 5022778670574970360}
+  _ScreenPauseButton: {fileID: 0}
+  _ScreenLogButton: {fileID: 0}
+  _OpenImage: {fileID: 1561867566708083125, guid: c78b297bebe40da4998acc249e93b00e, type: 3}
+  _CloseImage: {fileID: -7877229825462887920, guid: 3b6ac29f15b819041bcf07a55699ff03, type: 3}
 --- !u!1 &5420372827321783847
 GameObject:
   m_ObjectHideFlags: 0

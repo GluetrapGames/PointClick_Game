@@ -1,5 +1,8 @@
+using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.InputSystem.OnScreen;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace GlueTrap
@@ -41,18 +44,32 @@ public class ToggleLog : MonoBehaviour
 	private bool toggleLog;
 	private bool _IsPlayerListener;
 	private Image _ButtonImage;
+	private GameManager _GameManager;
 
 	private void Awake()
 	{
+			_GameManager = Utils.GetGameManager();
 		_ButtonImage = _ChildImage.GetComponent<Image>();
-	}
+  //      _ScreenLogButton = GameObject.Find("Backlog");
+		//_ScreenPauseButton = GameObject.Find("Pause");
+
+    }
 
 
-        private void Update()
+    private void Update()
 	{
 		// Current fix - If autoplay is active and log panel opens, current subtitle still hides at the end
 		// and the continue button appears. This line should prevent that for now.
 		if (toggleLog) _ContinueButton.gameObject.SetActive(false);
+
+		if (!_GameManager.m_NoneGameplayScenes.Contains(SceneManager.GetActiveScene().ToString()))
+		{
+			if (_ScreenLogButton == null || _ScreenPauseButton == null)
+            {
+				_ScreenLogButton = GameObject.Find("Backlog");
+				_ScreenPauseButton = GameObject.Find("Pause");
+			}
+		}
 	}
 
 	void OnConversationLine(Subtitle subtitle) 
@@ -66,10 +83,10 @@ public class ToggleLog : MonoBehaviour
 	{
 		toggleLog = !toggleLog;
 
-		if (toggleLog) // When the backlog is showing
+        if (toggleLog) // When the backlog is showing
 		{
-			if (_ScreenLogButton != null) { _ScreenLogButton.SetActive(false); }
 			if (_ScreenPauseButton != null) { _ScreenPauseButton.SetActive(false); }
+			if (_ScreenLogButton != null) { _ScreenLogButton.SetActive(false); }
 
 			// Only do this if a conversation is open.
 			if (DialogueManager.IsConversationActive) 
@@ -97,8 +114,8 @@ public class ToggleLog : MonoBehaviour
 		}
 		else // When the backlog is hidden
 		{
-            if (_ScreenLogButton != null) { _ScreenLogButton.SetActive(true); }
             if (_ScreenPauseButton != null) { _ScreenPauseButton.SetActive(true); }
+            if (_ScreenLogButton != null) { _ScreenLogButton.SetActive(true); }
 
             // Only do this if a conversation is open.
             if (DialogueManager.IsConversationActive)
