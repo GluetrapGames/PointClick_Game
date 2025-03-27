@@ -23,6 +23,8 @@ public class ToggleLog : MonoBehaviour
 	private Button _AutoButton;
 	[Tooltip("The UI skip button"), SerializeField]
 	private Button _SkipButton;
+		[SerializeField]
+		private GameObject _sideButtons;
 	[Tooltip("The response panel"), SerializeField]
 	private GameObject _ResponsePanel;
 	// Image child may be removed
@@ -43,16 +45,11 @@ public class ToggleLog : MonoBehaviour
 
 	private bool toggleLog;
 	private bool _IsPlayerListener;
-	private Image _ButtonImage;
 	private GameManager _GameManager;
 
 	private void Awake()
 	{
-			_GameManager = Utils.GetGameManager();
-		_ButtonImage = _ChildImage.GetComponent<Image>();
-  //      _ScreenLogButton = GameObject.Find("Backlog");
-		//_ScreenPauseButton = GameObject.Find("Pause");
-
+		_GameManager = Utils.GetGameManager();
     }
 
 
@@ -62,6 +59,8 @@ public class ToggleLog : MonoBehaviour
 		// and the continue button appears. This line should prevent that for now.
 		if (toggleLog) _ContinueButton.gameObject.SetActive(false);
 
+		// Check if the scene isnt part of the NO UI scenes list, then check if the on screen buttons are null
+		// If they are then find them again.
 		if (!_GameManager.m_NoneGameplayScenes.Contains(SceneManager.GetActiveScene().ToString()))
 		{
 			if (_ScreenLogButton == null || _ScreenPauseButton == null)
@@ -96,11 +95,8 @@ public class ToggleLog : MonoBehaviour
 				// Stops the speed of the current portrait animation.
 				_PortraitAnimator.speed = 0f;
 				// Hide all other buttons
+				_sideButtons.gameObject.SetActive(false);
 				_ContinueButton.gameObject.SetActive(false);
-				_AutoButton.gameObject.SetActive(false);
-				_SkipButton.gameObject.SetActive(false);
-				// Change the button's image
-				_ButtonImage.sprite = _CloseImage;
 				// Turns off autoplay
 				DialogueManager.displaySettings.subtitleSettings.continueButton =
 				DisplaySettings.SubtitleSettings.ContinueButtonMode.Always;
@@ -125,11 +121,8 @@ public class ToggleLog : MonoBehaviour
 				// Returns the speed of the current portrait animation.
 				_PortraitAnimator.speed = 1.0f; ;
 				// Show all other buttons
+				_sideButtons.gameObject.SetActive(true);
 				_ContinueButton.gameObject.SetActive(true);
-				_AutoButton.gameObject.SetActive(true);
-				_SkipButton.gameObject.SetActive(true);
-				// Change the button's image
-				_ButtonImage.sprite = _OpenImage;
 				// Unpauses the dialogue system
 				_dsController.Unpause();
 			}
