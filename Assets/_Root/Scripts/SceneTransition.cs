@@ -73,11 +73,15 @@ public class SceneTransition : MonoBehaviour
 		{
 			_GameManager.m_HasEntered = true;
 			_GameManager.m_RoomPoint = m_ExitPoint;
+			
+			// Upstairs checks
 			if (_sceneToTransitionTo == "CourtScene 3" && !_GameManager.m_hasCrowbar)
 			{
 				DialogueManager.StartConversation("NoCrowbar");
 				return;
 			}
+			if (_sceneToTransitionTo == "CourtScene 3" && _GameManager.m_hasUpstairsCourt) StartCoroutine(LoadScene("Hallway1"));
+			
 			StartCoroutine(LoadScene(_sceneToTransitionTo));
 
 			// Play scene transition sound
@@ -112,6 +116,7 @@ public class SceneTransition : MonoBehaviour
 	{
 		_crossfadeAnimator.SetTrigger("Start");
 		yield return new WaitForSeconds(1);
+		if(sceneName == "CourtScene 3") _GameManager.m_hasUpstairsCourt = true;
 		SceneManager.LoadScene(sceneName);
 	}
 }

@@ -30,6 +30,7 @@ public class GameManager : Singleton<GameManager>
 	public List<string> m_UniqueRoomList;
 	public int m_TotalUniqueRooms;
 	public bool m_hasCrowbar;
+	public bool m_hasUpstairsCourt;
 	public int m_totalItemsDestroyed;
 	public int m_totalItemsPickedUp;
 	public bool m_HasEntered;
