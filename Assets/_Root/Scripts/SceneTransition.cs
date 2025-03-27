@@ -82,6 +82,8 @@ public class SceneTransition : MonoBehaviour
 			}
 			if (_sceneToTransitionTo == "CourtScene 3" && _GameManager.m_hasUpstairsCourt) StartCoroutine(LoadScene("Hallway1"));
 			
+			if(_GameManager.m_HasFlatCall && SceneManager.GetActiveScene().name == "John's Flat")
+			
 			StartCoroutine(LoadScene(_sceneToTransitionTo));
 
 			// Play scene transition sound

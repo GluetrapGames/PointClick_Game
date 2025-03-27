@@ -30,6 +30,7 @@ public class GameManager : Singleton<GameManager>
 	public List<string> m_UniqueRoomList;
 	public int m_TotalUniqueRooms;
 	public bool m_hasCrowbar;
+	public bool m_HasFlatCall;
 	public bool m_hasUpstairsCourt;
 	public int m_totalItemsDestroyed;
 	public int m_totalItemsPickedUp;
@@ -63,7 +64,9 @@ public class GameManager : Singleton<GameManager>
 	{
 		if (DialogueManager.IsConversationActive)
 			ChangeGameState(States.Talking);
-
+		
+		m_HasFlatCall = DialogueLua.GetVariable("MarkPhoneCallFinished").asBool;
+		
 		// If the scene has a TitleCard, set the Player's and UI visibility
 		// based on if the TitleCard is playing or not.
 		if (_TitleCard && !_TitleCardPlayed)
