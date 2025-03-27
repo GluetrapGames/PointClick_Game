@@ -508,6 +508,20 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: CustomFieldType_Text
+  - id: 23
+    fields:
+    - title: Name
+      value: HasFinalConvo
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
   - id: 8
     fields:
     - title: Name
@@ -12349,8 +12363,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 92.45119, y: 0}
-    canvasZoom: 0.2500008
+    canvasScrollPosition: {x: 804.5136, y: 1036.8411}
+    canvasZoom: 0.1298822
   - id: 28
     fields:
     - title: Title
@@ -19797,7 +19811,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 47
+        originDialogueID: 46
+        destinationConversationID: 47
+        destinationDialogueID: 47
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: Variable["Dialogue_DM_Meter"] = Variable["Dialogue_DM_Meter"] +
         5
@@ -20595,7 +20615,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["HasFinalConvo"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -20606,8 +20626,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 316.04474, y: 1147.0293}
-    canvasZoom: 0.79000163
+    canvasScrollPosition: {x: 1021.21265, y: 786.471}
+    canvasZoom: 0.5408947
   - id: 48
     fields:
     - title: Title

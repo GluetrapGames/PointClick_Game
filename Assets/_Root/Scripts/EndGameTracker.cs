@@ -57,6 +57,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 				_albertSpawned = true;
 			}
 
+			if (!DialogueLua.GetVariable("HasFinalConvo").asBool) return;
 			if (DialogueManager.isConversationActive) return;
 			GameObject transition = GameObject.Find("ToCS4");
 			var transComp = transition.GetComponent<SceneTransition>();
