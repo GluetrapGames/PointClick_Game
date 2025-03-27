@@ -120,13 +120,13 @@ public class BreakableItem : MonoBehaviour
 		var roomsEntered = DialogueLua.GetVariable("Rooms_Entered").asInt;
 		var tvBroken = DialogueLua.GetVariable("TV_Broken").asBool;
 		var itemsBroken = DialogueLua.GetVariable("Items_Broken").asInt;
-		var crowbarCollected =
-			DialogueLua.GetVariable("Crowbar_Collected").asBool;
+		var hasBeenUpstairs = _GameManager.m_hasUpstairsCourt;
+		var crowbarCollected = DialogueLua.GetVariable("Crowbar_Collected").asBool;
 
 		Debug.LogWarning(
 			$"Dialogue DM Value: {DialogueDM} - Environment DM Value: {EnvDM} - Rooms Entered: {roomsEntered} - TV Broken: {tvBroken.ToString()} - Items Broken: {itemsBroken.ToString()} - Crowbar Collected: {crowbarCollected.ToString()}");
 		Debug.LogWarning(
-			$"END GAME TRACKING: Money Collected: {DialogueLua.GetVariable("Money_Collected").asString} - Clues Found: {DialogueLua.GetVariable("Clues_Found").asString}");
+			$"END GAME TRACKING: Money Collected: {DialogueLua.GetVariable("Money_Collected").asString} - Clues Found: {DialogueLua.GetVariable("Clues_Found").asString} - Has Been Upstairs: {hasBeenUpstairs}");
 	}
 
 	private void IncreaseEnvDM()
