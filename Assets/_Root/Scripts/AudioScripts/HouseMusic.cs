@@ -8,13 +8,42 @@ namespace GlueTrap
     public class HouseMusic : Singleton<HouseMusic>
     {
         public bool Log;
-        private int MusicState;
+        [SerializeField]
+        private int musicState;
+        [SerializeField]
         private bool _Activated = false;
+        [SerializeField]
         private bool _JohnActivated;
         private bool doOnce;
+        [SerializeField]
         public string currentState;
+        [SerializeField]
+        private GameManager _gameManager;
 
-        // On scene change
+        private void Update()
+        {
+            musicState = _gameManager.m_totalItemsDestroyed;
+
+            if (musicState <= 0) return;
+
+            switch (musicState)
+            {
+                case 1:
+                    setLow();
+                    break;
+                case 8:
+                    setMid();
+                    break;
+                case 14:
+                    setHigh();
+                    break;
+                case 20:
+                    setHigher();
+                    break;
+            }
+        }
+
+        // On scene change, multiple checks for what scene is loaded, post according music
         public override void OnSceneChange(Scene scene, LoadSceneMode mode)
         {
             {   // if not on menu or court scenes and not already playing
@@ -24,11 +53,11 @@ namespace GlueTrap
                     if (scene.name != "Outside")
                     {   
 
-                        if (scene.name != "John's Flat") 
+                        if (scene.name != "John's Flat")
                         {
-                            // post house music
+                            //if (!doOnce) { AkSoundEngine.SetState("HouseMusic", "low"); doOnce = true; }
                             _Activated = true;
-                            AkSoundEngine.SetState("HouseMusic", "low");
+
                             AkSoundEngine.PostEvent("MusicHouse", gameObject);
                             if (Log) Debug.Log("Started music, " + _Activated);
                         }
@@ -60,36 +89,24 @@ namespace GlueTrap
         // Music state transitions
         public void setLow()
         {
-            if (_Activated)
-            {
                 AkSoundEngine.SetState("HouseMusic", "low");
                 currentState = "low";
-            }
         }
 
         public void setMid()
         {
-            if (_Activated)
-            {
                 AkSoundEngine.SetState("HouseMusic", "mid");
                 currentState = "mid";
-            }
         }
         public void setHigh()
         {
-            if (_Activated)
-            {
                 AkSoundEngine.SetState("HouseMusic", "high");
                 currentState = "high";
-            }
         }
         public void setHigher()
         {
-            if (_Activated)
-            {
                 AkSoundEngine.SetState("HouseMusic", "higher");
                 currentState = "higher";
-            }
         }
 
     }
