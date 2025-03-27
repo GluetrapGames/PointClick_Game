@@ -56,6 +56,12 @@ MonoBehaviour:
   _PlayerCameraPrefab: {fileID: 0}
   _PlayerPrefab: {fileID: 8485669108317632510, guid: f17e61bd90a9a69438383e4964989a20, type: 3}
   _PlayerSpawnPoint: {fileID: 0}
+  m_UniqueRoomList: []
+  m_TotalUniqueRooms: 0
+  m_hasCrowbar: 0
+  m_totalItemsDestroyed: 0
+  m_HasEntered: 0
+  m_RoomPoint: 0
 --- !u!114 &493106927433601709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +74,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00135994dc956c4fb23e691d5f22610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicState: low
+  Log: 0
+  musicState: 0
+  _Activated: 0
+  _JohnActivated: 0
+  currentState: 
+  _gameManager: {fileID: 2189679988881524789}
 --- !u!114 &5830295553200378158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,3 +92,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70109850543ee124088fb80de75d2950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Log: 0

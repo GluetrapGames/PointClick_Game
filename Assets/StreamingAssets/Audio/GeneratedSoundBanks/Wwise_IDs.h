@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID BLAB = 1527158674U;
         static const AkUniqueID BUG_SHELF = 584038952U;
+        static const AkUniqueID CARDSTINGER = 2013540103U;
         static const AkUniqueID COURTBUZZ = 316795645U;
         static const AkUniqueID COURTCLOCK = 3307117116U;
         static const AkUniqueID COURTCOUGH = 2070691372U;
@@ -26,6 +27,9 @@ namespace AK
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
         static const AkUniqueID HOUSECREAK = 3508689533U;
         static const AkUniqueID HOUSETONE = 1903191047U;
+        static const AkUniqueID JOURNALCLOSE = 3987853926U;
+        static const AkUniqueID JOURNALFLIP = 2690803159U;
+        static const AkUniqueID JOURNALOPEN = 1738215602U;
         static const AkUniqueID MATERIAL = 3865314626U;
         static const AkUniqueID MENU_BACK = 3063554414U;
         static const AkUniqueID MENU_HOVER = 309439191U;
