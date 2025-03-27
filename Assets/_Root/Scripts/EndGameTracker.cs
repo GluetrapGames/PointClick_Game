@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using AYellowpaper.SerializedCollections;
 using EditorAttributes;
 using GlueTrap.Utilities;
@@ -30,15 +29,15 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private bool _Log;
 	[SerializeField, ReadOnly]
 	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
-	private int _cluesFound;
 	public bool m_hasMoney;
-	private bool _moneySet;
-	private bool _albertSpawned;
-	
+
 	// 0 Money, 1 Crowbar, 2 Journal, 3 Keys, 4 Poetry, 5 Cigarettes, 6 Medicine
 	public List<ItemTypes> m_CollectedItems = new();
-	
+	private bool _albertSpawned;
+	private int _cluesFound;
+
 	private GameManager _GameManager;
+	private bool _moneySet;
 
 
 	protected override void Awake()
@@ -58,19 +57,18 @@ public class EndGameTracker : Singleton<EndGameTracker>
 				_albertSpawned = true;
 			}
 
-			if (!DialogueManager.isConversationActive)
-			{
-				var transition = GameObject.Find("ToCS4");
-				var transComp = transition.GetComponent<SceneTransition>();
-				transComp.CallFromConversationEnd();
-				_IsGameOver = false;
-			}
-			
+			if (DialogueManager.isConversationActive) return;
+			GameObject transition = GameObject.Find("ToCS4");
+			var transComp = transition.GetComponent<SceneTransition>();
+			transComp.CallFromConversationEnd();
+			_IsGameOver = false;
+
 			return;
 		}
 
 		TrackEndGameItems();
 
+		// Update any destroyed items.
 		if (_BreakableItems.Count != 0)
 		{
 			foreach ((var id, BreakableItem item) in _BreakableItems)
@@ -78,48 +76,27 @@ public class EndGameTracker : Singleton<EndGameTracker>
 					_DestroyedItems[id] = true;
 		}
 
-		// Check if everything that was needed was collected or destroyed.
-		/*var allItemsCollected = false;
-		if (_GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
-		{
-			allItemsCollected = m_EndItemTypes.Values.All(value => value);
-			if (!allItemsCollected) return;
-		}*/
-
-		bool endGame = DialogueLua.GetVariable("Final_Phonecall").asBool;
-		
-		/*var allPlantsDestroyed = false;
-		if (_DestroyedItems.Count != 0 && _BreakableItems.Count != 0 &&
-		    _GameManager.m_InventoryManager.m_InventoryItems.Count != 0)
-		{
-			allItemsCollected = m_EndItemTypes.Values.All(value => value);
-			if (!allItemsCollected) return;
-			if (_DestroyedItems.Count >= _BreakableItems.Count)
-			{
-				allPlantsDestroyed = _DestroyedItems.Values.All(value => value);
-				if (!allPlantsDestroyed) return;
-			}
-		}*/
+		var endGame = DialogueLua.GetVariable("Final_Phonecall").asBool;
 
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			Debug.LogWarning(DialogueLua.GetVariable("Collected_Item_List").ToString());
+			Debug.LogWarning(DialogueLua.GetVariable("Collected_Item_List")
+				.ToString());
 		}
-		
-		if (!endGame /*|| !allPlantsDestroyed*/) return;
+
+		if (!endGame) return;
 		Debug.LogWarning("GAME END, SPAWNING ALBERT");
 		_IsGameOver = true;
 	}
 
 	private void TrackEndGameItems()
 	{
-
 		if (DialogueLua.GetVariable("Money_Collected").asBool && !_moneySet)
 		{
 			m_hasMoney = true;
 			_moneySet = true;
 		}
-		
+
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count <= 0) return;
 
 		Dictionary<ItemTypes, bool> keysToUpdate = new();
@@ -149,23 +126,30 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			m_EndItemTypes[update.Key] = update.Value;
 
 		UpdateDMValues();
-
 	}
 
 	private void UpdateDMValues()
 	{
-
-		string collectedItems = "";
-		for (int i = 0; i < m_CollectedItems.Count; i++)
-		{
-			collectedItems = collectedItems + $"{m_CollectedItems[i].ToString()}, ";
-		};
+		var collectedItems = "";
+		for (var i = 0; i < m_CollectedItems.Count; i++)
+			collectedItems =
+				collectedItems + $"{m_CollectedItems[i].ToString()}, ";
+		;
 		DialogueLua.SetVariable("Collected_Item_List", collectedItems);
 	}
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
-		
+		// Get breakable items and add/update the list.
+		var newItems =
+			FindObjectsByType<BreakableItem>(FindObjectsSortMode.None);
+
+		// Either update or add new item to list.
+		foreach (BreakableItem item in newItems)
+		{
+			var id = item.m_PersistentID;
+			_BreakableItems[id] = item;
+		}
 	}
 
 	public void SpawnAlbert()
@@ -175,11 +159,11 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			Debug.LogError("Can't Spawn Albert!");
 			return;
 		}
-		
-		var albertConvoObject = GameObject.Find("Albert");
+
+		GameObject albertConvoObject = GameObject.Find("Albert");
 		albertConvoObject.GetComponent<DialogueSystemTrigger>().enabled = true;
 		albertConvoObject.GetComponent<DialogueSystemEvents>().enabled = true;
-		
+
 		// Get Albert's spawner.
 		_AlbertSpawPoint = Utils.FindSpawner("AlbertSpawner");
 
@@ -190,17 +174,6 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			Debug.LogError("GAME OVER CHECK PASSED");
 			Instantiate(_AlbertPrefab, _AlbertSpawPoint.position,
 				quaternion.identity);
-		}
-
-		// Get breakable items and add/update the list.
-		var newItems =
-			FindObjectsByType<BreakableItem>(FindObjectsSortMode.None);
-
-		// Either update or add new item to list.
-		foreach (BreakableItem item in newItems)
-		{
-			var id = item.m_PersistentID;
-			_BreakableItems[id] = item;
 		}
 	}
 }
