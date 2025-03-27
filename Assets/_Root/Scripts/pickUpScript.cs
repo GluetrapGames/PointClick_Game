@@ -152,6 +152,7 @@ public class PickUpScript : MonoBehaviour
 		}
 		
 		if (m_Log) Debug.Log("Item collected");
+		_GameManager.m_totalItemsPickedUp++;
 		m_ActivateVariable = true;
 		Destroy(gameObject);
 	}
