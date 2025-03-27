@@ -1,6 +1,7 @@
 using System.Collections;
 using EditorAttributes;
 using GlueTrap.Utilities;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -72,6 +73,11 @@ public class SceneTransition : MonoBehaviour
 		{
 			_GameManager.m_HasEntered = true;
 			_GameManager.m_RoomPoint = m_ExitPoint;
+			if (_sceneToTransitionTo == "CourtScene 3" && !_GameManager.m_hasCrowbar)
+			{
+				DialogueManager.StartConversation("NoCrowbar");
+				return;
+			}
 			StartCoroutine(LoadScene(_sceneToTransitionTo));
 
 			// Play scene transition sound
