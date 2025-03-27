@@ -1,6 +1,7 @@
 using AK.Wwise;
 using PixelCrushers.DialogueSystem;
 using PixelCrushers.DialogueSystem.ChatMapper;
+using Unity.Sentis.Layers;
 using UnityEngine;
 
 namespace GlueTrap
@@ -104,7 +105,101 @@ public class EnvironmentSounds : MonoBehaviour
 					AkSoundEngine.PostEvent("FridgeOpen", gameObject);
 					break;
 			}
-
         }
+
+		public void PlayJournalSounds()
+		{
+            DialogueEntry dialogueEntry = DialogueManager.currentConversationState
+            .subtitle.dialogueEntry;
+            var conversationID = dialogueEntry.conversationID;
+            var subtitleId = dialogueEntry.id;
+
+			if (conversationID != 23) return;
+
+			switch (subtitleId)
+			{
+				case 1:
+					AkSoundEngine.PostEvent("JournalOpen", gameObject);
+					break;
+				case 2:
+					AkSoundEngine.PostEvent("JournalFlip", gameObject);
+					break;
+                case 3:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 4:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 5:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 6:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 7:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 8:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+				case 9:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+				case 10:
+					AkSoundEngine.PostEvent("JournalClose", gameObject);
+					break;
+            }
+        }
+		public void PlayPoemSounds()
+		{
+            DialogueEntry dialogueEntry = DialogueManager.currentConversationState
+            .subtitle.dialogueEntry;
+            var conversationID = dialogueEntry.conversationID;
+            var subtitleId = dialogueEntry.id;
+
+			if (conversationID != 24) return;
+
+			switch (subtitleId)
+			{
+				case 1:
+					AkSoundEngine.PostEvent("JournalOpen", gameObject);
+					break;
+				case 2:
+					AkSoundEngine.PostEvent("JournalFlip", gameObject);
+					break;
+                case 3:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 4:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 5:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 6:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 7:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 8:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+				case 9:
+					AkSoundEngine.PostEvent("JournalFlip", gameObject);
+					break;
+				case 10:
+					AkSoundEngine.PostEvent("JournalFlip", gameObject);
+					break;
+                case 11:
+                    AkSoundEngine.PostEvent("JournalFlip", gameObject);
+                    break;
+                case 12:
+                    AkSoundEngine.PostEvent("JournalClose", gameObject);
+                    break;
+            }
+        }
+
+
         }
 }

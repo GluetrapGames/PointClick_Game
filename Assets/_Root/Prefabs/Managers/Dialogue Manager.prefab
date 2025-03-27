@@ -592,6 +592,7 @@ GameObject:
   - component: {fileID: 7112410347588134379}
   - component: {fileID: 5097307550474575947}
   - component: {fileID: 7434969250171287757}
+  - component: {fileID: 5224306002053278460}
   - component: {fileID: 8915859035810219472}
   m_Layer: 0
   m_Name: Dialogue Manager
@@ -849,7 +850,79 @@ MonoBehaviour:
         m_Calls: []
     onConversationLine:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 5224306002053278460}
+          m_TargetAssemblyTypeName: GlueTrap.EnvironmentSounds, Assembly-CSharp
+          m_MethodName: GameshowVolume
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5224306002053278460}
+          m_TargetAssemblyTypeName: GlueTrap.EnvironmentSounds, Assembly-CSharp
+          m_MethodName: PlayFridgeSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5224306002053278460}
+          m_TargetAssemblyTypeName: GlueTrap.EnvironmentSounds, Assembly-CSharp
+          m_MethodName: PlayJournalSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5224306002053278460}
+          m_TargetAssemblyTypeName: GlueTrap.EnvironmentSounds, Assembly-CSharp
+          m_MethodName: PlayOvenSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5224306002053278460}
+          m_TargetAssemblyTypeName: GlueTrap.EnvironmentSounds, Assembly-CSharp
+          m_MethodName: PlayPoemSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5224306002053278460}
+          m_TargetAssemblyTypeName: GlueTrap.EnvironmentSounds, Assembly-CSharp
+          m_MethodName: PlayRingSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onConversationLineEnd:
       m_PersistentCalls:
         m_Calls: []
@@ -902,6 +975,18 @@ MonoBehaviour:
     onDialogueSystemUnpause:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &5224306002053278460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164685846921262984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107cad9e1b69b0242bb8171415ffead7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8915859035810219472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4387,6 +4472,8 @@ MonoBehaviour:
   _SkipButton: {fileID: 1222639956880067163}
   _ResponsePanel: {fileID: 9030160187868976340}
   _ChildImage: {fileID: 5022778670574970360}
+  _ScreenPauseButton: {fileID: 0}
+  _ScreenLogButton: {fileID: 0}
   _OpenImage: {fileID: 1561867566708083125, guid: c78b297bebe40da4998acc249e93b00e, type: 3}
   _CloseImage: {fileID: -7877229825462887920, guid: 3b6ac29f15b819041bcf07a55699ff03, type: 3}
 --- !u!114 &8245143411105375939

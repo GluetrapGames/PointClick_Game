@@ -176,7 +176,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584585238446176757
+    m_lastTime: -8584585201838323672
     List:
     - name: Ambience
       guid: 19c1f8107ed1404c834f7da805b12460
@@ -388,6 +388,23 @@ MonoBehaviour:
       maxDuration: -1
       minDuration: -1
     - name: Dialogue
+      guid: 1a5ab7e86bddf5499262cd911481f821
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: 1a5ab7e86bddf5499262cd911481f821
+      Path: Events\Default Work Unit\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Dialogue
       guid: ec2bcc2c0764444b83ea433766c8f3ff
       id: 3930136735
       PathAndIcons:
@@ -407,23 +424,6 @@ MonoBehaviour:
         ObjectType: 4
         guid: ec2bcc2c0764444b83ea433766c8f3ff
       Path: Events\Default Work Unit\UI\In-Game\Dialogue
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Dialogue
-      guid: 1a5ab7e86bddf5499262cd911481f821
-      id: 3930136735
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Dialogue
-        ObjectType: 4
-        guid: 1a5ab7e86bddf5499262cd911481f821
-      Path: Events\Default Work Unit\Dialogue
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -682,6 +682,107 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Journal
+      guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      id: 3484357458
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: UI
+        ObjectType: 4
+        guid: ba03455f55cd504796403d3470dd40b1
+      - ElementName: In-Game
+        ObjectType: 4
+        guid: 1476956ed61ce744829fc7491b42af15
+      - ElementName: Journal
+        ObjectType: 4
+        guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      Path: Events\Default Work Unit\UI\In-Game\Journal
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: JournalClose
+      guid: d4576c5c2fcbb2439566b9df3d99fa22
+      id: 3987853926
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: UI
+        ObjectType: 4
+        guid: ba03455f55cd504796403d3470dd40b1
+      - ElementName: In-Game
+        ObjectType: 4
+        guid: 1476956ed61ce744829fc7491b42af15
+      - ElementName: Journal
+        ObjectType: 4
+        guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      - ElementName: JournalClose
+        ObjectType: 3
+        guid: d4576c5c2fcbb2439566b9df3d99fa22
+      Path: Events\Default Work Unit\UI\In-Game\Journal\JournalClose
+      maxAttenuation: 0
+      maxDuration: 0.40886393
+      minDuration: 0.40886393
+    - name: JournalFlip
+      guid: 24696b5064884947a228771ebc63b905
+      id: 2690803159
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: UI
+        ObjectType: 4
+        guid: ba03455f55cd504796403d3470dd40b1
+      - ElementName: In-Game
+        ObjectType: 4
+        guid: 1476956ed61ce744829fc7491b42af15
+      - ElementName: Journal
+        ObjectType: 4
+        guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      - ElementName: JournalFlip
+        ObjectType: 3
+        guid: 24696b5064884947a228771ebc63b905
+      Path: Events\Default Work Unit\UI\In-Game\Journal\JournalFlip
+      maxAttenuation: 0
+      maxDuration: 1.1326748
+      minDuration: 0.8990046
+    - name: JournalOpen
+      guid: 6b503b8822d67949a58d828d5e0bf4fd
+      id: 1738215602
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: UI
+        ObjectType: 4
+        guid: ba03455f55cd504796403d3470dd40b1
+      - ElementName: In-Game
+        ObjectType: 4
+        guid: 1476956ed61ce744829fc7491b42af15
+      - ElementName: Journal
+        ObjectType: 4
+        guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      - ElementName: JournalOpen
+        ObjectType: 3
+        guid: 6b503b8822d67949a58d828d5e0bf4fd
+      Path: Events\Default Work Unit\UI\In-Game\Journal\JournalOpen
+      maxAttenuation: 0
+      maxDuration: 0.76565284
+      minDuration: 0.76565284
     - name: Material
       guid: 18cd95b2874fb446a9772608347fb39c
       id: 3865314626
