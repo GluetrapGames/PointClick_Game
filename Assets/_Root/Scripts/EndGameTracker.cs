@@ -34,7 +34,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	// 0 Money, 1 Crowbar, 2 Journal, 3 Keys, 4 Poetry, 5 Cigarettes, 6 Medicine
 	public List<ItemTypes> m_CollectedItems = new();
 	private bool _albertSpawned;
-	private int _cluesFound;
+	public int _cluesFound;
 
 	private GameManager _GameManager;
 	private bool _moneySet;

@@ -38,8 +38,41 @@ public class EnvironmentSounds : MonoBehaviour
 			case 32:
 				AkSoundEngine.PostEvent("PhoneSlam", gameObject);
 				AkSoundEngine.PostEvent("StopPhone", gameObject);
-				AkSoundEngine.SetRTPCValue("vol_gameShow", 75f);
 				break;
+			case 35:
+				AkSoundEngine.SetRTPCValue("vol_gameshow", 50f);
+				break;
+        }
+
+		
+        }
+
+		public void GameshowVolume()
+		{
+            DialogueEntry dialogueEntry = DialogueManager.currentConversationState
+            .subtitle.dialogueEntry;
+            var conversationID = dialogueEntry.conversationID;
+            var subtitleId = dialogueEntry.id;
+
+            if (conversationID != 58) return;
+
+            if (conversationID == 58)
+            {
+                switch (subtitleId)
+                {
+                    case 3:
+                        Debug.Log("gameshow louder, music down");
+
+                        AkSoundEngine.SetRTPCValue("vol_gameshow", 100f);
+                        AkSoundEngine.SetRTPCValue("vol_music", 2.5f);
+                        break;
+							
+                    case 6:
+                        Debug.Log("gameshow down, music louder");
+                        AkSoundEngine.SetRTPCValue("vol_gameshow", 50f);
+                        AkSoundEngine.SetRTPCValue("vol_music", 5f);
+                        break;
+                }
             }
         }
 		public void PlayOvenSounds()

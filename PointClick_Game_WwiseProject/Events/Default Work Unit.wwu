@@ -197,6 +197,17 @@
 					<ChildrenList>
 						<Event Name="player_pickup" ID="{23AD0A8F-25B8-41D2-8668-44A27AA828A0}">
 							<ChildrenList>
+								<Action Name="" ID="{18EA5B6C-78D5-40AC-B282-9C2CBE45CDBC}" ShortID="867481311">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="12"/>
+										<Property Name="Volume" Type="Real64" Value="-8"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="stinger" ID="{AFFEF904-DB94-4CDB-AB37-CE479BAB9441}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{775CC458-D3FB-4A04-98E4-F151A1D0DF0E}" ShortID="59886263">
 									<ReferenceList>
 										<Reference Name="Target">
@@ -913,6 +924,28 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="CardStinger" ID="{02D6B5CF-D6F3-45D9-A3E8-9DF7876197D9}">
+							<ChildrenList>
+								<Action Name="" ID="{87A37398-E373-47B1-9AC4-1C2B56CF3739}" ShortID="69794760">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="12"/>
+										<Property Name="Volume" Type="Real64" Value="-4"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="stinger" ID="{AFFEF904-DB94-4CDB-AB37-CE479BAB9441}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{75386809-3673-43DB-A764-A7321AEA2142}" ShortID="909275015">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="stinger" ID="{AFFEF904-DB94-4CDB-AB37-CE479BAB9441}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{2A57C79D-0DA8-4AA9-B9B1-29EE57FA36AB}" ShortID="442546150">
