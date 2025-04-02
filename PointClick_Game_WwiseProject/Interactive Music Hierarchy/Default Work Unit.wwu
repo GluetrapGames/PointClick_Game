@@ -2384,8 +2384,20 @@
 										<MusicPlaylistItem Name="" ID="{F8C48827-E702-4F01-A47D-DA2BC52C2AF7}" ShortID="1028323230">
 											<PropertyList>
 												<Property Name="LoopCount" Type="int16" Value="0"/>
+												<Property Name="PlayMode" Type="int16" Value="3"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 											</PropertyList>
 											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{8EC74823-4A34-4A7E-93FC-06B22B4E13F4}" ShortID="1019167012">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="silence" ID="{300834FC-B8EC-4175-8D1B-F3AAB92C5A88}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
 												<MusicPlaylistItem Name="" ID="{DD5394D5-A979-42ED-A243-C189EEF544FE}" ShortID="947031399">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
@@ -2396,7 +2408,7 @@
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{554301CE-DF44-4966-AE3A-850E60719293}" ShortID="982827159">
+												<MusicPlaylistItem Name="" ID="{6D489AE7-89C5-4CEE-BA5D-05BC605D4A13}" ShortID="1066100261">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
@@ -2416,16 +2428,6 @@
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{861726D4-A690-410D-A546-DF64872AFF46}" ShortID="627692156">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Segment">
-															<ObjectRef Name="silence" ID="{300834FC-B8EC-4175-8D1B-F3AAB92C5A88}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-														</Reference>
-													</ReferenceList>
-												</MusicPlaylistItem>
 												<MusicPlaylistItem Name="" ID="{3C931FE2-1AB9-4E15-BE30-CE96ECCCE2C4}" ShortID="939053186">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
@@ -2433,16 +2435,6 @@
 													<ReferenceList>
 														<Reference Name="Segment">
 															<ObjectRef Name="amb_court_cough-002" ID="{F6B4C187-C3B0-4652-9442-2C441F51D956}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-														</Reference>
-													</ReferenceList>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{C06020FF-CAE5-4F9F-9312-216B85527B50}" ShortID="420370085">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Segment">
-															<ObjectRef Name="silence" ID="{300834FC-B8EC-4175-8D1B-F3AAB92C5A88}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
@@ -2456,7 +2448,7 @@
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{388ADECD-8F4E-40F8-B224-B9D7488CDB13}" ShortID="994500784">
+												<MusicPlaylistItem Name="" ID="{A5EB3A05-5FA0-4FEF-8696-84443CE95CA3}" ShortID="734817249">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
@@ -2476,16 +2468,6 @@
 														</Reference>
 													</ReferenceList>
 												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{05AE21D5-BE16-4B1C-BAA6-03A04D6EE38C}" ShortID="269717472">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Segment">
-															<ObjectRef Name="silence" ID="{300834FC-B8EC-4175-8D1B-F3AAB92C5A88}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-														</Reference>
-													</ReferenceList>
-												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
 									</Custom>
@@ -2498,7 +2480,13 @@
 											</PropertyList>
 											<ChildrenList>
 												<MusicTransition Name="Transition" ID="{3AE965F7-E5A8-458C-802C-95D364D36AA9}">
-													<TransitionInfo/>
+													<PropertyList>
+														<Property Name="DestinationPlaylistJumpTo" Type="int16" Value="2"/>
+														<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo>
+														<TransitionObjectRef Name="silence" ID="{300834FC-B8EC-4175-8D1B-F3AAB92C5A88}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+													</TransitionInfo>
 												</MusicTransition>
 											</ChildrenList>
 											<TransitionInfo/>
