@@ -168,6 +168,16 @@ public class PickUpScript : MonoBehaviour
 			_GameManager.m_hasCrowbar = true;
 			DialogueLua.SetVariable("Crowbar_Collected", _GameManager.m_hasCrowbar);
 		}
+
+		if (_ItemType == ItemTypes.Money)
+		{
+			_GameManager.m_collectedMoney += 50;
+		}
+		
+		if (_ItemType == ItemTypes.Coins)
+		{
+			_GameManager.m_collectedMoney += 10;
+		}
 		
 		if (m_Log) Debug.Log("Item collected");
 		_GameManager.m_totalItemsPickedUp++;
