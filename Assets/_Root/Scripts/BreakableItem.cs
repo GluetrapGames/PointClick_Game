@@ -34,6 +34,7 @@ public class BreakableItem : MonoBehaviour
 	private BreakMaterialTypes _BreakMaterial;
 	[SerializeField]
 	private bool _isTV;
+	private bool _hasAddedToCount;
 
 	private InputAction _breakableAction;
 	private EndGameTracker _EndGameTracker;
@@ -179,9 +180,12 @@ public class BreakableItem : MonoBehaviour
 				gameObject.GetComponent<SpriteRenderer>().sprite = _sprites[1];
 				gameObject.GetComponent<BoxCollider2D>().enabled = false;
 				gameObject.transform.position -= _afterBreakOffset;
-				_GameManager.m_totalItemsDestroyed++;
-				DialogueLua.SetVariable("Items_Broken",
-					_GameManager.m_totalItemsDestroyed);
+				if (!_EndGameTracker._DestroyedItems.ContainsKey(this._PersistentID))
+				{
+					_GameManager.m_totalItemsDestroyed++;
+					DialogueLua.SetVariable("Items_Broken",
+						_GameManager.m_totalItemsDestroyed);
+				}
 				if (_isTV) DialogueLua.SetVariable("TV_Broken", true);
 				break;
 		}

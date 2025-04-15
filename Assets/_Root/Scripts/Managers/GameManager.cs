@@ -32,6 +32,8 @@ public class GameManager : Singleton<GameManager>
 	public bool m_hasCrowbar;
 	public bool m_HasFlatCall;
 	public bool m_hasUpstairsCourt;
+	public bool m_hasTaxidermyKey;
+	public bool m_hasFrontdoorKey;
 	public int m_totalItemsDestroyed;
 	public int m_totalItemsPickedUp;
 	public bool m_HasEntered;
