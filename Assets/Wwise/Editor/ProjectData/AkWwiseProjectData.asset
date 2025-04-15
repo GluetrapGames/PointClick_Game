@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 5909de92d8ac4141b7fe347eabe5cda5
     GuidInternal: 
-    m_lastTime: -8584586152421954796
+    m_lastTime: -8584599120712609113
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: a003960deb8bdf468e97a26af7e6ab6c
     GuidInternal: 
-    m_lastTime: -8584586152427130362
+    m_lastTime: -8584599120718029739
     List:
     - name: Dialogue
       guid: 13d5f7f34eace145936fbb7376e25110
@@ -148,7 +148,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d9cd24203029844a94de634f59516731
     GuidInternal: 
-    m_lastTime: -8584586122196848529
+    m_lastTime: -8584585318566311657
     List:
     - name: Main
       guid: fff4323f282c4e4bbef4b6e13128fb3a
@@ -176,7 +176,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584585238446176757
+    m_lastTime: -8584568932276004577
     List:
     - name: Ambience
       guid: 19c1f8107ed1404c834f7da805b12460
@@ -213,8 +213,8 @@ MonoBehaviour:
         guid: 79ae0e61b1425b4ab1c71133d9ae0762
       Path: Events\Default Work Unit\Dialogue\Blab
       maxAttenuation: 0
-      maxDuration: 0.13150942
-      minDuration: 0.056701366
+      maxDuration: 0.119041815
+      minDuration: 0.05214056
     - name: Breaks
       guid: ffbfc00e79fb7a42963fab89f9270ee8
       id: 1008011617
@@ -388,6 +388,23 @@ MonoBehaviour:
       maxDuration: -1
       minDuration: -1
     - name: Dialogue
+      guid: 1a5ab7e86bddf5499262cd911481f821
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: 1a5ab7e86bddf5499262cd911481f821
+      Path: Events\Default Work Unit\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Dialogue
       guid: ec2bcc2c0764444b83ea433766c8f3ff
       id: 3930136735
       PathAndIcons:
@@ -407,23 +424,6 @@ MonoBehaviour:
         ObjectType: 4
         guid: ec2bcc2c0764444b83ea433766c8f3ff
       Path: Events\Default Work Unit\UI\In-Game\Dialogue
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Dialogue
-      guid: 1a5ab7e86bddf5499262cd911481f821
-      id: 3930136735
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Dialogue
-        ObjectType: 4
-        guid: 1a5ab7e86bddf5499262cd911481f821
-      Path: Events\Default Work Unit\Dialogue
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -682,6 +682,107 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Journal
+      guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      id: 3484357458
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: UI
+        ObjectType: 4
+        guid: ba03455f55cd504796403d3470dd40b1
+      - ElementName: In-Game
+        ObjectType: 4
+        guid: 1476956ed61ce744829fc7491b42af15
+      - ElementName: Journal
+        ObjectType: 4
+        guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      Path: Events\Default Work Unit\UI\In-Game\Journal
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: JournalClose
+      guid: d4576c5c2fcbb2439566b9df3d99fa22
+      id: 3987853926
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: UI
+        ObjectType: 4
+        guid: ba03455f55cd504796403d3470dd40b1
+      - ElementName: In-Game
+        ObjectType: 4
+        guid: 1476956ed61ce744829fc7491b42af15
+      - ElementName: Journal
+        ObjectType: 4
+        guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      - ElementName: JournalClose
+        ObjectType: 3
+        guid: d4576c5c2fcbb2439566b9df3d99fa22
+      Path: Events\Default Work Unit\UI\In-Game\Journal\JournalClose
+      maxAttenuation: 0
+      maxDuration: 0.40886393
+      minDuration: 0.40886393
+    - name: JournalFlip
+      guid: 24696b5064884947a228771ebc63b905
+      id: 2690803159
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: UI
+        ObjectType: 4
+        guid: ba03455f55cd504796403d3470dd40b1
+      - ElementName: In-Game
+        ObjectType: 4
+        guid: 1476956ed61ce744829fc7491b42af15
+      - ElementName: Journal
+        ObjectType: 4
+        guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      - ElementName: JournalFlip
+        ObjectType: 3
+        guid: 24696b5064884947a228771ebc63b905
+      Path: Events\Default Work Unit\UI\In-Game\Journal\JournalFlip
+      maxAttenuation: 0
+      maxDuration: 1.1326748
+      minDuration: 0.8990046
+    - name: JournalOpen
+      guid: 6b503b8822d67949a58d828d5e0bf4fd
+      id: 1738215602
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: UI
+        ObjectType: 4
+        guid: ba03455f55cd504796403d3470dd40b1
+      - ElementName: In-Game
+        ObjectType: 4
+        guid: 1476956ed61ce744829fc7491b42af15
+      - ElementName: Journal
+        ObjectType: 4
+        guid: 3926eb0b0ca82e4d8fe78d7c4eb1bfb9
+      - ElementName: JournalOpen
+        ObjectType: 3
+        guid: 6b503b8822d67949a58d828d5e0bf4fd
+      Path: Events\Default Work Unit\UI\In-Game\Journal\JournalOpen
+      maxAttenuation: 0
+      maxDuration: 0.76565284
+      minDuration: 0.76565284
     - name: Material
       guid: 18cd95b2874fb446a9772608347fb39c
       id: 3865314626
@@ -1569,7 +1670,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584585343951580216
+    m_lastTime: -8584585318614365573
     List:
     - name: vol_dialogue
       guid: d375c4070ca9a54aa883e10fff410998
@@ -1699,7 +1800,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: aaef3b61817689459787a303f0cc8de8
     GuidInternal: 
-    m_lastTime: -8584585343925278245
+    m_lastTime: -8584585318565945862
     List:
     - name: FlatMusic
       guid: 60efac30605f2e4497ac1b0bf46606a2
@@ -1861,7 +1962,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584586122196848529
+    m_lastTime: -8584585144766026338
     List:
     - name: BreakMaterial
       guid: 52371375a5837847ab5b8d4e1a0afc3a
@@ -2331,7 +2432,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 8aff68e09ca652408bd2e782fdf49389
     GuidInternal: 
-    m_lastTime: -8584586152421954796
+    m_lastTime: -8584599120712619561
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 0600000007000000080000000b0000000f00000010000000110000004b000000

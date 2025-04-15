@@ -150,9 +150,9 @@
 												<AudioFileSource Name="dial_lawyer_blab" ID="{745B3E95-44C5-459F-AF94-41C643E2E6C0}">
 													<PropertyList>
 														<Property Name="FadeInDuration" Type="Real64" Value="0.0151514615105301"/>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.0165288671023965"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0281694501480428"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="0.107437636165576"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.0972521260006355"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>dial_lawyer_blab.wav</AudioFile>
@@ -214,7 +214,7 @@
 														<Property Name="FadeInDuration" Type="Real64" Value="0.0128082107843137"/>
 														<Property Name="FadeOutDuration" Type="Real64" Value="0.0142313453159041"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="0.0939268790849672"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.0728795545740351"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>dial_john_blab02.wav</AudioFile>
@@ -263,6 +263,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="dial_judge_blab" ID="{67F14819-8B65-4CB5-8205-D4A0A82E7AF3}" ShortID="718541717">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
@@ -278,7 +285,7 @@
 														<Property Name="FadeOutDuration" Type="Real64" Value="0.00779221132897603"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 														<Property Name="TrimBegin" Type="Real64" Value="0.0107892156862745"/>
-														<Property Name="TrimEnd" Type="Real64" Value="0.0698302015250543"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.0650812084295421"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>dial_judge_blab.wav</AudioFile>
@@ -679,6 +686,129 @@
 										</Sound>
 									</ChildrenList>
 								</Folder>
+								<Folder Name="Journal" ID="{FE4DFE75-D5EC-481D-9466-CB4427C05ECE}" ShortID="482634044">
+									<ChildrenList>
+										<Sound Name="ui_journalClose" ID="{4C8B3A46-A94F-48D9-BC40-3ACB3F02C24A}" ShortID="432659607">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="ui_journalClose" ID="{3846F023-BFB7-4BDD-944D-C7AFED44DA35}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0171952124563446"/>
+														<Property Name="LoopBegin" Type="Real64" Value="0.190421056461001"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.138198559371362"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>ui_journalClose.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="791196070"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="ui_journalClose" ID="{3846F023-BFB7-4BDD-944D-C7AFED44DA35}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="ui_journalFlip" ID="{8F4445CB-EBC0-4FFD-B49F-7F9A2C1CDE73}" ShortID="478226809">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{BEDD4378-7D6A-4171-8629-13F8524457A7}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="200"/>
+																	<Property Name="Min" Type="Real64" Value="-200"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="ui_journalFlip" ID="{DCD12846-1531-40E4-8B2C-1907E5ED5F50}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0885783614668219"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.415102517462165"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.42420110593714"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>ui_journalFlip.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="902917439"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="ui_journalFlip" ID="{DCD12846-1531-40E4-8B2C-1907E5ED5F50}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="ui_journalOpen" ID="{7BBDE468-D4DD-4FED-95FE-D60F77F08C44}" ShortID="891652093">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="ui_journalOpen" ID="{2F3582B1-3DAC-4326-AE1E-65EF9E3C42D9}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0911836073923167"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0897362485448195"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.302497999126892"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.06815082945285"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>ui_journalOpen.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="461287945"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="ui_journalOpen" ID="{2F3582B1-3DAC-4326-AE1E-65EF9E3C42D9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -909,6 +1039,11 @@
 										</Sound>
 										<Sound Name="player_takePills" ID="{FCE115CB-743A-4F56-A9CC-05020022E61B}" ShortID="688779848">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>230</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>5</Value>

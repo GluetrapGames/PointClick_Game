@@ -1,6 +1,7 @@
 using System.Collections;
 using EditorAttributes;
 using GlueTrap.Utilities;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -72,6 +73,23 @@ public class SceneTransition : MonoBehaviour
 		{
 			_GameManager.m_HasEntered = true;
 			_GameManager.m_RoomPoint = m_ExitPoint;
+			
+			// Upstairs checks
+			if (_sceneToTransitionTo == "CourtScene 3" && !_GameManager.m_hasCrowbar)
+			{
+				DialogueManager.StartConversation("NoCrowbar");
+				return;
+			}
+
+			if (_sceneToTransitionTo == "CourtScene 3" && _GameManager.m_hasUpstairsCourt)
+			{
+				StartCoroutine(LoadScene("Hallway1"));
+				if (_isPlaying) return;
+				AkSoundEngine.PostEvent("RoomTransition", gameObject);
+				_isPlaying = true;
+				return;
+			}
+			
 			StartCoroutine(LoadScene(_sceneToTransitionTo));
 
 			// Play scene transition sound
@@ -97,6 +115,15 @@ public class SceneTransition : MonoBehaviour
 		_isPlaying = false;
 	}
 
+	private void UniqueRoomCheck()
+	{
+		if (!_GameManager.m_UniqueRoomList.Contains(_sceneToTransitionTo.ToString()))
+		{
+			_GameManager.m_UniqueRoomList.Add(_sceneToTransitionTo.ToString());
+			DialogueLua.SetVariable("Rooms_Entered", (DialogueLua.GetVariable("Rooms_Entered").asInt + 1));
+		}
+	}
+	
 	public void CallFromConversationEnd()
 	{
 		StartCoroutine(LoadScene(_sceneToTransitionTo));
@@ -106,6 +133,8 @@ public class SceneTransition : MonoBehaviour
 	{
 		_crossfadeAnimator.SetTrigger("Start");
 		yield return new WaitForSeconds(1);
+		if(sceneName == "CourtScene 3") _GameManager.m_hasUpstairsCourt = true;
+		UniqueRoomCheck();
 		SceneManager.LoadScene(sceneName);
 	}
 }

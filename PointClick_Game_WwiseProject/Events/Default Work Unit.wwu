@@ -189,6 +189,43 @@
 										</Event>
 									</ChildrenList>
 								</Folder>
+								<Folder Name="Journal" ID="{0BEB2639-A80C-4D2E-8FE7-8D7C4EB1BFB9}" ShortID="31964207">
+									<ChildrenList>
+										<Event Name="JournalOpen" ID="{883B506B-D622-4979-A58D-828D5E0BF4FD}">
+											<ChildrenList>
+												<Action Name="" ID="{C756A1A8-AB38-472A-8EB9-EBA403BBFA9F}" ShortID="460932551">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ui_journalOpen" ID="{7BBDE468-D4DD-4FED-95FE-D60F77F08C44}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="JournalFlip" ID="{506B6924-8864-4749-A228-771EBC63B905}">
+											<ChildrenList>
+												<Action Name="" ID="{1BFD1EB9-DDFE-46EA-8AF1-AC5C2EE04F29}" ShortID="130542160">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ui_journalFlip" ID="{8F4445CB-EBC0-4FFD-B49F-7F9A2C1CDE73}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="JournalClose" ID="{5C6C57D4-CB2F-43B2-9566-B9DF3D99FA22}">
+											<ChildrenList>
+												<Action Name="" ID="{723F5C22-F910-4154-8042-CC14E3AB9E96}" ShortID="390113965">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ui_journalClose" ID="{4C8B3A46-A94F-48D9-BC40-3ACB3F02C24A}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

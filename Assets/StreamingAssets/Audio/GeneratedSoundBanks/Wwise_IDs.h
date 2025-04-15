@@ -27,6 +27,9 @@ namespace AK
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
         static const AkUniqueID HOUSECREAK = 3508689533U;
         static const AkUniqueID HOUSETONE = 1903191047U;
+        static const AkUniqueID JOURNALCLOSE = 3987853926U;
+        static const AkUniqueID JOURNALFLIP = 2690803159U;
+        static const AkUniqueID JOURNALOPEN = 1738215602U;
         static const AkUniqueID MATERIAL = 3865314626U;
         static const AkUniqueID MENU_BACK = 3063554414U;
         static const AkUniqueID MENU_HOVER = 309439191U;
