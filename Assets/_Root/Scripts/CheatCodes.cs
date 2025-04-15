@@ -1,3 +1,4 @@
+using PixelCrushers.DialogueSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace GlueTrap
 {
     public class CheatCodes : MonoBehaviour
     {
+
         // Update is called once per frame
         void Update()
         {
@@ -25,6 +27,14 @@ namespace GlueTrap
                 egts._IsGameOver = true;
                 SceneManager.LoadScene("DownstairsHallway");
             }
+            if (Input.GetKeyUp(KeyCode.J))
+            {
+                DialogueLua.SetVariable("Clues_Found", 3);
+                DialogueLua.SetVariable("Money_Collected", true);
+                SceneManager.LoadScene("DownstairsHallway");
+                DialogueManager.StartConversation("Jack_PhoneCall");
+            }
+
         }
     }
 }
