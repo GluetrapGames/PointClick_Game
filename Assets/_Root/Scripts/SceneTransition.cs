@@ -9,7 +9,9 @@ namespace GlueTrap
 {
 public class SceneTransition : MonoBehaviour
 {
-	[Tooltip("What type of entry is it.")]
+	public InteractionDir m_InteractionDirection = InteractionDir.Bottom;
+	public float m_OffsetAmount = 1.5f;
+	[Space, Tooltip("What type of entry is it.")]
 	public RoomEntryPoints m_EntryPoint = RoomEntryPoints.None;
 	[Tooltip("To what point does it leads to.")]
 	public RoomEntryPoints m_ExitPoint = RoomEntryPoints.None;
@@ -18,6 +20,8 @@ public class SceneTransition : MonoBehaviour
 	private string _sceneToTransitionTo;
 
 	private Animator _crossfadeAnimator;
+	private float _entryCooldownTime = 1.0f;
+	private float _entryTimestamp = -999f;
 	private GameManager _GameManager;
 	private bool _isPlaying;
 
@@ -69,34 +73,48 @@ public class SceneTransition : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.CompareTag("Feet") && !_GameManager.m_HasEntered)
+		if (!other.CompareTag("Feet") /*|| _GameManager.m_HasEntered*/) return;
+		//_GameManager.m_HasEntered = true;
+		_GameManager.m_RoomPoint = m_ExitPoint;
+
+		// Upstairs checks
+		if (_sceneToTransitionTo == "CourtScene 3" &&
+		    !_GameManager.m_hasCrowbar)
 		{
-			_GameManager.m_HasEntered = true;
-			_GameManager.m_RoomPoint = m_ExitPoint;
-			
-			// Upstairs checks
-			if (_sceneToTransitionTo == "CourtScene 3" && !_GameManager.m_hasCrowbar)
-			{
-				DialogueManager.StartConversation("NoCrowbar");
-				return;
-			}
+			DialogueManager.StartConversation("NoCrowbar");
+			return;
+		}
 
-			if (_sceneToTransitionTo == "CourtScene 3" && _GameManager.m_hasUpstairsCourt)
-			{
-				StartCoroutine(LoadScene("Hallway1"));
-				if (_isPlaying) return;
-				AkSoundEngine.PostEvent("RoomTransition", gameObject);
-				_isPlaying = true;
-				return;
-			}
-			
-			StartCoroutine(LoadScene(_sceneToTransitionTo));
-
-			// Play scene transition sound
+		if (_sceneToTransitionTo == "CourtScene 3" &&
+		    _GameManager.m_hasUpstairsCourt)
+		{
+			StartCoroutine(LoadScene("Hallway1"));
 			if (_isPlaying) return;
 			AkSoundEngine.PostEvent("RoomTransition", gameObject);
 			_isPlaying = true;
+			return;
 		}
+
+		StartCoroutine(LoadScene(_sceneToTransitionTo));
+
+		// Play scene transition sound
+		if (_isPlaying) return;
+		AkSoundEngine.PostEvent("RoomTransition", gameObject);
+		_isPlaying = true;
+	}
+
+	public void CallFromConversationEnd()
+	{
+		StartCoroutine(LoadScene(_sceneToTransitionTo));
+	}
+
+	private IEnumerator LoadScene(string sceneName)
+	{
+		_crossfadeAnimator.SetTrigger("Start");
+		yield return new WaitForSeconds(1);
+		if (sceneName == "CourtScene 3") _GameManager.m_hasUpstairsCourt = true;
+		UniqueRoomCheck();
+		SceneManager.LoadScene(sceneName);
 	}
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -108,6 +126,24 @@ public class SceneTransition : MonoBehaviour
 			{
 				Vector3 newPos = obj.transform.position;
 				newPos.z = 9.99f;
+
+				// Apply directional offset.
+				switch (obj.m_InteractionDirection)
+				{
+					case InteractionDir.Top:
+						newPos += Vector3.up * m_OffsetAmount;
+						break;
+					case InteractionDir.Bottom:
+						newPos += Vector3.down * m_OffsetAmount;
+						break;
+					case InteractionDir.Left:
+						newPos += Vector3.left * m_OffsetAmount;
+						break;
+					case InteractionDir.Right:
+						newPos += Vector3.right * m_OffsetAmount;
+						break;
+				}
+
 				_GameManager.m_Player.SetPositionInGrid(newPos);
 				break;
 			}
@@ -115,27 +151,15 @@ public class SceneTransition : MonoBehaviour
 		_isPlaying = false;
 	}
 
+
 	private void UniqueRoomCheck()
 	{
-		if (!_GameManager.m_UniqueRoomList.Contains(_sceneToTransitionTo.ToString()))
+		if (!_GameManager.m_UniqueRoomList.Contains(_sceneToTransitionTo))
 		{
-			_GameManager.m_UniqueRoomList.Add(_sceneToTransitionTo.ToString());
-			DialogueLua.SetVariable("Rooms_Entered", (DialogueLua.GetVariable("Rooms_Entered").asInt + 1));
+			_GameManager.m_UniqueRoomList.Add(_sceneToTransitionTo);
+			DialogueLua.SetVariable("Rooms_Entered",
+				DialogueLua.GetVariable("Rooms_Entered").asInt + 1);
 		}
-	}
-	
-	public void CallFromConversationEnd()
-	{
-		StartCoroutine(LoadScene(_sceneToTransitionTo));
-	}
-
-	private IEnumerator LoadScene(string sceneName)
-	{
-		_crossfadeAnimator.SetTrigger("Start");
-		yield return new WaitForSeconds(1);
-		if(sceneName == "CourtScene 3") _GameManager.m_hasUpstairsCourt = true;
-		UniqueRoomCheck();
-		SceneManager.LoadScene(sceneName);
 	}
 }
 }
