@@ -147,6 +147,7 @@ public class BreakableItem : MonoBehaviour
 			}
 		}
 
+		highlighter.Hide();
 		highlighter.gameObject.SetActive(false);
 	}
 
