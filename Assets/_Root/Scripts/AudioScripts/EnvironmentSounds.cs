@@ -213,22 +213,23 @@ public class EnvironmentSounds : MonoBehaviour
                 case 1:
                     AkSoundEngine.SetRTPCValue("vol_music", 1f);
                     break;
-                case 38:
-                    AkSoundEngine.PostEvent("CarArrive", gameObject);
+                case 35:
+                    AkSoundEngine.PostEvent("AlbertIsHome", gameObject);
                     break;
-                case 39:
-                    AkSoundEngine.PostEvent("KeyJangle", gameObject);
-                    break;
-                case 40:
-                    AkSoundEngine.PostEvent("DoorOpen", gameObject);
-                    break;
+                //case 38:
+                //    AkSoundEngine.PostEvent("ExitWalk", gameObject);
+                //    break;
+                //case 39:
+                //    AkSoundEngine.PostEvent("KeyJangle", gameObject);
+                //    break;
+                //case 40:
+                //    AkSoundEngine.PostEvent("DoorOpen", gameObject);
+                //    break;
                 case 41:
                     AkSoundEngine.SetRTPCValue("vol_music", 5f);
                     break;
             }
         }
-
-
 
         }
 }

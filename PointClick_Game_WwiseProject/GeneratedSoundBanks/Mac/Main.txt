@@ -35,6 +35,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2596245103	StopFootstep			\Default Work Unit\Player\StopFootstep	
 	2690803159	JournalFlip			\Default Work Unit\UI\In-Game\Journal\JournalFlip	
 	2774129122	ui_select			\Default Work Unit\UI\In-Game\Dialogue\ui_select	
+	3003684494	AlbertIsHome			\Default Work Unit\Environment\Albert Arrival\AlbertIsHome	
 	3063554414	menu_back			\Default Work Unit\UI\Menu\menu_back	
 	3074298065	PhoneRing			\Default Work Unit\Environment\Phone\PhoneRing	
 	3161912504	HouseBuzz			\Default Work Unit\Ambience\House\HouseBuzz	
@@ -44,6 +45,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3458950111	OvenOpen			\Default Work Unit\Environment\Oven\OvenOpen	
 	3508689533	HouseCreak			\Default Work Unit\Ambience\House\HouseCreak	
 	3512872207	PhonePickup			\Default Work Unit\Environment\Phone\PhonePickup	
+	3585027902	ExitWalk			\Default Work Unit\Environment\Albert Arrival\ExitWalk	
 	3811696612	taxi_animal			\Default Work Unit\Breaks\Specific\taxi_animal	
 	3865314626	Material			\Default Work Unit\Breaks\Material	
 	3923521380	CarArrive			\Default Work Unit\Environment\Albert Arrival\CarArrive	
@@ -113,7 +115,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	65148548	amb_court_clock	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\amb_court_clock_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Clock\amb_court_clock\amb_court_clock		8192096
 	73779194	track_menu	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\track_menu_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\track_menu		35229444
 	99772853	env_ovenClose	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\env_ovenClose_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Oven\env_ovenClose		143524
-	112065033	carArrive	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\env_albert_carArrive_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Albert Arrival\carArrive		3729100
+	112065033	carArrive	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\env_albert_carArrive_CBDAAE89.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Albert Arrival\carArrive		3223476
 	124322530	amb_court_cough-001	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\amb_court_cough-001_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Court\Court Coughs\amb_court_cough-001\amb_court_cough-001		128096
 	144182143	player_takeKeys	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\player_takeItem_001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\ItemType\player_takeKeys		140032
 	164611052	step_woodCarpet-003	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\step_woodCarpet-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Carpet\step_woodCarpet-003		63352
@@ -187,7 +189,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	943812538	woodStep_002	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\wood_light-008_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Wood\woodStep_002		63684
 	947122152	viol_hit_wood2-002	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\viol_hit_wood2-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Break Materials\SwitchMaterial\Wood\viol_hit_wood2-002		228576
 	949322068	keyJangle	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\env_albert_keyJangle_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Albert Arrival\keyJangle		1053204
+	960782909	AlbertIsHome	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\env_albert_isHome_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Albert Arrival\AlbertIsHome		5245864
 	976753790	ui_menu_hover	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\ui_menu_hover_8447143A.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\ui_menu_hover		7068
+	980176779	exitWalk	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\env_albert_exitWalk_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Albert Arrival\exitWalk		998692
 	984449425	leafstep_light-006	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\leafstep_light-006_02A60CFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\SwitchFootstep\Grass\leafstep_light-006		59260
 	997645561	stinger	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\stinger-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\takeItem\stinger		281096
 	1015922044	albert_blab	M:\GitHub\Y3\PointClick_Game\PointClick_Game_WwiseProject\.cache\Mac\SFX\dial_alMcGuig_blab_8A50D783.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue\SwitchBlab\Albert\albert_blab		12400

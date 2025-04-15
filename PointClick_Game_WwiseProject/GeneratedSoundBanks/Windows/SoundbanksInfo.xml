@@ -94,7 +94,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FD42DA8D-E4E1-2B05-8C76-3FC5EADD9D41}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{27BAE6A3-1FFD-95DF-3513-531C3A9B5E2B}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -132,7 +132,7 @@
 				</File>
 				<File Id="112065033" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>env_albert_carArrive.wav</ShortName>
-					<CachePath>SFX/env_albert_carArrive_818F3B66.wem</CachePath>
+					<CachePath>SFX/env_albert_carArrive_CBDAAE89.wem</CachePath>
 				</File>
 				<File Id="124322530" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_court_cough-001.wav</ShortName>
@@ -426,9 +426,17 @@
 					<ShortName>env_albert_keyJangle.wav</ShortName>
 					<CachePath>SFX/env_albert_keyJangle_818F3B66.wem</CachePath>
 				</File>
+				<File Id="960782909" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_albert_isHome.wav</ShortName>
+					<CachePath>SFX/env_albert_isHome_818F3B66.wem</CachePath>
+				</File>
 				<File Id="976753790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_hover.wav</ShortName>
 					<CachePath>SFX/ui_menu_hover_8447143A.wem</CachePath>
+				</File>
+				<File Id="980176779" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_albert_exitWalk.wav</ShortName>
+					<CachePath>SFX/env_albert_exitWalk_818F3B66.wem</CachePath>
 				</File>
 				<File Id="984449425" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>leafstep_light-006.wav</ShortName>
@@ -473,6 +481,11 @@
 				</Custom>
 			</Plugins>
 			<Events>
+				<Event Id="3003684494" Name="AlbertIsHome" DurationType="OneShot" DurationMin="29.737913" DurationMax="29.737913">
+					<MediaRefs>
+						<MediaRef Id="960782909"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1527158674" Name="Blab" DurationType="OneShot" DurationMin="0.05214056" DurationMax="0.119041815">
 					<SwitchContainers>
 						<SwitchContainer>
@@ -526,7 +539,7 @@
 						<MediaRef Id="1071037576"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3923521380" Name="CarArrive" DurationType="OneShot" DurationMin="21.139479" DurationMax="21.139479">
+				<Event Id="3923521380" Name="CarArrive" DurationType="OneShot" DurationMin="18.273125" DurationMax="18.273125">
 					<MediaRefs>
 						<MediaRef Id="112065033"/>
 					</MediaRefs>
@@ -563,6 +576,11 @@
 				<Event Id="1404805401" Name="DoorOpen" DurationType="OneShot" DurationMin="2.621338" DurationMax="2.621338">
 					<MediaRefs>
 						<MediaRef Id="900733854"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3585027902" Name="ExitWalk" DurationType="OneShot" DurationMin="5.660975" DurationMax="5.660975">
+					<MediaRefs>
+						<MediaRef Id="980176779"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="1.4487923">
@@ -1006,5 +1024,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{F6ED6675-13EE-9CA2-CB4E-97A998E0E968}</FileHash>
+	<FileHash>{45E16AE6-683D-148E-8441-98A3D0C9074C}</FileHash>
 </SoundBanksInfo>
