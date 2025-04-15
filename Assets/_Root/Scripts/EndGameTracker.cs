@@ -23,8 +23,8 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private Transform _AlbertSpawPoint;
 	[SerializeField, ReadOnly]
 	public SerializedDictionary<string, bool> _DestroyedItems = new();
-	[SerializeField]
-	private bool _IsGameOver;
+	//[SerializeField]
+	public bool _IsGameOver;
 	[SerializeField]
 	private bool _Log;
 	[SerializeField, ReadOnly]

@@ -21583,12 +21583,6 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 49
-        originDialogueID: 0
-        destinationConversationID: 49
-        destinationDialogueID: 30
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -22886,7 +22880,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: Variable["Final_Phonecall"] = true
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -23233,55 +23227,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 420
         y: 648
-        width: 160
-        height: 30
-    - id: 30
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: -1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: funny phonecall text here
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 888
-        y: 132
         width: 160
         height: 30
     - id: 31
@@ -23870,7 +23815,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["Final_Phonecall"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -23881,8 +23826,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 85.05713, y: 1080.6764}
-    canvasZoom: 0.5200014
+    canvasScrollPosition: {x: 401.7706, y: 55.421715}
+    canvasZoom: 0.79000115
   - id: 50
     fields:
     - title: Title
