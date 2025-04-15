@@ -18,6 +18,13 @@ namespace GlueTrap
             {
                 SceneManager.LoadScene("Hallway1");
             }
+            if (Input.GetKeyUp(KeyCode.H))
+            {
+                GameObject egt = GameObject.Find("EndGameTracker");
+                EndGameTracker egts = egt.GetComponent<EndGameTracker>();
+                egts._IsGameOver = true;
+                SceneManager.LoadScene("DownstairsHallway");
+            }
         }
     }
 }
