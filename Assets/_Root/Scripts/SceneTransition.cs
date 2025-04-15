@@ -80,15 +80,7 @@ public class SceneTransition : MonoBehaviour
 				DialogueManager.StartConversation("NoCrowbar");
 				return;
 			}
-
-			if (_sceneToTransitionTo == "CourtScene 3" && _GameManager.m_hasUpstairsCourt)
-			{
-				StartCoroutine(LoadScene("Hallway1"));
-				if (_isPlaying) return;
-				AkSoundEngine.PostEvent("RoomTransition", gameObject);
-				_isPlaying = true;
-				return;
-			}
+			if (_sceneToTransitionTo == "CourtScene 3" && _GameManager.m_hasUpstairsCourt) StartCoroutine(LoadScene("Hallway1"));
 			
 			StartCoroutine(LoadScene(_sceneToTransitionTo));
 
