@@ -20,6 +20,7 @@ public class SceneTransition : MonoBehaviour
 	private Animator _crossfadeAnimator;
 	private GameManager _GameManager;
 	private bool _isPlaying;
+	private LockedRoom _lockedRoom;
 
 
 	private void Awake()
@@ -30,6 +31,8 @@ public class SceneTransition : MonoBehaviour
 		// Search itself, its parent, and all of its children's components.
 		GameObject targetObject = GameObject.Find("----SceneTransisitions----");
 
+		_lockedRoom = this.GetComponent<LockedRoom>();
+		
 		if (targetObject)
 		{
 			// Search itself and all of its children for the Animator component
@@ -69,6 +72,15 @@ public class SceneTransition : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D other)
 	{
+		if (_lockedRoom != null)
+		{
+			if(!_lockedRoom.hasKey)
+			{
+				DialogueManager.StartConversation("Door_Locked");
+				return;
+			};
+		}
+		
 		if (other.CompareTag("Feet") && !_GameManager.m_HasEntered)
 		{
 			_GameManager.m_HasEntered = true;
