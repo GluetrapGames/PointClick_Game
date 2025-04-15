@@ -199,7 +199,37 @@ public class EnvironmentSounds : MonoBehaviour
                     break;
             }
         }
+        public void PlayAlbertArriveSounds()
+        {
+            DialogueEntry dialogueEntry = DialogueManager.currentConversationState
+            .subtitle.dialogueEntry;
+            var conversationID = dialogueEntry.conversationID;
+            var subtitleId = dialogueEntry.id;
 
+            if (conversationID != 49) return;
+
+            switch (subtitleId)
+            {
+                case 1:
+                    AkSoundEngine.SetRTPCValue("vol_music", 1f);
+                    break;
+                case 35:
+                    AkSoundEngine.PostEvent("AlbertIsHome", gameObject);
+                    break;
+                //case 38:
+                //    AkSoundEngine.PostEvent("ExitWalk", gameObject);
+                //    break;
+                //case 39:
+                //    AkSoundEngine.PostEvent("KeyJangle", gameObject);
+                //    break;
+                //case 40:
+                //    AkSoundEngine.PostEvent("DoorOpen", gameObject);
+                //    break;
+                case 41:
+                    AkSoundEngine.SetRTPCValue("vol_music", 5f);
+                    break;
+            }
+        }
 
         }
 }
