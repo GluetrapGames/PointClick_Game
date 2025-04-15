@@ -94,7 +94,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{ACC85BAE-13AE-A567-69E5-244F06D7E8F5}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{DB843E62-7369-D98C-C490-BAD54FDF0EE9}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -148,7 +148,7 @@
 				</File>
 				<File Id="200092242" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_john_blab02.wav</ShortName>
-					<CachePath>SFX/dial_john_blab02_CAC8B5DE.wem</CachePath>
+					<CachePath>SFX/dial_john_blab02_3B9A90C4.wem</CachePath>
 				</File>
 				<File Id="215169109" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>step_tile-004.wav</ShortName>
@@ -217,6 +217,10 @@
 				<File Id="456918740" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_letter.wav</ShortName>
 					<CachePath>SFX/ui_letter_818F3B66.wem</CachePath>
+				</File>
+				<File Id="461287945" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_journalOpen.wav</ShortName>
+					<CachePath>SFX/ui_journalOpen_732D7637.wem</CachePath>
 				</File>
 				<File Id="471800072" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_creaks-005.wav</ShortName>
@@ -320,7 +324,7 @@
 				</File>
 				<File Id="718177124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_lawyer_blab.wav</ShortName>
-					<CachePath>SFX/dial_lawyer_blab_D7A6F252.wem</CachePath>
+					<CachePath>SFX/dial_lawyer_blab_7A54823F.wem</CachePath>
 				</File>
 				<File Id="718932789" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_metal.wav</ShortName>
@@ -328,7 +332,7 @@
 				</File>
 				<File Id="739141563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dial_judge_blab.wav</ShortName>
-					<CachePath>SFX/dial_judge_blab_2804E61C.wem</CachePath>
+					<CachePath>SFX/dial_judge_blab_3D6B95E2.wem</CachePath>
 				</File>
 				<File Id="753263382" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>wood_light-009.wav</ShortName>
@@ -341,6 +345,10 @@
 				<File Id="779487297" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_creaks-003.wav</ShortName>
 					<CachePath>SFX/amb_house_creaks-003_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="791196070" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_journalClose.wav</ShortName>
+					<CachePath>SFX/ui_journalClose_02D9A459.wem</CachePath>
 				</File>
 				<File Id="797840335" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>wood_light-010.wav</ShortName>
@@ -381,6 +389,10 @@
 				<File Id="887318230" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>env_fridgeOpen.wav</ShortName>
 					<CachePath>SFX/env_fridgeOpen_818F3B66.wem</CachePath>
+				</File>
+				<File Id="902917439" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ui_journalFlip.wav</ShortName>
+					<CachePath>SFX/ui_journalFlip_22145AAE.wem</CachePath>
 				</File>
 				<File Id="908946443" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_house_creaks-002.wav</ShortName>
@@ -502,6 +514,11 @@
 						<MediaRef Id="1071037576"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2013540103" Name="CardStinger" DurationType="OneShot" DurationMin="2.1953125" DurationMax="2.1953125">
+					<MediaRefs>
+						<MediaRef Id="997645561"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="316795645" Name="CourtBuzz" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="473419309"/>
@@ -603,6 +620,21 @@
 				<Event Id="1903191047" Name="HouseTone" DurationType="OneShot" DurationMin="33" DurationMax="33">
 					<MediaRefs>
 						<MediaRef Id="602562853"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3987853926" Name="JournalClose" DurationType="OneShot" DurationMin="0.40886393" DurationMax="0.40886393">
+					<MediaRefs>
+						<MediaRef Id="791196070"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2690803159" Name="JournalFlip" DurationType="OneShot" DurationMin="0.8990046" DurationMax="1.1326748">
+					<MediaRefs>
+						<MediaRef Id="902917439"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1738215602" Name="JournalOpen" DurationType="OneShot" DurationMin="0.76565284" DurationMax="0.76565284">
+					<MediaRefs>
+						<MediaRef Id="461287945"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3865314626" Name="Material" DurationType="OneShot" DurationMin="0.44379508" DurationMax="2.5581918">
@@ -947,5 +979,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{59C1833E-3A04-D323-A44C-6D0F11208E05}</FileHash>
+	<FileHash>{180F0B99-2D8E-CFE5-953E-E5404A8419D9}</FileHash>
 </SoundBanksInfo>
