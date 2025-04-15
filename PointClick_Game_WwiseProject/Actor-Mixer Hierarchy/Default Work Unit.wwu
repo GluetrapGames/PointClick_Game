@@ -3069,6 +3069,97 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Albert Arrival" ID="{3F204FD8-78AF-42EB-B8F4-E8C26AC213C0}" ShortID="409952535">
+							<ChildrenList>
+								<Sound Name="carArrive" ID="{0345CDDA-F173-4501-BFC3-0FA71818D340}" ShortID="574555956">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="env_albert_carArrive" ID="{F029C043-1583-4D03-9580-DBF2E6CFF947}">
+											<Language>SFX</Language>
+											<AudioFile>env_albert_carArrive.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="112065033"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="env_albert_carArrive" ID="{F029C043-1583-4D03-9580-DBF2E6CFF947}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="keyJangle" ID="{9DE9E099-D6A3-45BF-8158-1B9B6F6A81EE}" ShortID="223664226">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="env_albert_keyJangle" ID="{B6D6E886-6BAF-4138-923A-80907352BD1C}">
+											<Language>SFX</Language>
+											<AudioFile>env_albert_keyJangle.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="949322068"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="env_albert_keyJangle" ID="{B6D6E886-6BAF-4138-923A-80907352BD1C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="doorOpen" ID="{2D1DE742-00C7-47F7-8240-88B50D1D7D3D}" ShortID="25130245">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="env_albert_doorOpen" ID="{1B750BC4-DB04-4D83-B2D4-FBB5D55B3400}">
+											<Language>SFX</Language>
+											<AudioFile>env_albert_doorOpen.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="900733854"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="env_albert_doorOpen" ID="{1B750BC4-DB04-4D83-B2D4-FBB5D55B3400}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

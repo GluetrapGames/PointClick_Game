@@ -1110,6 +1110,43 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Albert Arrival" ID="{C3405641-3577-4BB5-ACF5-B2EE99650238}" ShortID="927736176">
+							<ChildrenList>
+								<Event Name="CarArrive" ID="{36EB1649-D138-4D57-940A-137EF379A240}">
+									<ChildrenList>
+										<Action Name="" ID="{027FE0D4-CBD5-4452-AC1D-7A2515AE7C5D}" ShortID="351881660">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="carArrive" ID="{0345CDDA-F173-4501-BFC3-0FA71818D340}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="KeyJangle" ID="{FD7D1CCE-A94A-4734-821B-2FE9D765BDB1}">
+									<ChildrenList>
+										<Action Name="" ID="{35841BEA-6127-4C1A-9987-083945EB7BC9}" ShortID="425032631">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="keyJangle" ID="{9DE9E099-D6A3-45BF-8158-1B9B6F6A81EE}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="DoorOpen" ID="{E40BEAA6-DA8E-40DC-811B-02BA8967DC64}">
+									<ChildrenList>
+										<Action Name="" ID="{8A65E976-70A8-42B4-81C9-73C29EC97815}" ShortID="563479715">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="doorOpen" ID="{2D1DE742-00C7-47F7-8240-88B50D1D7D3D}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

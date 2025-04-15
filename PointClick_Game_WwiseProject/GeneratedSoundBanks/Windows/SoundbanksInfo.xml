@@ -94,7 +94,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{DB843E62-7369-D98C-C490-BAD54FDF0EE9}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FD42DA8D-E4E1-2B05-8C76-3FC5EADD9D41}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -129,6 +129,10 @@
 				<File Id="99772853" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>env_ovenClose.wav</ShortName>
 					<CachePath>SFX/env_ovenClose_818F3B66.wem</CachePath>
+				</File>
+				<File Id="112065033" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_albert_carArrive.wav</ShortName>
+					<CachePath>SFX/env_albert_carArrive_818F3B66.wem</CachePath>
 				</File>
 				<File Id="124322530" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>amb_court_cough-001.wav</ShortName>
@@ -390,6 +394,10 @@
 					<ShortName>env_fridgeOpen.wav</ShortName>
 					<CachePath>SFX/env_fridgeOpen_818F3B66.wem</CachePath>
 				</File>
+				<File Id="900733854" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_albert_doorOpen.wav</ShortName>
+					<CachePath>SFX/env_albert_doorOpen_818F3B66.wem</CachePath>
+				</File>
 				<File Id="902917439" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_journalFlip.wav</ShortName>
 					<CachePath>SFX/ui_journalFlip_22145AAE.wem</CachePath>
@@ -413,6 +421,10 @@
 				<File Id="947122152" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>viol_hit_wood2-002.wav</ShortName>
 					<CachePath>SFX/viol_hit_wood2-002_818F3B66.wem</CachePath>
+				</File>
+				<File Id="949322068" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>env_albert_keyJangle.wav</ShortName>
+					<CachePath>SFX/env_albert_keyJangle_818F3B66.wem</CachePath>
 				</File>
 				<File Id="976753790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ui_menu_hover.wav</ShortName>
@@ -514,6 +526,11 @@
 						<MediaRef Id="1071037576"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3923521380" Name="CarArrive" DurationType="OneShot" DurationMin="21.139479" DurationMax="21.139479">
+					<MediaRefs>
+						<MediaRef Id="112065033"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2013540103" Name="CardStinger" DurationType="OneShot" DurationMin="2.1953125" DurationMax="2.1953125">
 					<MediaRefs>
 						<MediaRef Id="997645561"/>
@@ -541,6 +558,11 @@
 				<Event Id="1112129076" Name="CourtHum" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="584904381"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1404805401" Name="DoorOpen" DurationType="OneShot" DurationMin="2.621338" DurationMax="2.621338">
+					<MediaRefs>
+						<MediaRef Id="900733854"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1866025847" Name="Footstep" DurationType="OneShot" DurationMin="0.1712196" DurationMax="1.4487923">
@@ -635,6 +657,11 @@
 				<Event Id="1738215602" Name="JournalOpen" DurationType="OneShot" DurationMin="0.76565284" DurationMax="0.76565284">
 					<MediaRefs>
 						<MediaRef Id="461287945"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="974990853" Name="KeyJangle" DurationType="OneShot" DurationMin="5.97" DurationMax="5.97">
+					<MediaRefs>
+						<MediaRef Id="949322068"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3865314626" Name="Material" DurationType="OneShot" DurationMin="0.44379508" DurationMax="2.5581918">
@@ -979,5 +1006,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{217F09C4-DD27-3BEA-B4A2-9ED041675A1C}</FileHash>
+	<FileHash>{F6ED6675-13EE-9CA2-CB4E-97A998E0E968}</FileHash>
 </SoundBanksInfo>
