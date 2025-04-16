@@ -20,8 +20,6 @@ public class SceneTransition : MonoBehaviour
 	private string _sceneToTransitionTo;
 
 	private Animator _crossfadeAnimator;
-	private float _entryCooldownTime = 1.0f;
-	private float _entryTimestamp = -999f;
 	private GameManager _GameManager;
 	private bool _isPlaying;
 
