@@ -20,9 +20,15 @@ public enum ItemTypes
 	Mirror = 8,
 	Money = 9,
 	Cigarettes = 10,
-	Keys = 11
+	FrontdoorKey = 11,
+	TaxidermyKey = 12,
+	Coins = 13
 }
-
+public enum LockedDoors
+{
+	Frontdoor = 0,
+	TaxidermyHallway = 1
+}
 public enum BreakMaterialTypes
 {
 	None = 0,

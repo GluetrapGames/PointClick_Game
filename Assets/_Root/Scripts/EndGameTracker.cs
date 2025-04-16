@@ -61,6 +61,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			if (DialogueManager.isConversationActive) return;
 			GameObject transition = GameObject.Find("ToCS4");
 			var transComp = transition.GetComponent<SceneTransition>();
+			_GameManager.calcMoneyMeek();
 			transComp.CallFromConversationEnd();
 			_IsGameOver = false;
 

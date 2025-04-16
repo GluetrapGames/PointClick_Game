@@ -30,10 +30,14 @@ public class GameManager : Singleton<GameManager>
 	public List<string> m_UniqueRoomList;
 	public int m_TotalUniqueRooms;
 	public bool m_hasCrowbar;
+	public int m_collectedMoney;
 	public bool m_HasFlatCall;
 	public bool m_hasUpstairsCourt;
+	public bool m_hasTaxidermyKey;
+	public bool m_hasFrontdoorKey;
 	public int m_totalItemsDestroyed;
 	public int m_totalItemsPickedUp;
+	public double m_moneyAfterMeek;
 	public bool m_HasEntered;
 	private States _PreviousState;
 	private string _PreviousTitleCard;
@@ -106,6 +110,28 @@ public class GameManager : Singleton<GameManager>
 		}
 	}
 
+	public void calcMoneyMeek()
+	{
+		float money = m_collectedMoney;
+		int itemsDestroyed = m_totalItemsDestroyed;
+		int envScore = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+		double offset = money;
+
+		if (itemsDestroyed != 0)
+		{
+			offset = money / (1 + (itemsDestroyed * 0.35));
+		}
+		else
+		{
+			offset = money;
+		}
+		
+		var newEnv = envScore + offset;
+		m_moneyAfterMeek = newEnv;
+		DialogueLua.SetVariable("Env_DM_Meter", newEnv);
+
+	}
+	
 	private void InitGame()
 	{
 		// Spawn Camera.
