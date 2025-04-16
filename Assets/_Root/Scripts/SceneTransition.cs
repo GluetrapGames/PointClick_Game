@@ -73,7 +73,7 @@ public class SceneTransition : MonoBehaviour
 		    !_isPlaying)
 			_GameManager.m_HasEntered = false;
 	}
-
+	
 	private void OnTriggerStay2D(Collider2D other)
 	{
 		if (!other.CompareTag("Feet") /*|| _GameManager.m_HasEntered*/) return;
@@ -85,6 +85,7 @@ public class SceneTransition : MonoBehaviour
 			if(!_lockedRoom.hasKey)
 			{
 				DialogueManager.StartConversation("Door_Locked");
+				StartCoroutine(colliderCooldown());
 				return;
 			};
 		}
@@ -161,7 +162,6 @@ public class SceneTransition : MonoBehaviour
 		_isPlaying = false;
 	}
 
-
 	private void UniqueRoomCheck()
 	{
 		if (!_GameManager.m_UniqueRoomList.Contains(_sceneToTransitionTo))
@@ -171,5 +171,15 @@ public class SceneTransition : MonoBehaviour
 				DialogueLua.GetVariable("Rooms_Entered").asInt + 1);
 		}
 	}
+	
+	private IEnumerator colliderCooldown()
+	{
+		var collider = GetComponent<BoxCollider2D>();
+		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
+		collider.enabled = false;
+		yield return new WaitForSeconds(3);
+		collider.enabled = true;
+	}
+	
 }
 }
