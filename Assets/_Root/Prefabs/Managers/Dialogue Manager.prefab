@@ -682,7 +682,9 @@ MonoBehaviour:
       cameraAngles: {fileID: 0}
       keepCameraPositionAtConversationEnd: 0
       showSubtitleOnEmptyContinue: 0
-      defaultSequence: 'AnimatorPlay(TalkAnim,speakerportrait);
+      defaultSequence: 'AudioBlab(neutral,speaker);
+
+        AnimatorPlay(TalkAnim,speakerportrait);
 
         required
         AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
