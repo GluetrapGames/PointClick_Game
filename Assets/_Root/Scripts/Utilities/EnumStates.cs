@@ -20,9 +20,14 @@ public enum ItemTypes
 	Mirror = 8,
 	Money = 9,
 	Cigarettes = 10,
-	Keys = 11
+	FrontdoorKey = 11,
+	TaxidermyKey = 12
 }
-
+public enum LockedDoors
+{
+	Frontdoor = 0,
+	TaxidermyHallway = 1
+}
 public enum BreakMaterialTypes
 {
 	None = 0,
@@ -87,5 +92,13 @@ public enum RoomEntryPoints
 	TaxHallwayB = 24,
 	Taxidermy = 25,
 	DownHallwayF = 26
+}
+
+public enum InteractionDir
+{
+	Left = 0,
+	Right = 1,
+	Top = 2,
+	Bottom = 3
 }
 }
