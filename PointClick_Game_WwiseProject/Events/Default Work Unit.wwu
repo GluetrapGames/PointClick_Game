@@ -189,43 +189,6 @@
 										</Event>
 									</ChildrenList>
 								</Folder>
-								<Folder Name="Journal" ID="{0BEB2639-A80C-4D2E-8FE7-8D7C4EB1BFB9}" ShortID="31964207">
-									<ChildrenList>
-										<Event Name="JournalOpen" ID="{883B506B-D622-4979-A58D-828D5E0BF4FD}">
-											<ChildrenList>
-												<Action Name="" ID="{C756A1A8-AB38-472A-8EB9-EBA403BBFA9F}" ShortID="460932551">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="ui_journalOpen" ID="{7BBDE468-D4DD-4FED-95FE-D60F77F08C44}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
-										<Event Name="JournalFlip" ID="{506B6924-8864-4749-A228-771EBC63B905}">
-											<ChildrenList>
-												<Action Name="" ID="{1BFD1EB9-DDFE-46EA-8AF1-AC5C2EE04F29}" ShortID="130542160">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="ui_journalFlip" ID="{8F4445CB-EBC0-4FFD-B49F-7F9A2C1CDE73}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
-										<Event Name="JournalClose" ID="{5C6C57D4-CB2F-43B2-9566-B9DF3D99FA22}">
-											<ChildrenList>
-												<Action Name="" ID="{723F5C22-F910-4154-8042-CC14E3AB9E96}" ShortID="390113965">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="ui_journalClose" ID="{4C8B3A46-A94F-48D9-BC40-3ACB3F02C24A}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
-									</ChildrenList>
-								</Folder>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -234,17 +197,6 @@
 					<ChildrenList>
 						<Event Name="player_pickup" ID="{23AD0A8F-25B8-41D2-8668-44A27AA828A0}">
 							<ChildrenList>
-								<Action Name="" ID="{18EA5B6C-78D5-40AC-B282-9C2CBE45CDBC}" ShortID="867481311">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="12"/>
-										<Property Name="Volume" Type="Real64" Value="-8"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="stinger" ID="{AFFEF904-DB94-4CDB-AB37-CE479BAB9441}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{775CC458-D3FB-4A04-98E4-F151A1D0DF0E}" ShortID="59886263">
 									<ReferenceList>
 										<Reference Name="Target">
@@ -961,28 +913,6 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
-						<Event Name="CardStinger" ID="{02D6B5CF-D6F3-45D9-A3E8-9DF7876197D9}">
-							<ChildrenList>
-								<Action Name="" ID="{87A37398-E373-47B1-9AC4-1C2B56CF3739}" ShortID="69794760">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="12"/>
-										<Property Name="Volume" Type="Real64" Value="-4"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="stinger" ID="{AFFEF904-DB94-4CDB-AB37-CE479BAB9441}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{75386809-3673-43DB-A764-A7321AEA2142}" ShortID="909275015">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="stinger" ID="{AFFEF904-DB94-4CDB-AB37-CE479BAB9441}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{2A57C79D-0DA8-4AA9-B9B1-29EE57FA36AB}" ShortID="442546150">
