@@ -165,6 +165,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID PITCH_BLAB = 2569016891U;
         static const AkUniqueID VOL_DIALOGUE = 2119574057U;
         static const AkUniqueID VOL_GAMESHOW = 4202393254U;
         static const AkUniqueID VOL_LOUD = 223679447U;
