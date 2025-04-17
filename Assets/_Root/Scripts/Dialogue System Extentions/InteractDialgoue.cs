@@ -188,7 +188,7 @@ namespace GlueTrap
 				
 			}
 		}
-		
+
 		private IEnumerator restartDialogueInteraction()
 		{
 			yield return new WaitUntil(() => (!DialogueManager.isConversationActive));
@@ -196,6 +196,7 @@ namespace GlueTrap
 			yield return new WaitUntil(() => (_GameManager.m_Player.m_Destination != _CellPosition));
 			_HasPlayedOnce = false;
 		}
+
 		
 	}
 	
