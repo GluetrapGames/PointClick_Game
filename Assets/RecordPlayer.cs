@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using EditorAttributes.Editor;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEditor;
@@ -20,6 +21,7 @@ namespace GlueTrap
         private bool _CanInteract;
         private bool _HasInteraction;
         private bool _HideHighlight = true;
+        private bool isPlaying = false;
         
         void Awake()
         {
@@ -36,6 +38,7 @@ namespace GlueTrap
 
         private void Update()
         {
+            
 
             if (_HideHighlight)
             {
@@ -61,19 +64,15 @@ namespace GlueTrap
         private void Interaction()
         {
             _HeldItem = _GameManager.m_InventoryManager.m_HeldItemSlot.GetComponentInChildren<InventoryItem>();
-            
-            if(!_HeldItem) return;
+
+            if (!_HeldItem) return;
             if (!_RecordPlayerBreakableRef || _RecordPlayerBreakableRef._itemHp != _RecordPlayerBreakableRef._itemMaxHp) return;
             if (_HeldItem.itemData.m_Item.m_Type != ItemTypes.Record) return;
-            
+
             Destroy(_HeldItem.gameObject);
             Debug.Log("Record Interaction");
             _HasInteraction = true;
             _HideHighlight = true;
-            
-            // do audio thing here !!!!       
-
         }
-        
     }
 }
