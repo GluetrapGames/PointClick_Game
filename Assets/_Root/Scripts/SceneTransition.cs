@@ -22,6 +22,7 @@ public class SceneTransition : MonoBehaviour
 	private Animator _crossfadeAnimator;
 	private GameManager _GameManager;
 	private bool _isPlaying;
+	private LockedRoom _lockedRoom;
 
 
 	private void Awake()
@@ -32,6 +33,8 @@ public class SceneTransition : MonoBehaviour
 		// Search itself, its parent, and all of its children's components.
 		GameObject targetObject = GameObject.Find("----SceneTransisitions----");
 
+		_lockedRoom = this.GetComponent<LockedRoom>();
+		
 		if (targetObject)
 		{
 			// Search itself and all of its children for the Animator component
@@ -68,37 +71,45 @@ public class SceneTransition : MonoBehaviour
 		    !_isPlaying)
 			_GameManager.m_HasEntered = false;
 	}
-
+	
 	private void OnTriggerStay2D(Collider2D other)
 	{
 		if (!other.CompareTag("Feet") /*|| _GameManager.m_HasEntered*/) return;
 		//_GameManager.m_HasEntered = true;
 		_GameManager.m_RoomPoint = m_ExitPoint;
-
-		// Upstairs checks
-		if (_sceneToTransitionTo == "CourtScene 3" &&
-		    !_GameManager.m_hasCrowbar)
+		
+		if (_lockedRoom)
 		{
-			DialogueManager.StartConversation("NoCrowbar");
-			return;
+			if(!_lockedRoom.hasKey)
+			{
+				DialogueManager.StartConversation("Door_Locked");
+				StartCoroutine(colliderCooldown());
+				return;
+			};
 		}
 
-		if (_sceneToTransitionTo == "CourtScene 3" &&
-		    _GameManager.m_hasUpstairsCourt)
+		switch (_sceneToTransitionTo)
 		{
-			StartCoroutine(LoadScene("Hallway1"));
-			if (_isPlaying) return;
-			AkSoundEngine.PostEvent("RoomTransition", gameObject);
-			_isPlaying = true;
-			return;
+			// Upstairs checks
+			case "CourtScene 3" when !_GameManager.m_hasCrowbar:
+				DialogueManager.StartConversation("NoCrowbar");
+				return;
+			case "CourtScene 3" when _GameManager.m_hasUpstairsCourt:
+			{
+				StartCoroutine(LoadScene("Hallway1"));
+				if (_isPlaying) return;
+				AkSoundEngine.PostEvent("RoomTransition", gameObject);
+				_isPlaying = true;
+				return;
+			}
+			default:
+				StartCoroutine(LoadScene(_sceneToTransitionTo));
+				// Play scene transition sound
+				if (_isPlaying) return;
+				AkSoundEngine.PostEvent("RoomTransition", gameObject);
+				_isPlaying = true;
+				break;
 		}
-
-		StartCoroutine(LoadScene(_sceneToTransitionTo));
-
-		// Play scene transition sound
-		if (_isPlaying) return;
-		AkSoundEngine.PostEvent("RoomTransition", gameObject);
-		_isPlaying = true;
 	}
 
 	public void CallFromConversationEnd()
@@ -149,7 +160,6 @@ public class SceneTransition : MonoBehaviour
 		_isPlaying = false;
 	}
 
-
 	private void UniqueRoomCheck()
 	{
 		if (!_GameManager.m_UniqueRoomList.Contains(_sceneToTransitionTo))
@@ -159,5 +169,15 @@ public class SceneTransition : MonoBehaviour
 				DialogueLua.GetVariable("Rooms_Entered").asInt + 1);
 		}
 	}
+	
+	private IEnumerator colliderCooldown()
+	{
+		var collider = GetComponent<BoxCollider2D>();
+		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
+		collider.enabled = false;
+		yield return new WaitForSeconds(3);
+		collider.enabled = true;
+	}
+	
 }
 }

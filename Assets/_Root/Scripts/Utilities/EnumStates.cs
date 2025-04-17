@@ -21,7 +21,8 @@ public enum ItemTypes
 	Money = 9,
 	Cigarettes = 10,
 	FrontdoorKey = 11,
-	TaxidermyKey = 12
+	TaxidermyKey = 12,
+	Coins = 13
 }
 public enum LockedDoors
 {

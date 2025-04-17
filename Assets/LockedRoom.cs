@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using GlueTrap.Utilities;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 namespace GlueTrap
