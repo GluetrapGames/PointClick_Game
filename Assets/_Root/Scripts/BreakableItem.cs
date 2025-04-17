@@ -21,9 +21,9 @@ public class BreakableItem : MonoBehaviour
 	[SerializeField, ReadOnly]
 	private ItemDamageStates _DamageState = ItemDamageStates.Undamaged;
 	[SerializeField]
-	private int _itemMaxHp;
+	public int _itemMaxHp;
 	[SerializeField, ProgressBar(nameof(_itemMaxHp), 0.8f, 0f, 0f)]
-	private int _itemHp;
+	public int _itemHp;
 	[SerializeField]
 	private ItemTypes _ItemType;
 	[SerializeField]

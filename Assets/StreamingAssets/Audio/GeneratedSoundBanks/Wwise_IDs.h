@@ -17,7 +17,6 @@ namespace AK
         static const AkUniqueID BLAB = 1527158674U;
         static const AkUniqueID BUG_SHELF = 584038952U;
         static const AkUniqueID CARARRIVE = 3923521380U;
-        static const AkUniqueID CARDSTINGER = 2013540103U;
         static const AkUniqueID COURTBUZZ = 316795645U;
         static const AkUniqueID COURTCLOCK = 3307117116U;
         static const AkUniqueID COURTCOUGH = 2070691372U;
@@ -31,9 +30,6 @@ namespace AK
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
         static const AkUniqueID HOUSECREAK = 3508689533U;
         static const AkUniqueID HOUSETONE = 1903191047U;
-        static const AkUniqueID JOURNALCLOSE = 3987853926U;
-        static const AkUniqueID JOURNALFLIP = 2690803159U;
-        static const AkUniqueID JOURNALOPEN = 1738215602U;
         static const AkUniqueID KEYJANGLE = 974990853U;
         static const AkUniqueID MATERIAL = 3865314626U;
         static const AkUniqueID MENU_BACK = 3063554414U;
@@ -42,6 +38,7 @@ namespace AK
         static const AkUniqueID MUSICFLAT = 924244327U;
         static const AkUniqueID MUSICHOUSE = 1154458182U;
         static const AkUniqueID MUSICMENU = 4082046343U;
+        static const AkUniqueID MUSICRECORD = 3349386653U;
         static const AkUniqueID OUTSIDEAMBIANCE = 668538670U;
         static const AkUniqueID OVENCLOSE = 1111768629U;
         static const AkUniqueID OVENOPEN = 3458950111U;
@@ -60,6 +57,7 @@ namespace AK
         static const AkUniqueID STOPMUSIC = 1917263390U;
         static const AkUniqueID STOPOUTSIDEAMB = 252616046U;
         static const AkUniqueID STOPPHONE = 2049428263U;
+        static const AkUniqueID STOPRECORD = 3121475866U;
         static const AkUniqueID SWINGWEAPON = 729991629U;
         static const AkUniqueID TABLE_CERAMIC = 1780595170U;
         static const AkUniqueID TAXI_ANIMAL = 3811696612U;
