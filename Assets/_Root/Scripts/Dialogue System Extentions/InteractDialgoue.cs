@@ -28,7 +28,7 @@ namespace GlueTrap
 		 Tooltip("Tick if the conversation is to only be played once.")]
 		private bool _PlayOnce;
 
-		private Vector3Int _CellPosition;
+		public Vector3Int _CellPosition { get; private set; }
 
 		private GameManager _GameManager;
 		private bool _HasPlayedOnce;

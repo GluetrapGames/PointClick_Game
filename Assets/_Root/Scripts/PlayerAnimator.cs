@@ -13,14 +13,15 @@ public class PlayerAnimator : MonoBehaviour
 		Animator.StringToHash("HorizontalMovement");
 	private static readonly int s_VerticalMovement =
 		Animator.StringToHash("VerticalMovement");
+    private static readonly int s_IsDrinking = Animator.StringToHash("IsDrinking");
 
-	[SerializeField, ReadOnly]
+
+    [SerializeField, ReadOnly]
 	private AnimationComponents _AnimationComponents;
 	[SerializeField, ReadOnly]
 	private Vector3 _PlayerPosition;
 	[SerializeField]
 	private bool _FlipHorizontalFlipping;
-
 
 	private GameManager _GameManager;
 	private Vector3 _OldPlayerPosition;
@@ -49,8 +50,9 @@ public class PlayerAnimator : MonoBehaviour
 
 		_AnimationComponents.m_Animator.SetBool(s_IsMoving, true);
 
-		// Update position and find out the delta.
-		_PlayerPosition = _GameManager.m_Player.transform.position;
+
+            // Update position and find out the delta.
+            _PlayerPosition = _GameManager.m_Player.transform.position;
 		Vector3 delta = _PlayerPosition - _OldPlayerPosition;
 		delta.Normalize(); //< Makes it between -1 & 1.
 
