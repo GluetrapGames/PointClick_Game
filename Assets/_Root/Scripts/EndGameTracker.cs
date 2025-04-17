@@ -4,6 +4,7 @@ using EditorAttributes;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -48,6 +49,9 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 	private void Update()
 	{
+		
+		_cluesFound = DialogueLua.GetVariable("Clues_Found").asInt;
+		
 		if (_IsGameOver)
 		{
 			if (!_albertSpawned)
@@ -68,6 +72,14 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			return;
 		}
 
+		if (_cluesFound >= 2 && m_hasMoney)
+		{
+			var phone = GameObject.Find("Phone");
+			phone.GetComponentInChildren<Highlight>().enabled = true;
+			phone.GetComponentInChildren<PolygonCollider2D>().enabled = true;
+			phone.GetComponentInChildren<SpriteRenderer>().material = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Root/Art/Materials/Outline_Mat.mat");
+		}
+		
 		TrackEndGameItems();
 
 		// Update any destroyed items.

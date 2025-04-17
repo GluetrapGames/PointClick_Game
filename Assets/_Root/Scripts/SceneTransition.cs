@@ -158,6 +158,7 @@ public class SceneTransition : MonoBehaviour
 			}
 
 		_isPlaying = false;
+		_GameManager.m_Player.m_DestinationReached = false;
 	}
 
 	private void UniqueRoomCheck()

@@ -13,7 +13,7 @@ public class InteractDialgoue : MonoBehaviour
 	public bool m_Log;
 	public InteractionDir m_InteractionDirection = InteractionDir.Bottom;
 
-	[SerializeField, Tooltip("The title of the conversation to be played.")]
+	[SerializeField, Tooltip("Conversation to start. Leave blank for no conversation."), ConversationPopup(false, true)]
 	private string _ConversationTitle;
 
 	[SerializeField,
