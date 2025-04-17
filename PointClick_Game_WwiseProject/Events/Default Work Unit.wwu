@@ -72,6 +72,39 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="StopAll_ButMusicAndDoor" ID="{587D7FBD-A9A8-4A82-BD34-CA7161D4C0AF}">
+							<ChildrenList>
+								<Action Name="" ID="{BEC355D5-74CB-4D19-994E-CD30107764EE}" ShortID="764478159">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+									</PropertyList>
+									<ReferenceList/>
+									<ChildrenList>
+										<EventActionException Name="" ID="{096CD5EC-1925-4CAB-A63B-BB632C0B3F19}">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="FlatMusic" ID="{36A8C335-77D4-4D9D-9303-18B3BE3D0EE3}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</EventActionException>
+										<EventActionException Name="" ID="{1ACD8FDF-EAE4-4B9F-9FEE-12BA7F0E929D}">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="House Music" ID="{5DFE2C84-FAF6-4EAF-BA44-8D6082703469}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</EventActionException>
+										<EventActionException Name="" ID="{B0720D17-6CB2-4964-91BB-A35C34EA0D05}">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="doorOpen" ID="{2D1DE742-00C7-47F7-8240-88B50D1D7D3D}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</EventActionException>
+									</ChildrenList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Dialogue" ID="{E8B75A1A-DD6B-49F5-9262-CD911481F821}" ShortID="1032286017">
