@@ -55,12 +55,6 @@ public class BlabController : MonoBehaviour
 
 		}
 
-		private void OnConversationLineEnd(Subtitle subtitle)
-		{
-			Debug.Log("Convo line ended");
-			doOnce = false;
-		}
-
 	// Posts Wwise event in loop
 	public void PlayActorClip()
 	{
