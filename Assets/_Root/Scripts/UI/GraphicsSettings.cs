@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using EditorAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,9 +9,17 @@ namespace GlueTrap
 {
 public class GraphicsSettings : MonoBehaviour
 {
-	[SerializeField]
+	[SerializeField,
+	 Tooltip("The way the Fullscreen switching logic is handled.")]
+	private FullscreenUIType _FullscreenUIType;
+	[SerializeField,
+	 EnableField(nameof(_FullscreenUIType), FullscreenUIType.Toggle)]
 	private Toggle _FullscreenToggle;
-	[SerializeField]
+	[SerializeField,
+	 EnableField(nameof(_FullscreenUIType), FullscreenUIType.Dropdown)]
+	private TMP_Dropdown _FullscreenDropdown;
+
+	[Space, SerializeField]
 	private TMP_Dropdown _ResolutionDropdown;
 	[SerializeField]
 	private TMP_Dropdown _QualityDropdown;
@@ -20,7 +29,15 @@ public class GraphicsSettings : MonoBehaviour
 	{
 		if (_ResolutionDropdown) SetupResolutionDropdown();
 		if (_QualityDropdown) SetupQualityDropdown();
-		if (_FullscreenToggle) _FullscreenToggle.isOn = Screen.fullScreen;
+		switch (_FullscreenUIType)
+		{
+			case FullscreenUIType.Toggle:
+				_FullscreenToggle.isOn = Screen.fullScreen;
+				break;
+			case FullscreenUIType.Dropdown:
+				SetupFullscreenDropdown();
+				break;
+		}
 	}
 
 	private void OnEnable()
@@ -34,7 +51,20 @@ public class GraphicsSettings : MonoBehaviour
 		{
 			ResolutionValueChange(_ResolutionDropdown);
 		});
-		_FullscreenToggle?.onValueChanged.AddListener(WindowModeChange);
+
+		switch (_FullscreenUIType)
+		{
+			case FullscreenUIType.Toggle:
+				_FullscreenToggle?.onValueChanged.AddListener(
+					WindowModeToggleChange);
+				break;
+			case FullscreenUIType.Dropdown:
+				_FullscreenDropdown?.onValueChanged.AddListener(delegate
+				{
+					WindowModeDropdownChange(_FullscreenDropdown);
+				});
+				break;
+		}
 	}
 
 	private void OnDisable()
@@ -48,7 +78,20 @@ public class GraphicsSettings : MonoBehaviour
 		{
 			ResolutionValueChange(_ResolutionDropdown);
 		});
-		_FullscreenToggle?.onValueChanged.RemoveListener(WindowModeChange);
+
+		switch (_FullscreenUIType)
+		{
+			case FullscreenUIType.Toggle:
+				_FullscreenToggle?.onValueChanged.RemoveListener(
+					WindowModeToggleChange);
+				break;
+			case FullscreenUIType.Dropdown:
+				_FullscreenDropdown?.onValueChanged.RemoveListener(delegate
+				{
+					WindowModeDropdownChange(_FullscreenDropdown);
+				});
+				break;
+		}
 	}
 
 	private static void QualityValueChange(TMP_Dropdown qualityDropdown)
@@ -63,6 +106,24 @@ public class GraphicsSettings : MonoBehaviour
 		Resolution newResolution = Screen.resolutions[resolutionDropdown.value];
 		Screen.SetResolution(newResolution.width, newResolution.height,
 			Screen.fullScreen);
+	}
+
+	private void SetupFullscreenDropdown()
+	{
+		// Clear the options in dropdown if populated.
+		if (_FullscreenDropdown.options.Count > 0)
+			_FullscreenDropdown.ClearOptions();
+
+		// Add all the display modes into the dropdown.
+		var displayOptions = Enum.GetNames(typeof(FullScreenMode));
+
+		_FullscreenDropdown.AddOptions(displayOptions.ToList());
+
+		// Get the index of the current fullscreen mode.
+		var currentIndex = (int)Screen.fullScreenMode;
+
+		// Have the current display mode value selected.
+		_FullscreenDropdown.value = currentIndex;
 	}
 
 	private void SetupQualityDropdown()
@@ -112,9 +173,22 @@ public class GraphicsSettings : MonoBehaviour
 		_ResolutionDropdown.value = currentIndex;
 	}
 
-	private static void WindowModeChange(bool isFullscreen)
+	private static void WindowModeDropdownChange(
+		TMP_Dropdown windowModeDropdown)
+	{
+		// Update to the new display mode.
+		Screen.fullScreenMode = (FullScreenMode)windowModeDropdown.value;
+	}
+
+	private static void WindowModeToggleChange(bool isFullscreen)
 	{
 		Screen.fullScreen = isFullscreen;
+	}
+
+	private enum FullscreenUIType
+	{
+		Toggle = 0,
+		Dropdown = 1
 	}
 }
 }

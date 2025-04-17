@@ -4,7 +4,6 @@ using EditorAttributes;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using Unity.Mathematics;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,23 +16,23 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	public SerializedDictionary<ItemTypes, bool> m_EndItemTypes = new();
 	[SceneDropdown]
 	public int m_EndScene;
+	[SerializeField, ReadOnly]
+	public SerializedDictionary<string, bool> _DestroyedItems = new();
+	//[SerializeField]
+	public bool _IsGameOver;
+	public bool m_hasMoney;
+
+	// 0 Money, 1 Crowbar, 2 Journal, 3 Keys, 4 Poetry, 5 Cigarettes, 6 Medicine
+	public List<ItemTypes> m_CollectedItems = new();
 
 	[SerializeField]
 	private GameObject _AlbertPrefab;
 	[SerializeField, ReadOnly]
 	private Transform _AlbertSpawPoint;
-	[SerializeField, ReadOnly]
-	public SerializedDictionary<string, bool> _DestroyedItems = new();
-	//[SerializeField]
-	public bool _IsGameOver;
 	[SerializeField]
 	private bool _Log;
 	[SerializeField, ReadOnly]
 	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
-	public bool m_hasMoney;
-
-	// 0 Money, 1 Crowbar, 2 Journal, 3 Keys, 4 Poetry, 5 Cigarettes, 6 Medicine
-	public List<ItemTypes> m_CollectedItems = new();
 	private bool _albertSpawned;
 	private int _cluesFound;
 
@@ -49,9 +48,8 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 	private void Update()
 	{
-		
 		_cluesFound = DialogueLua.GetVariable("Clues_Found").asInt;
-		
+
 		if (_IsGameOver)
 		{
 			if (!_albertSpawned)
@@ -74,12 +72,13 @@ public class EndGameTracker : Singleton<EndGameTracker>
 
 		if (_cluesFound >= 2 && m_hasMoney)
 		{
-			var phone = GameObject.Find("Phone");
+			GameObject phone = GameObject.Find("Phone");
 			phone.GetComponentInChildren<Highlight>().enabled = true;
 			phone.GetComponentInChildren<PolygonCollider2D>().enabled = true;
-			phone.GetComponentInChildren<SpriteRenderer>().material = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Root/Art/Materials/Outline_Mat.mat");
+			phone.GetComponentInChildren<SpriteRenderer>().material =
+				Resources.Load<Material>("Materials/Outline_Mat");
 		}
-		
+
 		TrackEndGameItems();
 
 		// Update any destroyed items.
@@ -101,6 +100,45 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		if (!endGame) return;
 		Debug.LogWarning("GAME END, SPAWNING ALBERT");
 		_IsGameOver = true;
+	}
+
+	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
+	{
+		// Get breakable items and add/update the list.
+		var newItems =
+			FindObjectsByType<BreakableItem>(FindObjectsSortMode.None);
+
+		// Either update or add new item to list.
+		foreach (BreakableItem item in newItems)
+		{
+			var id = item.m_PersistentID;
+			_BreakableItems[id] = item;
+		}
+	}
+
+	public void SpawnAlbert()
+	{
+		if (!_IsGameOver)
+		{
+			Debug.LogError("Can't Spawn Albert!");
+			return;
+		}
+
+		GameObject albertConvoObject = GameObject.Find("Albert");
+		albertConvoObject.GetComponent<DialogueSystemTrigger>().enabled = true;
+		albertConvoObject.GetComponent<DialogueSystemEvents>().enabled = true;
+
+		// Get Albert's spawner.
+		_AlbertSpawPoint = Utils.FindSpawner("AlbertSpawner");
+
+		// Check for GameOver.
+		if (_IsGameOver && SceneManager.GetActiveScene() ==
+		    SceneManager.GetSceneByName("DownstairsHallway"))
+		{
+			Debug.LogError("GAME OVER CHECK PASSED");
+			Instantiate(_AlbertPrefab, _AlbertSpawPoint.position,
+				quaternion.identity);
+		}
 	}
 
 	private void TrackEndGameItems()
@@ -150,45 +188,6 @@ public class EndGameTracker : Singleton<EndGameTracker>
 				collectedItems + $"{m_CollectedItems[i].ToString()}, ";
 		;
 		DialogueLua.SetVariable("Collected_Item_List", collectedItems);
-	}
-
-	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
-	{
-		// Get breakable items and add/update the list.
-		var newItems =
-			FindObjectsByType<BreakableItem>(FindObjectsSortMode.None);
-
-		// Either update or add new item to list.
-		foreach (BreakableItem item in newItems)
-		{
-			var id = item.m_PersistentID;
-			_BreakableItems[id] = item;
-		}
-	}
-
-	public void SpawnAlbert()
-	{
-		if (!_IsGameOver)
-		{
-			Debug.LogError("Can't Spawn Albert!");
-			return;
-		}
-
-		GameObject albertConvoObject = GameObject.Find("Albert");
-		albertConvoObject.GetComponent<DialogueSystemTrigger>().enabled = true;
-		albertConvoObject.GetComponent<DialogueSystemEvents>().enabled = true;
-
-		// Get Albert's spawner.
-		_AlbertSpawPoint = Utils.FindSpawner("AlbertSpawner");
-
-		// Check for GameOver.
-		if (_IsGameOver && SceneManager.GetActiveScene() ==
-		    SceneManager.GetSceneByName("DownstairsHallway"))
-		{
-			Debug.LogError("GAME OVER CHECK PASSED");
-			Instantiate(_AlbertPrefab, _AlbertSpawPoint.position,
-				quaternion.identity);
-		}
 	}
 }
 }
