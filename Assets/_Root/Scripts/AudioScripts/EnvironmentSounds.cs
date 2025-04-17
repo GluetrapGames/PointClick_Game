@@ -199,7 +199,54 @@ public class EnvironmentSounds : MonoBehaviour
                     break;
             }
         }
+        public void PlayAlbertArriveSounds()
+        {
+            DialogueEntry dialogueEntry = DialogueManager.currentConversationState
+            .subtitle.dialogueEntry;
+            var conversationID = dialogueEntry.conversationID;
+            var subtitleId = dialogueEntry.id;
 
+            if (conversationID != 49) return;
+
+            switch (subtitleId)
+            {
+                case 1:
+                    AkSoundEngine.SetRTPCValue("vol_music", 1f);
+                    break;
+
+                // Left Path Start
+                case 16:
+                    AkSoundEngine.PostEvent("CarArrive", gameObject);
+                    break;
+
+                // Middle Path Start
+                case 26:
+                    AkSoundEngine.PostEvent("CarArrive", gameObject);
+                    break;
+
+                // Right Path Full
+                case 33:
+                    AkSoundEngine.PostEvent("StopAll_ButMusicAndDoor", gameObject);
+                    AkSoundEngine.PostEvent("KeyJangle", gameObject);
+                    break;
+                case 34:
+                    AkSoundEngine.PostEvent("DoorOpen", gameObject);
+                    AkSoundEngine.PostEvent("StopAll_ButMusicAndDoor", gameObject);
+                    break;
+
+                // Final Section (Tree joins together)
+                case 39:
+                    AkSoundEngine.PostEvent("StopAll_ButMusicAndDoor", gameObject);
+                    AkSoundEngine.PostEvent("KeyJangle", gameObject);
+                    break;
+                case 40:
+                    AkSoundEngine.PostEvent("DoorOpen", gameObject);
+                    break;
+                case 41:
+                    AkSoundEngine.PostEvent("StopAll_ButMusicAndDoor", gameObject);
+                    break;
+            }
+        }
 
         }
 }

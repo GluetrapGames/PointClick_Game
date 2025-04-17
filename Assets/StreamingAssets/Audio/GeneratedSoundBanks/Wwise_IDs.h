@@ -13,13 +13,17 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ALBERTISHOME = 3003684494U;
         static const AkUniqueID BLAB = 1527158674U;
         static const AkUniqueID BUG_SHELF = 584038952U;
+        static const AkUniqueID CARARRIVE = 3923521380U;
         static const AkUniqueID CARDSTINGER = 2013540103U;
         static const AkUniqueID COURTBUZZ = 316795645U;
         static const AkUniqueID COURTCLOCK = 3307117116U;
         static const AkUniqueID COURTCOUGH = 2070691372U;
         static const AkUniqueID COURTHUM = 1112129076U;
+        static const AkUniqueID DOOROPEN = 1404805401U;
+        static const AkUniqueID EXITWALK = 3585027902U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID FRIDGEOPEN = 627991214U;
         static const AkUniqueID GAMESHOW = 1875833188U;
@@ -30,6 +34,7 @@ namespace AK
         static const AkUniqueID JOURNALCLOSE = 3987853926U;
         static const AkUniqueID JOURNALFLIP = 2690803159U;
         static const AkUniqueID JOURNALOPEN = 1738215602U;
+        static const AkUniqueID KEYJANGLE = 974990853U;
         static const AkUniqueID MATERIAL = 3865314626U;
         static const AkUniqueID MENU_BACK = 3063554414U;
         static const AkUniqueID MENU_HOVER = 309439191U;
@@ -47,6 +52,7 @@ namespace AK
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
         static const AkUniqueID ROOMTRANSITION = 712272009U;
+        static const AkUniqueID STOPALL_BUTMUSICANDDOOR = 119872638U;
         static const AkUniqueID STOPCLOCK = 4199481009U;
         static const AkUniqueID STOPCOURTAMB = 795797694U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
