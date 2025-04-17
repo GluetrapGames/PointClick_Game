@@ -176,7 +176,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584567145984968733
+    m_lastTime: -8584567049461985138
     List:
     - name: Albert Arrival
       guid: 415640c37735b54bacf5b2ee99650238
@@ -1304,6 +1304,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: StopAll_ButMusicAndDoor
+      guid: bd7f7d58a8a9824abd34ca7161d4c0af
+      id: 119872638
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Music
+        ObjectType: 4
+        guid: 57fc0d463d8f844c94227605840aa6c2
+      - ElementName: StopAll_ButMusicAndDoor
+        ObjectType: 3
+        guid: bd7f7d58a8a9824abd34ca7161d4c0af
+      Path: Events\Default Work Unit\Music\StopAll_ButMusicAndDoor
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: StopClock
       guid: 5253638e9ab7e64392b384c80caf6e5f
       id: 4199481009
@@ -1684,8 +1704,39 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584585936363657782
+    m_lastTime: -8584567049461974217
     List:
+    - name: Pitch
+      guid: 18fb3a1f6721ce459747a91aeb470ced
+      id: 1908158473
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2e9cb6d90aac234bb9dfd552a0729065
+      - ElementName: Pitch
+        ObjectType: 4
+        guid: 18fb3a1f6721ce459747a91aeb470ced
+      Path: Game Parameters\Default Work Unit\Pitch
+    - name: pitch_blab
+      guid: 5f2bc88ddbbab54e85bb2f46910b9ff1
+      id: 2569016891
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2e9cb6d90aac234bb9dfd552a0729065
+      - ElementName: Pitch
+        ObjectType: 4
+        guid: 18fb3a1f6721ce459747a91aeb470ced
+      - ElementName: pitch_blab
+        ObjectType: 13
+        guid: 5f2bc88ddbbab54e85bb2f46910b9ff1
+      Path: Game Parameters\Default Work Unit\Pitch\pitch_blab
     - name: vol_dialogue
       guid: d375c4070ca9a54aa883e10fff410998
       id: 2119574057
