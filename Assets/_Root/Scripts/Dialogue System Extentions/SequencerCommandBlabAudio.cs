@@ -9,26 +9,18 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
     public class SequencerCommandBlabAudio : SequencerCommand
     {
         private string m_BlabType;
+        private Transform m_SpeakerTransform;
         private string m_SpeakerName;
 
         public void Awake()
         {
-            // Add your initialization code here. You can use the GetParameter***() and GetSubject()
-            // functions to get information from the command's parameters. You can also use the
-            // Sequencer property to access the SequencerCamera, CameraAngle, Speaker, Listener,
-            // SubtitleEndTime, and other properties on the sequencer. If IsAudioMuted() is true, 
-            // the player has muted audio.
-            //
-            // If your sequencer command only does something immediately and then finishes,
-            // you can call Stop() here and remove the Update() method:
-            //
-            // Stop();
-            //
-            // If you want to use a coroutine, use a Start() method in place of or in addition to
-            // this method.
-
+            // The type of blab - Angry, Shocked, etc
             m_BlabType = GetParameter(0);
-            m_SpeakerName = GetParameter(1);
+
+            // The current speaker's transform.
+            m_SpeakerTransform = GetSubject(1);
+
+            m_SpeakerName = m_SpeakerTransform.gameObject.name;
         }
 
         public void Update()
@@ -41,6 +33,10 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             * and wrote it as BlabAudio(Angry, Speaker)
             * Then in this function you would then call the John's angry blab.
             */
+
+            if (m_BlabType == null) Debug.Log("BLABTYPE NULL --- BlabAudio sequence");
+            if (m_SpeakerTransform == null) Debug.Log("SPEAKERTRANSFORM NULL --- BlabAudio sequence");
+            Stop();
         }
 
         public void OnDestroy()
