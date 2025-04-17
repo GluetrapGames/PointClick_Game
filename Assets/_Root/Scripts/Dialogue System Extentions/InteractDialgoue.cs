@@ -166,6 +166,7 @@ public class InteractDialgoue : MonoBehaviour
 				if (!_HasPlayedOnce)
 				{
 					DialogueManager.StartConversation(_ConversationTitle);
+					m_Interacting = true;
 					StartCoroutine(resetInteracting());
 					var collider = GetComponent<BoxCollider2D>();
 					collider.enabled = false;
@@ -178,6 +179,7 @@ public class InteractDialgoue : MonoBehaviour
 				{
 					Debug.LogWarning("STARTING CONVO");
 					DialogueManager.StartConversation(_ConversationTitle);
+					m_Interacting = true;
 					StartCoroutine(resetInteracting());
 					StartCoroutine(restartDialogueInteraction());
 					_HasPlayedOnce = true;
@@ -191,14 +193,13 @@ public class InteractDialgoue : MonoBehaviour
 			if (!_HasPlayedOnce && _HeldItem.itemData.m_Item.m_Type == ItemTypes.Record)
 			{
 				DialogueManager.StartConversation(_ConversationTitle);
+				m_Interacting = true;
 				StartCoroutine(resetInteracting());
 				var collider = GetComponent<BoxCollider2D>();
 				collider.enabled = false;
 				_HasPlayedOnce = true;
 			}
 		}
-		
-		m_Interacting = true;
 		
 	}
 
