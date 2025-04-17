@@ -72,6 +72,39 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="StopAll_ButMusicAndDoor" ID="{587D7FBD-A9A8-4A82-BD34-CA7161D4C0AF}">
+							<ChildrenList>
+								<Action Name="" ID="{BEC355D5-74CB-4D19-994E-CD30107764EE}" ShortID="764478159">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+									</PropertyList>
+									<ReferenceList/>
+									<ChildrenList>
+										<EventActionException Name="" ID="{096CD5EC-1925-4CAB-A63B-BB632C0B3F19}">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="FlatMusic" ID="{36A8C335-77D4-4D9D-9303-18B3BE3D0EE3}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</EventActionException>
+										<EventActionException Name="" ID="{1ACD8FDF-EAE4-4B9F-9FEE-12BA7F0E929D}">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="House Music" ID="{5DFE2C84-FAF6-4EAF-BA44-8D6082703469}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
+										</EventActionException>
+										<EventActionException Name="" ID="{B0720D17-6CB2-4964-91BB-A35C34EA0D05}">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="doorOpen" ID="{2D1DE742-00C7-47F7-8240-88B50D1D7D3D}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</EventActionException>
+									</ChildrenList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Dialogue" ID="{E8B75A1A-DD6B-49F5-9262-CD911481F821}" ShortID="1032286017">
@@ -189,43 +222,6 @@
 										</Event>
 									</ChildrenList>
 								</Folder>
-								<Folder Name="Journal" ID="{0BEB2639-A80C-4D2E-8FE7-8D7C4EB1BFB9}" ShortID="31964207">
-									<ChildrenList>
-										<Event Name="JournalOpen" ID="{883B506B-D622-4979-A58D-828D5E0BF4FD}">
-											<ChildrenList>
-												<Action Name="" ID="{C756A1A8-AB38-472A-8EB9-EBA403BBFA9F}" ShortID="460932551">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="ui_journalOpen" ID="{7BBDE468-D4DD-4FED-95FE-D60F77F08C44}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
-										<Event Name="JournalFlip" ID="{506B6924-8864-4749-A228-771EBC63B905}">
-											<ChildrenList>
-												<Action Name="" ID="{1BFD1EB9-DDFE-46EA-8AF1-AC5C2EE04F29}" ShortID="130542160">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="ui_journalFlip" ID="{8F4445CB-EBC0-4FFD-B49F-7F9A2C1CDE73}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
-										<Event Name="JournalClose" ID="{5C6C57D4-CB2F-43B2-9566-B9DF3D99FA22}">
-											<ChildrenList>
-												<Action Name="" ID="{723F5C22-F910-4154-8042-CC14E3AB9E96}" ShortID="390113965">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="ui_journalClose" ID="{4C8B3A46-A94F-48D9-BC40-3ACB3F02C24A}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
-									</ChildrenList>
-								</Folder>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -234,17 +230,6 @@
 					<ChildrenList>
 						<Event Name="player_pickup" ID="{23AD0A8F-25B8-41D2-8668-44A27AA828A0}">
 							<ChildrenList>
-								<Action Name="" ID="{18EA5B6C-78D5-40AC-B282-9C2CBE45CDBC}" ShortID="867481311">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="12"/>
-										<Property Name="Volume" Type="Real64" Value="-8"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="stinger" ID="{AFFEF904-DB94-4CDB-AB37-CE479BAB9441}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{775CC458-D3FB-4A04-98E4-F151A1D0DF0E}" ShortID="59886263">
 									<ReferenceList>
 										<Reference Name="Target">
@@ -961,28 +946,6 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
-						<Event Name="CardStinger" ID="{02D6B5CF-D6F3-45D9-A3E8-9DF7876197D9}">
-							<ChildrenList>
-								<Action Name="" ID="{87A37398-E373-47B1-9AC4-1C2B56CF3739}" ShortID="69794760">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="12"/>
-										<Property Name="Volume" Type="Real64" Value="-4"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="stinger" ID="{AFFEF904-DB94-4CDB-AB37-CE479BAB9441}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{75386809-3673-43DB-A764-A7321AEA2142}" ShortID="909275015">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="stinger" ID="{AFFEF904-DB94-4CDB-AB37-CE479BAB9441}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{2A57C79D-0DA8-4AA9-B9B1-29EE57FA36AB}" ShortID="442546150">
@@ -1103,6 +1066,65 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="env_fridgeOpen" ID="{AC7CB27E-6B69-4439-8D8A-100037A715C9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Albert Arrival" ID="{C3405641-3577-4BB5-ACF5-B2EE99650238}" ShortID="927736176">
+							<ChildrenList>
+								<Event Name="CarArrive" ID="{36EB1649-D138-4D57-940A-137EF379A240}">
+									<ChildrenList>
+										<Action Name="" ID="{027FE0D4-CBD5-4452-AC1D-7A2515AE7C5D}" ShortID="351881660">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="carArrive" ID="{0345CDDA-F173-4501-BFC3-0FA71818D340}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="KeyJangle" ID="{FD7D1CCE-A94A-4734-821B-2FE9D765BDB1}">
+									<ChildrenList>
+										<Action Name="" ID="{35841BEA-6127-4C1A-9987-083945EB7BC9}" ShortID="425032631">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="keyJangle" ID="{9DE9E099-D6A3-45BF-8158-1B9B6F6A81EE}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="DoorOpen" ID="{E40BEAA6-DA8E-40DC-811B-02BA8967DC64}">
+									<ChildrenList>
+										<Action Name="" ID="{8A65E976-70A8-42B4-81C9-73C29EC97815}" ShortID="563479715">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="doorOpen" ID="{2D1DE742-00C7-47F7-8240-88B50D1D7D3D}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="ExitWalk" ID="{BEBB9884-97F8-4F0B-8326-F874E6886C57}">
+									<ChildrenList>
+										<Action Name="" ID="{57991CC4-13A4-43C0-B2FC-1332494683A3}" ShortID="472737487">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="exitWalk" ID="{46AD286C-5282-4AF2-B784-388D208E49D9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="AlbertIsHome" ID="{297CFACA-2454-4E5E-9367-1E709440C48C}">
+									<ChildrenList>
+										<Action Name="" ID="{10BF2F8A-2AA5-4401-9B9D-CAF771ABC035}" ShortID="1004570124">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="AlbertIsHome" ID="{299B0360-6E31-46DB-B749-76089C1F6E7A}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
