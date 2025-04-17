@@ -20,8 +20,6 @@ public class SceneTransition : MonoBehaviour
 	private string _sceneToTransitionTo;
 
 	private Animator _crossfadeAnimator;
-	private float _entryCooldownTime = 1.0f;
-	private float _entryTimestamp = -999f;
 	private GameManager _GameManager;
 	private bool _isPlaying;
 	private LockedRoom _lockedRoom;
@@ -80,7 +78,7 @@ public class SceneTransition : MonoBehaviour
 		//_GameManager.m_HasEntered = true;
 		_GameManager.m_RoomPoint = m_ExitPoint;
 		
-		if (_lockedRoom != null)
+		if (_lockedRoom)
 		{
 			if(!_lockedRoom.hasKey)
 			{
