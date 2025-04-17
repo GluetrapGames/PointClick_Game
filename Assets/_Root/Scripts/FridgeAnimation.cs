@@ -24,6 +24,7 @@ namespace GlueTrap
         public bool isDrinking;
 
         private Animator _Animator;
+        private Vector3 _OldPosition;
 
         void Awake()
         {
@@ -42,14 +43,22 @@ namespace GlueTrap
         void Update()
         {
             // Check if the current conversation playing is the fridge convo
-            // Play the beer drink animation.
             if (DialogueManager.lastConversationID == 37 && DialogueManager.IsConversationActive && !_ConvoPlayed) 
             {
+                // Get the player's position before the animation starts
+                _OldPosition = _Player.transform.position;
+
+                _Player.transform.position -= new Vector3(0f, 1.3f, 0f);
+
+                // Bring the fridge infront of the player.
+                _FridgeSprite.sortingOrder = 6;
+
+                // Play the drinking animation
                 _Animator.Play("John_Drink_Beer");
+                
                 // Change the fridge sprite and position
                 _FridgeSprite.sprite = _OpenFridgeSprite;
                 gameObject.transform.position = _OpenPosition;
-
 
                 // Prevent actions from happening again this frame.
                 _ConvoPlayed = true;
@@ -58,6 +67,9 @@ namespace GlueTrap
             // Reset convo flag and fridge sprite so that it can be played again.
             if (!DialogueManager.isConversationActive)
             {
+                // Set the fridge back to behind the player.
+                _FridgeSprite.sortingOrder = 1;
+
                 // Reset fridge sprite and position
                 _FridgeSprite.sprite = _CloseFridgeSprite;
                 gameObject.transform.position = _ClosePosition;

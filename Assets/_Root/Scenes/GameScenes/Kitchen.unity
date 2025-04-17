@@ -783,6 +783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_InteractionDirection: 3
+  m_OffsetAmount: 1.5
   m_EntryPoint: 13
   m_ExitPoint: 11
   _sceneToTransitionTo: DiningRoom
@@ -3706,6 +3708,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb55ebdd89f53be45b9dc677ab6b5fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _OpenFridgeSprite: {fileID: -4025261681314309954, guid: 4f6857073183ec144b20e351f41d147a, type: 3}
+  _CloseFridgeSprite: {fileID: -9205222643251219302, guid: e41ae5428c5c9824587ab185273a3f30, type: 3}
+  isDrinking: 0
 --- !u!1001 &1308738956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4340,7 +4345,7 @@ PrefabInstance:
     - target: {fileID: 3314618516946187227, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1474500407}
+      objectReference: {fileID: 0}
     - target: {fileID: 3314618516946187227, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CallToggleLog
@@ -4354,17 +4359,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
---- !u!114 &1474500407 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6415984324294260218, guid: 6851f33d3c314b149a9ea84a3900874c, type: 3}
-  m_PrefabInstance: {fileID: 1474500406}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21181e9ac17dfce44a50b7a5a5fe2000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1525120063
 GameObject:
   m_ObjectHideFlags: 0
