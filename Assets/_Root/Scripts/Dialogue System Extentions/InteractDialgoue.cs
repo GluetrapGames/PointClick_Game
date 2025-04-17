@@ -189,7 +189,8 @@ public class InteractDialgoue : MonoBehaviour
 		else if (DialogueLua.GetVariable("Has_Record").asBool)
 		{
 			var _HeldItem = _GameManager.m_InventoryManager.m_HeldItemSlot.GetComponentInChildren<InventoryItem>();
-			if(!_HeldItem) return;
+			var _RecordPlayerBreakableRef = GameObject.FindGameObjectWithTag("Record").GetComponent<BreakableItem>();
+			if(!_HeldItem || _RecordPlayerBreakableRef._itemHp < _RecordPlayerBreakableRef._itemMaxHp) return;
 			if (!_HasPlayedOnce && _HeldItem.itemData.m_Item.m_Type == ItemTypes.Record)
 			{
 				DialogueManager.StartConversation(_ConversationTitle);
