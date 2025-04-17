@@ -93,4 +93,12 @@ public enum RoomEntryPoints
 	Taxidermy = 25,
 	DownHallwayF = 26
 }
+
+public enum InteractionDir
+{
+	Left = 0,
+	Right = 1,
+	Top = 2,
+	Bottom = 3
+}
 }

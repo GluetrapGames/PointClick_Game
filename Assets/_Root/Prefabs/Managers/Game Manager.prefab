@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2189679988881524789}
   - component: {fileID: 493106927433601709}
   - component: {fileID: 5830295553200378158}
+  - component: {fileID: 8033531083245948595}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Manager
@@ -46,9 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe2572d9704f4a49b21159b39cf2253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RoomPoint: 0
   _CurrentState: 0
   _NoneGameplayScenes:
-  - 
+  - MenuScene
   - CourtScene 1
   - CourtScene 2
   - CourtScene 3
@@ -59,9 +61,11 @@ MonoBehaviour:
   m_UniqueRoomList: []
   m_TotalUniqueRooms: 0
   m_hasCrowbar: 0
+  m_HasFlatCall: 0
+  m_hasUpstairsCourt: 0
   m_totalItemsDestroyed: 0
+  m_totalItemsPickedUp: 0
   m_HasEntered: 0
-  m_RoomPoint: 0
 --- !u!114 &493106927433601709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,3 +97,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Log: 0
+--- !u!114 &8033531083245948595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916785222082717101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8eee5cba2af2544b80a15ed990fd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

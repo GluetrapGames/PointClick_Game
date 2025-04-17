@@ -1,0 +1,40 @@
+using PixelCrushers.DialogueSystem;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace GlueTrap
+{
+    public class CheatCodes : MonoBehaviour
+    {
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                SceneManager.LoadScene("DownstairsHallway");
+            }            
+            if (Input.GetKeyUp(KeyCode.G))
+            {
+                SceneManager.LoadScene("Hallway1");
+            }
+            if (Input.GetKeyUp(KeyCode.H))
+            {
+                GameObject egt = GameObject.Find("EndGameTracker");
+                EndGameTracker egts = egt.GetComponent<EndGameTracker>();
+                egts._IsGameOver = true;
+                SceneManager.LoadScene("DownstairsHallway");
+            }
+            if (Input.GetKeyUp(KeyCode.J))
+            {
+                DialogueLua.SetVariable("Clues_Found", 3);
+                DialogueLua.SetVariable("Money_Collected", true);
+                SceneManager.LoadScene("DownstairsHallway");
+                DialogueManager.StartConversation("Jack_PhoneCall");
+            }
+
+        }
+    }
+}

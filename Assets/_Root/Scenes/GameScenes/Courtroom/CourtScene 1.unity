@@ -634,7 +634,7 @@ PrefabInstance:
     - target: {fileID: 610436888647927709, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1871173687}
+      objectReference: {fileID: 0}
     - target: {fileID: 610436888647927709, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: toggle
@@ -682,6 +682,18 @@ PrefabInstance:
     - target: {fileID: 2016966440371359713, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PixelCrushers.DialogueSystem.ConversationControl, Assembly-CSharp-firstpass
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752045097401500943, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 403.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752045097401500943, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -306.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997040235905245477, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -79
       objectReference: {fileID: 0}
     - target: {fileID: 4907337676841382082, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -763,6 +775,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8318696222673787243, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: displaySettings.cameraSettings.defaultSequence
+      value: 'AnimatorPlay(TalkAnim,speakerportrait);
+
+        required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+        Delay(2)@Message(Typed)'
+      objectReference: {fileID: 0}
     - target: {fileID: 8407393719803706291, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: onEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -774,6 +794,10 @@ PrefabInstance:
     - target: {fileID: 8407393719803706291, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: onEnd.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: GlueTrap.AutoplayCustom, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471084083881157655, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -355
       objectReference: {fileID: 0}
     - target: {fileID: 8713164519577642822, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -799,6 +823,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8856522700896503897, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -218
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1282886673546283784, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
     m_RemovedGameObjects: []
@@ -816,8 +844,6 @@ GameObject:
   - component: {fileID: 1792218257}
   - component: {fileID: 1792218256}
   - component: {fileID: 1792218258}
-  - component: {fileID: 1792218260}
-  - component: {fileID: 1792218259}
   m_Layer: 0
   m_Name: Court Title Card
   m_TagString: Untagged
@@ -896,68 +922,6 @@ MonoBehaviour:
   _UseFadeOut: 1
   _StatingFrameFadeOutTime: 265
   _FadeSpeed: 1
---- !u!114 &1792218259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792218255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67979aa0a5735d14e930c62a96b4550c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: ae8d9d44
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: f4b6f84c4ab42f6419583eff355a7de9, type: 2}
-  useCallbacks: 0
-  Callbacks: []
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  eventIdInternal: 0
-  valueGuidInternal: 
-  m_callbackDataInternal: {fileID: 0}
---- !u!114 &1792218260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792218255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4c4647566d903148aa6f14e0e46f7cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
---- !u!114 &1871173687 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3131110638340060787, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
-  m_PrefabInstance: {fileID: 1513607709}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f627f94b60a47c42acca11fb851d769, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1924264877
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,32 +10,23 @@ namespace GlueTrap
 {
 public class InteractDialgoue : MonoBehaviour
 {
-	public enum InteractionDir
-	{
-		Left = 0,
-		Right = 1,
-		Top = 2,
-		Bottom = 3
-	}
-
 	public bool m_Log;
 	public InteractionDir m_InteractionDirection = InteractionDir.Bottom;
 
-	[SerializeField]
-	private bool _CalculateBounds = true;
 	[SerializeField, Tooltip("The title of the conversation to be played.")]
 	private string _ConversationTitle;
+
 	[SerializeField,
 	 Tooltip("Tick if the conversation is to only be played once.")]
 	private bool _PlayOnce;
 
 	private Vector3Int _CellPosition;
+
 	private GameManager _GameManager;
 	private bool _HasPlayedOnce;
 	private InputAction _InteractAction;
 	private CollideCheck _ItemCollision;
 	private PlayerInput _PlayerInput;
-
 
 	private void Awake()
 	{
@@ -47,21 +38,15 @@ public class InteractDialgoue : MonoBehaviour
 
 	private void Start()
 	{
-		if (_CalculateBounds)
-		{
-			// Recalculate collision bounds.
-			var boxCollider = GetComponent<BoxCollider2D>();
-			var spriteRenderer = GetComponent<SpriteRenderer>();
-			Sprite spriteObj = null;
-			if (spriteRenderer)
-				spriteObj = spriteRenderer.sprite;
-			if (!spriteObj ||
-			    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
-			{
-				Debug.LogWarning(
-					$"<{name}>: Failed to resize Collision Bounds!");
-			}
-		}
+		// Recalculate collision bounds.
+		var boxCollider = GetComponent<BoxCollider2D>();
+		var spriteRenderer = GetComponent<SpriteRenderer>();
+		Sprite spriteObj = null;
+		if (spriteRenderer)
+			spriteObj = spriteRenderer.sprite;
+		if (!spriteObj ||
+		    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
+			Debug.LogWarning($"<{name}>: Failed to resize Collision Bounds!");
 
 		_InteractAction = _PlayerInput.actions["Break"];
 	}
@@ -77,7 +62,6 @@ public class InteractDialgoue : MonoBehaviour
 		// Play the conversion once the Player has reached the object.
 		if (!_GameManager.m_Player.m_DestinationReached ||
 		    _GameManager.m_Player.m_Destination != _CellPosition) return;
-
 		PlayConversation();
 	}
 
@@ -175,22 +159,30 @@ public class InteractDialgoue : MonoBehaviour
 	{
 		if (_PlayOnce)
 		{
-			if (_HasPlayedOnce) return;
-			DialogueManager.StartConversation(_ConversationTitle);
+			if (!_HasPlayedOnce)
+			{
+				DialogueManager.StartConversation(_ConversationTitle);
+				var collider = GetComponent<BoxCollider2D>();
+				collider.enabled = false;
+				_HasPlayedOnce = true;
+			}
 		}
 		else
 		{
-			if (_HasPlayedOnce) return;
-			DialogueManager.StartConversation(_ConversationTitle);
-			StartCoroutine(restartDialogueInteraction());
+			if (!_HasPlayedOnce)
+			{
+				Debug.LogWarning("STARTING CONVO");
+				DialogueManager.StartConversation(_ConversationTitle);
+				StartCoroutine(restartDialogueInteraction());
+				_HasPlayedOnce = true;
+			}
 		}
-
-		_HasPlayedOnce = true;
 	}
 
 	private IEnumerator restartDialogueInteraction()
 	{
 		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
+		Debug.LogError("CONVERSATION ENDED");
 		yield return new WaitUntil(() =>
 			_GameManager.m_Player.m_Destination != _CellPosition);
 		_HasPlayedOnce = false;
