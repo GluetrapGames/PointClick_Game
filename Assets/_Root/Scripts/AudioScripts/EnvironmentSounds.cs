@@ -213,20 +213,37 @@ public class EnvironmentSounds : MonoBehaviour
                 case 1:
                     AkSoundEngine.SetRTPCValue("vol_music", 1f);
                     break;
-                case 35:
-                    AkSoundEngine.PostEvent("AlbertIsHome", gameObject);
+
+                // Left Path Start
+                case 16:
+                    AkSoundEngine.PostEvent("CarArrive", gameObject);
                     break;
-                //case 38:
-                //    AkSoundEngine.PostEvent("ExitWalk", gameObject);
-                //    break;
-                //case 39:
-                //    AkSoundEngine.PostEvent("KeyJangle", gameObject);
-                //    break;
-                //case 40:
-                //    AkSoundEngine.PostEvent("DoorOpen", gameObject);
-                //    break;
+
+                // Middle Path Start
+                case 26:
+                    AkSoundEngine.PostEvent("CarArrive", gameObject);
+                    break;
+
+                // Right Path Full
+                case 33:
+                    AkSoundEngine.PostEvent("StopAll_ButMusicAndDoor", gameObject);
+                    AkSoundEngine.PostEvent("KeyJangle", gameObject);
+                    break;
+                case 34:
+                    AkSoundEngine.PostEvent("DoorOpen", gameObject);
+                    AkSoundEngine.PostEvent("StopAll_ButMusicAndDoor", gameObject);
+                    break;
+
+                // Final Section (Tree joins together)
+                case 39:
+                    AkSoundEngine.PostEvent("StopAll_ButMusicAndDoor", gameObject);
+                    AkSoundEngine.PostEvent("KeyJangle", gameObject);
+                    break;
+                case 40:
+                    AkSoundEngine.PostEvent("DoorOpen", gameObject);
+                    break;
                 case 41:
-                    AkSoundEngine.SetRTPCValue("vol_music", 5f);
+                    AkSoundEngine.PostEvent("StopAll_ButMusicAndDoor", gameObject);
                     break;
             }
         }

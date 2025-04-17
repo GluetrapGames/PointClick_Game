@@ -21,23 +21,36 @@ public class BlabController : MonoBehaviour
 	private string _SpeakerName;
 	private bool isBlabbing = false;
 	private float blabSpeed = 0.1f;
+	private bool doOnce = false;
+	private bool stopBlabbing = false;
 
 
-        private void Update()
-        {
+		private void Update()
+		{
 			if (_LogWindow.activeInHierarchy)
 			{
+				doOnce = false;
 				StopActorClip();
 			}
-        }
+			else
+			{
+				if (!doOnce && !stopBlabbing) 
+				{ 
+					doOnce = true;
+					PlayActorClip();
+
+				}
+			}
+		}
 
         // When a conversation line begins, gets the current speaker's name
         // And calls for audio to play.
         private void OnConversationLine(Subtitle subtitle)
 		{
-			_SpeakerName = subtitle.speakerInfo.Name;
+			stopBlabbing = false;
+            _SpeakerName = subtitle.speakerInfo.Name;
+            AkSoundEngine.SetSwitch("CharacterBlab", _SpeakerName, gameObject);
 			PlayActorClip();
-			AkSoundEngine.SetSwitch("CharacterBlab", _SpeakerName, gameObject);
 			if (_Log) Debug.Log(_SpeakerName);
 
 		}
@@ -59,6 +72,11 @@ public class BlabController : MonoBehaviour
 			isBlabbing = false;
 			CancelInvoke("postBlab");
 	}
+
+	public void StopBlabbing()
+		{
+            stopBlabbing = true;
+        }
 
 	private void postBlab()
 		{
