@@ -4,6 +4,7 @@ using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 namespace GlueTrap
 {
@@ -23,6 +24,7 @@ public class SceneTransition : MonoBehaviour
 	private GameManager _GameManager;
 	private bool _isPlaying;
 	private LockedRoom _lockedRoom;
+	public bool m_increaseAlpha;
 
 
 	private void Awake()
@@ -114,6 +116,16 @@ public class SceneTransition : MonoBehaviour
 
 	public void CallFromConversationEnd()
 	{
+		if (m_increaseAlpha)
+		{
+			var bgRef = GameObject.FindGameObjectWithTag("BG").GetComponent<BackgroundMania>();
+			if (!bgRef)
+			{
+				Debug.LogError("Can't find BG!");
+				return;
+			}
+			bgRef.updateAlpha();
+		}
 		StartCoroutine(LoadScene(_sceneToTransitionTo));
 	}
 

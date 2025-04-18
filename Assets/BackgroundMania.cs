@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 namespace GlueTrap
 {
@@ -13,7 +14,7 @@ namespace GlueTrap
         private int _DiaDM;
         private int _EnvDMPrev;
         private int _DiaDMPrev;
-        private Image _BGImage;
+        private UnityEngine.UI.Image _BGImage;
 
         private void Awake()
         {
@@ -31,11 +32,21 @@ namespace GlueTrap
             
             if (_EnvDM >= _EnvDMPrev + 2 || _DiaDMPrev >= _DiaDMPrev + 2)
             {
-                _BGImage.tintColor -= new Color(0, 20, 20, 0);
+                _BGImage.color -= new Color(0f, 0.03f, 0.03f, 0f);
+                _EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+                _DiaDMPrev = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
+            } else if (_EnvDM >= _EnvDMPrev - 2 || _DiaDMPrev >= _DiaDMPrev - 2)
+            {
+                _BGImage.color += new Color(0f, 0.03f, 0.03f, 0f);
                 _EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
                 _DiaDMPrev = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
             }
             
+        }
+
+        public void updateAlpha()
+        {
+            _BGImage.color += new Color(0f, 0f, 0f, 0.15f);
         }
         
     }
