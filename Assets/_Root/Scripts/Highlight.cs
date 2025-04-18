@@ -35,7 +35,7 @@ public class Highlight : MonoBehaviour
 	private float _CustomShowOutlineThickness = 1f;
 
 	[Header("Debug Options"), SerializeField,
-	 ButtonField(nameof(GetRef), "Get References")]
+	 ButtonField(nameof(GetReference), "Get References")]
 	private Void _ButtonHolder;
 	[SerializeField, ButtonField(nameof(Hide))]
 	private Void _ButtonHolder2;
@@ -52,6 +52,7 @@ public class Highlight : MonoBehaviour
 
 	private void Start()
 	{
+		GetReference();
 		Hide();
 	}
 
@@ -76,7 +77,8 @@ public class Highlight : MonoBehaviour
 			Hide();
 	}
 
-	private void OnEnable()
+
+	public void GetReference()
 	{
 		// Obtain the material.
 		Renderer rendererComp;
@@ -113,8 +115,12 @@ public class Highlight : MonoBehaviour
 		}
 
 		_Material = rendererComp.material;
-		_DefaultOutlineColour = _Material.GetColor(s_OutlineColour);
-		_DefaultOutlineThickness = _Material.GetFloat(s_OutlineThickness);
+
+		// Ensure the material grabbed has the required properties.
+		if (rendererComp.material.HasProperty(s_OutlineColour))
+			_DefaultOutlineColour = _Material.GetColor(s_OutlineColour);
+		if (rendererComp.material.HasProperty(s_OutlineThickness))
+			_DefaultOutlineThickness = _Material.GetFloat(s_OutlineThickness);
 	}
 
 	public void Hide()
@@ -133,12 +139,6 @@ public class Highlight : MonoBehaviour
 			_UseCustomValues
 				? _CustomShowOutlineThickness
 				: _DefaultOutlineThickness);
-	}
-
-
-	private void GetRef()
-	{
-		Awake();
 	}
 }
 }
