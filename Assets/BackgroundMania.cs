@@ -21,17 +21,29 @@ public class BackgroundMania : MonoBehaviour
 		_BGImage = GetComponent<Image>();
 	}
 
-	private void Update()
-	{
-		_EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-		_DiaDM = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
+        private void Update()
+        {
+            _EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+            _DiaDM = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
+            
+            if (_EnvDM >= _EnvDMPrev + 2 || _DiaDMPrev >= _DiaDMPrev + 2)
+            {
+                _BGImage.color -= new Color(0f, 0.03f, 0.03f, 0f);
+                _EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+                _DiaDMPrev = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
+            } else if (_EnvDM >= _EnvDMPrev - 2 || _DiaDMPrev >= _DiaDMPrev - 2)
+            {
+                _BGImage.color += new Color(0f, 0.03f, 0.03f, 0f);
+                _EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+                _DiaDMPrev = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
+            }
 
-		if (_EnvDM >= _EnvDMPrev + 2 || _DiaDMPrev >= _DiaDMPrev + 2)
-		{
-			_BGImage.color -= new Color(0, 20, 20, 0);
-			_EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-			_DiaDMPrev = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
-		}
-	}
-}
+        }
+
+        public void updateAlpha()
+        {
+            _BGImage.color += new Color(0f, 0f, 0f, 0.15f);
+        }
+        
+    }
 }
