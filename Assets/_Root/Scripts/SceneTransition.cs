@@ -4,7 +4,6 @@ using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 namespace GlueTrap
 {
@@ -16,7 +15,10 @@ public class SceneTransition : MonoBehaviour
 	public RoomEntryPoints m_EntryPoint = RoomEntryPoints.None;
 	[Tooltip("To what point does it leads to.")]
 	public RoomEntryPoints m_ExitPoint = RoomEntryPoints.None;
+	public bool m_increaseAlpha;
 
+	[SerializeField]
+	private bool _Log;
 	[SerializeField, SceneDropdown]
 	private string _sceneToTransitionTo;
 
@@ -24,7 +26,6 @@ public class SceneTransition : MonoBehaviour
 	private GameManager _GameManager;
 	private bool _isPlaying;
 	private LockedRoom _lockedRoom;
-	public bool m_increaseAlpha;
 
 
 	private void Awake()
@@ -35,8 +36,8 @@ public class SceneTransition : MonoBehaviour
 		// Search itself, its parent, and all of its children's components.
 		GameObject targetObject = GameObject.Find("----SceneTransisitions----");
 
-		_lockedRoom = this.GetComponent<LockedRoom>();
-		
+		_lockedRoom = GetComponent<LockedRoom>();
+
 		if (targetObject)
 		{
 			// Search itself and all of its children for the Animator component
@@ -73,21 +74,23 @@ public class SceneTransition : MonoBehaviour
 		    !_isPlaying)
 			_GameManager.m_HasEntered = false;
 	}
-	
+
 	private void OnTriggerStay2D(Collider2D other)
 	{
 		if (!other.CompareTag("Feet") /*|| _GameManager.m_HasEntered*/) return;
 		//_GameManager.m_HasEntered = true;
 		_GameManager.m_RoomPoint = m_ExitPoint;
-		
+
 		if (_lockedRoom)
 		{
-			if(!_lockedRoom.hasKey)
+			if (!_lockedRoom.hasKey)
 			{
 				DialogueManager.StartConversation("Door_Locked");
 				StartCoroutine(colliderCooldown());
 				return;
-			};
+			}
+
+			;
 		}
 
 		switch (_sceneToTransitionTo)
@@ -118,15 +121,27 @@ public class SceneTransition : MonoBehaviour
 	{
 		if (m_increaseAlpha)
 		{
-			var bgRef = GameObject.FindGameObjectWithTag("BG").GetComponent<BackgroundMania>();
+			var bgRef = GameObject.FindGameObjectWithTag("BG")
+				.GetComponent<BackgroundMania>();
 			if (!bgRef)
 			{
 				Debug.LogError("Can't find BG!");
 				return;
 			}
+
 			bgRef.updateAlpha();
 		}
+
 		StartCoroutine(LoadScene(_sceneToTransitionTo));
+	}
+
+	private IEnumerator colliderCooldown()
+	{
+		var collider = GetComponent<BoxCollider2D>();
+		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
+		collider.enabled = false;
+		yield return new WaitForSeconds(3);
+		collider.enabled = true;
 	}
 
 	private IEnumerator LoadScene(string sceneName)
@@ -135,6 +150,7 @@ public class SceneTransition : MonoBehaviour
 		yield return new WaitForSeconds(1);
 		if (sceneName == "CourtScene 3") _GameManager.m_hasUpstairsCourt = true;
 		UniqueRoomCheck();
+		if (_Log) Debug.Log($"Loading to a new Scene {sceneName}");
 		SceneManager.LoadScene(sceneName);
 	}
 
@@ -182,15 +198,5 @@ public class SceneTransition : MonoBehaviour
 				DialogueLua.GetVariable("Rooms_Entered").asInt + 1);
 		}
 	}
-	
-	private IEnumerator colliderCooldown()
-	{
-		var collider = GetComponent<BoxCollider2D>();
-		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
-		collider.enabled = false;
-		yield return new WaitForSeconds(3);
-		collider.enabled = true;
-	}
-	
 }
 }

@@ -55,7 +55,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			if (!_albertSpawned)
 			{
 				SpawnAlbert();
-				Debug.LogError("Albert spawned");
+				Debug.Log("Albert spawned");
 				_albertSpawned = true;
 			}
 
@@ -135,9 +135,9 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		if (_IsGameOver && SceneManager.GetActiveScene() ==
 		    SceneManager.GetSceneByName("DownstairsHallway"))
 		{
-			Debug.LogError("GAME OVER CHECK PASSED");
-			Instantiate(_AlbertPrefab, _AlbertSpawPoint.position,
-				quaternion.identity);
+			Debug.Log("GAME OVER CHECK PASSED");
+			GameObject albertObj = Instantiate(_AlbertPrefab,
+				_AlbertSpawPoint.position, quaternion.identity);
 		}
 	}
 
