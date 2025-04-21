@@ -161,6 +161,9 @@ public class GameManager : Singleton<GameManager>
 		if (_TitleCardPlayed)
 			_TitleCard?.gameObject.SetActive(false);
 
+		// Check to see if needs to hide keys.
+		HideItems();
+
 		// Get the Grid and the Navmesh.
 		m_Grid = FindFirstObjectByType<Grid>();
 		var navMeshObj = GameObject.FindGameObjectWithTag("NavMesh");
@@ -213,6 +216,31 @@ public class GameManager : Singleton<GameManager>
 		{
 			virtualCamera.m_Follow = null;
 			virtualCamera.transform.position = new Vector3(0f, 0f, -10f);
+		}
+	}
+
+	//! A hack to hide the key. Assumes that only one of each key exists.
+	//! On Scene load check the entire scene, if there is a key, hide it if its collected.
+	private void HideItems()
+	{
+		var items = FindObjectsByType<PickUpScript>(FindObjectsSortMode.None);
+		if (items.Length <= 0) return;
+		foreach (PickUpScript item in items)
+		{
+			if (item._ItemType == ItemTypes.TaxidermyKey && m_hasTaxidermyKey &&
+			    item.gameObject.activeInHierarchy)
+			{
+				item.gameObject.SetActive(false);
+				continue;
+			}
+
+			if (item._ItemType == ItemTypes.FrontdoorKey && m_hasFrontdoorKey &&
+			    item.gameObject.activeInHierarchy)
+			{
+				item.gameObject.SetActive(false);
+				// ReSharper disable once RedundantJumpStatement
+				continue;
+			}
 		}
 	}
 
