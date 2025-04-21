@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 5909de92d8ac4141b7fe347eabe5cda5
     GuidInternal: 
-    m_lastTime: -8584599120712609113
+    m_lastTime: -8584586152421954796
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: a003960deb8bdf468e97a26af7e6ab6c
     GuidInternal: 
-    m_lastTime: -8584599120718029739
+    m_lastTime: -8584586152427130362
     List:
     - name: Dialogue
       guid: 13d5f7f34eace145936fbb7376e25110
@@ -176,7 +176,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584566227019752543
+    m_lastTime: -8584563737120923846
     List:
     - name: Albert Arrival
       guid: 415640c37735b54bacf5b2ee99650238
@@ -256,8 +256,8 @@ MonoBehaviour:
         guid: 79ae0e61b1425b4ab1c71133d9ae0762
       Path: Events\Default Work Unit\Dialogue\Blab
       maxAttenuation: 0
-      maxDuration: 0.119041815
-      minDuration: 0.05214056
+      maxDuration: 0.13150942
+      minDuration: 0.056701366
     - name: Breaks
       guid: ffbfc00e79fb7a42963fab89f9270ee8
       id: 1008011617
@@ -434,6 +434,23 @@ MonoBehaviour:
       maxDuration: -1
       minDuration: -1
     - name: Dialogue
+      guid: 1a5ab7e86bddf5499262cd911481f821
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: 1a5ab7e86bddf5499262cd911481f821
+      Path: Events\Default Work Unit\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Dialogue
       guid: ec2bcc2c0764444b83ea433766c8f3ff
       id: 3930136735
       PathAndIcons:
@@ -453,23 +470,6 @@ MonoBehaviour:
         ObjectType: 4
         guid: ec2bcc2c0764444b83ea433766c8f3ff
       Path: Events\Default Work Unit\UI\In-Game\Dialogue
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Dialogue
-      guid: 1a5ab7e86bddf5499262cd911481f821
-      id: 3930136735
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 7cc921f24aa35747af5bb83f091dfcc7
-      - ElementName: Dialogue
-        ObjectType: 4
-        guid: 1a5ab7e86bddf5499262cd911481f821
-      Path: Events\Default Work Unit\Dialogue
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1001,8 +1001,8 @@ MonoBehaviour:
         guid: 2fc0bfd7953b8a4b80c1090245ac9773
       Path: Events\Default Work Unit\Music\MusicRecord
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 293.35083
+      minDuration: 293.35083
     - name: Outside
       guid: d27393c04f6d7c4abf8d8fdf6b8dc867
       id: 438105790
@@ -1342,8 +1342,28 @@ MonoBehaviour:
         guid: bd7f7d58a8a9824abd34ca7161d4c0af
       Path: Events\Default Work Unit\Music\StopAll_ButMusicAndDoor
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
+    - name: StopAll_ButMusicAndDoor_01
+      guid: e40585c524fc7c46bd973781fe317065
+      id: 2569856780
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Music
+        ObjectType: 4
+        guid: 57fc0d463d8f844c94227605840aa6c2
+      - ElementName: StopAll_ButMusicAndDoor_01
+        ObjectType: 3
+        guid: e40585c524fc7c46bd973781fe317065
+      Path: Events\Default Work Unit\Music\StopAll_ButMusicAndDoor_01
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: StopClock
       guid: 5253638e9ab7e64392b384c80caf6e5f
       id: 4199481009
@@ -1517,8 +1537,8 @@ MonoBehaviour:
         guid: e387d101bcba0342bd6cc5387e37b4a7
       Path: Events\Default Work Unit\Music\StopRecord
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: SwingWeapon
       guid: 310c8ad9e258b4488a6e63767ab4f191
       id: 729991629
@@ -1744,7 +1764,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584566227019747409
+    m_lastTime: -8584563742294961007
     List:
     - name: Pitch
       guid: 18fb3a1f6721ce459747a91aeb470ced
@@ -2537,7 +2557,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 8aff68e09ca652408bd2e782fdf49389
     GuidInternal: 
-    m_lastTime: -8584599120712619561
+    m_lastTime: -8584586152421954796
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 
