@@ -12,23 +12,25 @@ public class InteractDialgoue : MonoBehaviour
 {
 	public bool m_Log;
 	public InteractionDir m_InteractionDirection = InteractionDir.Bottom;
+	public bool m_Interacting;
 
-	[SerializeField, Tooltip("Conversation to start. Leave blank for no conversation."), ConversationPopup(false, true)]
+	[SerializeField,
+	 Tooltip("Conversation to start. Leave blank for no conversation."),
+	 ConversationPopup(false, true)]
 	private string _ConversationTitle;
 
 	[SerializeField,
 	 Tooltip("Tick if the conversation is to only be played once.")]
 	private bool _PlayOnce;
+	[SerializeField]
+	private bool _recordInteraction;
 
 	private Vector3Int _CellPosition;
-	public bool m_Interacting = false;
 	private GameManager _GameManager;
 	private bool _HasPlayedOnce;
 	private InputAction _InteractAction;
 	private CollideCheck _ItemCollision;
 	private PlayerInput _PlayerInput;
-	[SerializeField]
-	private bool _recordInteraction;
 
 	private void Awake()
 	{
@@ -188,10 +190,14 @@ public class InteractDialgoue : MonoBehaviour
 		}
 		else if (DialogueLua.GetVariable("Has_Record").asBool)
 		{
-			var _HeldItem = _GameManager.m_InventoryManager.m_HeldItemSlot.GetComponentInChildren<InventoryItem>();
-			var _RecordPlayerBreakableRef = GameObject.FindGameObjectWithTag("Record").GetComponent<BreakableItem>();
-			if(!_HeldItem || _RecordPlayerBreakableRef._itemHp < _RecordPlayerBreakableRef._itemMaxHp) return;
-			if (!_HasPlayedOnce && _HeldItem.itemData.m_Item.m_Type == ItemTypes.Record)
+			var _HeldItem = _GameManager.m_InventoryManager.m_HeldItemSlot
+				.GetComponentInChildren<InventoryItem>();
+			var _RecordPlayerBreakableRef = GameObject
+				.FindGameObjectWithTag("Record").GetComponent<BreakableItem>();
+			if (!_HeldItem || _RecordPlayerBreakableRef._itemHp <
+			    _RecordPlayerBreakableRef._itemMaxHp) return;
+			if (!_HasPlayedOnce &&
+			    _HeldItem.itemData.m_Item.m_Type == ItemTypes.Record)
 			{
 				DialogueManager.StartConversation(_ConversationTitle);
 				m_Interacting = true;
@@ -201,23 +207,21 @@ public class InteractDialgoue : MonoBehaviour
 				_HasPlayedOnce = true;
 			}
 		}
-		
 	}
 
-	private IEnumerator restartDialogueInteraction()
-	{
-		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
-		Debug.LogError("CONVERSATION ENDED");
-		yield return new WaitUntil(() =>
-			_GameManager.m_Player.m_Destination != _CellPosition);
-		_HasPlayedOnce = false;
-	}
-	
 	private IEnumerator resetInteracting()
 	{
 		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
 		m_Interacting = false;
 	}
-	
+
+	private IEnumerator restartDialogueInteraction()
+	{
+		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
+		Debug.Log("CONVERSATION ENDED");
+		yield return new WaitUntil(() =>
+			_GameManager.m_Player.m_Destination != _CellPosition);
+		_HasPlayedOnce = false;
+	}
 }
 }

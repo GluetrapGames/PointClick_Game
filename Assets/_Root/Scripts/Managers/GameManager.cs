@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AYellowpaper.SerializedCollections;
 using Cinemachine;
 using EditorAttributes;
 using GlueTrap.Utilities;
@@ -39,6 +40,8 @@ public class GameManager : Singleton<GameManager>
 	public int m_totalItemsPickedUp;
 	public double m_moneyAfterMeek;
 	public bool m_HasEntered;
+	[ReadOnly, SerializedDictionary("Item ID", "Is Collected")]
+	public SerializedDictionary<string, bool> m_ItemsCollectedState = new();
 
 	[SerializeField, ReadOnly]
 	private States _CurrentState = States.Moving;
@@ -50,6 +53,7 @@ public class GameManager : Singleton<GameManager>
 	private GameObject _PlayerPrefab;
 	[SerializeField, ReadOnly]
 	private Transform _PlayerSpawnPoint;
+
 	private States _PreviousState;
 	private string _PreviousTitleCard;
 	private TitleCard _TitleCard;
@@ -161,6 +165,9 @@ public class GameManager : Singleton<GameManager>
 		if (_TitleCardPlayed)
 			_TitleCard?.gameObject.SetActive(false);
 
+		// Obtain the amount of collectables in the scene.
+		UpdateItemsCollected();
+
 		// Get the Grid and the Navmesh.
 		m_Grid = FindFirstObjectByType<Grid>();
 		var navMeshObj = GameObject.FindGameObjectWithTag("NavMesh");
@@ -267,6 +274,20 @@ public class GameManager : Singleton<GameManager>
 		if (cinemachineCamera)
 			cinemachineCamera.Follow = m_Player.transform;
 	}
+
+	private void UpdateItemsCollected()
+	{
+		var items = FindObjectsByType<PickUpScript>(FindObjectsInactive.Include,
+			FindObjectsSortMode.None);
+
+		// Keep track of the items state (based on if they are viable or not.)
+		foreach (PickUpScript item in items)
+		{
+			var isActive = item.gameObject.activeInHierarchy;
+			m_ItemsCollectedState[item.m_PersistentID] = !isActive;
+		}
+	}
+
 
 	private void UpdateVideoPlayers()
 	{
