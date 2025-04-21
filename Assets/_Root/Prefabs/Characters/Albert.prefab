@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 7370129903377250156}
   - component: {fileID: 4845745090244089638}
   - component: {fileID: -8521983347789716404}
+  - component: {fileID: 8702716435503540861}
   m_Layer: 0
   m_Name: Albert
   m_TagString: Untagged
@@ -190,7 +191,7 @@ MonoBehaviour:
   actor: Albert
   persistentDataName: 
   portrait: {fileID: 2800000, guid: 6e890921b01bc0445a0d54145a93baa5, type: 3}
-  spritePortrait: {fileID: 3646244820028423090, guid: 6e890921b01bc0445a0d54145a93baa5, type: 3}
+  spritePortrait: {fileID: 0}
   audioSource: {fileID: 0}
   barkUISettings:
     barkUI: {fileID: 0}
@@ -353,6 +354,28 @@ MonoBehaviour:
     onDialogueSystemUnpause:
       m_PersistentCalls:
         m_Calls: []
+--- !u!95 &8702716435503540861
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175547867612132222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8634f908a152c0448a51f32610690846, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3431342054542729216
 GameObject:
   m_ObjectHideFlags: 0
