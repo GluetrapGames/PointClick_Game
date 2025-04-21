@@ -36,6 +36,12 @@ public class PickUpScript : MonoBehaviour
 
 	[SerializeField]
 	private bool _IsWallItem;
+
+	[SerializeField]
+	private bool _CalcCollision = true;
+	
+	[SerializeField]
+	private bool _isStoryItem;
 	[SerializeField]
 	public ItemTypes _ItemType;
 	[SerializeField]
@@ -62,16 +68,19 @@ public class PickUpScript : MonoBehaviour
 
 	private void Start()
 	{
-		// Recalculate collision bounds.
-		var boxCollider = GetComponent<BoxCollider2D>();
-		var spriteRenderer = GetComponent<SpriteRenderer>();
-		Sprite spriteObj = null;
-		if (spriteRenderer)
-			spriteObj = spriteRenderer.sprite;
-		if (!spriteObj ||
-		    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
-			Debug.LogWarning($"<{name}>: Failed to resize Collision Bounds!");
-
+		if (_CalcCollision)
+		{
+			// Recalculate collision bounds.
+			var boxCollider = GetComponent<BoxCollider2D>();
+			var spriteRenderer = GetComponent<SpriteRenderer>();
+			Sprite spriteObj = null;
+			if (spriteRenderer)
+				spriteObj = spriteRenderer.sprite;
+			if (!spriteObj ||
+			    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
+				Debug.LogWarning($"<{name}>: Failed to resize Collision Bounds!");
+		}
+		
 		// Check if any items where collected.
 		var itemCollected = false;
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count > 0 &&
@@ -133,12 +142,27 @@ public class PickUpScript : MonoBehaviour
 	private void Collected()
 	{
 		DialogueManager.ShowAlert($"{name} has been collected!");
-
-		if (!_GameManager.m_EndGameTracker.m_CollectedItems.Contains(_ItemType))
-			_GameManager.m_EndGameTracker.m_CollectedItems.Add(_ItemType);
-
-		_ = _GameManager.m_InventoryManager.CollectItem(
-			new ItemData(gameObject.name, _ItemType, sprite));
+		
+		if (!_isStoryItem)
+		{
+			if (!_GameManager.m_EndGameTracker.m_CollectedItems.Contains(_ItemType))
+				_GameManager.m_EndGameTracker.m_CollectedItems.Add(_ItemType);
+			_ = _GameManager.m_InventoryManager.CollectItem(
+				new ItemData(gameObject.name, _ItemType, sprite));
+		}
+		else
+		{
+			switch (_ItemType)
+			{
+				case ItemTypes.TaxidermyKey:
+					_GameManager.m_hasTaxidermyKey = true;
+					break;
+				case ItemTypes.FrontdoorKey:
+					_GameManager.m_hasFrontdoorKey = true;
+					break;
+			}
+			
+		}
 		_pickupSounds.onPickup();
 
 		// If the object plays a dialogue after pickup
@@ -149,6 +173,16 @@ public class PickUpScript : MonoBehaviour
 		{
 			_GameManager.m_hasCrowbar = true;
 			DialogueLua.SetVariable("Crowbar_Collected", _GameManager.m_hasCrowbar);
+		}
+
+		if (_ItemType == ItemTypes.Money)
+		{
+			_GameManager.m_collectedMoney += 50;
+		}
+		
+		if (_ItemType == ItemTypes.Coins)
+		{
+			_GameManager.m_collectedMoney += 10;
 		}
 		
 		if (m_Log) Debug.Log("Item collected");

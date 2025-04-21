@@ -132,7 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14803216cffce470391cd5271f416f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneToTransitionTo: CourtroomEnding
+  m_InteractionDirection: 3
+  m_OffsetAmount: 1.5
+  m_EntryPoint: 0
+  m_ExitPoint: 0
+  m_increaseAlpha: 0
+  _Log: 1
+  _sceneToTransitionTo: CourtScene 4
 --- !u!1 &3175547867612132222
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +283,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 729577984909829187}
-          m_TargetAssemblyTypeName: SceneTransistion, Assembly-CSharp
+          m_TargetAssemblyTypeName: GlueTrap.SceneTransition, Assembly-CSharp
           m_MethodName: CallFromConversationEnd
           m_Mode: 1
           m_Arguments:

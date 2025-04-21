@@ -14,7 +14,31 @@ namespace GlueTrap
 {
 public class GameManager : Singleton<GameManager>
 {
+	public Camera m_Camera { get; private set; }
+	public Scene m_CurrentScene { get; private set; }
+	public States m_CurrentState => _CurrentState;
+	public EndGameTracker m_EndGameTracker { get; private set; }
+	public Grid m_Grid { get; private set; }
+
+	public InventoryManager m_InventoryManager { get; private set; }
+	public Tilemap m_NavMesh { get; private set; }
+	public List<string> m_NoneGameplayScenes => _NoneGameplayScenes;
+	public PlayerGridController m_Player { get; private set; }
+	[HideInInspector]
 	public RoomEntryPoints m_RoomPoint = RoomEntryPoints.None;
+
+	public List<string> m_UniqueRoomList;
+	public int m_TotalUniqueRooms;
+	public bool m_hasCrowbar;
+	public int m_collectedMoney;
+	public bool m_HasFlatCall;
+	public bool m_hasUpstairsCourt;
+	public bool m_hasTaxidermyKey;
+	public bool m_hasFrontdoorKey;
+	public int m_totalItemsDestroyed;
+	public int m_totalItemsPickedUp;
+	public double m_moneyAfterMeek;
+	public bool m_HasEntered;
 
 	[SerializeField, ReadOnly]
 	private States _CurrentState = States.Moving;
@@ -26,29 +50,10 @@ public class GameManager : Singleton<GameManager>
 	private GameObject _PlayerPrefab;
 	[SerializeField, ReadOnly]
 	private Transform _PlayerSpawnPoint;
-
-	public List<string> m_UniqueRoomList;
-	public int m_TotalUniqueRooms;
-	public bool m_hasCrowbar;
-	public bool m_HasFlatCall;
-	public bool m_hasUpstairsCourt;
-	public int m_totalItemsDestroyed;
-	public int m_totalItemsPickedUp;
-	public bool m_HasEntered;
 	private States _PreviousState;
 	private string _PreviousTitleCard;
 	private TitleCard _TitleCard;
 	private bool _TitleCardPlayed;
-
-	public InventoryManager m_InventoryManager { get; private set; }
-	public EndGameTracker m_EndGameTracker { get; private set; }
-	public PlayerGridController m_Player { get; private set; }
-	public Grid m_Grid { get; private set; }
-	public Tilemap m_NavMesh { get; private set; }
-	public States m_CurrentState => _CurrentState;
-	public Camera m_Camera { get; private set; }
-	public List<string> m_NoneGameplayScenes => _NoneGameplayScenes;
-	public Scene m_CurrentScene { get; private set; }
 
 
 	protected override void Awake()
@@ -56,6 +61,7 @@ public class GameManager : Singleton<GameManager>
 		base.Awake();
 		m_InventoryManager = FindFirstObjectByType<InventoryManager>();
 		m_EndGameTracker = FindFirstObjectByType<EndGameTracker>();
+		//Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
 		InitGame();
 		_PreviousState = _CurrentState;
 	}
@@ -64,9 +70,9 @@ public class GameManager : Singleton<GameManager>
 	{
 		if (DialogueManager.IsConversationActive)
 			ChangeGameState(States.Talking);
-		
+
 		m_HasFlatCall = DialogueLua.GetVariable("MarkPhoneCallFinished").asBool;
-		
+
 		// If the scene has a TitleCard, set the Player's and UI visibility
 		// based on if the TitleCard is playing or not.
 		if (_TitleCard && !_TitleCardPlayed)
@@ -106,56 +112,27 @@ public class GameManager : Singleton<GameManager>
 		}
 	}
 
-	private void InitGame()
+	public void calcMoneyMeek()
 	{
-		// Spawn Camera.
-		CinemachineVirtualCamera cinemachineCamera = null;
-		if (!FindFirstObjectByType<Camera>())
-		{
-			GameObject cameraObj =
-				Instantiate(_PlayerCameraPrefab, transform);
-			m_Camera = cameraObj.GetComponent<Camera>();
+		float money = m_collectedMoney;
+		var itemsDestroyed = m_totalItemsDestroyed;
+		var envScore = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+		double offset = money;
 
-			// Check if any of the components are on the parent.
-			if (!m_Camera)
-			{
-				Debug.LogWarning(
-					$"{m_Camera}: Trying to get the Camera component from children.");
-				m_Camera = cameraObj.GetComponentInChildren<Camera>();
-			}
+		if (itemsDestroyed != 0)
+			offset = money / (1 + itemsDestroyed * 0.35);
+		else
+			offset = money;
 
-			// Try to obtain the VirtualCamera.
-			cinemachineCamera =
-				cameraObj.GetComponent<CinemachineVirtualCamera>();
-			if (!cinemachineCamera)
-			{
-				Debug.LogWarning(
-					$"{m_Camera}: Trying to get the CinemachineVirtualCamera " +
-					"component from children.");
-				cinemachineCamera = cameraObj
-					.GetComponentInChildren<CinemachineVirtualCamera>();
-			}
-		}
+		var newEnv = envScore + offset;
+		m_moneyAfterMeek = newEnv;
+		DialogueLua.SetVariable("Env_DM_Meter", newEnv);
+	}
 
-		// Get Player spawner.
-		_PlayerSpawnPoint = Utils.FindSpawner("PlayerSpawner");
-		Vector3 spawnPos = _PlayerSpawnPoint
-			? _PlayerSpawnPoint.position
-			: new Vector3(0f, 0f, 9.99f);
-
-		// Make sure we don't already have the Player.
-		var obj = FindFirstObjectByType<PlayerGridController>();
-		if (obj && m_Player == obj) return;
-
-		// Spawn Player.
-		GameObject spawnedPlayer =
-			Instantiate(_PlayerPrefab, spawnPos, Quaternion.identity);
-		spawnedPlayer.transform.parent = transform;
-		m_Player = spawnedPlayer.GetComponent<PlayerGridController>();
-
-		// Update Cinemachine Camera Follow Target.
-		if (cinemachineCamera)
-			cinemachineCamera.Follow = m_Player.transform;
+	public void ChangeGameState(States newState)
+	{
+		_PreviousState = _CurrentState;
+		_CurrentState = newState;
 	}
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
@@ -239,13 +216,56 @@ public class GameManager : Singleton<GameManager>
 		}
 	}
 
-	private void UpdateWorldCanvases()
+	private void InitGame()
 	{
-		var obj = FindObjectsByType<Canvas>(FindObjectsInactive.Include,
-			FindObjectsSortMode.None);
+		// Spawn Camera.
+		CinemachineVirtualCamera cinemachineCamera = null;
+		if (!FindFirstObjectByType<Camera>())
+		{
+			GameObject cameraObj =
+				Instantiate(_PlayerCameraPrefab, transform);
+			m_Camera = cameraObj.GetComponent<Camera>();
 
-		foreach (Canvas canvas in obj)
-			canvas.worldCamera = m_Camera;
+			// Check if any of the components are on the parent.
+			if (!m_Camera)
+			{
+				Debug.LogWarning(
+					$"{m_Camera}: Trying to get the Camera component from children.");
+				m_Camera = cameraObj.GetComponentInChildren<Camera>();
+			}
+
+			// Try to obtain the VirtualCamera.
+			cinemachineCamera =
+				cameraObj.GetComponent<CinemachineVirtualCamera>();
+			if (!cinemachineCamera)
+			{
+				Debug.LogWarning(
+					$"{m_Camera}: Trying to get the CinemachineVirtualCamera " +
+					"component from children.");
+				cinemachineCamera = cameraObj
+					.GetComponentInChildren<CinemachineVirtualCamera>();
+			}
+		}
+
+		// Get Player spawner.
+		_PlayerSpawnPoint = Utils.FindSpawner("PlayerSpawner");
+		Vector3 spawnPos = _PlayerSpawnPoint
+			? _PlayerSpawnPoint.position
+			: new Vector3(0f, 0f, 9.99f);
+
+		// Make sure we don't already have the Player.
+		var obj = FindFirstObjectByType<PlayerGridController>();
+		if (obj && m_Player == obj) return;
+
+		// Spawn Player.
+		GameObject spawnedPlayer =
+			Instantiate(_PlayerPrefab, spawnPos, Quaternion.identity);
+		spawnedPlayer.transform.parent = transform;
+		m_Player = spawnedPlayer.GetComponent<PlayerGridController>();
+
+		// Update Cinemachine Camera Follow Target.
+		if (cinemachineCamera)
+			cinemachineCamera.Follow = m_Player.transform;
 	}
 
 	private void UpdateVideoPlayers()
@@ -259,10 +279,13 @@ public class GameManager : Singleton<GameManager>
 				vidPlayer.targetCamera = m_Camera;
 	}
 
-	public void ChangeGameState(States newState)
+	private void UpdateWorldCanvases()
 	{
-		_PreviousState = _CurrentState;
-		_CurrentState = newState;
+		var obj = FindObjectsByType<Canvas>(FindObjectsInactive.Include,
+			FindObjectsSortMode.None);
+
+		foreach (Canvas canvas in obj)
+			canvas.worldCamera = m_Camera;
 	}
 }
 

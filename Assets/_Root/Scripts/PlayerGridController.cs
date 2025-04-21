@@ -33,7 +33,7 @@ public class PlayerGridController : MonoBehaviour
 	private Coroutine _moveCoroutine;
 	private bool _usingController;
 
-	public bool m_DestinationReached { get; private set; }
+	public bool m_DestinationReached;
 	public Vector3Int m_Destination { get; private set; }
 
 

@@ -21,9 +21,9 @@ public class BreakableItem : MonoBehaviour
 	[SerializeField, ReadOnly]
 	private ItemDamageStates _DamageState = ItemDamageStates.Undamaged;
 	[SerializeField]
-	private int _itemMaxHp;
+	public int _itemMaxHp;
 	[SerializeField, ProgressBar(nameof(_itemMaxHp), 0.8f, 0f, 0f)]
-	private int _itemHp;
+	public int _itemHp;
 	[SerializeField]
 	private ItemTypes _ItemType;
 	[SerializeField]
@@ -38,6 +38,7 @@ public class BreakableItem : MonoBehaviour
 	private BreakMaterialTypes _BreakMaterial;
 	[SerializeField]
 	private bool _isTV;
+	private bool _hasAddedToCount;
 
 	private InputAction _breakableAction;
 	private EndGameTracker _EndGameTracker;
@@ -99,6 +100,26 @@ public class BreakableItem : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space)) OutputDMValues();
 	}
 
+	private void OutputDMValues()
+	{
+		var DialogueDM = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
+		var EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+		var roomsEntered = DialogueLua.GetVariable("Rooms_Entered").asInt;
+		var tvBroken = DialogueLua.GetVariable("TV_Broken").asBool;
+		var itemsBroken = DialogueLua.GetVariable("Items_Broken").asInt;
+		var hasBeenUpstairs = _GameManager.m_hasUpstairsCourt;
+		var crowbarCollected = DialogueLua.GetVariable("Crowbar_Collected").asBool;
+		Debug.LogWarning(
+			$"Dialogue DM Value: {DialogueDM} - Environment DM Value: {EnvDM} - Rooms Entered: {roomsEntered} - TV Broken: {tvBroken.ToString()} - Items Broken: {itemsBroken.ToString()} - Crowbar Collected: {crowbarCollected.ToString()} - Money: {_GameManager.m_collectedMoney} - EnvAfterMoney: {_GameManager.m_moneyAfterMeek}");
+		Debug.LogWarning(
+			$"END GAME TRACKING: Money Collected: {DialogueLua.GetVariable("Money_Collected").asString} - Clues Found: {DialogueLua.GetVariable("Clues_Found").asString} - Has Been Upstairs: {hasBeenUpstairs}");
+	}
+
+	private void IncreaseEnvDM()
+	{
+		var EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
+		DialogueLua.SetVariable("Env_DM_Meter", EnvDM + 2);
+	}
 	private void Damage()
 	{
 		// Normal amount of damage if not held item or held item is ineffective.
@@ -157,29 +178,6 @@ public class BreakableItem : MonoBehaviour
 		_PersistentID = Guid.NewGuid().ToString();
 	}
 
-	private void IncreaseEnvDM()
-	{
-		var EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-		DialogueLua.SetVariable("Env_DM_Meter", EnvDM + 2);
-	}
-
-	private void OutputDMValues()
-	{
-		var DialogueDM = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
-		var EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-		var roomsEntered = DialogueLua.GetVariable("Rooms_Entered").asInt;
-		var tvBroken = DialogueLua.GetVariable("TV_Broken").asBool;
-		var itemsBroken = DialogueLua.GetVariable("Items_Broken").asInt;
-		var hasBeenUpstairs = _GameManager.m_hasUpstairsCourt;
-		var crowbarCollected =
-			DialogueLua.GetVariable("Crowbar_Collected").asBool;
-
-		Debug.LogWarning(
-			$"Dialogue DM Value: {DialogueDM} - Environment DM Value: {EnvDM} - Rooms Entered: {roomsEntered} - TV Broken: {tvBroken.ToString()} - Items Broken: {itemsBroken.ToString()} - Crowbar Collected: {crowbarCollected.ToString()}");
-		Debug.LogWarning(
-			$"END GAME TRACKING: Money Collected: {DialogueLua.GetVariable("Money_Collected").asString} - Clues Found: {DialogueLua.GetVariable("Clues_Found").asString} - Has Been Upstairs: {hasBeenUpstairs}");
-	}
-
 	private void SpriteSwap(ItemDamageStates damageState)
 	{
 		switch (damageState)
@@ -192,9 +190,12 @@ public class BreakableItem : MonoBehaviour
 				gameObject.GetComponent<SpriteRenderer>().sprite = _sprites[1];
 				gameObject.GetComponent<BoxCollider2D>().enabled = false;
 				gameObject.transform.position -= _afterBreakOffset;
-				_GameManager.m_totalItemsDestroyed++;
-				DialogueLua.SetVariable("Items_Broken",
-					_GameManager.m_totalItemsDestroyed);
+				if (!_EndGameTracker._DestroyedItems.ContainsKey(this._PersistentID))
+				{
+					_GameManager.m_totalItemsDestroyed++;
+					DialogueLua.SetVariable("Items_Broken",
+						_GameManager.m_totalItemsDestroyed);
+				}
 				if (_isTV) DialogueLua.SetVariable("TV_Broken", true);
 				break;
 		}

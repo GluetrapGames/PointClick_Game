@@ -35,7 +35,7 @@ public class Highlight : MonoBehaviour
 	private float _CustomShowOutlineThickness = 1f;
 
 	[Header("Debug Options"), SerializeField,
-	 ButtonField(nameof(GetRef), "Get References")]
+	 ButtonField(nameof(GetReference), "Get References")]
 	private Void _ButtonHolder;
 	[SerializeField, ButtonField(nameof(Hide))]
 	private Void _ButtonHolder2;
@@ -48,6 +48,38 @@ public class Highlight : MonoBehaviour
 	private void Awake()
 	{
 		_GameManager = Utils.GetGameManager();
+	}
+
+	private void Start()
+	{
+		GetReference();
+		Hide();
+	}
+
+	private void Update()
+	{
+		// Ignore if used by composite or is not moving, ignore.
+		if (m_UsedByComposite) return;
+		// Only allow highlighting when not talking or in menus.
+		if (_GameManager.m_CurrentState != States.Moving)
+		{
+			Hide();
+			return;
+		}
+
+		Vector2 mousePos =
+			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
+		var colliderComp = GetComponent<Collider2D>();
+
+		if (colliderComp.OverlapPoint(mousePos))
+			Show();
+		else
+			Hide();
+	}
+
+
+	public void GetReference()
+	{
 		// Obtain the material.
 		Renderer rendererComp;
 		if (_OnParent)
@@ -83,40 +115,12 @@ public class Highlight : MonoBehaviour
 		}
 
 		_Material = rendererComp.material;
-		_DefaultOutlineColour = _Material.GetColor(s_OutlineColour);
-		_DefaultOutlineThickness = _Material.GetFloat(s_OutlineThickness);
-	}
 
-	private void Start()
-	{
-		Hide();
-	}
-
-	private void Update()
-	{
-		// Ignore if used by composite or is not moving, ignore.
-		if (m_UsedByComposite) return;
-		// Only allow highlighting when not talking or in menus.
-		if (_GameManager.m_CurrentState != States.Moving)
-		{
-			Hide();
-			return;
-		}
-
-		Vector2 mousePos =
-			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
-		var colliderComp = GetComponent<Collider2D>();
-
-		if (colliderComp.OverlapPoint(mousePos))
-			Show();
-		else
-			Hide();
-	}
-
-
-	private void GetRef()
-	{
-		Awake();
+		// Ensure the material grabbed has the required properties.
+		if (rendererComp.material.HasProperty(s_OutlineColour))
+			_DefaultOutlineColour = _Material.GetColor(s_OutlineColour);
+		if (rendererComp.material.HasProperty(s_OutlineThickness))
+			_DefaultOutlineThickness = _Material.GetFloat(s_OutlineThickness);
 	}
 
 	public void Hide()
