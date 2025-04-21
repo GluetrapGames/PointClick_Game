@@ -47,9 +47,11 @@ namespace AK
         static const AkUniqueID PHONERING = 3074298065U;
         static const AkUniqueID PHONESLAM = 1097061028U;
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
+        static const AkUniqueID PLAYER_PICKUP_GENERIC = 1184633179U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
         static const AkUniqueID ROOMTRANSITION = 712272009U;
         static const AkUniqueID STOPALL_BUTMUSICANDDOOR = 119872638U;
+        static const AkUniqueID STOPALL_BUTMUSICANDDOOR_01 = 2569856780U;
         static const AkUniqueID STOPCLOCK = 4199481009U;
         static const AkUniqueID STOPCOURTAMB = 795797694U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
