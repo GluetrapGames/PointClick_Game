@@ -248,5 +248,26 @@ public class EnvironmentSounds : MonoBehaviour
             }
         }
 
+        public void PlayRecordSounds()
+        {
+            DialogueEntry dialogueEntry = DialogueManager.currentConversationState
+            .subtitle.dialogueEntry;
+            var conversationID = dialogueEntry.conversationID;
+            var subtitleId = dialogueEntry.id;
+
+            if (conversationID != 34) return;
+
+            switch (subtitleId)
+            {
+                case 3:
+                    AkSoundEngine.PostEvent("MusicRecord", gameObject);
+                    AkSoundEngine.SetRTPCValue("vol_music", 0f);
+                    break;
+                case 5:
+                    AkSoundEngine.PostEvent("StopRecord", gameObject);
+                    AkSoundEngine.SetRTPCValue("vol_music", 5f);
+                    break;
+            }
+        }
         }
 }

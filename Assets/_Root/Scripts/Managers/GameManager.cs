@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
 	public Tilemap m_NavMesh { get; private set; }
 	public List<string> m_NoneGameplayScenes => _NoneGameplayScenes;
 	public PlayerGridController m_Player { get; private set; }
+	[HideInInspector]
 	public RoomEntryPoints m_RoomPoint = RoomEntryPoints.None;
 
 	public List<string> m_UniqueRoomList;

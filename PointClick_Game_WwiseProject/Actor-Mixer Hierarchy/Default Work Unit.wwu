@@ -492,6 +492,42 @@
 								<ActiveSource Name="track_menu" ID="{A6402FF1-5D0C-4C9B-AD11-890505193377}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="cholcaterain" ID="{98F4D006-D26E-49CA-B619-41C31D262B27}" ShortID="530135786">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="cholcaterain" ID="{995ACCA6-C7F6-4B44-839B-D99101E16C0F}">
+									<Language>SFX</Language>
+									<AudioFile>cholcaterain.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="550744812"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="ChocolateRain" ID="{91F8F08D-12C8-45E3-8FCE-7612DF311005}">
+									<Language>SFX</Language>
+									<AudioFile>ChocolateRain.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="365985580"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ChocolateRain" ID="{91F8F08D-12C8-45E3-8FCE-7612DF311005}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{23671A75-F7D6-433B-BF69-A0291BF83DC9}" ShortID="196889044">
