@@ -24,7 +24,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             _Player = GameObject.FindGameObjectWithTag("Player");
             _Animator = _Player.GetComponentInChildren<Animator>();
 
-            _Albert = GameObject.Find("Albert");
+            _Albert = GameObject.Find("Albert(Clone)");
             _AlbertAnim = _Albert.GetComponent<Animator>();
         }
 
@@ -46,6 +46,9 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                     break;
                 case "pos":
                     MoveToAttackPosition();
+                    break;
+                case "al_fall":
+                    AlbertFall();
                     break;
                 default:
                     Debug.Log("Animation type not recognised");
@@ -89,6 +92,12 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
         private void MoveToAttackPosition() 
         {
             _Player.transform.position = new Vector3(0.5f, 7f, 0f);
+        }
+
+        private void AlbertFall() 
+        {
+            _AlbertAnim.SetBool("IsAttacked", true);
+            _AlbertAnim.Play("Albert_Attacked_Blood");
         }
 
     }
