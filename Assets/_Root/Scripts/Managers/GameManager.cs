@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AYellowpaper.SerializedCollections;
 using Cinemachine;
 using EditorAttributes;
 using GlueTrap.Utilities;
@@ -39,6 +40,8 @@ public class GameManager : Singleton<GameManager>
 	public int m_totalItemsPickedUp;
 	public double m_moneyAfterMeek;
 	public bool m_HasEntered;
+	[ReadOnly, SerializedDictionary("Item ID", "Is Collected")]
+	public SerializedDictionary<string, bool> m_ItemsCollectedState = new();
 
 	[SerializeField, ReadOnly]
 	private States _CurrentState = States.Moving;
@@ -50,6 +53,7 @@ public class GameManager : Singleton<GameManager>
 	private GameObject _PlayerPrefab;
 	[SerializeField, ReadOnly]
 	private Transform _PlayerSpawnPoint;
+
 	private States _PreviousState;
 	private string _PreviousTitleCard;
 	private TitleCard _TitleCard;
@@ -161,8 +165,8 @@ public class GameManager : Singleton<GameManager>
 		if (_TitleCardPlayed)
 			_TitleCard?.gameObject.SetActive(false);
 
-		// Check to see if needs to hide keys.
-		HideItems();
+		// Obtain the amount of collectables in the scene.
+		UpdateItemsCollected();
 
 		// Get the Grid and the Navmesh.
 		m_Grid = FindFirstObjectByType<Grid>();
@@ -219,31 +223,6 @@ public class GameManager : Singleton<GameManager>
 		}
 	}
 
-	//! A hack to hide the key. Assumes that only one of each key exists.
-	//! On Scene load check the entire scene, if there is a key, hide it if its collected.
-	private void HideItems()
-	{
-		var items = FindObjectsByType<PickUpScript>(FindObjectsSortMode.None);
-		if (items.Length <= 0) return;
-		foreach (PickUpScript item in items)
-		{
-			if (item._ItemType == ItemTypes.TaxidermyKey && m_hasTaxidermyKey &&
-			    item.gameObject.activeInHierarchy)
-			{
-				item.gameObject.SetActive(false);
-				continue;
-			}
-
-			if (item._ItemType == ItemTypes.FrontdoorKey && m_hasFrontdoorKey &&
-			    item.gameObject.activeInHierarchy)
-			{
-				item.gameObject.SetActive(false);
-				// ReSharper disable once RedundantJumpStatement
-				continue;
-			}
-		}
-	}
-
 	private void InitGame()
 	{
 		// Spawn Camera.
@@ -295,6 +274,20 @@ public class GameManager : Singleton<GameManager>
 		if (cinemachineCamera)
 			cinemachineCamera.Follow = m_Player.transform;
 	}
+
+	private void UpdateItemsCollected()
+	{
+		var items = FindObjectsByType<PickUpScript>(FindObjectsInactive.Include,
+			FindObjectsSortMode.None);
+
+		// Keep track of the items state (based on if they are viable or not.)
+		foreach (PickUpScript item in items)
+		{
+			var isActive = item.gameObject.activeInHierarchy;
+			m_ItemsCollectedState[item.m_PersistentID] = !isActive;
+		}
+	}
+
 
 	private void UpdateVideoPlayers()
 	{
