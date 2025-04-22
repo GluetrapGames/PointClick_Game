@@ -21,6 +21,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             m_SpeakerTransform = GetSubject(1);
 
             m_SpeakerName = m_SpeakerTransform.gameObject.name;
+            Debug.Log($"{m_SpeakerName}");
         }
 
         public void Update()
@@ -35,6 +36,12 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
 
             if (m_BlabType == "angry")
                 AkSoundEngine.SetRTPCValue("pitch_blab", 0f);
+
+            if (m_BlabType == "questionHigh")
+                AkSoundEngine.SetRTPCValue("pitch_blab", 6.5f);
+            
+            if (m_BlabType == "questionLow")
+                AkSoundEngine.SetRTPCValue("pitch_blab", 3.75f);
             // Add any update code here. When the command is done, call Stop().
             // If you've called stop above in Awake(), you can delete this method.
 

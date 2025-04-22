@@ -2065,6 +2065,78 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Clock" ID="{3C5F65DB-B07B-4945-A7C7-8F396F7F5564}" ShortID="1029948097">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{C177AD3D-8566-4670-857E-50BACBD3F170}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="250"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="viol_grandfather_break" ID="{8C23F9B6-B7A6-4EFD-9631-C5A39FD47A5D}" ShortID="545164968">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="viol_grandfather_break" ID="{1F9FDAE9-39CB-4F05-8644-EE0B8E48CDF6}">
+													<Language>SFX</Language>
+													<AudioFile>viol_grandfather_break.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="718676846"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="viol_grandfather_break" ID="{1F9FDAE9-39CB-4F05-8644-EE0B8E48CDF6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="viol_grandfather_break_01" ID="{CCFDEF56-FD32-4489-B903-A4CF3985F2D9}" ShortID="525451853">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="viol_grandfather_break_01" ID="{663087FA-D5D2-415B-ADC6-F67237540DBE}">
+													<Language>SFX</Language>
+													<AudioFile>viol_grandfather_break_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="232622889"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="viol_grandfather_break_01" ID="{663087FA-D5D2-415B-ADC6-F67237540DBE}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupingBehaviorList>
@@ -2091,6 +2163,9 @@
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Taxidermy" ID="{229FDDD2-04E8-4098-9A8A-6B593CCE1112}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Clock" ID="{3C5F65DB-B07B-4945-A7C7-8F396F7F5564}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>

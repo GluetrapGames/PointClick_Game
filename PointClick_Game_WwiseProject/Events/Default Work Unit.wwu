@@ -696,10 +696,108 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="grandfather_clock" ID="{22FFE0E7-6AFE-4EAF-9BDA-FE0C9C4DC21D}">
+									<ChildrenList>
+										<Action Name="" ID="{600C223F-A795-4CCC-84E7-B94AFCECE144}" ShortID="119297504">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="weaponSwing" ID="{CC31FB85-1E0E-433C-98D0-7BC7565C1377}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{CC1741D9-F52C-4CC5-87D4-8FE1E346A073}" ShortID="1059746004">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Clock" ID="{3C5F65DB-B07B-4945-A7C7-8F396F7F5564}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Event Name="Material" ID="{B295CD18-4F87-46B4-A977-2608347FB39C}">
 							<ChildrenList>
+								<Action Name="" ID="{2B05E322-C603-4336-A5C5-41F84C347B81}" ShortID="111643570">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BigGlass" ID="{0BB45F8A-DD28-4E7F-A030-87D74BF56767}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{FBCD3681-D8A7-4912-96DC-F38CFAED594E}" ShortID="820145651">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Wood" ID="{61A9B060-F790-40A1-8F0F-E13AF155FC13}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{FE31AD67-C85D-42CF-8ADD-DED4646D8CB5}" ShortID="1051350849">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Taxidermy" ID="{229FDDD2-04E8-4098-9A8A-6B593CCE1112}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{10EEF08B-2233-41E7-AF9E-805D784C767F}" ShortID="317220909">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Electronic" ID="{13F90358-C34C-42DB-86C3-7DD1F74176C4}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E0EBB363-E1D7-4A90-8889-CBDB74DE98F4}" ShortID="401896348">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ceramic" ID="{67767E42-7670-494C-BABE-4F12AAC882A3}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{66ADB26A-1AF5-46D6-96EE-FB9C59294B6E}" ShortID="195988121">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Glass" ID="{C5DC2137-4B36-443B-8C9A-16C74142CDA9}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0DB423C0-D898-4A06-8499-433C2F2B467C}" ShortID="141986863">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Metal" ID="{A341A989-4895-4B37-8B1C-C5AD8C2D9102}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{AD969EF1-0462-4B51-9120-FB818EA5653C}" ShortID="408283762">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="16"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Plant" ID="{1621011C-3AED-4AF2-9036-602B1F48A5D3}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{00FACAAE-E7C0-4123-9366-A5C2BAA351EC}" ShortID="865945125">
 									<ReferenceList>
 										<Reference Name="Target">
@@ -852,41 +950,16 @@
 								</Event>
 								<Event Name="StopClock" ID="{8E635352-B79A-43E6-92B3-84C80CAF6E5F}">
 									<ChildrenList>
-										<Action Name="" ID="{9B46DAB8-1D99-4F96-AE43-B6A5BDD47BBC}" ShortID="519709616">
+										<Action Name="" ID="{7026133E-604E-4CE4-8756-7ACEA8DCC579}" ShortID="995488831">
 											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="3"/>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="Scope" Type="int16" Value="1"/>
 											</PropertyList>
-											<ReferenceList/>
-											<ChildrenList>
-												<EventActionException Name="" ID="{D90329C2-A33F-402E-A7FF-E85BF075EA41}">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="House Music" ID="{5DFE2C84-FAF6-4EAF-BA44-8D6082703469}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-														</Reference>
-													</ReferenceList>
-												</EventActionException>
-												<EventActionException Name="" ID="{94D91B8D-B22F-49CD-A586-637C23F75504}">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="House Creaks" ID="{D3A59E07-10F1-46EE-99A9-BBB4651257C9}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-														</Reference>
-													</ReferenceList>
-												</EventActionException>
-												<EventActionException Name="" ID="{C04F7EDB-7CD0-498F-8DA6-AFF13AB4E3B7}">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="House Hum" ID="{2E15BFAB-7D03-4AE9-AF66-CF6726BC72AA}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-														</Reference>
-													</ReferenceList>
-												</EventActionException>
-												<EventActionException Name="" ID="{D8E556E1-35CA-480B-B738-B92F510B137F}">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="House Noise" ID="{FE98274F-2EDB-422B-9D4E-E1F8440DF4DE}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
-														</Reference>
-													</ReferenceList>
-												</EventActionException>
-											</ChildrenList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Court Clock" ID="{53E6026D-207C-4BFA-8365-75F4A9515FF4}" WorkUnitID="{17710352-59AF-4383-A42B-B6D063DEDBE0}"/>
+												</Reference>
+											</ReferenceList>
 										</Action>
 									</ChildrenList>
 								</Event>

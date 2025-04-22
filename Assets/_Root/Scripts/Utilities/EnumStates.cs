@@ -51,7 +51,8 @@ public enum EventTypes
 	record_player = 3,
 	taxi_animal = 4,
 	glass_cupboard = 5,
-	table_ceramic = 6
+	table_ceramic = 6,
+	grandfather_clock = 7
 }
 
 public enum MaterialTypes
