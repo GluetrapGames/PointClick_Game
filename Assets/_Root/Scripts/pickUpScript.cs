@@ -2,8 +2,6 @@ using System;
 using EditorAttributes;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
-using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
