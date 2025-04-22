@@ -12,9 +12,11 @@ namespace GlueTrap
     {
         private bool _HouseActivated = false;
         private bool _CourtActivated = false;
+        public bool inLivingRoom;
         private bool _ClockActivated = false;
         private bool _OutsideActivated = false;
         public bool Log;
+        public ClockSounds clockSounds;
 
         private void HouseAmbience()
         {
@@ -69,25 +71,14 @@ namespace GlueTrap
                     Debug.Log("Court Ambience = " + _CourtActivated);
             }
 
-            // Starts clock ambiance for living room only
+            // bool for 'ClockSounds' script
             if (scene.name == "LivingRoom")
             {
-                if (!_ClockActivated)
-                {
-                    _ClockActivated = true;
-                    AkSoundEngine.PostEvent("CourtClock", gameObject);
-                    if (Log)
-                        Debug.Log("Clock Ambience = " + _ClockActivated);
-                }
+                inLivingRoom = true;
             }
-            // Stops clock ambiance once living room is left
             if (scene.name != "LivingRoom")
             {
-                if (_ClockActivated)
-                {
-                    _ClockActivated = false;
-                    AkSoundEngine.PostEvent("StopClock", gameObject);
-                }
+                inLivingRoom = false;
             }
 
             // Stops all sound and plays menu music
