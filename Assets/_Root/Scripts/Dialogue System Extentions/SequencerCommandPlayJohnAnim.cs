@@ -94,6 +94,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             _Player.transform.position = new Vector3(0.5f, 7f, 0f);
         }
 
+        // Play Albert's falling animation
         private void AlbertFall() 
         {
             _AlbertAnim.SetBool("IsAttacked", true);
