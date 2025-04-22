@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 5909de92d8ac4141b7fe347eabe5cda5
     GuidInternal: 
-    m_lastTime: -8584598198812358432
+    m_lastTime: -8584586152421954796
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: a003960deb8bdf468e97a26af7e6ab6c
     GuidInternal: 
-    m_lastTime: -8584587863116916271
+    m_lastTime: -8584586152427130362
     List:
     - name: Dialogue
       guid: 13d5f7f34eace145936fbb7376e25110
@@ -148,7 +148,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d9cd24203029844a94de634f59516731
     GuidInternal: 
-    m_lastTime: -8584586154188629255
+    m_lastTime: -8584585318566311657
     List:
     - name: Main
       guid: fff4323f282c4e4bbef4b6e13128fb3a
@@ -176,8 +176,51 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584586154213106113
+    m_lastTime: -8584563487386939969
     List:
+    - name: Albert Arrival
+      guid: 415640c37735b54bacf5b2ee99650238
+      id: 2929605008
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Albert Arrival
+        ObjectType: 4
+        guid: 415640c37735b54bacf5b2ee99650238
+      Path: Events\Default Work Unit\Environment\Albert Arrival
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: AlbertIsHome
+      guid: cafa7c2954245e4e93671e709440c48c
+      id: 3003684494
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Albert Arrival
+        ObjectType: 4
+        guid: 415640c37735b54bacf5b2ee99650238
+      - ElementName: AlbertIsHome
+        ObjectType: 3
+        guid: cafa7c2954245e4e93671e709440c48c
+      Path: Events\Default Work Unit\Environment\Albert Arrival\AlbertIsHome
+      maxAttenuation: 0
+      maxDuration: 29.737913
+      minDuration: 29.737913
     - name: Ambience
       guid: 19c1f8107ed1404c834f7da805b12460
       id: 85412153
@@ -213,8 +256,8 @@ MonoBehaviour:
         guid: 79ae0e61b1425b4ab1c71133d9ae0762
       Path: Events\Default Work Unit\Dialogue\Blab
       maxAttenuation: 0
-      maxDuration: 0.13150942
-      minDuration: 0.056701366
+      maxDuration: 0.119041815
+      minDuration: 0.05214056
     - name: Breaks
       guid: ffbfc00e79fb7a42963fab89f9270ee8
       id: 1008011617
@@ -255,6 +298,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.7208999
       minDuration: 0.76646316
+    - name: CarArrive
+      guid: 4916eb3638d1574d940a137ef379a240
+      id: 3923521380
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Albert Arrival
+        ObjectType: 4
+        guid: 415640c37735b54bacf5b2ee99650238
+      - ElementName: CarArrive
+        ObjectType: 3
+        guid: 4916eb3638d1574d940a137ef379a240
+      Path: Events\Default Work Unit\Environment\Albert Arrival\CarArrive
+      maxAttenuation: 0
+      maxDuration: 18.273125
+      minDuration: 18.273125
     - name: Court
       guid: e1b307b74cefd34f97b4ee094ed72370
       id: 2871560606
@@ -407,6 +473,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: DoorOpen
+      guid: a6ea0be48edadc40811b02ba8967dc64
+      id: 1404805401
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Albert Arrival
+        ObjectType: 4
+        guid: 415640c37735b54bacf5b2ee99650238
+      - ElementName: DoorOpen
+        ObjectType: 3
+        guid: a6ea0be48edadc40811b02ba8967dc64
+      Path: Events\Default Work Unit\Environment\Albert Arrival\DoorOpen
+      maxAttenuation: 0
+      maxDuration: 2.621338
+      minDuration: 2.621338
     - name: Environment
       guid: 9dc7572aa80da94ab9b129ee57fa36ab
       id: 1229948536
@@ -421,6 +510,49 @@ MonoBehaviour:
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
       Path: Events\Default Work Unit\Environment
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: ExitWalk
+      guid: 8498bbbef8970b4f8326f874e6886c57
+      id: 3585027902
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Albert Arrival
+        ObjectType: 4
+        guid: 415640c37735b54bacf5b2ee99650238
+      - ElementName: ExitWalk
+        ObjectType: 3
+        guid: 8498bbbef8970b4f8326f874e6886c57
+      Path: Events\Default Work Unit\Environment\Albert Arrival\ExitWalk
+      maxAttenuation: 0
+      maxDuration: 5.660975
+      minDuration: 5.660975
+    - name: Flat
+      guid: dd963c2b5c06b742aa5bf2b237f53fc5
+      id: 2931383624
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: Flat
+        ObjectType: 4
+        guid: dd963c2b5c06b742aa5bf2b237f53fc5
+      Path: Events\Default Work Unit\Ambience\Flat
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -444,6 +576,72 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.4487923
       minDuration: 0.1712196
+    - name: Fridge
+      guid: 83e06b0f0a34f04bac688c03f112f314
+      id: 2337612214
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Fridge
+        ObjectType: 4
+        guid: 83e06b0f0a34f04bac688c03f112f314
+      Path: Events\Default Work Unit\Environment\Fridge
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FridgeOpen
+      guid: 0cdb9f7eea2ef14b997639490d9cc994
+      id: 627991214
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Fridge
+        ObjectType: 4
+        guid: 83e06b0f0a34f04bac688c03f112f314
+      - ElementName: FridgeOpen
+        ObjectType: 3
+        guid: 0cdb9f7eea2ef14b997639490d9cc994
+      Path: Events\Default Work Unit\Environment\Fridge\FridgeOpen
+      maxAttenuation: 0
+      maxDuration: 0.7046875
+      minDuration: 0.7046875
+    - name: GameShow
+      guid: 7c02b62753c72e4cac9bb5dfb3a77ed2
+      id: 1875833188
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Ambience
+        ObjectType: 4
+        guid: 19c1f8107ed1404c834f7da805b12460
+      - ElementName: Flat
+        ObjectType: 4
+        guid: dd963c2b5c06b742aa5bf2b237f53fc5
+      - ElementName: GameShow
+        ObjectType: 3
+        guid: 7c02b62753c72e4cac9bb5dfb3a77ed2
+      Path: Events\Default Work Unit\Ambience\Flat\GameShow
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: glass_cupboard
       guid: 180d5c1a9cd1dd4daf49dae10d6daa8c
       id: 3198831486
@@ -576,6 +774,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: KeyJangle
+      guid: ce1c7dfd4aa93447821b2fe9d765bdb1
+      id: 974990853
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Albert Arrival
+        ObjectType: 4
+        guid: 415640c37735b54bacf5b2ee99650238
+      - ElementName: KeyJangle
+        ObjectType: 3
+        guid: ce1c7dfd4aa93447821b2fe9d765bdb1
+      Path: Events\Default Work Unit\Environment\Albert Arrival\KeyJangle
+      maxAttenuation: 0
+      maxDuration: 5.97
+      minDuration: 5.97
     - name: Material
       guid: 18cd95b2874fb446a9772608347fb39c
       id: 3865314626
@@ -762,6 +983,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 183.48619
       minDuration: 183.48619
+    - name: MusicRecord
+      guid: 2fc0bfd7953b8a4b80c1090245ac9773
+      id: 3349386653
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Music
+        ObjectType: 4
+        guid: 57fc0d463d8f844c94227605840aa6c2
+      - ElementName: MusicRecord
+        ObjectType: 3
+        guid: 2fc0bfd7953b8a4b80c1090245ac9773
+      Path: Events\Default Work Unit\Music\MusicRecord
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Outside
       guid: d27393c04f6d7c4abf8d8fdf6b8dc867
       id: 438105790
@@ -805,6 +1046,92 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Oven
+      guid: 8b5194053ea20b4a940b2cd323c20d3e
+      id: 3677122683
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Oven
+        ObjectType: 4
+        guid: 8b5194053ea20b4a940b2cd323c20d3e
+      Path: Events\Default Work Unit\Environment\Oven
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: OvenClose
+      guid: 8fb3c9554133434eb6b3f8bed88e832e
+      id: 1111768629
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Oven
+        ObjectType: 4
+        guid: 8b5194053ea20b4a940b2cd323c20d3e
+      - ElementName: OvenClose
+        ObjectType: 3
+        guid: 8fb3c9554133434eb6b3f8bed88e832e
+      Path: Events\Default Work Unit\Environment\Oven\OvenClose
+      maxAttenuation: 0
+      maxDuration: 1.1205312
+      minDuration: 1.1205312
+    - name: OvenOpen
+      guid: 6ea6f6718b810d40a1aea379e1eea043
+      id: 3458950111
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Oven
+        ObjectType: 4
+        guid: 8b5194053ea20b4a940b2cd323c20d3e
+      - ElementName: OvenOpen
+        ObjectType: 3
+        guid: 6ea6f6718b810d40a1aea379e1eea043
+      Path: Events\Default Work Unit\Environment\Oven\OvenOpen
+      maxAttenuation: 0
+      maxDuration: 0.86815625
+      minDuration: 0.86815625
+    - name: Phone
+      guid: 93e0a01ac86d644289e31e48389f8b75
+      id: 3104856687
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
+      Path: Events\Default Work Unit\Environment\Phone
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: PhoneHang
       guid: e2b23a5167947a429d2ee0ef4a70f1ff
       id: 616151339
@@ -818,10 +1145,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: PhoneHang
         ObjectType: 3
         guid: e2b23a5167947a429d2ee0ef4a70f1ff
-      Path: Events\Default Work Unit\Environment\PhoneHang
+      Path: Events\Default Work Unit\Environment\Phone\PhoneHang
       maxAttenuation: 0
       maxDuration: 9.235583
       minDuration: 9.235583
@@ -838,10 +1168,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: PhonePickup
         ObjectType: 3
         guid: 95a402317e414a4ebeeaa38f102a771f
-      Path: Events\Default Work Unit\Environment\PhonePickup
+      Path: Events\Default Work Unit\Environment\Phone\PhonePickup
       maxAttenuation: 0
       maxDuration: 0.25750333
       minDuration: 0.25750333
@@ -858,10 +1191,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: PhoneRing
         ObjectType: 3
         guid: bf1f4e079337a744af09c8d68469e48b
-      Path: Events\Default Work Unit\Environment\PhoneRing
+      Path: Events\Default Work Unit\Environment\Phone\PhoneRing
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -878,10 +1214,13 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: PhoneSlam
         ObjectType: 3
         guid: 7ba5d2e5d5c2b840af06cc6db7bf767f
-      Path: Events\Default Work Unit\Environment\PhoneSlam
+      Path: Events\Default Work Unit\Environment\Phone\PhoneSlam
       maxAttenuation: 0
       maxDuration: 1.1565759
       minDuration: 1.1565759
@@ -982,6 +1321,46 @@ MonoBehaviour:
         ObjectType: 4
         guid: a3b780ca44d0c84a9411b3224f6da948
       Path: Events\Default Work Unit\Breaks\Specific
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: StopAll_ButMusicAndDoor
+      guid: bd7f7d58a8a9824abd34ca7161d4c0af
+      id: 119872638
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Music
+        ObjectType: 4
+        guid: 57fc0d463d8f844c94227605840aa6c2
+      - ElementName: StopAll_ButMusicAndDoor
+        ObjectType: 3
+        guid: bd7f7d58a8a9824abd34ca7161d4c0af
+      Path: Events\Default Work Unit\Music\StopAll_ButMusicAndDoor
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: StopAll_ButMusicAndDoor_01
+      guid: e40585c524fc7c46bd973781fe317065
+      id: 2569856780
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Music
+        ObjectType: 4
+        guid: 57fc0d463d8f844c94227605840aa6c2
+      - ElementName: StopAll_ButMusicAndDoor_01
+        ObjectType: 3
+        guid: e40585c524fc7c46bd973781fe317065
+      Path: Events\Default Work Unit\Music\StopAll_ButMusicAndDoor_01
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1130,13 +1509,36 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 4
         guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: Phone
+        ObjectType: 4
+        guid: 93e0a01ac86d644289e31e48389f8b75
       - ElementName: StopPhone
         ObjectType: 3
         guid: 06289bce4abe3e47b37b129c5b82fb07
-      Path: Events\Default Work Unit\Environment\StopPhone
+      Path: Events\Default Work Unit\Environment\Phone\StopPhone
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: StopRecord
+      guid: e387d101bcba0342bd6cc5387e37b4a7
+      id: 3121475866
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Music
+        ObjectType: 4
+        guid: 57fc0d463d8f844c94227605840aa6c2
+      - ElementName: StopRecord
+        ObjectType: 3
+        guid: e387d101bcba0342bd6cc5387e37b4a7
+      Path: Events\Default Work Unit\Music\StopRecord
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: SwingWeapon
       guid: 310c8ad9e258b4488a6e63767ab4f191
       id: 729991629
@@ -1362,8 +1764,39 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584587863116825978
+    m_lastTime: -8584563742294961007
     List:
+    - name: Pitch
+      guid: 18fb3a1f6721ce459747a91aeb470ced
+      id: 1908158473
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2e9cb6d90aac234bb9dfd552a0729065
+      - ElementName: Pitch
+        ObjectType: 4
+        guid: 18fb3a1f6721ce459747a91aeb470ced
+      Path: Game Parameters\Default Work Unit\Pitch
+    - name: pitch_blab
+      guid: 5f2bc88ddbbab54e85bb2f46910b9ff1
+      id: 2569016891
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2e9cb6d90aac234bb9dfd552a0729065
+      - ElementName: Pitch
+        ObjectType: 4
+        guid: 18fb3a1f6721ce459747a91aeb470ced
+      - ElementName: pitch_blab
+        ObjectType: 13
+        guid: 5f2bc88ddbbab54e85bb2f46910b9ff1
+      Path: Game Parameters\Default Work Unit\Pitch\pitch_blab
     - name: vol_dialogue
       guid: d375c4070ca9a54aa883e10fff410998
       id: 2119574057
@@ -1381,6 +1814,23 @@ MonoBehaviour:
         ObjectType: 13
         guid: d375c4070ca9a54aa883e10fff410998
       Path: Game Parameters\Default Work Unit\Volume\vol_dialogue
+    - name: vol_gameShow
+      guid: 1bea4db4dc66554a94c983867cacfcd5
+      id: 4202393254
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2e9cb6d90aac234bb9dfd552a0729065
+      - ElementName: Volume
+        ObjectType: 4
+        guid: c02806cb7e2f824db4040f8d72f554bd
+      - ElementName: vol_gameShow
+        ObjectType: 13
+        guid: 1bea4db4dc66554a94c983867cacfcd5
+      Path: Game Parameters\Default Work Unit\Volume\vol_gameShow
     - name: vol_loud
       guid: 8dbb35ec9f27b04b99f4685c961dce5f
       id: 223679447
@@ -1475,8 +1925,58 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: aaef3b61817689459787a303f0cc8de8
     GuidInternal: 
-    m_lastTime: -8584587863117026438
+    m_lastTime: -8584566227012994065
     List:
+    - name: FlatMusic
+      guid: 60efac30605f2e4497ac1b0bf46606a2
+      id: 1369071785
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aaef3b61817689459787a303f0cc8de8
+      - ElementName: FlatMusic
+        ObjectType: 9
+        guid: 60efac30605f2e4497ac1b0bf46606a2
+      Path: States\Default Work Unit\FlatMusic
+      values:
+      - name: Begin
+        guid: dcecf3d504e7834885a9843ce0f70fc3
+        id: 349818688
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: aaef3b61817689459787a303f0cc8de8
+        - ElementName: FlatMusic
+          ObjectType: 9
+          guid: 60efac30605f2e4497ac1b0bf46606a2
+        - ElementName: Begin
+          ObjectType: 8
+          guid: dcecf3d504e7834885a9843ce0f70fc3
+      - name: None
+        guid: 7f3b071847a0304b8e228b29118116dd
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: aaef3b61817689459787a303f0cc8de8
+        - ElementName: FlatMusic
+          ObjectType: 9
+          guid: 60efac30605f2e4497ac1b0bf46606a2
+        - ElementName: None
+          ObjectType: 8
+          guid: 7f3b071847a0304b8e228b29118116dd
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
     - name: HouseMusic
       guid: 72cc6de581d4f34e9d6bb785c2b8771d
       id: 1848906592
@@ -1587,7 +2087,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584586154188613960
+    m_lastTime: -8584585144766026338
     List:
     - name: BreakMaterial
       guid: 52371375a5837847ab5b8d4e1a0afc3a
@@ -2057,10 +2557,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 8aff68e09ca652408bd2e782fdf49389
     GuidInternal: 
-    m_lastTime: -8584598198812368407
+    m_lastTime: -8584586152421954796
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0600000007000000080000000b0000004b000000
+  ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using EditorAttributes;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
@@ -10,6 +11,9 @@ namespace GlueTrap
 {
 public class BreakableItem : MonoBehaviour
 {
+	public ItemDamageStates m_DamageState => _DamageState;
+
+	public string m_PersistentID => _PersistentID;
 	[SerializeField]
 	private string _PersistentID;
 	[SerializeField]
@@ -17,9 +21,9 @@ public class BreakableItem : MonoBehaviour
 	[SerializeField, ReadOnly]
 	private ItemDamageStates _DamageState = ItemDamageStates.Undamaged;
 	[SerializeField]
-	private int _itemMaxHp;
+	public int _itemMaxHp;
 	[SerializeField, ProgressBar(nameof(_itemMaxHp), 0.8f, 0f, 0f)]
-	private int _itemHp;
+	public int _itemHp;
 	[SerializeField]
 	private ItemTypes _ItemType;
 	[SerializeField]
@@ -34,6 +38,7 @@ public class BreakableItem : MonoBehaviour
 	private BreakMaterialTypes _BreakMaterial;
 	[SerializeField]
 	private bool _isTV;
+	private bool _hasAddedToCount;
 
 	private InputAction _breakableAction;
 	private EndGameTracker _EndGameTracker;
@@ -42,9 +47,6 @@ public class BreakableItem : MonoBehaviour
 	private CollideCheck _ItemCollision;
 	private HeldItemSlot _playerHeldItem;
 	private PlayerInput _PlayerInput;
-
-	public string m_PersistentID => _PersistentID;
-	public ItemDamageStates m_DamageState => _DamageState;
 
 
 	private void Awake()
@@ -79,38 +81,23 @@ public class BreakableItem : MonoBehaviour
 		if (_playerHeldItem.playerHeldItem != null)
 			_heldItemType = _playerHeldItem.playerHeldItem.m_Item.m_Type;
 
-		if (_breakableAction.WasPressedThisFrame() && _ItemCollision.IsCollided)
+		if (_breakableAction.WasPressedThisFrame() &&
+		    _ItemCollision.IsCollided && _itemHp > 0)
 		{
 			if (_Log) Debug.Log("Damage Called");
 			Damage();
 			AkSoundEngine.SetSwitch("BreakMaterial", _BreakMaterial.ToString(),
 				gameObject);
 			AkSoundEngine.PostEvent(_EventType.ToString(), gameObject);
+
+			// Course the object to shake on hit.
+			transform.DOShakeRotation(0.5f, 11f, 700).Play();
 		}
 		else if (_breakableAction.WasPressedThisFrame() &&
 		         !_ItemCollision.IsCollided)
 			Debug.Log("Damage failed to call, no collision detected");
 
 		if (Input.GetKeyDown(KeyCode.Space)) OutputDMValues();
-	}
-
-	private void DisableHighlighting()
-	{
-		// Try to get the highlighter to disable it.
-		var highlighter = GetComponent<Highlight>();
-
-		if (!highlighter)
-		{
-			highlighter = GetComponentInChildren<Highlight>();
-			if (!highlighter)
-			{
-				Debug.LogWarning(
-					$"{this} Object has no Highlighter component!");
-				return;
-			}
-		}
-
-		highlighter.gameObject.SetActive(false);
 	}
 
 	private void OutputDMValues()
@@ -120,13 +107,12 @@ public class BreakableItem : MonoBehaviour
 		var roomsEntered = DialogueLua.GetVariable("Rooms_Entered").asInt;
 		var tvBroken = DialogueLua.GetVariable("TV_Broken").asBool;
 		var itemsBroken = DialogueLua.GetVariable("Items_Broken").asInt;
-		var crowbarCollected =
-			DialogueLua.GetVariable("Crowbar_Collected").asBool;
-
+		var hasBeenUpstairs = _GameManager.m_hasUpstairsCourt;
+		var crowbarCollected = DialogueLua.GetVariable("Crowbar_Collected").asBool;
 		Debug.LogWarning(
-			$"Dialogue DM Value: {DialogueDM} - Environment DM Value: {EnvDM} - Rooms Entered: {roomsEntered} - TV Broken: {tvBroken.ToString()} - Items Broken: {itemsBroken.ToString()} - Crowbar Collected: {crowbarCollected.ToString()}");
+			$"Dialogue DM Value: {DialogueDM} - Environment DM Value: {EnvDM} - Rooms Entered: {roomsEntered} - TV Broken: {tvBroken.ToString()} - Items Broken: {itemsBroken.ToString()} - Crowbar Collected: {crowbarCollected.ToString()} - Money: {_GameManager.m_collectedMoney} - EnvAfterMoney: {_GameManager.m_moneyAfterMeek}");
 		Debug.LogWarning(
-			$"END GAME TRACKING: Money Collected: {DialogueLua.GetVariable("Money_Collected").asString} - Clues Found: {DialogueLua.GetVariable("Clues_Found").asString}");
+			$"END GAME TRACKING: Money Collected: {DialogueLua.GetVariable("Money_Collected").asString} - Clues Found: {DialogueLua.GetVariable("Clues_Found").asString} - Has Been Upstairs: {hasBeenUpstairs}");
 	}
 
 	private void IncreaseEnvDM()
@@ -134,7 +120,6 @@ public class BreakableItem : MonoBehaviour
 		var EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
 		DialogueLua.SetVariable("Env_DM_Meter", EnvDM + 2);
 	}
-
 	private void Damage()
 	{
 		// Normal amount of damage if not held item or held item is ineffective.
@@ -167,6 +152,32 @@ public class BreakableItem : MonoBehaviour
 		SpriteSwap(_DamageState);
 	}
 
+	private void DisableHighlighting()
+	{
+		// Try to get the highlighter to disable it.
+		var highlighter = GetComponent<Highlight>();
+
+		if (!highlighter)
+		{
+			highlighter = GetComponentInChildren<Highlight>();
+			if (!highlighter)
+			{
+				Debug.LogWarning(
+					$"{this} Object has no Highlighter component!");
+				return;
+			}
+		}
+
+		highlighter.Hide();
+		highlighter.gameObject.SetActive(false);
+	}
+
+	[Button("Generate Persistent ID")]
+	private void GenerateID()
+	{
+		_PersistentID = Guid.NewGuid().ToString();
+	}
+
 	private void SpriteSwap(ItemDamageStates damageState)
 	{
 		switch (damageState)
@@ -179,18 +190,15 @@ public class BreakableItem : MonoBehaviour
 				gameObject.GetComponent<SpriteRenderer>().sprite = _sprites[1];
 				gameObject.GetComponent<BoxCollider2D>().enabled = false;
 				gameObject.transform.position -= _afterBreakOffset;
-				_GameManager.m_totalItemsDestroyed++;
-				DialogueLua.SetVariable("Items_Broken",
-					_GameManager.m_totalItemsDestroyed);
+				if (!_EndGameTracker._DestroyedItems.ContainsKey(this._PersistentID))
+				{
+					_GameManager.m_totalItemsDestroyed++;
+					DialogueLua.SetVariable("Items_Broken",
+						_GameManager.m_totalItemsDestroyed);
+				}
 				if (_isTV) DialogueLua.SetVariable("TV_Broken", true);
 				break;
 		}
-	}
-
-	[Button("Generate Persistent ID")]
-	private void GenerateID()
-	{
-		_PersistentID = Guid.NewGuid().ToString();
 	}
 
 #if UNITY_EDITOR

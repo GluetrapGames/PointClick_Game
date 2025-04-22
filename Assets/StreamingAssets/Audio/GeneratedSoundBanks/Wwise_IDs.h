@@ -13,17 +13,24 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ALBERTISHOME = 3003684494U;
         static const AkUniqueID BLAB = 1527158674U;
         static const AkUniqueID BUG_SHELF = 584038952U;
+        static const AkUniqueID CARARRIVE = 3923521380U;
         static const AkUniqueID COURTBUZZ = 316795645U;
         static const AkUniqueID COURTCLOCK = 3307117116U;
         static const AkUniqueID COURTCOUGH = 2070691372U;
         static const AkUniqueID COURTHUM = 1112129076U;
+        static const AkUniqueID DOOROPEN = 1404805401U;
+        static const AkUniqueID EXITWALK = 3585027902U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
+        static const AkUniqueID FRIDGEOPEN = 627991214U;
+        static const AkUniqueID GAMESHOW = 1875833188U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
         static const AkUniqueID HOUSECREAK = 3508689533U;
         static const AkUniqueID HOUSETONE = 1903191047U;
+        static const AkUniqueID KEYJANGLE = 974990853U;
         static const AkUniqueID MATERIAL = 3865314626U;
         static const AkUniqueID MENU_BACK = 3063554414U;
         static const AkUniqueID MENU_HOVER = 309439191U;
@@ -31,14 +38,20 @@ namespace AK
         static const AkUniqueID MUSICFLAT = 924244327U;
         static const AkUniqueID MUSICHOUSE = 1154458182U;
         static const AkUniqueID MUSICMENU = 4082046343U;
+        static const AkUniqueID MUSICRECORD = 3349386653U;
         static const AkUniqueID OUTSIDEAMBIANCE = 668538670U;
+        static const AkUniqueID OVENCLOSE = 1111768629U;
+        static const AkUniqueID OVENOPEN = 3458950111U;
         static const AkUniqueID PHONEHANG = 616151339U;
         static const AkUniqueID PHONEPICKUP = 3512872207U;
         static const AkUniqueID PHONERING = 3074298065U;
         static const AkUniqueID PHONESLAM = 1097061028U;
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
+        static const AkUniqueID PLAYER_PICKUP_GENERIC = 1184633179U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
         static const AkUniqueID ROOMTRANSITION = 712272009U;
+        static const AkUniqueID STOPALL_BUTMUSICANDDOOR = 119872638U;
+        static const AkUniqueID STOPALL_BUTMUSICANDDOOR_01 = 2569856780U;
         static const AkUniqueID STOPCLOCK = 4199481009U;
         static const AkUniqueID STOPCOURTAMB = 795797694U;
         static const AkUniqueID STOPFOOTSTEP = 2596245103U;
@@ -46,6 +59,7 @@ namespace AK
         static const AkUniqueID STOPMUSIC = 1917263390U;
         static const AkUniqueID STOPOUTSIDEAMB = 252616046U;
         static const AkUniqueID STOPPHONE = 2049428263U;
+        static const AkUniqueID STOPRECORD = 3121475866U;
         static const AkUniqueID SWINGWEAPON = 729991629U;
         static const AkUniqueID TABLE_CERAMIC = 1780595170U;
         static const AkUniqueID TAXI_ANIMAL = 3811696612U;
@@ -58,6 +72,17 @@ namespace AK
 
     namespace STATES
     {
+        namespace FLATMUSIC
+        {
+            static const AkUniqueID GROUP = 1369071785U;
+
+            namespace STATE
+            {
+                static const AkUniqueID BEGIN = 349818688U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace FLATMUSIC
+
         namespace HOUSEMUSIC
         {
             static const AkUniqueID GROUP = 1848906592U;
@@ -140,7 +165,9 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID PITCH_BLAB = 2569016891U;
         static const AkUniqueID VOL_DIALOGUE = 2119574057U;
+        static const AkUniqueID VOL_GAMESHOW = 4202393254U;
         static const AkUniqueID VOL_LOUD = 223679447U;
         static const AkUniqueID VOL_MASTER = 3391499625U;
         static const AkUniqueID VOL_MUSIC = 1004648580U;

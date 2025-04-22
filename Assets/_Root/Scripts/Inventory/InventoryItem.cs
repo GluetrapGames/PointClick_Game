@@ -14,6 +14,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
 	[HideInInspector]
 	public Transform parentBeforeDrag;
 
+	private GameObject _InvCanvas;
+
 	private GameManager _GameManager;
 	public InventoryItemData itemData;
 
@@ -21,6 +23,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
 	private void Awake()
 	{
 		_GameManager = Utils.GetGameManager();
+		_InvCanvas = GameObject.FindGameObjectWithTag("Inventory");
 	}
 
 	// Start is called before the first frame update
@@ -28,17 +31,18 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
 	{
 		parentAfterDrag = transform.parent;
 		parentBeforeDrag = transform.parent;
-		transform.SetParent(transform.root);
+		transform.SetParent(_InvCanvas.transform);
 		transform.SetAsLastSibling();
 		image.raycastTarget = false;
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		Vector3 mouseScreenPos =
-			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
-		Vector3 mousePosition = new Vector2(mouseScreenPos.x, mouseScreenPos.y);
-		transform.position = mousePosition;
+
+		Vector3 mouseScreenPos = Input.mousePosition;
+		mouseScreenPos.z = 10;
+		transform.position = mouseScreenPos;
+		
 	}
 
 	public void OnEndDrag(PointerEventData eventData)

@@ -13,6 +13,5 @@ namespace GlueTrap
             AkSoundEngine.SetSwitch("PickupItem", pickupType, gameObject);
             AkSoundEngine.PostEvent("player_pickup", gameObject);
         }
-
     }
 }

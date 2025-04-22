@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
@@ -9,24 +10,22 @@ namespace GlueTrap
 {
 public class InteractDialgoue : MonoBehaviour
 {
-	public enum InteractionDir
-	{
-		Left = 0,
-		Right = 1,
-		Top = 2,
-		Bottom = 3
-	}
-
 	public bool m_Log;
 	public InteractionDir m_InteractionDirection = InteractionDir.Bottom;
+	public bool m_Interacting;
 
-	[SerializeField, Tooltip("The title of the conversation to be played.")]
+	[SerializeField,
+	 Tooltip("Conversation to start. Leave blank for no conversation."),
+	 ConversationPopup(false, true)]
 	private string _ConversationTitle;
+
 	[SerializeField,
 	 Tooltip("Tick if the conversation is to only be played once.")]
 	private bool _PlayOnce;
-	private Vector3Int _CellPosition;
+	[SerializeField]
+	private bool _recordInteraction;
 
+	private Vector3Int _CellPosition;
 	private GameManager _GameManager;
 	private bool _HasPlayedOnce;
 	private InputAction _InteractAction;
@@ -68,27 +67,6 @@ public class InteractDialgoue : MonoBehaviour
 		if (!_GameManager.m_Player.m_DestinationReached ||
 		    _GameManager.m_Player.m_Destination != _CellPosition) return;
 		PlayConversation();
-	}
-
-	private void MouseInteraction()
-	{
-		if (!Input.GetMouseButtonDown(0))
-			return;
-
-		Vector2 mousePos =
-			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
-
-		// Create a layer mask to ignore the "Player" & "Highlighter" layers.
-		var layerMask = ~LayerMask.GetMask("Player", "Highlighter");
-
-		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
-			Mathf.Infinity, layerMask);
-
-		if (m_Log) Debug.Log(hit.collider);
-
-		// Ensure the clicked collider is the one attached to this GameObject.
-		if (hit.collider && hit.collider == GetComponent<Collider2D>())
-			HandleWallFunction();
 	}
 
 
@@ -158,22 +136,92 @@ public class InteractDialgoue : MonoBehaviour
 		_ = _GameManager.m_Player.SetPlayerDestination(cellPosition);
 	}
 
+	private void MouseInteraction()
+	{
+		if (!Input.GetMouseButtonDown(0))
+			return;
+
+		Vector2 mousePos =
+			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
+
+		// Create a layer mask to ignore the "Player" & "Highlighter" layers.
+		var layerMask = ~LayerMask.GetMask("Player", "Highlighter");
+
+		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
+			Mathf.Infinity, layerMask);
+
+		if (m_Log) Debug.Log(hit.collider);
+
+		// Ensure the clicked collider is the one attached to this GameObject.
+		if (hit.collider && hit.collider == GetComponent<Collider2D>())
+			HandleWallFunction();
+	}
+
 
 	// Plays the conversation
 	private void PlayConversation()
 	{
-		if (_PlayOnce)
+		if (!_recordInteraction)
 		{
-			if (!_HasPlayedOnce)
+			if (_PlayOnce)
+			{
+				if (!_HasPlayedOnce)
+				{
+					DialogueManager.StartConversation(_ConversationTitle);
+					m_Interacting = true;
+					StartCoroutine(resetInteracting());
+					var collider = GetComponent<BoxCollider2D>();
+					collider.enabled = false;
+					_HasPlayedOnce = true;
+				}
+			}
+			else
+			{
+				if (!_HasPlayedOnce)
+				{
+					Debug.LogWarning("STARTING CONVO");
+					DialogueManager.StartConversation(_ConversationTitle);
+					m_Interacting = true;
+					StartCoroutine(resetInteracting());
+					StartCoroutine(restartDialogueInteraction());
+					_HasPlayedOnce = true;
+				}
+			}
+		}
+		else if (DialogueLua.GetVariable("Has_Record").asBool)
+		{
+			var _HeldItem = _GameManager.m_InventoryManager.m_HeldItemSlot
+				.GetComponentInChildren<InventoryItem>();
+			var _RecordPlayerBreakableRef = GameObject
+				.FindGameObjectWithTag("Record").GetComponent<BreakableItem>();
+			if (!_HeldItem || _RecordPlayerBreakableRef._itemHp <
+			    _RecordPlayerBreakableRef._itemMaxHp) return;
+			if (!_HasPlayedOnce &&
+			    _HeldItem.itemData.m_Item.m_Type == ItemTypes.Record)
 			{
 				DialogueManager.StartConversation(_ConversationTitle);
+				m_Interacting = true;
+				StartCoroutine(resetInteracting());
 				var collider = GetComponent<BoxCollider2D>();
 				collider.enabled = false;
 				_HasPlayedOnce = true;
 			}
 		}
-		else
-			DialogueManager.StartConversation(_ConversationTitle);
+	}
+
+	private IEnumerator resetInteracting()
+	{
+		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
+		m_Interacting = false;
+	}
+
+	private IEnumerator restartDialogueInteraction()
+	{
+		yield return new WaitUntil(() => !DialogueManager.isConversationActive);
+		Debug.Log("CONVERSATION ENDED");
+		yield return new WaitUntil(() =>
+			_GameManager.m_Player.m_Destination != _CellPosition);
+		_HasPlayedOnce = false;
 	}
 }
 }
