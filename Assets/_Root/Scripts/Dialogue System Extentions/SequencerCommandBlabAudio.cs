@@ -36,7 +36,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                 AkSoundEngine.SetRTPCValue("pitch_blab", 0f);
 
             if (m_BlabType == "thinking") // Purple
-                AkSoundEngine.SetRTPCValue("pitch_blab", 65f);
+                AkSoundEngine.SetRTPCValue("pitch_blab", 70f);
 
             if (m_BlabType == "happy") // Green
                 AkSoundEngine.SetRTPCValue("pitch_blab", 85f);

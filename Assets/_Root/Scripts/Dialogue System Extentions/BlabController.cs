@@ -20,7 +20,7 @@ public class BlabController : MonoBehaviour
 	public TextMeshProTypewriterEffect m_TypeWritterEffect;
 	private string _SpeakerName;
 	private bool isBlabbing = false;
-	private float blabSpeed = 0.1f;
+	private float blabSpeed = 0.11f;
 	private bool doOnce = false;
 	private bool stopBlabbing = false;
 
