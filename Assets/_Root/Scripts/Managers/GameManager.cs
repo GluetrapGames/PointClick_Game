@@ -1,15 +1,20 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using Cinemachine;
 using EditorAttributes;
 using GlueTrap.Utilities;
+using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.Video;
+using InputDevice = PixelCrushers.InputDevice;
+using InputDeviceManager = PixelCrushers.Wrappers.InputDeviceManager;
 
 namespace GlueTrap
 {
@@ -156,6 +161,8 @@ public class GameManager : Singleton<GameManager>
 			if (m_Player)
 				m_Player.gameObject.SetActive(false);
 			ChangeGameState(States.InMenus);
+			//if(scene.name != "MenuScene") GetComponent<CourtsceneControllerSupport>().SetSelectedButton();
+			if(scene.name != "MenuScene") StartCoroutine(SetContinueButton());
 			return;
 		}
 
@@ -163,7 +170,10 @@ public class GameManager : Singleton<GameManager>
 		_TitleCard = FindFirstObjectByType<TitleCard>();
 		_TitleCardPlayed = _TitleCard?.name == _PreviousTitleCard;
 		if (_TitleCardPlayed)
+		{
 			_TitleCard?.gameObject.SetActive(false);
+			if(scene.name != "MenuScene" && _NoneGameplayScenes.Contains(scene.name)) StartCoroutine(SetContinueButton());
+		}
 
 		// Obtain the amount of collectables in the scene.
 		UpdateItemsCollected();
@@ -273,6 +283,7 @@ public class GameManager : Singleton<GameManager>
 		// Update Cinemachine Camera Follow Target.
 		if (cinemachineCamera)
 			cinemachineCamera.Follow = m_Player.transform;
+
 	}
 
 	private void UpdateItemsCollected()
@@ -308,6 +319,16 @@ public class GameManager : Singleton<GameManager>
 		foreach (Canvas canvas in obj)
 			canvas.worldCamera = m_Camera;
 	}
+
+	private IEnumerator SetContinueButton()
+	{
+		var _videoPlayer = FindObjectOfType<VideoPlayer>();
+		Debug.Log("Waiting on title card played");
+		yield return new WaitUntil(() => _videoPlayer.targetCameraAlpha == 0f);
+		Debug.Log("Title card played");
+		GetComponent<CourtsceneControllerSupport>().SetSelectedButton();
+	}
+	
 }
 
 public enum States

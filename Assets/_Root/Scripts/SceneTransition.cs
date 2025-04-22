@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using EditorAttributes;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
@@ -89,8 +90,6 @@ public class SceneTransition : MonoBehaviour
 				StartCoroutine(colliderCooldown());
 				return;
 			}
-
-			;
 		}
 
 		switch (_sceneToTransitionTo)
@@ -151,6 +150,11 @@ public class SceneTransition : MonoBehaviour
 		if (sceneName == "CourtScene 3") _GameManager.m_hasUpstairsCourt = true;
 		UniqueRoomCheck();
 		if (_Log) Debug.Log($"Loading to a new Scene {sceneName}");
+		if (_GameManager.m_NoneGameplayScenes.Contains(sceneName))
+		{
+			if (sceneName == "MenuScene") yield break;
+			_GameManager.GetComponent<CourtsceneControllerSupport>().SetSelectedButton();
+		}
 		SceneManager.LoadScene(sceneName);
 	}
 
@@ -187,6 +191,7 @@ public class SceneTransition : MonoBehaviour
 
 		_isPlaying = false;
 		_GameManager.m_Player.m_DestinationReached = false;
+		
 	}
 
 	private void UniqueRoomCheck()
