@@ -2,9 +2,15 @@ using System;
 using EditorAttributes;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.SceneManagement;
+#endif
 
 namespace GlueTrap
 {
@@ -17,6 +23,8 @@ public class PickUpScript : MonoBehaviour
 		Top = 2,
 		Bottom = 3
 	}
+
+	public string m_PersistentID => _PersistentID;
 
 	[Tooltip("Log all major points of interests in the script.")]
 	public bool m_Log;
@@ -33,22 +41,18 @@ public class PickUpScript : MonoBehaviour
 	public float m_ControllerInteractionDistance = 1f;
 	public string pickupEvent = "player_pickup";
 	public Sprite sprite;
-
-	[SerializeField]
-	private bool _IsWallItem;
-
-	[SerializeField]
-	private bool _CalcCollision = true;
-	
-	[SerializeField]
-	private bool _isStoryItem;
-	[SerializeField]
 	public ItemTypes _ItemType;
-	[SerializeField]
 	public GameObject _ItemPrefab;
 	public PickupSounds _pickupSounds;
 
-
+	[SerializeField, PropertyOrder(-1), InlineButton(nameof(GenerateID))]
+	private string _PersistentID;
+	[SerializeField]
+	private bool _IsWallItem;
+	[SerializeField]
+	private bool _CalcCollision = true;
+	[SerializeField]
+	private bool _isStoryItem;
 	[Header("Dialogue Settings"), Tooltip("Will the item start dialogue"),
 	 SerializeField]
 	private bool _StartConvo;
@@ -62,8 +66,19 @@ public class PickUpScript : MonoBehaviour
 
 	private void Awake()
 	{
+		// If there's no ID, generate a new one.
+		if (_PersistentID.Length <= 0)
+			GenerateID();
+
 		// Obtain the Game Manager.
 		_GameManager = Utils.GetGameManager();
+
+		// Check if item was collected.
+		_GameManager.m_ItemsCollectedState.TryGetValue(_PersistentID,
+			out var isCollected);
+		if (!isCollected) return;
+		Debug.Log("Changing State");
+		gameObject.SetActive(false);
 	}
 
 	private void Start()
@@ -78,9 +93,12 @@ public class PickUpScript : MonoBehaviour
 				spriteObj = spriteRenderer.sprite;
 			if (!spriteObj ||
 			    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
-				Debug.LogWarning($"<{name}>: Failed to resize Collision Bounds!");
+			{
+				Debug.LogWarning(
+					$"<{name}>: Failed to resize Collision Bounds!");
+			}
 		}
-		
+
 		// Check if any items where collected.
 		var itemCollected = false;
 		if (_GameManager.m_InventoryManager.m_InventoryItems.Count > 0 &&
@@ -138,14 +156,14 @@ public class PickUpScript : MonoBehaviour
 		else if (m_Log) Debug.Log("Player is NOT within one tile radius.");
 	}
 
-
 	private void Collected()
 	{
 		DialogueManager.ShowAlert($"{name} has been collected!");
-		
+
 		if (!_isStoryItem)
 		{
-			if (!_GameManager.m_EndGameTracker.m_CollectedItems.Contains(_ItemType))
+			if (!_GameManager.m_EndGameTracker.m_CollectedItems.Contains(
+				    _ItemType))
 				_GameManager.m_EndGameTracker.m_CollectedItems.Add(_ItemType);
 			_ = _GameManager.m_InventoryManager.CollectItem(
 				new ItemData(gameObject.name, _ItemType, sprite));
@@ -161,8 +179,8 @@ public class PickUpScript : MonoBehaviour
 					_GameManager.m_hasFrontdoorKey = true;
 					break;
 			}
-			
 		}
+
 		_pickupSounds.onPickup();
 
 		// If the object plays a dialogue after pickup
@@ -172,31 +190,21 @@ public class PickUpScript : MonoBehaviour
 		if (_ItemType == ItemTypes.Crowbar)
 		{
 			_GameManager.m_hasCrowbar = true;
-			DialogueLua.SetVariable("Crowbar_Collected", _GameManager.m_hasCrowbar);
+			DialogueLua.SetVariable("Crowbar_Collected",
+				_GameManager.m_hasCrowbar);
 		}
 
-		if (_ItemType == ItemTypes.Money)
-		{
-			_GameManager.m_collectedMoney += 50;
-		}
-		
-		if (_ItemType == ItemTypes.Coins)
-		{
-			_GameManager.m_collectedMoney += 10;
-		}
-		
+		if (_ItemType == ItemTypes.Money) _GameManager.m_collectedMoney += 50;
+
+		if (_ItemType == ItemTypes.Coins) _GameManager.m_collectedMoney += 10;
+
 		if (m_Log) Debug.Log("Item collected");
 		_GameManager.m_totalItemsPickedUp++;
 		m_ActivateVariable = true;
-		Destroy(gameObject);
-	}
-
-	private void HandleItemFunction()
-	{
-		if (_IsWallItem)
-			HandleWallFunction();
-		else
-			HandleGroundFunction();
+		gameObject.SetActive(false);
+		// Update the Game Manager that the item was collected.
+		_GameManager.m_ItemsCollectedState[_PersistentID] = true;
+		//Destroy(gameObject);
 	}
 
 	// Handle controller interaction.
@@ -231,29 +239,16 @@ public class PickUpScript : MonoBehaviour
 		Collected();
 	}
 
-	// Handle mouse interaction.
-	private void MouseInteraction()
+	private void GenerateID()
 	{
-		if (!Input.GetMouseButtonDown(0))
-			return;
-
-		Vector2 mousePos =
-			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
-
-		// Create a layer mask to ignore the "Player" & "Highlighter" layers.
-		var layerMask = ~LayerMask.GetMask("Player", "Highlighter");
-
-		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
-			Mathf.Infinity, layerMask);
-		if (m_Log) Debug.Log(hit.collider);
-
-		if (hit.collider && hit.collider.gameObject == gameObject)
-		{
-			m_IsClicked = true;
-			HandleItemFunction();
-		}
-		else
-			m_IsClicked = false;
+		if (m_Log) Debug.Log("Generating ID...");
+		_PersistentID = Guid.NewGuid().ToString();
+		// Tell Unity to save the modified "_PersistentID" property and not wipe it.
+#if UNITY_EDITOR
+		EditorUtility.IsDirty(this);
+		PrefabUtility.RecordPrefabInstancePropertyModifications(this);
+		EditorSceneManager.MarkSceneDirty(gameObject.scene);
+#endif
 	}
 
 	// Handle ground item functionality.
@@ -283,6 +278,14 @@ public class PickUpScript : MonoBehaviour
 
 		// Move the player to the target tile.
 		_ = _GameManager.m_Player.SetPlayerDestination(cellPosition);
+	}
+
+	private void HandleItemFunction()
+	{
+		if (_IsWallItem)
+			HandleWallFunction();
+		else
+			HandleGroundFunction();
 	}
 
 	// Handle wall item functionality.
@@ -322,9 +325,37 @@ public class PickUpScript : MonoBehaviour
 		_ = _GameManager.m_Player.SetPlayerDestination(cellPosition);
 	}
 
+	// Handle mouse interaction.
+	private void MouseInteraction()
+	{
+		if (!Input.GetMouseButtonDown(0))
+			return;
+
+		Vector2 mousePos =
+			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
+
+		// Create a layer mask to ignore the "Player" & "Highlighter" layers.
+		var layerMask = ~LayerMask.GetMask("Player", "Highlighter");
+
+		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
+			Mathf.Infinity, layerMask);
+		if (m_Log) Debug.Log(hit.collider);
+
+		if (hit.collider && hit.collider.gameObject == gameObject)
+		{
+			m_IsClicked = true;
+			HandleItemFunction();
+		}
+		else
+			m_IsClicked = false;
+	}
+
 #if UNITY_EDITOR
 	private void Reset()
 	{
+		// If there's no ID, generate a new one.
+		if (_PersistentID.Length <= 0)
+			GenerateID();
 		_GizmoGrid = FindFirstObjectByType<Grid>();
 	}
 

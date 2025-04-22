@@ -1,42 +1,42 @@
+using System.Reflection;
+using EditorAttributes.Editor.Utility;
 using UnityEditor;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
-using EditorAttributes.Editor.Utility;
 
 namespace EditorAttributes.Editor
 {
-	[CustomPropertyDrawer(typeof(OnValueChangedAttribute))]
-    public class OnValueChangedDrawer : PropertyDrawerBase
-    {
-    	public override VisualElement CreatePropertyGUI(SerializedProperty property)
-    	{
-			var onValueChangedAttribute = attribute as OnValueChangedAttribute;
-			ReflectionUtility.GetNestedObjectType(property, out object target);
+[CustomPropertyDrawer(typeof(OnValueChangedAttribute))]
+public class OnValueChangedDrawer : PropertyDrawerBase
+{
+	public override VisualElement CreatePropertyGUI(SerializedProperty property)
+	{
+		var onValueChangedAttribute = attribute as OnValueChangedAttribute;
 
-    		var root = new VisualElement();
-		    var propertyField = new PropertyField(property);
+		// Get both the method and the correct target instance.
+		Object target = property.serializedObject.targetObject;
+		ReflectionUtility.GetNestedObjectType(property, out var nestedTarget);
 
-			var function = ReflectionUtility.FindFunction(onValueChangedAttribute.FunctionName, property);
-			var functionParameters = function.GetParameters();
+		if (nestedTarget is Object unityObject)
+			target = unityObject;
 
-			if (functionParameters.Length == 0)
-			{
-				root.Add(propertyField);
+		var root = new VisualElement();
+		var propertyField = new PropertyField(property);
 
-				ExecuteLater(propertyField, () =>
-				{
-					var field = propertyField.Q(className: PropertyField.ussClassName) as PropertyField;
+		MethodInfo function =
+			ReflectionUtility.FindFunction(onValueChangedAttribute.FunctionName,
+				target);
 
-					field.RegisterValueChangeCallback((callback) => function.Invoke(target, null));
-				});
-			}
-			else
-			{
-				root.Add(propertyField);
-				root.Add(new HelpBox("Function cannot have parameters", HelpBoxMessageType.Error));
-			}
+		if (function != null && function.GetParameters().Length == 0)
+			propertyField.RegisterValueChangeCallback(_ =>
+				function.Invoke(target, null));
+		else
+			root.Add(new HelpBox("Function must exist and have no parameters.",
+				HelpBoxMessageType.Error));
 
-    		return root;
-    	}
-    }
+		root.Add(propertyField);
+		return root;
+	}
+}
 }

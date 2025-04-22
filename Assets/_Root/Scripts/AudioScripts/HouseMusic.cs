@@ -11,14 +11,14 @@ namespace GlueTrap
         private int MusicState;
         private bool _Activated = false;
         private bool _JohnActivated;
-        private bool doOnce;
-        public string currentState;
+        private bool inHouse;
+        public string currentState = "null";
 
         // On scene change
         public override void OnSceneChange(Scene scene, LoadSceneMode mode)
         {
             {   // if not on menu or court scenes and not already playing
-                if ((scene.name != "MenuScene" && scene.name != "CourtScene 1" && scene.name != "CourtScene 2" && scene.name != "CourtScene 3" 
+                if ((scene.name != "MenuScene" && scene.name != "CourtScene 1" && scene.name != "CourtScene 2" && scene.name != "CourtScene 3"
                     && scene.name != "CourtScene 4") && !_Activated)
 
                     if (scene.name != "Outside")
@@ -27,8 +27,8 @@ namespace GlueTrap
                         if (scene.name != "John's Flat") 
                         {
                             // post house music
+                            inHouse = true;
                             _Activated = true;
-                            AkSoundEngine.SetState("HouseMusic", "low");
                             AkSoundEngine.PostEvent("MusicHouse", gameObject);
                             if (Log) Debug.Log("Started music, " + _Activated);
                         }
@@ -48,6 +48,12 @@ namespace GlueTrap
                     StopMusic();
                     _JohnActivated = false;
                 }
+
+            if ((scene.name == "CourtScene 1" || scene.name == "CourtScene 2" || scene.name == "CourtScene 3" || scene.name == "CourtScene 4") && _Activated)
+            {
+                StopMusic();
+                _Activated = false;
+            }
         }
         
 

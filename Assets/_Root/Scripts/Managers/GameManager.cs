@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AYellowpaper.SerializedCollections;
 using Cinemachine;
 using EditorAttributes;
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.Video;
@@ -19,14 +21,13 @@ public class GameManager : Singleton<GameManager>
 	public States m_CurrentState => _CurrentState;
 	public EndGameTracker m_EndGameTracker { get; private set; }
 	public Grid m_Grid { get; private set; }
-
 	public InventoryManager m_InventoryManager { get; private set; }
 	public Tilemap m_NavMesh { get; private set; }
 	public List<string> m_NoneGameplayScenes => _NoneGameplayScenes;
 	public PlayerGridController m_Player { get; private set; }
+
 	[HideInInspector]
 	public RoomEntryPoints m_RoomPoint = RoomEntryPoints.None;
-
 	public List<string> m_UniqueRoomList;
 	public int m_TotalUniqueRooms;
 	public bool m_hasCrowbar;
@@ -39,6 +40,10 @@ public class GameManager : Singleton<GameManager>
 	public int m_totalItemsPickedUp;
 	public double m_moneyAfterMeek;
 	public bool m_HasEntered;
+	[ReadOnly, SerializedDictionary("Item ID", "Is Collected")]
+	public SerializedDictionary<string, bool> m_ItemsCollectedState = new();
+
+	public UnityEvent m_OnGameReset = new();
 
 	[SerializeField, ReadOnly]
 	private States _CurrentState = States.Moving;
@@ -50,11 +55,11 @@ public class GameManager : Singleton<GameManager>
 	private GameObject _PlayerPrefab;
 	[SerializeField, ReadOnly]
 	private Transform _PlayerSpawnPoint;
+
 	private States _PreviousState;
 	private string _PreviousTitleCard;
 	private TitleCard _TitleCard;
 	private bool _TitleCardPlayed;
-
 
 	protected override void Awake()
 	{
@@ -112,6 +117,17 @@ public class GameManager : Singleton<GameManager>
 		}
 	}
 
+
+	private void OnEnable()
+	{
+		m_OnGameReset.AddListener(ResetGame);
+	}
+
+	private void OnDisable()
+	{
+		m_OnGameReset.RemoveListener(ResetGame);
+	}
+
 	public void calcMoneyMeek()
 	{
 		float money = m_collectedMoney;
@@ -145,6 +161,10 @@ public class GameManager : Singleton<GameManager>
 
 		HandleCameraLogic(scene);
 
+		// If we are back in the Main Menu, Call the 'GameReset' event.
+		if (scene.buildIndex == 0 && m_OnGameReset != null)
+			m_OnGameReset.Invoke();
+
 		// Make ignore gameplay logic if in a non-gameplay scene.
 		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
 			    scene.name == noneGameplayScene))
@@ -160,6 +180,9 @@ public class GameManager : Singleton<GameManager>
 		_TitleCardPlayed = _TitleCard?.name == _PreviousTitleCard;
 		if (_TitleCardPlayed)
 			_TitleCard?.gameObject.SetActive(false);
+
+		// Obtain the amount of collectables in the scene.
+		UpdateItemsCollected();
 
 		// Get the Grid and the Navmesh.
 		m_Grid = FindFirstObjectByType<Grid>();
@@ -267,6 +290,41 @@ public class GameManager : Singleton<GameManager>
 		if (cinemachineCamera)
 			cinemachineCamera.Follow = m_Player.transform;
 	}
+
+	private void ResetGame()
+	{
+		// Reset all tracking variables.
+		_TitleCardPlayed = false;
+		m_hasCrowbar = false;
+		m_HasFlatCall = false;
+		m_hasUpstairsCourt = false;
+		m_hasTaxidermyKey = false;
+		m_hasFrontdoorKey = false;
+		m_collectedMoney = 0;
+		m_totalItemsDestroyed = 0;
+		m_totalItemsPickedUp = 0;
+		m_moneyAfterMeek = 0.0;
+		_PreviousTitleCard = string.Empty;
+
+		// Mark all collected items as not collected.
+		var itemsStateList = m_ItemsCollectedState.ToList();
+		foreach (var items in itemsStateList)
+			m_ItemsCollectedState[items.Key] = false;
+	}
+
+	private void UpdateItemsCollected()
+	{
+		var items = FindObjectsByType<PickUpScript>(FindObjectsInactive.Include,
+			FindObjectsSortMode.None);
+
+		// Keep track of the items state (based on if they are viable or not.)
+		foreach (PickUpScript item in items)
+		{
+			var isActive = item.gameObject.activeInHierarchy;
+			m_ItemsCollectedState[item.m_PersistentID] = !isActive;
+		}
+	}
+
 
 	private void UpdateVideoPlayers()
 	{
