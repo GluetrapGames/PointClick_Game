@@ -13,10 +13,11 @@ public class PlayerAnimator : MonoBehaviour
 		Animator.StringToHash("HorizontalMovement");
 	private static readonly int s_VerticalMovement =
 		Animator.StringToHash("VerticalMovement");
-    private static readonly int s_IsDrinking = Animator.StringToHash("IsDrinking");
+	private static readonly int s_IsDrinking =
+		Animator.StringToHash("IsDrinking");
 
 
-    [SerializeField, ReadOnly]
+	[SerializeField, ReadOnly]
 	private AnimationComponents _AnimationComponents;
 	[SerializeField, ReadOnly]
 	private Vector3 _PlayerPosition;
@@ -41,6 +42,14 @@ public class PlayerAnimator : MonoBehaviour
 
 	private void Update()
 	{
+		if (!_GameManager.m_IsCutScene)
+			AnimatePlayer();
+		else
+			_AnimationComponents.m_Animator.Play("John_Albert_Drag");
+	}
+
+	private void AnimatePlayer()
+	{
 		// Return if not moving.
 		if (!_GameManager.m_Player.m_Movement.m_IsMoving)
 		{
@@ -51,8 +60,8 @@ public class PlayerAnimator : MonoBehaviour
 		_AnimationComponents.m_Animator.SetBool(s_IsMoving, true);
 
 
-            // Update position and find out the delta.
-            _PlayerPosition = _GameManager.m_Player.transform.position;
+		// Update position and find out the delta.
+		_PlayerPosition = _GameManager.m_Player.transform.position;
 		Vector3 delta = _PlayerPosition - _OldPlayerPosition;
 		delta.Normalize(); //< Makes it between -1 & 1.
 
