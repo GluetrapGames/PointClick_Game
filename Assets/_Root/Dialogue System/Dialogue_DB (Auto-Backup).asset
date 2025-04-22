@@ -1866,7 +1866,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(surprise, speaker);
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 3
@@ -1922,7 +1922,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 3
@@ -1978,7 +1978,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionLow, speaker);
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 3
@@ -2002,7 +2002,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 1.03
   - id: 4
     fields:
     - title: Title
@@ -2131,7 +2131,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(sad, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2186,7 +2186,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(surprise, speaker);
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2242,7 +2242,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(sad, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2506,7 +2506,62 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
+        value: BlabAudio(angry, speaker);
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 1
+        destinationConversationID: 5
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Variable["Money_Collected"] = true
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 80
+        width: 160
+        height: 30
+    - id: 2
+      fields:
+      - title: Title
         value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Right then, let's get this show on the road! No more horsin' around!
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 5
@@ -2518,14 +2573,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Variable["Money_Collected"] = true
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 80
+        y: 130
         width: 160
         height: 30
     entryGroups: []
@@ -3023,7 +3078,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 8
@@ -3078,7 +3133,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 8
@@ -3133,7 +3188,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 8
@@ -3189,7 +3244,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 8
@@ -3342,7 +3397,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 9
@@ -3397,7 +3452,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 9
@@ -3530,7 +3585,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 35, y: 0}
     canvasZoom: 1
   - id: 10
     fields:
@@ -3715,7 +3770,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 10
@@ -3770,7 +3825,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 10
@@ -3825,7 +3880,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 10
@@ -3978,7 +4033,227 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
+        value: BlabAudio(happy, speaker);
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 11
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 11
+        originDialogueID: 1
+        destinationConversationID: 11
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 80
+        width: 160
+        height: 30
+    - id: 2
+      fields:
+      - title: Title
         value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: ...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 11
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 11
+        originDialogueID: 2
+        destinationConversationID: 11
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 130
+        width: 160
+        height: 30
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: I look like wee Rab.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: BlabAudio(sad, speaker);
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 11
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 11
+        originDialogueID: 3
+        destinationConversationID: 11
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 180
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: ...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 11
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 11
+        originDialogueID: 4
+        destinationConversationID: 11
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 230
+        width: 160
+        height: 30
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: God, what am I doing here?
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 11
@@ -3997,7 +4272,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 80
+        y: 280
         width: 160
         height: 30
     entryGroups: []
@@ -4893,7 +5168,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 1.1499999
   - id: 16
     fields:
     - title: Title
@@ -5022,7 +5297,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(sad, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 16
@@ -5077,7 +5352,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 16
@@ -5659,7 +5934,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 18
@@ -5837,7 +6112,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 82.40001
+        y: 84.40001
         width: 160
         height: 30
     - id: 2
@@ -5977,7 +6252,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 19
@@ -6241,7 +6516,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 20
@@ -6450,7 +6725,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 21
@@ -6501,7 +6776,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: It looks oddly... human?
+        value: It looks oddly human...
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -6658,7 +6933,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 22
@@ -6713,7 +6988,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 22
@@ -6768,7 +7043,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 22
@@ -7452,7 +7727,7 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: BlabAudio(shock, speaker);
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7562,7 +7837,7 @@ MonoBehaviour:
         destinationDialogueID: 13
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: BlabAudio(happy, speaker);
       userScript: Variable["Clues_Found"] = Variable["Clues_Found"] + 1
       onExecute:
         m_PersistentCalls:
@@ -7600,7 +7875,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 23
@@ -7610,7 +7885,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 13
+        destinationConversationID: 23
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
       conditionsString: Variable["Clues_Found"] >= 2
       userScript: 
       onExecute:
@@ -7622,9 +7903,58 @@ MonoBehaviour:
         y: 128.7911
         width: 160
         height: 30
+    - id: 14
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: I think they had a phone downstairs!
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 343.73633
+        y: 77.1382
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 47.753677, y: 20.003693}
-    canvasZoom: 0.7000003
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1.2099998
   - id: 24
     fields:
     - title: Title
@@ -7998,7 +8328,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 78.18182
-        y: 261.4546
+        y: 262.82446
         width: 160
         height: 30
     - id: 6
@@ -8207,7 +8537,7 @@ MonoBehaviour:
       - originConversationID: 24
         originDialogueID: 9
         destinationConversationID: 24
-        destinationDialogueID: 10
+        destinationDialogueID: 17
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -8272,8 +8602,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 655.2116
-        y: 105.77832
+        x: 650.057
+        y: 161.44843
         width: 160
         height: 30
     - id: 11
@@ -8327,8 +8657,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 656.523
-        y: 160.92575
+        x: 651.3684
+        y: 216.59586
         width: 160
         height: 30
     - id: 12
@@ -8382,8 +8712,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 652.5886
-        y: 212.13916
+        x: 647.434
+        y: 267.80933
         width: 160
         height: 30
     - id: 13
@@ -8596,13 +8926,62 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 652.5886
-        y: 262.13916
+        x: 647.434
+        y: 317.8094
+        width: 160
+        height: 30
+    - id: 17
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 657.91144
+        y: 115.05008
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 44.990944, y: 55.114693}
-    canvasZoom: 0.73000026
+    canvasScrollPosition: {x: 14.334061, y: 1.4941406}
+    canvasZoom: 0.97
   - id: 27
     fields:
     - title: Title
@@ -12493,7 +12872,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 28
@@ -12549,7 +12928,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 28
@@ -12604,7 +12983,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 28
@@ -12813,7 +13192,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 29
@@ -12966,7 +13345,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 30
@@ -13119,7 +13498,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 31
@@ -13174,7 +13553,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 31
@@ -13229,7 +13608,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 31
@@ -13284,7 +13663,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 31
@@ -13645,7 +14024,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -13811,7 +14190,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -13866,7 +14245,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -13921,7 +14300,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -13976,7 +14355,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -13999,7 +14378,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 19.200012, y: 142.40001}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
   - id: 34
     fields:
@@ -14135,7 +14514,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 34
@@ -14239,7 +14618,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 34
@@ -14294,7 +14673,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 34
@@ -14502,7 +14881,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 35
@@ -14725,7 +15104,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 35
@@ -14940,7 +15319,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 36
@@ -14995,7 +15374,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 36
@@ -15050,7 +15429,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 36
@@ -15313,7 +15692,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 37
@@ -15368,7 +15747,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 37
@@ -15423,7 +15802,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 37
@@ -15987,7 +16366,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 40
@@ -16458,7 +16837,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionHigh, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 42
@@ -16568,7 +16947,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionLow, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 42
@@ -16591,8 +16970,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 61.98401, y: 0}
-    canvasZoom: 0.91
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1.0899999
   - id: 43
     fields:
     - title: Title
@@ -23902,8 +24281,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 216.45308}
-    canvasZoom: 0.88000107
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.7600012
   - id: 50
     fields:
     - title: Title
@@ -27273,7 +27652,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 54
@@ -27352,7 +27731,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 1.03
   - id: 55
     fields:
     - title: Title
@@ -27546,7 +27925,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 55
@@ -27595,7 +27974,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 55
@@ -27754,7 +28133,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 56
@@ -27779,7 +28158,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 156
-        y: 96
+        y: 94.96907
         width: 160
         height: 30
     - id: 2
@@ -27809,7 +28188,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 56
@@ -27864,7 +28243,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 56
@@ -27919,7 +28298,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 56
@@ -28076,7 +28455,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 57
@@ -28186,7 +28565,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(sad, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 57
@@ -28204,8 +28583,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 180
+        x: 159
+        y: 179
         width: 160
         height: 30
     entryGroups: []
@@ -28404,7 +28783,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 58
@@ -28508,7 +28887,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 58
@@ -28564,7 +28943,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 58
@@ -28619,7 +28998,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 58
@@ -28776,7 +29155,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionHigh, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -28800,8 +29179,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 72
+        x: 660.71704
+        y: 76.302216
         width: 160
         height: 30
     - id: 2
@@ -28855,8 +29234,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 121.13637
+        x: 660.71704
+        y: 125.43858
         width: 160
         height: 30
     - id: 3
@@ -28886,7 +29265,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionHigh, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -28910,8 +29289,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 168
+        x: 660.71704
+        y: 172.30222
         width: 160
         height: 30
     - id: 4
@@ -28941,7 +29320,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionLow, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -28965,8 +29344,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 216
+        x: 660.71704
+        y: 220.30222
         width: 160
         height: 30
     - id: 5
@@ -28996,7 +29375,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionHigh, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -29020,8 +29399,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 264
+        x: 660.71704
+        y: 268.30222
         width: 160
         height: 30
     - id: 6
@@ -29075,8 +29454,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 661.21954
-        y: 325.21954
+        x: 661.9366
+        y: 329.52176
         width: 160
         height: 30
     - id: 7
@@ -29107,7 +29486,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionLow, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -29131,8 +29510,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 373.21954
+        x: 660.71704
+        y: 377.52176
         width: 160
         height: 30
     - id: 8
@@ -29162,7 +29541,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionHigh, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -29186,8 +29565,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 420
+        x: 660.71704
+        y: 424.30222
         width: 160
         height: 30
     - id: 9
@@ -29242,8 +29621,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 468
+        x: 660.71704
+        y: 472.30225
         width: 160
         height: 30
     - id: 10
@@ -29297,8 +29676,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 516
+        x: 660.71704
+        y: 520.3022
         width: 160
         height: 30
     - id: 11
@@ -29328,7 +29707,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionHigh, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -29358,8 +29737,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 564
+        x: 660.71704
+        y: 568.3022
         width: 160
         height: 30
     - id: 12
@@ -29414,8 +29793,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 576
-        y: 624
+        x: 576.71704
+        y: 628.3022
         width: 160
         height: 30
     - id: 13
@@ -29470,8 +29849,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 756
-        y: 624
+        x: 756.71704
+        y: 628.3022
         width: 160
         height: 30
     - id: 14
@@ -29502,7 +29881,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionHigh, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -29532,8 +29911,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 696
+        x: 660.71704
+        y: 701.24554
         width: 160
         height: 30
     - id: 15
@@ -29563,7 +29942,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -29588,8 +29967,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 576
-        y: 756
+        x: 576.71704
+        y: 760.3022
         width: 160
         height: 30
     - id: 16
@@ -29619,7 +29998,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(surprise, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -29644,8 +30023,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 768
-        y: 756
+        x: 766.83026
+        y: 761.24567
         width: 160
         height: 30
     - id: 17
@@ -29705,8 +30084,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 672
-        y: 816
+        x: 672.71704
+        y: 820.3022
         width: 160
         height: 30
     - id: 18
@@ -29762,8 +30141,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 564
-        y: 888
+        x: 564.71704
+        y: 892.3022
         width: 160
         height: 30
     - id: 19
@@ -29818,8 +30197,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 768
-        y: 888
+        x: 768.71704
+        y: 892.3022
         width: 160
         height: 30
     - id: 20
@@ -29879,8 +30258,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 564
-        y: 938
+        x: 564.71704
+        y: 942.3022
         width: 160
         height: 30
     - id: 21
@@ -29911,7 +30290,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionHigh, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -29941,8 +30320,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 768
-        y: 938
+        x: 768.71704
+        y: 942.3022
         width: 160
         height: 30
     - id: 22
@@ -29997,8 +30376,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 564
-        y: 1008
+        x: 564.71704
+        y: 1012.30225
         width: 160
         height: 30
     - id: 23
@@ -30053,8 +30432,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 756
-        y: 1008
+        x: 756.71704
+        y: 1012.30225
         width: 160
         height: 30
     - id: 24
@@ -30084,7 +30463,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(questionLow, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30108,8 +30487,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 1080
+        x: 660.71704
+        y: 1084.3022
         width: 160
         height: 30
     - id: 25
@@ -30139,7 +30518,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(surprise, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30163,8 +30542,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 660
-        y: 1130
+        x: 660.71704
+        y: 1134.3022
         width: 160
         height: 30
     - id: 26
@@ -30194,7 +30573,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(angry, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30218,8 +30597,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1044
-        y: 1128
+        x: 1044.717
+        y: 1132.3022
         width: 160
         height: 30
     - id: 27
@@ -30279,8 +30658,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1044
-        y: 1056
+        x: 1044.717
+        y: 1060.3022
         width: 160
         height: 30
     - id: 28
@@ -30335,8 +30714,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 972
-        y: 996
+        x: 972.71704
+        y: 1000.302
         width: 160
         height: 30
     - id: 29
@@ -30391,8 +30770,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1152
-        y: 996
+        x: 1152.717
+        y: 1000.302
         width: 160
         height: 30
     - id: 30
@@ -30446,8 +30825,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1056
-        y: 924
+        x: 1056.717
+        y: 928.3022
         width: 160
         height: 30
     - id: 31
@@ -30501,8 +30880,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1056
-        y: 852
+        x: 1056.717
+        y: 856.3022
         width: 160
         height: 30
     - id: 32
@@ -30533,7 +30912,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(shock, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30557,8 +30936,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1056
-        y: 792
+        x: 1056.717
+        y: 796.3022
         width: 160
         height: 30
     - id: 33
@@ -30588,7 +30967,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(sad, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30612,8 +30991,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1056
-        y: 732
+        x: 1056.717
+        y: 736.3022
         width: 160
         height: 30
     - id: 34
@@ -30643,7 +31022,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30667,8 +31046,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1056
-        y: 672
+        x: 1056.717
+        y: 676.3022
         width: 160
         height: 30
     - id: 35
@@ -30716,13 +31095,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1056
-        y: 612
+        x: 1056.717
+        y: 616.3022
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 188.32243, y: 635.61615}
-    canvasZoom: 0.73000026
+    canvasScrollPosition: {x: 20.08051, y: 0}
+    canvasZoom: 0.49000034
   - id: 60
     fields:
     - title: Title
@@ -31225,7 +31604,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 62
@@ -31280,7 +31659,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 62
@@ -31304,8 +31683,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 130
+        x: 159
+        y: 129
         width: 160
         height: 30
     - id: 3
@@ -31335,7 +31714,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(thinking, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 62
@@ -31503,7 +31882,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: BlabAudio(happy, speaker);
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -31649,7 +32028,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: BlabAudio(happy, speaker);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 64
