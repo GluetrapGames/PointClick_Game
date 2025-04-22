@@ -631,7 +631,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
-      value: 
+      value: Check if the player hides albert or leaves him.
       type: 0
       typeString: CustomFieldType_Text
   conversations:
@@ -8120,7 +8120,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 23
@@ -9231,8 +9238,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 63.345795, y: 0}
-    canvasZoom: 1.2099998
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.94000006
   - id: 27
     fields:
     - title: Title
@@ -13123,7 +13130,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 28
@@ -13179,7 +13193,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 28
@@ -13234,7 +13255,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 28
@@ -13443,7 +13471,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 29
@@ -13596,7 +13631,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 30
@@ -13749,7 +13791,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 31
@@ -13804,7 +13853,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 31
@@ -13859,7 +13915,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 31
@@ -13914,7 +13977,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 31
@@ -14275,7 +14345,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -14441,7 +14518,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -14496,7 +14580,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -14551,7 +14642,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -14606,7 +14704,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 33
@@ -14765,7 +14870,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 34
@@ -14869,7 +14981,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 34
@@ -14924,7 +15043,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 34
@@ -15132,7 +15258,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 35
@@ -15355,7 +15488,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 35
@@ -15570,7 +15710,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 36
@@ -15625,7 +15772,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 36
@@ -15680,7 +15834,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 36
@@ -15943,7 +16104,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 37
@@ -15998,7 +16166,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 37
@@ -16053,7 +16228,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 37
@@ -16617,7 +16799,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 40
@@ -17088,7 +17277,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(questionHigh, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 42
@@ -17198,7 +17394,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionLow, speaker);
+        value: 'BlabAudio(questionLow, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 42
@@ -21535,7 +21738,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1416
+        x: 1404
         y: 900
         width: 160
         height: 30
@@ -21699,6 +21902,12 @@ MonoBehaviour:
         destinationDialogueID: 65
         isConnector: 0
         priority: 2
+      - originConversationID: 47
+        originDialogueID: 64
+        destinationConversationID: 47
+        destinationDialogueID: 69
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -21737,7 +21946,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'PlayJohnAnim(unarmed);
+
+          PlayJohnAnim(al_fall)@0.2;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -21754,15 +21965,15 @@ MonoBehaviour:
         destinationDialogueID: 66
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["UseFists"] == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1500
-        y: 1734
+        x: 1392
+        y: 1740
         width: 160
         height: 30
     - id: 66
@@ -21924,9 +22135,66 @@ MonoBehaviour:
         y: 1848
         width: 160
         height: 30
+    - id: 69
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Ahhh
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 'PlayJohnAnim(armed);
+
+          PlayJohnAnim(al_fall)@0.2;'
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 47
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 47
+        originDialogueID: 69
+        destinationConversationID: 47
+        destinationDialogueID: 66
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["UseFists"] == false
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1596
+        y: 1740
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1120.9541, y: 1431.079}
-    canvasZoom: 0.7300017
+    canvasScrollPosition: {x: 1331.6948, y: 1463.1285}
+    canvasZoom: 0.9700022
   - id: 48
     fields:
     - title: Title
@@ -22940,7 +23208,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(surprise, speaker);
+        value: 'BlabAudio(surprise, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -22996,7 +23271,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionLow, speaker);
+        value: 'BlabAudio(questionLow, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -23051,7 +23333,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(surprise, speaker)
+        value: 'BlabAudio(surprise, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -23106,7 +23395,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(surprise, speaker)
+        value: 'BlabAudio(surprise, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -23342,7 +23638,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -23398,7 +23701,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(questionHigh, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -23564,7 +23874,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -23675,7 +23992,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionLow, speaker);
+        value: 'BlabAudio(questionLow, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -23730,7 +24054,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -23786,7 +24117,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -23847,7 +24185,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(questionHigh, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -24014,7 +24359,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(surprise, speaker);
+        value: 'BlabAudio(surprise, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -24181,7 +24533,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(questionHigh, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -24236,7 +24595,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -24408,7 +24774,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionLow, speaker);
+        value: 'BlabAudio(questionLow, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -24576,7 +24949,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -24631,7 +25011,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(surprise, speaker);
+        value: 'BlabAudio(surprise, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -24846,7 +25233,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(questionHigh, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -25012,7 +25406,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(surprise, speaker);
+        value: 'BlabAudio(surprise, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -25067,7 +25468,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(surprise, speaker);
+        value: 'BlabAudio(surprise, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -25145,8 +25553,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.7600012
+    canvasScrollPosition: {x: 151.87442, y: 927.1455}
+    canvasZoom: 0.7300012
   - id: 50
     fields:
     - title: Title
@@ -25557,7 +25965,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(questionHigh, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 50
@@ -25943,7 +26358,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 51
@@ -25999,7 +26421,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(sad, speaker);
+        value: 'BlabAudio(sad, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 51
@@ -26165,7 +26594,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 51
@@ -26330,7 +26766,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 51
@@ -26440,7 +26883,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 51
@@ -26606,7 +27056,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(sad, speaker);
+        value: 'BlabAudio(sad, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 51
@@ -26629,8 +27086,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 52.127686, y: 0}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.73000026
   - id: 52
     fields:
     - title: Title
@@ -26825,7 +27282,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 52
@@ -27406,8 +27870,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 5.6370773, y: 0}
-    canvasZoom: 1.06
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.8800001
   - id: 53
     fields:
     - title: Title
@@ -28382,8 +28846,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 15.384644, y: 109.89017}
-    canvasZoom: 0.9100001
+    canvasScrollPosition: {x: 479.875, y: 90.92791}
+    canvasZoom: 0.7900002
   - id: 54
     fields:
     - title: Title
@@ -28516,7 +28980,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 54
@@ -28789,7 +29260,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 55
@@ -28838,7 +29316,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 55
@@ -28997,7 +29482,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 56
@@ -29052,7 +29544,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 56
@@ -29107,7 +29606,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 56
@@ -29162,7 +29668,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 56
@@ -29319,7 +29832,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 57
@@ -29429,7 +29949,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(sad, speaker);
+        value: 'BlabAudio(sad, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 57
@@ -29647,7 +30174,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 58
@@ -29751,7 +30285,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 58
@@ -29807,7 +30348,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 58
@@ -29862,7 +30410,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 58
@@ -30019,7 +30574,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30129,7 +30691,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30184,7 +30753,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(sad, speaker);
+        value: 'BlabAudio(sad, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30239,7 +30815,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30350,7 +30933,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(sad, speaker);
+        value: 'BlabAudio(sad, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30405,7 +30995,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30571,7 +31168,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -30745,7 +31349,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -31154,7 +31765,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -31327,7 +31945,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(sad, speaker);
+        value: 'BlabAudio(sad, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -31382,7 +32007,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -31437,7 +32069,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -31665,7 +32304,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(angry, speaker);
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -31776,7 +32422,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(shock, speaker);
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -31831,7 +32484,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(sad, speaker);
+        value: 'BlabAudio(sad, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -31886,7 +32546,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 59
@@ -31964,8 +32631,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 48.35855, y: 316.39328}
-    canvasZoom: 0.61000025
+    canvasScrollPosition: {x: 435.47873, y: 599.70544}
+    canvasZoom: 0.7600001
   - id: 60
     fields:
     - title: Title
@@ -32311,7 +32978,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 61
@@ -32468,7 +33142,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 62
@@ -32523,7 +33204,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 62
@@ -32578,7 +33266,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(thinking, speaker);
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 62
@@ -32735,7 +33430,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 63
@@ -32892,7 +33594,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: BlabAudio(happy, speaker);
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 64
