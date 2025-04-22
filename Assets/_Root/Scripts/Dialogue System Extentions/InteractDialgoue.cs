@@ -13,8 +13,6 @@ public class InteractDialgoue : MonoBehaviour
 	public bool m_Log;
 	public InteractionDir m_InteractionDirection = InteractionDir.Bottom;
 	public bool m_Interacting;
-	private bool _isController;
-	private CollideCheck _collideCheck;
 
 	[SerializeField,
 	 Tooltip("Conversation to start. Leave blank for no conversation."),
@@ -26,13 +24,15 @@ public class InteractDialgoue : MonoBehaviour
 	private bool _PlayOnce;
 	[SerializeField]
 	private bool _recordInteraction;
-
-	private Vector3Int _CellPosition;
-	private GameManager _GameManager;
-	private bool _HasPlayedOnce;
 	[SerializeField]
 	private bool _calcCollisions = true;
+
+	private Vector3Int _CellPosition;
+	private CollideCheck _collideCheck;
+	private GameManager _GameManager;
+	private bool _HasPlayedOnce;
 	private InputAction _InteractAction;
+	private bool _isController;
 	private CollideCheck _ItemCollision;
 	private PlayerInput _PlayerInput;
 
@@ -57,9 +57,12 @@ public class InteractDialgoue : MonoBehaviour
 				spriteObj = spriteRenderer.sprite;
 			if (!spriteObj ||
 			    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
-				Debug.LogWarning($"<{name}>: Failed to resize Collision Bounds!");
+			{
+				Debug.LogWarning(
+					$"<{name}>: Failed to resize Collision Bounds!");
+			}
 		}
-		
+
 
 		_InteractAction = _PlayerInput.actions["Break"];
 	}
@@ -81,16 +84,15 @@ public class InteractDialgoue : MonoBehaviour
 			ControllerInteraction();
 			return;
 		}
+
 		PlayConversation();
 	}
 
 	private void ControllerInteraction()
 	{
-		if(_collideCheck  == false) _collideCheck.enabled = true;
+		if (_collideCheck == false) _collideCheck.enabled = true;
 		if (_collideCheck.IsCollided && _InteractAction.WasPressedThisFrame())
-		{
 			PlayConversation();
-		}
 	}
 
 	// Handle wall item functionality.
@@ -163,7 +165,7 @@ public class InteractDialgoue : MonoBehaviour
 	{
 		if (!Input.GetMouseButtonDown(0))
 			return;
-		
+
 		Vector2 mousePos =
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
 

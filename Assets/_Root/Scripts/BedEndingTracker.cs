@@ -27,7 +27,8 @@ public class BedEndingTracker : MonoBehaviour
 
 	private void Update()
 	{
-		if (_NumberVariableValue >= 5)
+		if (_NumberVariableValue >= 5 &&
+		    !DialogueManager.instance.isConversationActive)
 			SceneManager.LoadScene("CourtScene 4");
 
 		if (!_InteractDialogue.m_Interacting)
