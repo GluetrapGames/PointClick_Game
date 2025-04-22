@@ -28,6 +28,7 @@ public class InteractDialgoue : MonoBehaviour
 	private Vector3Int _CellPosition;
 	private GameManager _GameManager;
 	private bool _HasPlayedOnce;
+	private Highlight _Highlight;
 	private InputAction _InteractAction;
 	private CollideCheck _ItemCollision;
 	private PlayerInput _PlayerInput;
@@ -38,6 +39,12 @@ public class InteractDialgoue : MonoBehaviour
 		_GameManager = Utils.GetGameManager();
 		_ItemCollision = GetComponent<CollideCheck>();
 		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
+
+		/*// Obtain the highlighter.
+		var highlighter = GetComponent<Highlight>();
+		if (highlighter) return;
+		highlighter.GetComponentInChildren<Highlight>();
+		_Highlight = highlighter;*/
 	}
 
 	private void Start()
@@ -174,6 +181,8 @@ public class InteractDialgoue : MonoBehaviour
 					collider.enabled = false;
 					_HasPlayedOnce = true;
 				}
+				/*else
+					_Highlight.Hide();*/
 			}
 			else
 			{
