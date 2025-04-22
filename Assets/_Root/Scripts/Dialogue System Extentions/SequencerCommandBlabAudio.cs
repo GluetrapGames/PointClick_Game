@@ -26,22 +26,25 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
 
         public void Update()
         {
-            
+            if (m_BlabType == "neutral") // Blank
+                AkSoundEngine.SetRTPCValue("pitch_blab", 50f);
 
-            if (m_BlabType == "neutral")
-                AkSoundEngine.SetRTPCValue("pitch_blab", 5f);
+            if (m_BlabType == "shock") // Yellow
+                AkSoundEngine.SetRTPCValue("pitch_blab", 100f);
 
-            if (m_BlabType == "surprise")
-                AkSoundEngine.SetRTPCValue("pitch_blab", 10f);
-
-            if (m_BlabType == "angry")
+            if (m_BlabType == "angry") // Red
                 AkSoundEngine.SetRTPCValue("pitch_blab", 0f);
 
-            if (m_BlabType == "questionHigh")
-                AkSoundEngine.SetRTPCValue("pitch_blab", 6.5f);
-            
-            if (m_BlabType == "questionLow")
-                AkSoundEngine.SetRTPCValue("pitch_blab", 3.75f);
+            if (m_BlabType == "thinking") // Purple
+                AkSoundEngine.SetRTPCValue("pitch_blab", 65f);
+
+            if (m_BlabType == "happy") // Green
+                AkSoundEngine.SetRTPCValue("pitch_blab", 85f);
+
+            if (m_BlabType == "sad") // Blue
+                AkSoundEngine.SetRTPCValue("pitch_blab", 37.5f);
+
+
             // Add any update code here. When the command is done, call Stop().
             // If you've called stop above in Awake(), you can delete this method.
 
