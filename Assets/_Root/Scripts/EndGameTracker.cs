@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using AYellowpaper.SerializedCollections;
 using EditorAttributes;
 using GlueTrap.Utilities;
@@ -39,6 +40,32 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private GameManager _GameManager;
 	private bool _moneySet;
 
+
+	private void OnEnable()
+	{
+		_GameManager.m_OnGameReset.AddListener(ResetGame);
+	}
+
+	private void OnDisable()
+	{
+		_GameManager.m_OnGameReset.RemoveListener(ResetGame);
+	}
+
+	private void ResetGame()
+	{
+		// Reset all tracking variables.
+		_IsGameOver = false;
+		m_hasMoney = false;
+		_albertSpawned = false;
+		_moneySet = false;
+		_cluesFound = 0;
+
+		// Mark all destroyed items as not destroyed.
+		var destroyedItems = _DestroyedItems.ToList();
+		foreach (var destroyedItem in destroyedItems)
+			_DestroyedItems[destroyedItem.Key] = false;
+
+	}
 
 	protected override void Awake()
 	{
