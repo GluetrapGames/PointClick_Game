@@ -36,8 +36,8 @@ namespace GlueTrap
                 Debug.LogError("CourtsceneControllerSupport Can't Find Button");
                 return;
             }
-            diaManager.gameObject.GetComponent<InputDeviceManager>().SetInputDevice(InputDevice.Joystick);
             EventSystem.current.SetSelectedGameObject(_button);
+            diaManager.gameObject.GetComponent<InputDeviceManager>().SetInputDevice(InputDevice.Joystick);
         }
         
         
