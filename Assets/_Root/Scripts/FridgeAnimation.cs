@@ -26,6 +26,8 @@ namespace GlueTrap
         private Animator _Animator;
         private Vector3 _OldPosition;
 
+        private DialogueEntry _DialogueEntry;
+
         void Awake()
         {
             _ConvoPlayed = false;
@@ -37,31 +39,35 @@ namespace GlueTrap
 
             _Player = GameObject.FindGameObjectWithTag("Player");
             _Animator = _Player.GetComponentInChildren<Animator>();
-
         }
 
         void Update()
         {
-            // Check if the current conversation playing is the fridge convo
-            if (DialogueManager.lastConversationID == 37 && DialogueManager.IsConversationActive && !_ConvoPlayed) 
+            // Is a conversation playing?
+            if (DialogueManager.IsConversationActive && DialogueManager.lastConversationID == 37)
             {
-                // Get the player's position before the animation starts
-                _OldPosition = _Player.transform.position;
-
-                _Player.transform.position -= new Vector3(0f, 1.3f, 0f);
+                // Get the current node ID of the conversation playing.
+                _DialogueEntry = DialogueManager.currentConversationState.subtitle.dialogueEntry;
+                var dialogueID = _DialogueEntry.id;
 
                 // Bring the fridge infront of the player.
                 _FridgeSprite.sortingOrder = 6;
 
-                // Play the drinking animation
-                _Animator.Play("John_Drink_Beer");
-                
                 // Change the fridge sprite and position
                 _FridgeSprite.sprite = _OpenFridgeSprite;
                 gameObject.transform.position = _OpenPosition;
 
-                // Prevent actions from happening again this frame.
-                _ConvoPlayed = true;
+                // Check if the current conversation playing is the fridge convo
+                if (dialogueID >= 3 && !_ConvoPlayed)
+                {
+                    _Player.transform.position -= new Vector3(0f, 1.3f, 0f);
+
+                    // Play the drinking animation
+                    _Animator.Play("John_Drink_Beer");
+
+                    // Prevent actions from happening again this frame.
+                    _ConvoPlayed = true;
+                }
             }
 
             // Reset convo flag and fridge sprite so that it can be played again.

@@ -8,7 +8,6 @@ public class ResetVariables : MonoBehaviour
 {
     public void ResetDatabaseVariables() 
     {
-        //big willy!
         DialogueLua.SetVariable("HallEntryEventComplete", false);
         DialogueLua.SetVariable("BathroomEntryEventComplete", false);
         DialogueLua.SetVariable("BedroomEntryEventComplete", false);
