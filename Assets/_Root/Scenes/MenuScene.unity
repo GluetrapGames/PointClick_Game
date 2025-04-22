@@ -1215,7 +1215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationStart.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1239,6 +1239,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
@@ -1268,7 +1272,7 @@ PrefabInstance:
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 876608422}
+      objectReference: {fileID: 876608430}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1322,6 +1326,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSelectedButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GlueTrap.PhoneCallSounds, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -1346,6 +1354,10 @@ PrefabInstance:
       value: GlueTrap.EnvironmentSounds, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlueTrap.CourtsceneControllerSupport, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -1367,6 +1379,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
       propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192057845015386236, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+      propertyPath: conversationEvents.onConversationStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4609671640309907706, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
@@ -1622,6 +1638,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 876608427}
   houseMusic: {fileID: 876608426}
+--- !u!114 &876608430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6971197476360847910, guid: a76ea1c59a9a3994fb78a865597cb4a4, type: 3}
+  m_PrefabInstance: {fileID: 855947278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876608422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eba8c00d8224a5990b10baad16aaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &921129132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4194736064490948195, guid: 207f84f7417564d0e9f462aa4a8a1e07, type: 3}
