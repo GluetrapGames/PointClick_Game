@@ -3,6 +3,7 @@ using PixelCrushers.DialogueSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GlueTrap
 {
@@ -20,6 +21,7 @@ namespace GlueTrap
         private DialogueEntry _DialogueEntry;
 
         private bool _BitchMove = true;
+        private int dialogueID;
 
         private void Awake()
         {
@@ -34,13 +36,13 @@ namespace GlueTrap
             if (DialogueManager.IsConversationActive)
             {
                 _DialogueEntry = DialogueManager.currentConversationState.subtitle.dialogueEntry;
+                dialogueID = _DialogueEntry.id;
             }
-            
-            var dialogueID = _DialogueEntry.id;
+
 
             // ...
             // After some logic, condition, or time, spawn debbie.
-            if (DialogueManager.lastConversationID == 66 && dialogueID == 6)
+            if (DialogueManager.lastConversationID == 66 && dialogueID == 5)
             {
                 if (!_DebbieSpawned)
                 {
@@ -55,15 +57,15 @@ namespace GlueTrap
                 // ...
                 // Grab Debbie's components.
                 NPCMovement debsMovement = _Debbie.GetComponent<NPCMovement>();
-              //  GridMovement debsGrid = _Debbie.GetComponent<GridMovement>();
+                GridMovement debsGrid = _Debbie.GetComponent<GridMovement>();
                 Animator debsAnimator = _Debbie.GetComponent<Animator>();
 
                 // ...
                 // After a condition or logic, play specific animation.
-/*                if (debsGrid.m_IsMoving)
+                if (debsGrid.m_IsMoving)
                     debsAnimator.Play("Debbie_Walk_Front");
                 else
-                    debsAnimator.Play("Idle");*/
+                    debsAnimator.Play("Idle");
 
                 // ...
                 // After a condition or logic, move Debbie.
@@ -71,6 +73,11 @@ namespace GlueTrap
                 debsMovement.Move();
 
                 _BitchMove = true;
+            }
+
+            if (DialogueManager.lastConversationID == 66 && !DialogueManager.IsConversationActive) 
+            {
+                SceneManager.LoadScene("CourtScene 4");
             }
             
         }

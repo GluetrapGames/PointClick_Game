@@ -98,8 +98,11 @@ public class GameManager : Singleton<GameManager>
 		switch (m_CurrentState)
 		{
 			case States.Moving:
-				m_InventoryManager.m_Inventory.gameObject.SetActive(true);
-				m_Player.HandleMovement();
+					if (!m_IsCutScene)
+					{
+						m_InventoryManager.m_Inventory.gameObject.SetActive(true);
+						m_Player.HandleMovement();
+					}
 				break;
 			case States.Talking:
 				m_InventoryManager.m_Inventory.gameObject.SetActive(false);
@@ -170,8 +173,22 @@ public class GameManager : Singleton<GameManager>
 		if (scene.buildIndex == 0 && m_OnGameReset != null)
 			m_OnGameReset.Invoke();
 
-		// Make ignore gameplay logic if in a non-gameplay scene.
-		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
+			if (scene.name == "Cupboard")
+			{
+				m_IsCutScene = true;
+
+				m_Player.enabled = false;
+				m_Player.GetComponent<NPCMovement>().enabled = true;
+                m_Player.GetComponent<PlayerInput>().enabled = false;
+
+            }
+            else 
+			{
+                m_Player.GetComponent<NPCMovement>().enabled = false;
+            }
+
+            // Make ignore gameplay logic if in a non-gameplay scene.
+            if (m_NoneGameplayScenes.Any(noneGameplayScene =>
 			    scene.name == noneGameplayScene))
 		{
 			if (m_Player)
@@ -181,6 +198,8 @@ public class GameManager : Singleton<GameManager>
 			if(scene.name != "MenuScene") StartCoroutine(SetContinueButton());
 			return;
 		}
+
+
 
 		// Try and get a Title Card object.
 		_TitleCard = FindFirstObjectByType<TitleCard>();
