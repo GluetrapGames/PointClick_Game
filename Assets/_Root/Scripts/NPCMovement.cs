@@ -24,9 +24,10 @@ public class NPCMovement : MonoBehaviour
 
 	private GameManager _GameManager;
 	private GridMovement _GridMovement;
+    private Coroutine _MoveCoroutine;
 
 
-	private void Awake()
+        private void Awake()
 	{
 		_GameManager = Utils.GetGameManager();
 		_GridMovement = GetComponent<GridMovement>();
@@ -36,6 +37,11 @@ public class NPCMovement : MonoBehaviour
 	{
 		StartCoroutine(FollowPath());
 	}
+
+	public void Move()
+	{
+		_MoveCoroutine ??= StartCoroutine(FollowPath());
+    }
 
 	private IEnumerator FollowPath()
 	{
@@ -63,6 +69,8 @@ public class NPCMovement : MonoBehaviour
 				yield return new WaitForSeconds(m_WaitTime * 0.5f);
 			}
 		} while (m_IsLooping);
+
+		_MoveCoroutine = null;
 	}
 
 
