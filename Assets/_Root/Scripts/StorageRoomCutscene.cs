@@ -19,7 +19,7 @@ namespace GlueTrap
 
         private DialogueEntry _DialogueEntry;
 
-        private bool _BitchMove = false;
+        private bool _BitchMove = true;
 
         private void Awake()
         {
@@ -40,28 +40,34 @@ namespace GlueTrap
 
             // ...
             // After some logic, condition, or time, spawn debbie.
-            if (DialogueManager.lastConversationID == 66 && dialogueID == 1)
+            if (DialogueManager.lastConversationID == 66 && dialogueID == 6)
             {
                 if (!_DebbieSpawned)
                 {
                     _Debbie = Instantiate(_DebbiePrefab, _DebbieSpawner.position, Quaternion.identity);
                     _DebbieSpawned = true;
+                   _BitchMove = false;
                 }
             }
 
-            if (!_BitchMove)
+            if (!_BitchMove && _DebbieSpawned)
             {
                 // ...
                 // Grab Debbie's components.
                 NPCMovement debsMovement = _Debbie.GetComponent<NPCMovement>();
+              //  GridMovement debsGrid = _Debbie.GetComponent<GridMovement>();
                 Animator debsAnimator = _Debbie.GetComponent<Animator>();
 
                 // ...
                 // After a condition or logic, play specific animation.
-                debsAnimator.Play("Debbie_Walk_Front");
+/*                if (debsGrid.m_IsMoving)
+                    debsAnimator.Play("Debbie_Walk_Front");
+                else
+                    debsAnimator.Play("Idle");*/
 
                 // ...
                 // After a condition or logic, move Debbie.
+                debsMovement.UpdateCellPath();
                 debsMovement.Move();
 
                 _BitchMove = true;

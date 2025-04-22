@@ -40,7 +40,7 @@ public class NPCMovement : MonoBehaviour
 
 	public void Move()
 	{
-		_MoveCoroutine ??= StartCoroutine(FollowPath());
+        _MoveCoroutine ??= StartCoroutine(FollowPath());
     }
 
 	private IEnumerator FollowPath()
@@ -48,15 +48,14 @@ public class NPCMovement : MonoBehaviour
 		do
 		{
 			// Create a copy to avoid modifying the list during enumeration.
-			List<Vector3Int> pathToFollow = new(_CellPath);
-
-			foreach (Vector3Int cellPoint in pathToFollow)
+			//List<Vector3Int> pathToFollow = new(_CellPath);
+			foreach (Vector3Int cellPoint in _CellPath)
 			{
 				_GridMovement.SetDestination(cellPoint);
 
 				while (_GridMovement.m_IsMoving)
-				{
-					_GridMovement.MoveToTile(m_MovementSpeed);
+					{ 
+                        _GridMovement.MoveToTile(m_MovementSpeed);
 					yield return null;
 				}
 
@@ -75,7 +74,7 @@ public class NPCMovement : MonoBehaviour
 
 
 	// Convert the current path points into their cell values.
-	private void UpdateCellPath()
+	public void UpdateCellPath()
 	{
 		_CellPath.Clear();
 
