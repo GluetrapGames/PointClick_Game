@@ -42,8 +42,8 @@ public class GameManager : Singleton<GameManager>
 	public bool m_HasEntered;
 	[ReadOnly, SerializedDictionary("Item ID", "Is Collected")]
 	public SerializedDictionary<string, bool> m_ItemsCollectedState = new();
-
 	public UnityEvent m_OnGameReset = new();
+	public bool m_IsCutScene;
 
 	[SerializeField, ReadOnly]
 	private States _CurrentState = States.Moving;
