@@ -60,7 +60,7 @@ namespace GlueTrap
                 // Check if the current conversation playing is the fridge convo
                 if (dialogueID >= 3 && !_ConvoPlayed)
                 {
-                    _Player.transform.position -= new Vector3(0f, 1.3f, 0f);
+                    _Player.transform.position = new Vector3(1.5f, 1.9f, 0.0f);
 
                     // Play the drinking animation
                     _Animator.Play("John_Drink_Beer");
