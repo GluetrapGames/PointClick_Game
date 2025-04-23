@@ -6,7 +6,6 @@ using AYellowpaper.SerializedCollections;
 using Cinemachine;
 using EditorAttributes;
 using GlueTrap.Utilities;
-using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,8 +13,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.Video;
-using InputDevice = PixelCrushers.InputDevice;
-using InputDeviceManager = PixelCrushers.Wrappers.InputDeviceManager;
 
 namespace GlueTrap
 {
@@ -98,11 +95,12 @@ public class GameManager : Singleton<GameManager>
 		switch (m_CurrentState)
 		{
 			case States.Moving:
-					if (!m_IsCutScene)
-					{
-						m_InventoryManager.m_Inventory.gameObject.SetActive(true);
-						m_Player.HandleMovement();
-					}
+				if (!m_IsCutScene)
+				{
+					m_InventoryManager.m_Inventory.gameObject.SetActive(true);
+					m_Player.HandleMovement();
+				}
+
 				break;
 			case States.Talking:
 				m_InventoryManager.m_Inventory.gameObject.SetActive(false);
@@ -173,32 +171,33 @@ public class GameManager : Singleton<GameManager>
 		if (scene.buildIndex == 0 && m_OnGameReset != null)
 			m_OnGameReset.Invoke();
 
-			if (scene.name == "Cupboard")
-			{
-				m_IsCutScene = true;
+		if (scene.name == "Cupboard")
+		{
+			m_IsCutScene = true;
 
-				m_Player.enabled = false;
-				m_Player.GetComponent<NPCMovement>().enabled = true;
-                m_Player.GetComponent<PlayerInput>().enabled = false;
+			m_Player.enabled = false;
+			m_Player.GetComponent<NPCMovement>().enabled = true;
+			m_Player.GetComponent<PlayerInput>().enabled = false;
+		}
+		else
+		{ // Re-enable the player and components.
+			if (!m_Player.enabled)
+				m_Player.enabled = true;
+			m_Player.GetComponent<NPCMovement>().enabled = false;
+			m_Player.GetComponent<PlayerInput>().enabled = true;
+		}
 
-            }
-            else 
-			{
-                m_Player.GetComponent<NPCMovement>().enabled = false;
-            }
-
-            // Make ignore gameplay logic if in a non-gameplay scene.
-            if (m_NoneGameplayScenes.Any(noneGameplayScene =>
+		// Make ignore gameplay logic if in a non-gameplay scene.
+		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
 			    scene.name == noneGameplayScene))
 		{
 			if (m_Player)
 				m_Player.gameObject.SetActive(false);
 			ChangeGameState(States.InMenus);
 			//if(scene.name != "MenuScene") GetComponent<CourtsceneControllerSupport>().SetSelectedButton();
-			if(scene.name != "MenuScene") StartCoroutine(SetContinueButton());
+			if (scene.name != "MenuScene") StartCoroutine(SetContinueButton());
 			return;
 		}
-
 
 
 		// Try and get a Title Card object.
@@ -207,7 +206,9 @@ public class GameManager : Singleton<GameManager>
 		if (_TitleCardPlayed)
 		{
 			_TitleCard?.gameObject.SetActive(false);
-			if(scene.name != "MenuScene" && _NoneGameplayScenes.Contains(scene.name)) StartCoroutine(SetContinueButton());
+			if (scene.name != "MenuScene" &&
+			    _NoneGameplayScenes.Contains(scene.name))
+				StartCoroutine(SetContinueButton());
 		}
 
 		// Obtain the amount of collectables in the scene.
@@ -318,7 +319,6 @@ public class GameManager : Singleton<GameManager>
 		// Update Cinemachine Camera Follow Target.
 		if (cinemachineCamera)
 			cinemachineCamera.Follow = m_Player.transform;
-
 	}
 
 	private void ResetGame()
@@ -330,6 +330,7 @@ public class GameManager : Singleton<GameManager>
 		m_hasUpstairsCourt = false;
 		m_hasTaxidermyKey = false;
 		m_hasFrontdoorKey = false;
+		m_IsCutScene = false;
 		m_collectedMoney = 0;
 		m_totalItemsDestroyed = 0;
 		m_totalItemsPickedUp = 0;
@@ -340,6 +341,15 @@ public class GameManager : Singleton<GameManager>
 		var itemsStateList = m_ItemsCollectedState.ToList();
 		foreach (var items in itemsStateList)
 			m_ItemsCollectedState[items.Key] = false;
+	}
+
+	private IEnumerator SetContinueButton()
+	{
+		var _videoPlayer = FindObjectOfType<VideoPlayer>();
+		Debug.Log("Waiting on title card played");
+		yield return new WaitUntil(() => _videoPlayer.targetCameraAlpha == 0f);
+		Debug.Log("Title card played");
+		GetComponent<CourtsceneControllerSupport>().SetSelectedButton();
 	}
 
 	private void UpdateItemsCollected()
@@ -375,16 +385,6 @@ public class GameManager : Singleton<GameManager>
 		foreach (Canvas canvas in obj)
 			canvas.worldCamera = m_Camera;
 	}
-
-	private IEnumerator SetContinueButton()
-	{
-		var _videoPlayer = FindObjectOfType<VideoPlayer>();
-		Debug.Log("Waiting on title card played");
-		yield return new WaitUntil(() => _videoPlayer.targetCameraAlpha == 0f);
-		Debug.Log("Title card played");
-		GetComponent<CourtsceneControllerSupport>().SetSelectedButton();
-	}
-	
 }
 
 public enum States
