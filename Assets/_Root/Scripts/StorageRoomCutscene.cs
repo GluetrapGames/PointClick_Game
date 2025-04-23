@@ -1,85 +1,80 @@
 using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace GlueTrap
 {
-    public class StorageRoomCutscene : MonoBehaviour
-    {
-        [SerializeField]
-        private GameObject _DebbiePrefab;
-        [SerializeField]
-        private Transform _DebbieSpawner;
+public class StorageRoomCutscene : MonoBehaviour
+{
+	[SerializeField]
+	private GameObject _DebbiePrefab;
+	[SerializeField]
+	private Transform _DebbieSpawner;
+	[SerializeField]
+	private SceneTransition _SceneTransition;
+	private bool _BitchMove = true;
+	private GameObject _Debbie;
+	private bool _DebbieSpawned;
+	private DialogueEntry _DialogueEntry;
+	private int _DialogueID;
 
-        private GameManager _GameManager;
-        private bool _DebbieSpawned;
-        private GameObject _Debbie;
+	private GameManager _GameManager;
 
-        private DialogueEntry _DialogueEntry;
+	private void Awake()
+	{
+		_GameManager = Utils.GetGameManager();
+	}
 
-        private bool _BitchMove = true;
-        private int dialogueID;
+	private void Update()
+	{
+		if (!_GameManager.m_IsCutScene) return;
 
-        private void Awake()
-        {
-            _GameManager = Utils.GetGameManager();
-        }
-
-        private void Update()
-        {
-
-            if (!_GameManager.m_IsCutScene) return;
-
-            if (DialogueManager.IsConversationActive)
-            {
-                _DialogueEntry = DialogueManager.currentConversationState.subtitle.dialogueEntry;
-                dialogueID = _DialogueEntry.id;
-            }
+		// Keep track of the current dialogue ID.
+		if (DialogueManager.IsConversationActive)
+		{
+			_DialogueEntry = DialogueManager.currentConversationState.subtitle
+				.dialogueEntry;
+			_DialogueID = _DialogueEntry.id;
+		}
 
 
-            // ...
-            // After some logic, condition, or time, spawn debbie.
-            if (DialogueManager.lastConversationID == 66 && dialogueID == 5)
-            {
-                if (!_DebbieSpawned)
-                {
-                    _Debbie = Instantiate(_DebbiePrefab, _DebbieSpawner.position, Quaternion.identity);
-                    _DebbieSpawned = true;
-                   _BitchMove = false;
-                }
-            }
+		// On a specific conversation node, spawn debbie if she hasn't spawned yet.
+		if (DialogueManager.lastConversationID == 66 && _DialogueID == 5)
+		{
+			if (!_DebbieSpawned)
+			{
+				_Debbie = Instantiate(_DebbiePrefab, _DebbieSpawner.position,
+					Quaternion.identity);
+				_DebbieSpawned = true;
+				_BitchMove = false;
+			}
+		}
 
-            if (!_BitchMove && _DebbieSpawned)
-            {
-                // ...
-                // Grab Debbie's components.
-                NPCMovement debsMovement = _Debbie.GetComponent<NPCMovement>();
-                GridMovement debsGrid = _Debbie.GetComponent<GridMovement>();
-                Animator debsAnimator = _Debbie.GetComponent<Animator>();
+		// Once Debbie has spawned and is meant to move, have here move.
+		if (!_BitchMove && _DebbieSpawned)
+		{
+			// Grab Debbie's components.
+			var debsMovement = _Debbie.GetComponent<NPCMovement>();
+			var debsGrid = _Debbie.GetComponent<GridMovement>();
+			var debsAnimator = _Debbie.GetComponent<Animator>();
 
-                // ...
-                // After a condition or logic, play specific animation.
-                if (debsGrid.m_IsMoving)
-                    debsAnimator.Play("Debbie_Walk_Front");
-                else
-                    debsAnimator.Play("Idle");
+			// If Debbie is moving, change her animation to a moving one.
+			if (debsGrid.m_IsMoving)
+				debsAnimator.Play("Debbie_Walk_Front");
+			else
+				debsAnimator.Play("Idle");
 
-                // ...
-                // After a condition or logic, move Debbie.
-                debsMovement.UpdateCellPath();
-                debsMovement.Move();
+			// Update her path and make her move.
+			debsMovement.UpdateCellPath();
+			debsMovement.Move();
 
-                _BitchMove = true;
-            }
+			_BitchMove = true;
+		}
 
-            if (DialogueManager.lastConversationID == 66 && !DialogueManager.IsConversationActive) 
-            {
-                SceneManager.LoadScene("CourtScene 4");
-            }
-            
-        }
-    }
+		// If the conversation has finished, transition to the last Court scene.
+		if (DialogueManager.lastConversationID == 66 &&
+		    !DialogueManager.IsConversationActive)
+			_SceneTransition.CallFromConversationEnd();
+	}
+}
 }

@@ -1,18 +1,20 @@
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace GlueTrap
 {
 public class BedEndingTracker : MonoBehaviour
 {
 	[SerializeField]
-	private string _NumberVariableName;
+	private string _BedInteractionVariableName;
 	[SerializeField]
-	private int _NumberVariableValue;
-	private bool _HasInteracted;
+	private int _NumberOfBedInteractions;
+	[SerializeField]
+	private SceneTransition _SceneTransition;
 
+	private bool _HasInteracted;
 	private InteractDialgoue _InteractDialogue;
+
 
 	private void Awake()
 	{
@@ -21,26 +23,32 @@ public class BedEndingTracker : MonoBehaviour
 
 	private void Start()
 	{
-		_NumberVariableValue =
-			DialogueLua.GetVariable(_NumberVariableName).AsInt;
+		// Keep track of any already existed interactions.
+		_NumberOfBedInteractions =
+			DialogueLua.GetVariable(_BedInteractionVariableName).AsInt;
 	}
 
 	private void Update()
 	{
-		if (_NumberVariableValue >= 5 &&
+		// If the required number of bed interaction is met and the isn't a
+		// active conversation, load to the last Court scene.
+		if (_NumberOfBedInteractions >= 5 &&
 		    !DialogueManager.instance.isConversationActive)
-			SceneManager.LoadScene("CourtScene 4");
+			_SceneTransition.CallFromConversationEnd();
 
+		// Only continue if we interacted with the object.
 		if (!_InteractDialogue.m_Interacting)
 		{
 			if (_HasInteracted) _HasInteracted = false;
 			return;
 		}
 
+		// Only run this code once.
 		if (!_HasInteracted)
 		{
-			_NumberVariableValue++;
-			DialogueLua.SetVariable(_NumberVariableName, _NumberVariableValue);
+			_NumberOfBedInteractions++;
+			DialogueLua.SetVariable(_BedInteractionVariableName,
+				_NumberOfBedInteractions);
 			_HasInteracted = true;
 		}
 	}
