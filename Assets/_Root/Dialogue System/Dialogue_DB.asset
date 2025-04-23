@@ -7604,7 +7604,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
+        x: 160.68967
         y: 180
         width: 160
         height: 30
@@ -7717,7 +7717,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
+        x: 160.68967
         y: 280
         width: 160
         height: 30
@@ -7889,7 +7889,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 344.61536
-        y: 383.4066
+        y: 384.09625
         width: 160
         height: 30
     - id: 9
@@ -7945,8 +7945,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 343.73624
-        y: 330.5494
+        x: 344.4259
+        y: 331.92874
         width: 160
         height: 30
     - id: 10
@@ -7976,7 +7976,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 23
@@ -7993,14 +8000,7 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: 'BlabAudio(shock, speaker);
-
-        AnimatorPlay(TalkAnim,speakerportrait);
-
-        required
-        AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-        Delay(2)@Message(Typed)'
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8093,7 +8093,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 23
@@ -8110,14 +8117,7 @@ MonoBehaviour:
         destinationDialogueID: 13
         isConnector: 0
         priority: 2
-      conditionsString: 'BlabAudio(happy, speaker);
-
-        AnimatorPlay(TalkAnim,speakerportrait);
-
-        required
-        AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-        Delay(2)@Message(Typed)'
+      conditionsString: 
       userScript: Variable["Clues_Found"] = Variable["Clues_Found"] + 1
       onExecute:
         m_PersistentCalls:
@@ -8187,7 +8187,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 343.73633
-        y: 128.7911
+        y: 113.89748
         width: 160
         height: 30
     - id: 14
@@ -8243,12 +8243,12 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 343.73633
-        y: 77.1382
+        y: 62.244568
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 28.813538, y: 6.65152}
+    canvasZoom: 1.1799998
   - id: 24
     fields:
     - title: Title
@@ -9280,8 +9280,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 180.62714, y: 47.111603}
+    canvasZoom: 1.2399998
   - id: 27
     fields:
     - title: Title
@@ -25539,8 +25539,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 810.12537}
-    canvasZoom: 0.79000115
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.5500014
   - id: 50
     fields:
     - title: Title
