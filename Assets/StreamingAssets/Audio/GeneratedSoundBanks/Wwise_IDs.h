@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ALBERTDEATH = 789062443U;
         static const AkUniqueID ALBERTISHOME = 3003684494U;
         static const AkUniqueID BLAB = 1527158674U;
         static const AkUniqueID BUG_SHELF = 584038952U;
@@ -21,6 +22,7 @@ namespace AK
         static const AkUniqueID COURTCLOCK = 3307117116U;
         static const AkUniqueID COURTCOUGH = 2070691372U;
         static const AkUniqueID COURTHUM = 1112129076U;
+        static const AkUniqueID DEBBIESCREAM = 2595546245U;
         static const AkUniqueID DOOROPEN = 1404805401U;
         static const AkUniqueID EXITWALK = 3585027902U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
@@ -125,6 +127,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID ALBERT = 1449413731U;
+                static const AkUniqueID DEBBIE = 993832646U;
                 static const AkUniqueID JACK = 3865235296U;
                 static const AkUniqueID JOHN = 3678415638U;
                 static const AkUniqueID JUDGE = 1425203646U;

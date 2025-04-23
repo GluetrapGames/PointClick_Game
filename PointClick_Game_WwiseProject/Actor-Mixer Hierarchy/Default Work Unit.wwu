@@ -80,7 +80,7 @@
 												<AudioFileSource Name="dial_alMcGuig_blab" ID="{68DA993C-3C46-4B1F-A48B-9F51C579F0A1}">
 													<PropertyList>
 														<Property Name="FadeInDuration" Type="Real64" Value="0.0160216957153232"/>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.0101956245461147"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0378912517037672"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 														<Property Name="TrimBegin" Type="Real64" Value="0.0480650871459695"/>
 														<Property Name="TrimEnd" Type="Real64" Value="0.112151870007263"/>
@@ -149,15 +149,16 @@
 											<ChildrenList>
 												<AudioFileSource Name="dial_lawyer_blab" ID="{745B3E95-44C5-459F-AF94-41C643E2E6C0}">
 													<PropertyList>
-														<Property Name="FadeInDuration" Type="Real64" Value="0.0151514615105301"/>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.0165288671023965"/>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.00351087846488377"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.059420231102285"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="0.107437636165576"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0130956559263521"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.110347781926988"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>dial_lawyer_blab.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="718177124"/>
+														<MediaID ID="328562866"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
@@ -211,10 +212,10 @@
 											<ChildrenList>
 												<AudioFileSource Name="dial_john_blab02" ID="{0BD3AF99-1090-41D0-9658-FF08C652C076}">
 													<PropertyList>
-														<Property Name="FadeInDuration" Type="Real64" Value="0.0279465363926567"/>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.0278558383634128"/>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0159194938149812"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0744606283519053"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="0.0908992139632986"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.107436397507602"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>dial_john_blab02.wav</AudioFile>
@@ -275,7 +276,7 @@
 												<AudioFileSource Name="dial_judge_blab" ID="{35BBC39B-2A34-4C47-9080-BE3AA0D53DEE}">
 													<PropertyList>
 														<Property Name="FadeInDuration" Type="Real64" Value="0.00974026416122004"/>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.00779221132897603"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0233055887743155"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 														<Property Name="TrimBegin" Type="Real64" Value="0.0107892156862745"/>
 														<Property Name="TrimEnd" Type="Real64" Value="0.0698302015250543"/>
@@ -321,7 +322,7 @@
 										<AudioFileSource Name="dial_mark_blab" ID="{1650744E-1BD3-4EEA-B12F-CADB77FAD464}">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.00506611419392523"/>
-												<Property Name="FadeOutDuration" Type="Real64" Value="0.00566212762850468"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0135879403442699"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.024436550817757"/>
 												<Property Name="TrimEnd" Type="Real64" Value="0.104004344334112"/>
@@ -358,6 +359,78 @@
 										<ActiveSource Name="Silence" ID="{760B1E1E-0395-4423-A696-0CCF631381BB}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<RandomSequenceContainer Name="Debbie" ID="{2B986FA1-31AC-4522-8154-BAD3CAB77087}" ShortID="38893348">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>990</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{B3B543A0-D593-4D50-865F-A939E500D95F}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="350"/>
+															<Property Name="Min" Type="Real64" Value="-350"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus_01" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="jack_blab" ID="{B3372470-3F3C-4FBA-977F-C86D8E8433B1}" ShortID="907876149">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{C44390FF-4B76-41DF-8866-4F0665BD9BF5}">
+																<PropertyList>
+																	<Property Name="Max" Type="Real64" Value="300"/>
+																	<Property Name="Min" Type="Real64" Value="-300"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Dialogue" ID="{F3F7D513-AC4E-45E1-936F-BB7376E25110}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="dial_lawyer_blab" ID="{76FC5DCC-C079-46EB-BA20-1ECCB1310446}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0151514615105301"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0587259806428645"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.107437636165576"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>dial_lawyer_blab.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="718177124"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="dial_lawyer_blab" ID="{76FC5DCC-C079-46EB-BA20-1ECCB1310446}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 							<ObjectLists>
 								<ObjectList Name="RTPC">
@@ -413,6 +486,9 @@
 										<ItemRef Name="Judge" ID="{5FABAD91-F0B9-4B5F-9EA9-FC6D765C146F}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
+										<ItemRef Name="Debbie" ID="{2B986FA1-31AC-4522-8154-BAD3CAB77087}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
 										<ItemRef Name="Mark" ID="{2628A7D8-B4E4-4C50-A29B-9B0B293A3E09}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
@@ -451,6 +527,12 @@
 										</ItemList>
 									</Grouping>
 									<Grouping>
+										<SwitchRef Name="Debbie" ID="{E30201E5-8114-41B7-8C0D-E02C123C1AF4}"/>
+										<ItemList>
+											<ItemRef Name="Debbie" ID="{2B986FA1-31AC-4522-8154-BAD3CAB77087}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
 										<SwitchRef Name="Mark" ID="{28AC18F9-EE41-4C13-B320-10100D121904}"/>
 										<ItemList>
 											<ItemRef Name="Mark" ID="{2628A7D8-B4E4-4C50-A29B-9B0B293A3E09}"/>
@@ -459,6 +541,44 @@
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
+						<Sound Name="dial_debbie_scream" ID="{3F786892-E120-41FC-AA4F-193A42A5B414}" ShortID="529015882">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>130</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Dialogue" ID="{F3F7D513-AC4E-45E1-936F-BB7376E25110}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="dial_debbie_scream" ID="{8F1035B6-8FA0-4A26-AC53-1263E985CDA3}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.103567318757192"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>dial_debbie_scream.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="523699389"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="dial_debbie_scream" ID="{8F1035B6-8FA0-4A26-AC53-1263E985CDA3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{C2F290B6-76C2-4E17-88F7-FC83B585C1F8}" ShortID="562242881">
@@ -490,42 +610,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="track_menu" ID="{A6402FF1-5D0C-4C9B-AD11-890505193377}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="cholcaterain" ID="{98F4D006-D26E-49CA-B619-41C31D262B27}" ShortID="530135786">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-5</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="cholcaterain" ID="{995ACCA6-C7F6-4B44-839B-D99101E16C0F}">
-									<Language>SFX</Language>
-									<AudioFile>cholcaterain.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="550744812"/>
-									</MediaIDList>
-								</AudioFileSource>
-								<AudioFileSource Name="ChocolateRain" ID="{91F8F08D-12C8-45E3-8FCE-7612DF311005}">
-									<Language>SFX</Language>
-									<AudioFile>ChocolateRain.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="365985580"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="ChocolateRain" ID="{91F8F08D-12C8-45E3-8FCE-7612DF311005}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -3227,6 +3311,32 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="env_albert_isHome" ID="{5F52E4ED-6B4B-46F5-AC06-0C7D1EB35197}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Albert Death" ID="{58B40698-4408-46A3-AD31-ECCBA133D3A0}" ShortID="794727942">
+							<ChildrenList>
+								<Sound Name="viol_albert_death" ID="{CB2DD51F-DBC5-468B-A5FE-EEAE6B3F3E0E}" ShortID="1031494389">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="AlbertDeathTest02" ID="{077F9939-C01A-499E-91A3-4EC8EE935ABE}">
+											<Language>SFX</Language>
+											<AudioFile>AlbertDeathTest02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="608711031"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="AlbertDeathTest02" ID="{077F9939-C01A-499E-91A3-4EC8EE935ABE}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

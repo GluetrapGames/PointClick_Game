@@ -3721,7 +3721,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160.00003
-        y: 231.59999
+        y: 232.59999
         width: 160
         height: 30
     entryGroups: []
@@ -6336,7 +6336,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 84.40001
+        y: 83.40001
         width: 160
         height: 30
     - id: 2
@@ -7328,7 +7328,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 180
+        y: 181
         width: 160
         height: 30
     entryGroups: []
@@ -13042,7 +13042,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 42.88855, y: 0}
+    canvasScrollPosition: {x: 89.82715, y: 0}
     canvasZoom: 0.49000093
   - id: 28
     fields:
@@ -14684,7 +14684,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(angry, speaker);
+        value: 'BlabAudio(sad, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -15722,7 +15722,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 60
-        y: 132
+        y: 130.86365
         width: 160
         height: 30
     - id: 2
@@ -15876,7 +15876,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(angry, speaker);
+        value: 'BlabAudio(shock, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -16684,7 +16684,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: It's empty
+        value: It's empty.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -17319,7 +17319,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(happy, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -17381,7 +17381,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 42
@@ -17436,7 +17443,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionLow, speaker);
+        value: 'BlabAudio(thinking, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -18263,7 +18270,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(shock, speaker);
+        value: 'BlabAudio(thinking, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -18572,14 +18579,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(thinking, speaker);
-
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-          Delay(2)@Message(Typed)'
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -18635,14 +18635,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(angry, speaker);
-
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-          Delay(2)@Message(Typed)'
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -18902,7 +18895,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 677.2086
+        x: 674.883
         y: 677.44183
         width: 160
         height: 30
@@ -19231,14 +19224,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(thinking, speaker);
-
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-          Delay(2)@Message(Typed)'
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -19293,14 +19279,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(thinking, speaker);
-
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-          Delay(2)@Message(Typed)'
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -20286,14 +20265,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionHigh, speaker);
-
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-          Delay(2)@Message(Typed)'
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -20380,8 +20352,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1080
-        y: 624
+        x: 1078.4375
+        y: 622.4375
         width: 160
         height: 30
     - id: 37
@@ -21024,14 +20996,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionLow, speaker);
-
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-          Delay(2)@Message(Typed)'
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -22235,8 +22200,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1331.6948, y: 1463.1285}
-    canvasZoom: 0.9700022
+    canvasScrollPosition: {x: 383.2854, y: 853.1217}
+    canvasZoom: 0.6400025
   - id: 48
     fields:
     - title: Title
@@ -23680,11 +23645,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'AnimatorPlay(TalkAnim,speakerportrait);
-
-          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-          Delay(2)@Message(Typed)'
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -24224,11 +24185,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'AnimatorPlay(TalkAnim,speakerportrait);
-
-          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-          Delay(2)@Message(Typed)'
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -24810,11 +24767,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'AnimatorPlay(TalkAnim,speakerportrait);
-
-          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-          Delay(2)@Message(Typed)'
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 49
@@ -25586,8 +25539,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 43.74997}
-    canvasZoom: 0.6400013
+    canvasScrollPosition: {x: 0, y: 810.12537}
+    canvasZoom: 0.79000115
   - id: 50
     fields:
     - title: Title
@@ -28879,7 +28832,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 479.875, y: 90.92791}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.7900002
   - id: 54
     fields:
@@ -32664,8 +32617,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 435.47873, y: 599.70544}
-    canvasZoom: 0.7600001
+    canvasScrollPosition: {x: 10.448746, y: 319.99982}
+    canvasZoom: 0.5500003
   - id: 60
     fields:
     - title: Title
@@ -33653,7 +33606,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 80
+        y: 79
         width: 160
         height: 30
     entryGroups: []
@@ -34411,7 +34364,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 8.799988, y: 123.999985}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
   syncInfo:
     syncActors: 0
