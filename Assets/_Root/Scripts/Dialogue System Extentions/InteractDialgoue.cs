@@ -28,9 +28,11 @@ public class InteractDialgoue : MonoBehaviour
 	private bool _calcCollisions = true;
 
 	private Vector3Int _CellPosition;
-	private CollideCheck _collideCheck;
+	private bool _hasEnabledCollideCheck;
 	private BoxCollider2D _Collider;
 	private GameManager _GameManager;
+	private Highlight _highlightRef;
+	private HighlightComposite _highlightCompRef;
 	private bool _HasPlayedOnce;
 	private InputAction _InteractAction;
 	private bool _isController;
@@ -44,6 +46,8 @@ public class InteractDialgoue : MonoBehaviour
 		_ItemCollision = GetComponent<CollideCheck>();
 		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
 		_Collider = GetComponent<BoxCollider2D>();
+		_highlightCompRef = GetComponentInChildren<HighlightComposite>();
+		if(!_highlightCompRef) _highlightRef = GetComponentInChildren<Highlight>();
 	}
 
 	private void Start()
@@ -51,7 +55,6 @@ public class InteractDialgoue : MonoBehaviour
 		// Recalculate collision bounds.
 		var boxCollider = GetComponent<BoxCollider2D>();
 		var spriteRenderer = GetComponent<SpriteRenderer>();
-		_collideCheck = GetComponent<CollideCheck>();
 		if (_calcCollisions)
 		{
 			Sprite spriteObj = null;
@@ -65,12 +68,15 @@ public class InteractDialgoue : MonoBehaviour
 			}
 		}
 
+		if(!_highlightRef) Debug.LogWarning("<" + name + "> Highlight has no highlight.");
+		if(!_highlightCompRef) Debug.LogWarning("<" + name + "> Highlight has no highlight Composite.");
 
-		_InteractAction = _PlayerInput.actions["Break"];
+		_InteractAction = _PlayerInput.actions["Interact"];
 	}
 
 	private void Update()
 	{
+		
 		// Don't allow interaction if in conversation or menus.
 		if (_GameManager.m_CurrentState is States.Talking or States.InMenus)
 			return;
@@ -81,27 +87,55 @@ public class InteractDialgoue : MonoBehaviour
 			_Collider.enabled = true;
 
 		_isController = Gamepad.current != null;
-		MouseInteraction();
-
-		// Play the conversion once the Player has reached the object.
-		if (!_GameManager.m_Player.m_DestinationReached ||
-		    _GameManager.m_Player.m_Destination != _CellPosition) return;
 		if (_isController)
 		{
 			ControllerInteraction();
 			return;
 		}
+		
+		MouseInteraction();
 
+		// Play the conversion once the Player has reached the object.
+		if (!_GameManager.m_Player.m_DestinationReached ||
+		    _GameManager.m_Player.m_Destination != _CellPosition) return;
 		PlayConversation();
 	}
 
 	private void ControllerInteraction()
 	{
-		if (_collideCheck == false) _collideCheck.enabled = true;
-		if (_collideCheck.IsCollided && _InteractAction.WasPressedThisFrame())
-			PlayConversation();
+		if (!_hasEnabledCollideCheck)
+		{
+			if (!_ItemCollision) return;
+			if (_ItemCollision.enabled == false) _ItemCollision.enabled = true;
+			Debug.Log($"<{name}>: COLLIDE CHECK ENABLED");
+			_hasEnabledCollideCheck = true;
+		}
+
+		if (_ItemCollision.IsCollided)
+		{
+			ShowHighlight();
+		}
+		else
+		{
+			HideHighlight();
+		}
+		if(_ItemCollision.IsCollided && _InteractAction.WasPressedThisFrame()) PlayConversation();
 	}
 
+	private void ShowHighlight()
+	{
+		if (!_highlightRef && !_highlightCompRef) Debug.LogWarning("<" + name + "> No Highlight!");
+		else if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = true;
+		else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = true;
+	}
+	
+	private void HideHighlight()
+	{
+		if (!_highlightRef && !_highlightCompRef) Debug.LogWarning("<" + name + "> No Highlight!");
+		else if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = false;
+		else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = false;
+	}
+	
 	// Handle wall item functionality.
 	private void HandleWallFunction()
 	{

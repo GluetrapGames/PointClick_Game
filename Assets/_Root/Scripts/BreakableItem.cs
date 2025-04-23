@@ -46,6 +46,8 @@ public class BreakableItem : MonoBehaviour
 	private InputAction _breakableAction;
 	private EndGameTracker _EndGameTracker;
 	private GameManager _GameManager;
+	private Highlight _highlightRef;
+	private HighlightComposite _highlightCompRef;
 	private bool _hasAddedToCount;
 	private ItemTypes _heldItemType;
 	private CollideCheck _ItemCollision;
@@ -57,7 +59,8 @@ public class BreakableItem : MonoBehaviour
 	{
 		// Obtain Game Manager.
 		_GameManager = Utils.GetGameManager();
-
+		_highlightCompRef = GetComponentInChildren<HighlightComposite>();
+		if(!_highlightCompRef) _highlightRef = GetComponentInChildren<Highlight>();
 		_ItemCollision = GetComponent<CollideCheck>();
 	}
 
@@ -77,6 +80,10 @@ public class BreakableItem : MonoBehaviour
 		_itemHp = 0;
 		_DamageState = ItemDamageStates.Broken;
 		SpriteSwap(_DamageState);
+		
+		if(!_highlightRef) Debug.LogWarning("<" + name + "> Highlight has no highlight.");
+		if(!_highlightCompRef) Debug.LogWarning("<" + name + "> Highlight has no highlight Composite.");
+		
 	}
 
 	private void Update()
@@ -85,6 +92,17 @@ public class BreakableItem : MonoBehaviour
 		if (_playerHeldItem.playerHeldItem != null)
 			_heldItemType = _playerHeldItem.playerHeldItem.m_Item.m_Type;
 
+		if (_ItemCollision.IsCollided)
+		{
+			if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = true;
+			else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = true;
+		}
+		else
+		{
+			if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = false;
+			else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = false;
+		}
+		
 		if (_breakableAction.WasPressedThisFrame() &&
 		    _ItemCollision.IsCollided && _itemHp > 0)
 		{

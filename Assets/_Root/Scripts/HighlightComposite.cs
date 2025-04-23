@@ -1,15 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using EditorAttributes;
 using GlueTrap.Utilities;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace GlueTrap
 {
 public class HighlightComposite : MonoBehaviour
 {
 	[SerializeField, ReadOnly]
-	private List<Highlight> _highlights = new();
+	public List<Highlight> _highlights = new();
+	[NonSerialized]
+	public bool _IsController;
+	[NonSerialized]
+	public bool _PlayerColliding;
 	private GameManager _GameManager;
 
 
@@ -40,13 +46,26 @@ public class HighlightComposite : MonoBehaviour
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
 		var colliderComp = GetComponent<Collider2D>();
 
-		if (colliderComp.OverlapPoint(mousePos))
-			ShowAll();
+		_IsController = Gamepad.current != null;
+		if (!_IsController)
+		{
+			if (colliderComp.OverlapPoint(mousePos))
+				ShowAll();
+			else
+				HideAll();
+		}
 		else
-			HideAll();
+		{
+			if (_PlayerColliding)
+			{
+				ShowAll();
+			}
+			else
+				HideAll();
+		}
 	}
 
-	private void ShowAll()
+	public void ShowAll()
 	{
 		if (_highlights.Count <= 0)
 		{
@@ -55,7 +74,10 @@ public class HighlightComposite : MonoBehaviour
 		}
 
 		foreach (Highlight highlight in _highlights)
+		{
 			highlight.Show();
+		}
+		
 	}
 
 	private void HideAll()
@@ -67,7 +89,9 @@ public class HighlightComposite : MonoBehaviour
 		}
 
 		foreach (Highlight highlight in _highlights)
+		{
 			highlight.Hide();
+		}
 	}
 
 	private void CombineColliders()
