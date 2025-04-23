@@ -1,7 +1,6 @@
 using System;
 using EditorAttributes;
 using GlueTrap.Utilities;
-using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 namespace GlueTrap
@@ -17,9 +16,8 @@ public class PlayerAnimator : MonoBehaviour
 	private static readonly int s_IsDrinking =
 		Animator.StringToHash("IsDrinking");
 
+	public AnimationComponents m_AnimationComponents;
 
-	[SerializeField, ReadOnly]
-	private AnimationComponents _AnimationComponents;
 	[SerializeField, ReadOnly]
 	private Vector3 _PlayerPosition;
 	[SerializeField]
@@ -31,7 +29,7 @@ public class PlayerAnimator : MonoBehaviour
 
 	private void Awake()
 	{
-		_AnimationComponents = GetAnimationComponents();
+		m_AnimationComponents = GetAnimationComponents();
 		_GameManager = Utils.GetGameManager();
 	}
 
@@ -46,7 +44,7 @@ public class PlayerAnimator : MonoBehaviour
 		if (!_GameManager.m_IsCutScene)
 			AnimatePlayer();
 		else
-			_AnimationComponents.m_Animator.Play("John_Albert_Drag");
+			m_AnimationComponents.m_Animator.Play("John_Albert_Drag");
 	}
 
 	private void AnimatePlayer()
@@ -54,11 +52,11 @@ public class PlayerAnimator : MonoBehaviour
 		// Return if not moving.
 		if (!_GameManager.m_Player.m_Movement.m_IsMoving)
 		{
-			_AnimationComponents.m_Animator.SetBool(s_IsMoving, false);
+			m_AnimationComponents.m_Animator.SetBool(s_IsMoving, false);
 			return;
 		}
 
-		_AnimationComponents.m_Animator.SetBool(s_IsMoving, true);
+		m_AnimationComponents.m_Animator.SetBool(s_IsMoving, true);
 
 
 		// Update position and find out the delta.
@@ -67,17 +65,17 @@ public class PlayerAnimator : MonoBehaviour
 		delta.Normalize(); //< Makes it between -1 & 1.
 
 		// Flip the sprite horizontally based on the current Player's X direction.
-		_AnimationComponents.m_SpriteRenderer.flipX = delta.x switch
+		m_AnimationComponents.m_SpriteRenderer.flipX = delta.x switch
 		{
 			> 0f => _FlipHorizontalFlipping,
 			< 0f => !_FlipHorizontalFlipping,
-			_ => _AnimationComponents.m_SpriteRenderer.flipX
+			_ => m_AnimationComponents.m_SpriteRenderer.flipX
 		};
 
 		// Update the animation parameters.
-		_AnimationComponents.m_Animator.SetInteger(s_HorizontalMovement,
+		m_AnimationComponents.m_Animator.SetInteger(s_HorizontalMovement,
 			(int)delta.x);
-		_AnimationComponents.m_Animator.SetInteger(s_VerticalMovement,
+		m_AnimationComponents.m_Animator.SetInteger(s_VerticalMovement,
 			(int)delta.y);
 
 		// Update the old position.
@@ -130,7 +128,7 @@ public class PlayerAnimator : MonoBehaviour
 
 
 	[Serializable]
-	private struct AnimationComponents
+	public struct AnimationComponents
 	{
 		public Animator m_Animator;
 		public SpriteRenderer m_SpriteRenderer;

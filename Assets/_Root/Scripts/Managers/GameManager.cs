@@ -171,21 +171,7 @@ public class GameManager : Singleton<GameManager>
 		if (scene.buildIndex == 0 && m_OnGameReset != null)
 			m_OnGameReset.Invoke();
 
-		if (scene.name == "Cupboard")
-		{
-			m_IsCutScene = true;
-
-			m_Player.enabled = false;
-			m_Player.GetComponent<NPCMovement>().enabled = true;
-			m_Player.GetComponent<PlayerInput>().enabled = false;
-		}
-		else
-		{ // Re-enable the player and components.
-			if (!m_Player.enabled)
-				m_Player.enabled = true;
-			m_Player.GetComponent<NPCMovement>().enabled = false;
-			m_Player.GetComponent<PlayerInput>().enabled = true;
-		}
+		HandleCupboardScene(scene);
 
 		// Make ignore gameplay logic if in a non-gameplay scene.
 		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
@@ -269,6 +255,31 @@ public class GameManager : Singleton<GameManager>
 		}
 	}
 
+	private void HandleCupboardScene(Scene scene)
+	{
+		if (scene.name == "Cupboard")
+		{
+			m_IsCutScene = true;
+
+			// Turn the Player into a NPC.
+			m_Player.enabled = false;
+			m_Player.GetComponent<NPCMovement>().enabled = true;
+			m_Player.GetComponent<PlayerInput>().enabled = false;
+
+			// Update material values.
+			Material playerMat = m_Player.GetComponent<PlayerAnimator>()
+				.m_AnimationComponents.m_SpriteRenderer.material;
+			playerMat.SetInt("_Use_Pattern_2", 1);
+			playerMat.SetInt("_Use_Pattern_3", 1);
+			playerMat.SetTextureScale("_Pattern", new Vector2(14f, 2f));
+		}
+		else
+		{
+			if (m_Player.enabled) return;
+			ResetPlayer();
+		}
+	}
+
 	private void InitGame()
 	{
 		// Spawn Camera.
@@ -341,6 +352,22 @@ public class GameManager : Singleton<GameManager>
 		var itemsStateList = m_ItemsCollectedState.ToList();
 		foreach (var items in itemsStateList)
 			m_ItemsCollectedState[items.Key] = false;
+
+		ResetPlayer();
+	}
+
+	private void ResetPlayer()
+	{
+		// Re-enable the player and components.
+		m_Player.enabled = true;
+		m_Player.GetComponent<NPCMovement>().enabled = false;
+		m_Player.GetComponent<PlayerInput>().enabled = true;
+		// Reset material values.
+		Material playerMat = m_Player.GetComponent<PlayerAnimator>()
+			.m_AnimationComponents.m_SpriteRenderer.material;
+		playerMat.SetInt("_Use_Pattern_2", 2);
+		playerMat.SetInt("_Use_Pattern_3", 2);
+		playerMat.SetTextureScale("_Pattern", new Vector2(4f, 2f));
 	}
 
 	private IEnumerator SetContinueButton()
