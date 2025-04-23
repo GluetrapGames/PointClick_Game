@@ -176,7 +176,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 7cc921f24aa35747af5bb83f091dfcc7
     GuidInternal: 
-    m_lastTime: -8584562744390130441
+    m_lastTime: -8584561984959636445
     List:
     - name: Albert Arrival
       guid: 415640c37735b54bacf5b2ee99650238
@@ -195,6 +195,49 @@ MonoBehaviour:
         ObjectType: 4
         guid: 415640c37735b54bacf5b2ee99650238
       Path: Events\Default Work Unit\Environment\Albert Arrival
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: AlbertDeath
+      guid: db42967fb5e3b644ad19d1370f1c5ccf
+      id: 789062443
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: AlbertDeath
+        ObjectType: 4
+        guid: 92dc74fe6ac32c429e1a167b2fc1e3d5
+      - ElementName: AlbertDeath
+        ObjectType: 3
+        guid: db42967fb5e3b644ad19d1370f1c5ccf
+      Path: Events\Default Work Unit\Environment\AlbertDeath\AlbertDeath
+      maxAttenuation: 0
+      maxDuration: 1.5013125
+      minDuration: 1.5013125
+    - name: AlbertDeath
+      guid: 92dc74fe6ac32c429e1a167b2fc1e3d5
+      id: 789062443
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Environment
+        ObjectType: 4
+        guid: 9dc7572aa80da94ab9b129ee57fa36ab
+      - ElementName: AlbertDeath
+        ObjectType: 4
+        guid: 92dc74fe6ac32c429e1a167b2fc1e3d5
+      Path: Events\Default Work Unit\Environment\AlbertDeath
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -256,8 +299,8 @@ MonoBehaviour:
         guid: 79ae0e61b1425b4ab1c71133d9ae0762
       Path: Events\Default Work Unit\Dialogue\Blab
       maxAttenuation: 0
-      maxDuration: 0.13150942
-      minDuration: 0.056701366
+      maxDuration: 0.13536137
+      minDuration: 0.049545735
     - name: Breaks
       guid: ffbfc00e79fb7a42963fab89f9270ee8
       id: 1008011617
@@ -433,9 +476,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Dialogue
-      guid: 1a5ab7e86bddf5499262cd911481f821
-      id: 3930136735
+    - name: DebbieScream
+      guid: 6207417e52256844be9a9a94caf936ee
+      id: 2595546245
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -446,10 +489,13 @@ MonoBehaviour:
       - ElementName: Dialogue
         ObjectType: 4
         guid: 1a5ab7e86bddf5499262cd911481f821
-      Path: Events\Default Work Unit\Dialogue
+      - ElementName: DebbieScream
+        ObjectType: 3
+        guid: 6207417e52256844be9a9a94caf936ee
+      Path: Events\Default Work Unit\Dialogue\DebbieScream
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.2954135
+      minDuration: 1.2954135
     - name: Dialogue
       guid: ec2bcc2c0764444b83ea433766c8f3ff
       id: 3930136735
@@ -470,6 +516,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: ec2bcc2c0764444b83ea433766c8f3ff
       Path: Events\Default Work Unit\UI\In-Game\Dialogue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Dialogue
+      guid: 1a5ab7e86bddf5499262cd911481f821
+      id: 3930136735
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Dialogue
+        ObjectType: 4
+        guid: 1a5ab7e86bddf5499262cd911481f821
+      Path: Events\Default Work Unit\Dialogue
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -665,6 +728,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.7208999
       minDuration: 0.76646316
+    - name: grandfather_clock
+      guid: e7e0ff22fe6aaf4e9bdafe0c9c4dc21d
+      id: 2995585464
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7cc921f24aa35747af5bb83f091dfcc7
+      - ElementName: Breaks
+        ObjectType: 4
+        guid: ffbfc00e79fb7a42963fab89f9270ee8
+      - ElementName: Specific
+        ObjectType: 4
+        guid: a3b780ca44d0c84a9411b3224f6da948
+      - ElementName: grandfather_clock
+        ObjectType: 3
+        guid: e7e0ff22fe6aaf4e9bdafe0c9c4dc21d
+      Path: Events\Default Work Unit\Breaks\Specific\grandfather_clock
+      maxAttenuation: 0
+      maxDuration: 0.9987357
+      minDuration: 0.6893097
     - name: House
       guid: 2ad2b3882cb7fc488ee989fa11347832
       id: 3720479411
@@ -1001,8 +1087,8 @@ MonoBehaviour:
         guid: 2fc0bfd7953b8a4b80c1090245ac9773
       Path: Events\Default Work Unit\Music\MusicRecord
       maxAttenuation: 0
-      maxDuration: 293.35083
-      minDuration: 293.35083
+      maxDuration: 183.48619
+      minDuration: 183.48619
     - name: Outside
       guid: d27393c04f6d7c4abf8d8fdf6b8dc867
       id: 438105790
@@ -1764,7 +1850,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 2e9cb6d90aac234bb9dfd552a0729065
     GuidInternal: 
-    m_lastTime: -8584562979408185319
+    m_lastTime: -8584562016311281143
     List:
     - name: Pitch
       guid: 18fb3a1f6721ce459747a91aeb470ced
@@ -1925,7 +2011,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: aaef3b61817689459787a303f0cc8de8
     GuidInternal: 
-    m_lastTime: -8584562979403126477
+    m_lastTime: -8584562853233572422
     List:
     - name: FlatMusic
       guid: 60efac30605f2e4497ac1b0bf46606a2
@@ -2087,7 +2173,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
     GuidInternal: 
-    m_lastTime: -8584585144766026338
+    m_lastTime: -8584561991933948813
     List:
     - name: BreakMaterial
       guid: 52371375a5837847ab5b8d4e1a0afc3a
@@ -2266,6 +2352,22 @@ MonoBehaviour:
         - ElementName: Albert
           ObjectType: 10
           guid: 309a2158a7edda4da30b6febabfd6b45
+      - name: Debbie
+        guid: e50102e31481b7418c0de02c123c1af4
+        id: 993832646
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 3a3da4e41d8b6e44af5c80b4c62b3fdd
+        - ElementName: CharacterBlab
+          ObjectType: 11
+          guid: 5a48078c2adf144d9ae3807451041c61
+        - ElementName: Debbie
+          ObjectType: 10
+          guid: e50102e31481b7418c0de02c123c1af4
       - name: Jack
         guid: 10939171e0261f47adc1aee9488ff96a
         id: 3865235296

@@ -1,16 +1,21 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using Cinemachine;
 using EditorAttributes;
 using GlueTrap.Utilities;
+using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.Video;
+using InputDevice = PixelCrushers.InputDevice;
+using InputDeviceManager = PixelCrushers.Wrappers.InputDeviceManager;
 
 namespace GlueTrap
 {
@@ -93,8 +98,11 @@ public class GameManager : Singleton<GameManager>
 		switch (m_CurrentState)
 		{
 			case States.Moving:
-				m_InventoryManager.m_Inventory.gameObject.SetActive(true);
-				m_Player.HandleMovement();
+					if (!m_IsCutScene)
+					{
+						m_InventoryManager.m_Inventory.gameObject.SetActive(true);
+						m_Player.HandleMovement();
+					}
 				break;
 			case States.Talking:
 				m_InventoryManager.m_Inventory.gameObject.SetActive(false);
@@ -165,21 +173,42 @@ public class GameManager : Singleton<GameManager>
 		if (scene.buildIndex == 0 && m_OnGameReset != null)
 			m_OnGameReset.Invoke();
 
-		// Make ignore gameplay logic if in a non-gameplay scene.
-		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
+			if (scene.name == "Cupboard")
+			{
+				m_IsCutScene = true;
+
+				m_Player.enabled = false;
+				m_Player.GetComponent<NPCMovement>().enabled = true;
+                m_Player.GetComponent<PlayerInput>().enabled = false;
+
+            }
+            else 
+			{
+                m_Player.GetComponent<NPCMovement>().enabled = false;
+            }
+
+            // Make ignore gameplay logic if in a non-gameplay scene.
+            if (m_NoneGameplayScenes.Any(noneGameplayScene =>
 			    scene.name == noneGameplayScene))
 		{
 			if (m_Player)
 				m_Player.gameObject.SetActive(false);
 			ChangeGameState(States.InMenus);
+			//if(scene.name != "MenuScene") GetComponent<CourtsceneControllerSupport>().SetSelectedButton();
+			if(scene.name != "MenuScene") StartCoroutine(SetContinueButton());
 			return;
 		}
+
+
 
 		// Try and get a Title Card object.
 		_TitleCard = FindFirstObjectByType<TitleCard>();
 		_TitleCardPlayed = _TitleCard?.name == _PreviousTitleCard;
 		if (_TitleCardPlayed)
+		{
 			_TitleCard?.gameObject.SetActive(false);
+			if(scene.name != "MenuScene" && _NoneGameplayScenes.Contains(scene.name)) StartCoroutine(SetContinueButton());
+		}
 
 		// Obtain the amount of collectables in the scene.
 		UpdateItemsCollected();
@@ -289,6 +318,7 @@ public class GameManager : Singleton<GameManager>
 		// Update Cinemachine Camera Follow Target.
 		if (cinemachineCamera)
 			cinemachineCamera.Follow = m_Player.transform;
+
 	}
 
 	private void ResetGame()
@@ -345,6 +375,16 @@ public class GameManager : Singleton<GameManager>
 		foreach (Canvas canvas in obj)
 			canvas.worldCamera = m_Camera;
 	}
+
+	private IEnumerator SetContinueButton()
+	{
+		var _videoPlayer = FindObjectOfType<VideoPlayer>();
+		Debug.Log("Waiting on title card played");
+		yield return new WaitUntil(() => _videoPlayer.targetCameraAlpha == 0f);
+		Debug.Log("Title card played");
+		GetComponent<CourtsceneControllerSupport>().SetSelectedButton();
+	}
+	
 }
 
 public enum States

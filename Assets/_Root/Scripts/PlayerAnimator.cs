@@ -1,6 +1,7 @@
 using System;
 using EditorAttributes;
 using GlueTrap.Utilities;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 namespace GlueTrap

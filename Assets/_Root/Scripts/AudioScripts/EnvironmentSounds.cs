@@ -269,5 +269,43 @@ public class EnvironmentSounds : MonoBehaviour
                     break;
             }
         }
+
+        public void PlayDebbieSounds()
+        {
+            DialogueEntry dialogueEntry = DialogueManager.currentConversationState
+            .subtitle.dialogueEntry;
+            var conversationID = dialogueEntry.conversationID;
+            var subtitleId = dialogueEntry.id;
+
+            if (conversationID != 66) return;
+
+            switch (subtitleId)
+            {
+                case 6:
+                    AkSoundEngine.PostEvent("DebbieScream", gameObject);
+                    break;
+            }
+        }
+
+        public void PlayAlbertDeathSounds()
+        {
+            DialogueEntry dialogueEntry = DialogueManager.currentConversationState
+            .subtitle.dialogueEntry;
+            var conversationID = dialogueEntry.conversationID;
+            var subtitleId = dialogueEntry.id;
+
+            if (conversationID != 47) return;
+
+            switch (subtitleId)
+            {
+                case 65:
+                    AkSoundEngine.PostEvent("AlbertDeath", gameObject);
+                    break;
+                case 69:
+                    AkSoundEngine.PostEvent("AlbertDeath", gameObject);
+                    break;
+            }
+        }
+
         }
 }

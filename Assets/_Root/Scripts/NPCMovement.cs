@@ -24,9 +24,10 @@ public class NPCMovement : MonoBehaviour
 
 	private GameManager _GameManager;
 	private GridMovement _GridMovement;
+    private Coroutine _MoveCoroutine;
 
 
-	private void Awake()
+        private void Awake()
 	{
 		_GameManager = Utils.GetGameManager();
 		_GridMovement = GetComponent<GridMovement>();
@@ -37,20 +38,24 @@ public class NPCMovement : MonoBehaviour
 		StartCoroutine(FollowPath());
 	}
 
+	public void Move()
+	{
+        _MoveCoroutine ??= StartCoroutine(FollowPath());
+    }
+
 	private IEnumerator FollowPath()
 	{
 		do
 		{
 			// Create a copy to avoid modifying the list during enumeration.
-			List<Vector3Int> pathToFollow = new(_CellPath);
-
-			foreach (Vector3Int cellPoint in pathToFollow)
+			//List<Vector3Int> pathToFollow = new(_CellPath);
+			foreach (Vector3Int cellPoint in _CellPath)
 			{
 				_GridMovement.SetDestination(cellPoint);
 
 				while (_GridMovement.m_IsMoving)
-				{
-					_GridMovement.MoveToTile(m_MovementSpeed);
+					{ 
+                        _GridMovement.MoveToTile(m_MovementSpeed);
 					yield return null;
 				}
 
@@ -63,11 +68,13 @@ public class NPCMovement : MonoBehaviour
 				yield return new WaitForSeconds(m_WaitTime * 0.5f);
 			}
 		} while (m_IsLooping);
+
+		_MoveCoroutine = null;
 	}
 
 
 	// Convert the current path points into their cell values.
-	private void UpdateCellPath()
+	public void UpdateCellPath()
 	{
 		_CellPath.Clear();
 
