@@ -58,6 +58,8 @@ public class PickUpScript : MonoBehaviour
 	private GameObject _ConvoObject;
 
 	private GameManager _GameManager;
+	private Highlight _highlightRef;
+	private HighlightComposite _highlightCompRef;
 	private Grid _GizmoGrid;
 	private bool _SlotFound;
 
@@ -71,6 +73,9 @@ public class PickUpScript : MonoBehaviour
 		// Obtain the Game Manager.
 		_GameManager = Utils.GetGameManager();
 
+		_highlightCompRef = GetComponentInChildren<HighlightComposite>();
+		if(!_highlightCompRef) _highlightRef = GetComponentInChildren<Highlight>();
+		
 		// Check if item was collected.
 		_GameManager.m_ItemsCollectedState.TryGetValue(_PersistentID,
 			out var isCollected);
@@ -95,6 +100,10 @@ public class PickUpScript : MonoBehaviour
 				Debug.LogWarning(
 					$"<{name}>: Failed to resize Collision Bounds!");
 			}
+			
+			if(!_highlightRef) Debug.LogWarning("<" + name + "> Highlight has no highlight.");
+			if(!_highlightCompRef) Debug.LogWarning("<" + name + "> Highlight has no highlight Composite.");
+			
 		}
 
 		// Check if any items where collected.
@@ -129,11 +138,24 @@ public class PickUpScript : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+		if (collision.CompareTag("Player"))
+		{
+			if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = true;
+			else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = true;
+		}
+		
 		if (!m_IsClicked)
 			return;
 
 		AkSoundEngine.PostEvent(pickupEvent, gameObject);
-		Collected();
+		Collected(); 
+	}
+
+	private void OnTriggerExit2D(Collider2D other)
+	{
+		if (!other.CompareTag("Player")) return;
+		if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = false;
+		else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = false;
 	}
 
 	private void OnTriggerStay2D(Collider2D other)
@@ -192,6 +214,8 @@ public class PickUpScript : MonoBehaviour
 				_GameManager.m_hasCrowbar);
 		}
 
+		//if (_ItemType == ItemTypes.Record) DialogueLua.SetVariable("Has_Record", true);
+		
 		if (_ItemType == ItemTypes.Money) _GameManager.m_collectedMoney += 50;
 
 		if (_ItemType == ItemTypes.Coins) _GameManager.m_collectedMoney += 10;
