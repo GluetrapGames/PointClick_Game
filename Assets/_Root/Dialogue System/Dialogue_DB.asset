@@ -5061,7 +5061,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(angry, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 14
@@ -5118,7 +5125,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 14
@@ -5173,7 +5187,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(angry speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 14
@@ -7972,7 +7993,14 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: BlabAudio(shock, speaker);
+      conditionsString: 'BlabAudio(shock, speaker);
+
+        AnimatorPlay(TalkAnim,speakerportrait);
+
+        required
+        AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+        Delay(2)@Message(Typed)'
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8082,7 +8110,14 @@ MonoBehaviour:
         destinationDialogueID: 13
         isConnector: 0
         priority: 2
-      conditionsString: BlabAudio(happy, speaker);
+      conditionsString: 'BlabAudio(happy, speaker);
+
+        AnimatorPlay(TalkAnim,speakerportrait);
+
+        required
+        AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+        Delay(2)@Message(Typed)'
       userScript: Variable["Clues_Found"] = Variable["Clues_Found"] + 1
       onExecute:
         m_PersistentCalls:
@@ -8182,7 +8217,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(thinking, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 23
@@ -13000,7 +13042,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 144.9292, y: 20.408142}
+    canvasScrollPosition: {x: 42.88855, y: 0}
     canvasZoom: 0.49000093
   - id: 28
     fields:
@@ -13656,7 +13698,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
+        x: 161
         y: 80
         width: 160
         height: 30
@@ -14188,7 +14230,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Maybe they're just shite?
+        value: Maybe they're just pish?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16642,7 +16684,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: It's empty
+        value: It's empty.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -17277,7 +17319,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(happy, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -17339,7 +17381,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 42
@@ -17394,7 +17443,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionLow, speaker);
+        value: 'BlabAudio(thinking, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -18221,7 +18270,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(shock, speaker);
+        value: 'BlabAudio(thinking, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -18530,12 +18579,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(thinking, speaker);
+        value: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -18593,12 +18639,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(angry, speaker);
+        value: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -18860,7 +18903,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 677.2086
+        x: 674.883
         y: 677.44183
         width: 160
         height: 30
@@ -19189,12 +19232,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(thinking, speaker);
+        value: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -19251,12 +19291,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(thinking, speaker);
+        value: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -20244,12 +20281,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionHigh, speaker);
+        value: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -20982,12 +21016,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionLow, speaker);
+        value: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -22193,8 +22224,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1331.6948, y: 1463.1285}
-    canvasZoom: 0.9700022
+    canvasScrollPosition: {x: 575.4721, y: 919.6623}
+    canvasZoom: 0.6400025
   - id: 48
     fields:
     - title: Title
@@ -23208,7 +23239,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(surprise, speaker);
+        value: 'BlabAudio(shock, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -23240,8 +23271,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 528
-        y: 136.47763
+        x: 529.3158
+        y: 135.16185
         width: 160
         height: 30
     - id: 2
@@ -23271,7 +23302,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionLow, speaker);
+        value: 'BlabAudio(sad, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -23333,7 +23364,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(surprise, speaker);
+        value: 'BlabAudio(shock, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -23395,7 +23426,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(surprise, speaker);
+        value: 'BlabAudio(shock, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -23638,12 +23669,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(angry, speaker);
+        value: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -23701,7 +23729,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(thinking, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -23992,7 +24020,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionLow, speaker);
+        value: 'BlabAudio(sad, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -24185,12 +24213,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionHigh, speaker);
+        value: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -24359,7 +24384,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(surprise, speaker);
+        value: 'BlabAudio(shock, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -24533,7 +24558,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(thinking, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -24774,12 +24799,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionLow, speaker);
+        value: 'AnimatorPlay(TalkAnim,speakerportrait);
 
-          AnimatorPlay(TalkAnim,speakerportrait);
-
-          required
-          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+          required AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -25011,7 +25033,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(surprise, speaker);
+        value: 'BlabAudio(shock, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -25233,7 +25255,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(questionHigh, speaker);
+        value: 'BlabAudio(thinking, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -25406,7 +25428,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(surprise, speaker);
+        value: 'BlabAudio(shock, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -25468,7 +25490,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'BlabAudio(surprise, speaker);
+        value: 'BlabAudio(shock, speaker);
 
           AnimatorPlay(TalkAnim,speakerportrait);
 
@@ -25499,7 +25521,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 540
+        x: 538.6842
         y: 1376
         width: 160
         height: 30
@@ -25553,8 +25575,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 151.87442, y: 927.1455}
-    canvasZoom: 0.7300012
+    canvasScrollPosition: {x: 0, y: 123.076584}
+    canvasZoom: 0.5200014
   - id: 50
     fields:
     - title: Title
@@ -32631,8 +32653,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 435.47873, y: 599.70544}
-    canvasZoom: 0.7600001
+    canvasScrollPosition: {x: 65.97325, y: 285.2431}
+    canvasZoom: 0.52000034
   - id: 60
     fields:
     - title: Title
