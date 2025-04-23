@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5830295553200378158}
   - component: {fileID: 8033531083245948595}
   - component: {fileID: 2481604359507779391}
+  - component: {fileID: 6143883573188243667}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Manager
@@ -63,6 +64,10 @@ MonoBehaviour:
   m_HasEntered: 0
   m_ItemsCollectedState:
     _serializedList: []
+  m_OnGameReset:
+    m_PersistentCalls:
+      m_Calls: []
+  m_IsCutScene: 0
   _CurrentState: 0
   _NoneGameplayScenes:
   - MenuScene
@@ -99,7 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70109850543ee124088fb80de75d2950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inLivingRoom: 0
   Log: 0
+  clockSounds: {fileID: 0}
 --- !u!114 &8033531083245948595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,5 +129,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56eba8c00d8224a5990b10baad16aaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6143883573188243667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916785222082717101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 723e2585cea636d4e9dd7046f5884ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
