@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ALBERTDEATH = 789062443U;
         static const AkUniqueID ALBERTISHOME = 3003684494U;
         static const AkUniqueID BLAB = 1527158674U;
         static const AkUniqueID BUG_SHELF = 584038952U;
@@ -21,12 +22,14 @@ namespace AK
         static const AkUniqueID COURTCLOCK = 3307117116U;
         static const AkUniqueID COURTCOUGH = 2070691372U;
         static const AkUniqueID COURTHUM = 1112129076U;
+        static const AkUniqueID DEBBIESCREAM = 2595546245U;
         static const AkUniqueID DOOROPEN = 1404805401U;
         static const AkUniqueID EXITWALK = 3585027902U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID FRIDGEOPEN = 627991214U;
         static const AkUniqueID GAMESHOW = 1875833188U;
         static const AkUniqueID GLASS_CUPBOARD = 3198831486U;
+        static const AkUniqueID GRANDFATHER_CLOCK = 2995585464U;
         static const AkUniqueID HOUSEBUZZ = 3161912504U;
         static const AkUniqueID HOUSECREAK = 3508689533U;
         static const AkUniqueID HOUSETONE = 1903191047U;
@@ -47,7 +50,6 @@ namespace AK
         static const AkUniqueID PHONERING = 3074298065U;
         static const AkUniqueID PHONESLAM = 1097061028U;
         static const AkUniqueID PLAYER_PICKUP = 1627434233U;
-        static const AkUniqueID PLAYER_PICKUP_GENERIC = 1184633179U;
         static const AkUniqueID RECORD_PLAYER = 2570475550U;
         static const AkUniqueID ROOMTRANSITION = 712272009U;
         static const AkUniqueID STOPALL_BUTMUSICANDDOOR = 119872638U;
@@ -125,6 +127,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID ALBERT = 1449413731U;
+                static const AkUniqueID DEBBIE = 993832646U;
                 static const AkUniqueID JACK = 3865235296U;
                 static const AkUniqueID JOHN = 3678415638U;
                 static const AkUniqueID JUDGE = 1425203646U;

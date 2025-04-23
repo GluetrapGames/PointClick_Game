@@ -15,27 +15,27 @@ public class BackgroundMania : MonoBehaviour
 	private void Awake()
 	{
 		_EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-		_DiaDM = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
+		_DiaDM = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
 		_EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-		_DiaDMPrev = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
+		_DiaDMPrev = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
 		_BGImage = GetComponent<Image>();
 	}
 
         private void Update()
         {
             _EnvDM = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-            _DiaDM = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
+            _DiaDM = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
             
             if (_EnvDM >= _EnvDMPrev + 2 || _DiaDMPrev >= _DiaDMPrev + 2)
             {
                 _BGImage.color -= new Color(0f, 0.03f, 0.03f, 0f);
                 _EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-                _DiaDMPrev = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
-            } else if (_EnvDM >= _EnvDMPrev - 2 || _DiaDMPrev >= _DiaDMPrev - 2)
+                _DiaDMPrev = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
+            } else if (_EnvDM <= _EnvDMPrev - 2 || _DiaDMPrev <= _DiaDMPrev - 2)
             {
                 _BGImage.color += new Color(0f, 0.03f, 0.03f, 0f);
                 _EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
-                _DiaDMPrev = DialogueLua.GetVariable("Dia_DM_Meter").asInt;
+                _DiaDMPrev = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
             }
 
         }

@@ -48,11 +48,11 @@ public class Highlight : MonoBehaviour
 	private void Awake()
 	{
 		_GameManager = Utils.GetGameManager();
+		GetReference();
 	}
 
 	private void Start()
 	{
-		GetReference();
 		Hide();
 	}
 

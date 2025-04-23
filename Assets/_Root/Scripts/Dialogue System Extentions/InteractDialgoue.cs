@@ -24,11 +24,16 @@ public class InteractDialgoue : MonoBehaviour
 	private bool _PlayOnce;
 	[SerializeField]
 	private bool _recordInteraction;
+	[SerializeField]
+	private bool _calcCollisions = true;
 
 	private Vector3Int _CellPosition;
+	private CollideCheck _collideCheck;
+	private BoxCollider2D _Collider;
 	private GameManager _GameManager;
 	private bool _HasPlayedOnce;
 	private InputAction _InteractAction;
+	private bool _isController;
 	private CollideCheck _ItemCollision;
 	private PlayerInput _PlayerInput;
 
@@ -38,6 +43,7 @@ public class InteractDialgoue : MonoBehaviour
 		_GameManager = Utils.GetGameManager();
 		_ItemCollision = GetComponent<CollideCheck>();
 		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
+		_Collider = GetComponent<BoxCollider2D>();
 	}
 
 	private void Start()
@@ -45,12 +51,20 @@ public class InteractDialgoue : MonoBehaviour
 		// Recalculate collision bounds.
 		var boxCollider = GetComponent<BoxCollider2D>();
 		var spriteRenderer = GetComponent<SpriteRenderer>();
-		Sprite spriteObj = null;
-		if (spriteRenderer)
-			spriteObj = spriteRenderer.sprite;
-		if (!spriteObj ||
-		    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
-			Debug.LogWarning($"<{name}>: Failed to resize Collision Bounds!");
+		_collideCheck = GetComponent<CollideCheck>();
+		if (_calcCollisions)
+		{
+			Sprite spriteObj = null;
+			if (spriteRenderer)
+				spriteObj = spriteRenderer.sprite;
+			if (!spriteObj ||
+			    !Utils.RecalculateCollisionBounds(spriteObj, ref boxCollider))
+			{
+				Debug.LogWarning(
+					$"<{name}>: Failed to resize Collision Bounds!");
+			}
+		}
+
 
 		_InteractAction = _PlayerInput.actions["Break"];
 	}
@@ -61,14 +75,32 @@ public class InteractDialgoue : MonoBehaviour
 		if (_GameManager.m_CurrentState is States.Talking or States.InMenus)
 			return;
 
+		// If there is no active conversation and the collider is disabled, re-enable it.
+		if (!DialogueManager.instance.isConversationActive &&
+		    !_Collider.enabled)
+			_Collider.enabled = true;
+
+		_isController = Gamepad.current != null;
 		MouseInteraction();
 
 		// Play the conversion once the Player has reached the object.
 		if (!_GameManager.m_Player.m_DestinationReached ||
 		    _GameManager.m_Player.m_Destination != _CellPosition) return;
+		if (_isController)
+		{
+			ControllerInteraction();
+			return;
+		}
+
 		PlayConversation();
 	}
 
+	private void ControllerInteraction()
+	{
+		if (_collideCheck == false) _collideCheck.enabled = true;
+		if (_collideCheck.IsCollided && _InteractAction.WasPressedThisFrame())
+			PlayConversation();
+	}
 
 	// Handle wall item functionality.
 	private void HandleWallFunction()
@@ -157,7 +189,6 @@ public class InteractDialgoue : MonoBehaviour
 			HandleWallFunction();
 	}
 
-
 	// Plays the conversation
 	private void PlayConversation()
 	{
@@ -170,8 +201,7 @@ public class InteractDialgoue : MonoBehaviour
 					DialogueManager.StartConversation(_ConversationTitle);
 					m_Interacting = true;
 					StartCoroutine(resetInteracting());
-					var collider = GetComponent<BoxCollider2D>();
-					collider.enabled = false;
+					_Collider.enabled = false;
 					_HasPlayedOnce = true;
 				}
 			}
@@ -202,8 +232,7 @@ public class InteractDialgoue : MonoBehaviour
 				DialogueManager.StartConversation(_ConversationTitle);
 				m_Interacting = true;
 				StartCoroutine(resetInteracting());
-				var collider = GetComponent<BoxCollider2D>();
-				collider.enabled = false;
+				_Collider.enabled = false;
 				_HasPlayedOnce = true;
 			}
 		}

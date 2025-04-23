@@ -53,11 +53,13 @@ MonoBehaviour:
     - Key: 9
       Value: 0
   m_EndScene: 7
-  _AlbertPrefab: {fileID: 3175547867612132222, guid: 6868a9bb6290cb144b4fb953a5dfe7f6, type: 3}
-  _AlbertSpawPoint: {fileID: 0}
   _DestroyedItems:
     _serializedList: []
   _IsGameOver: 0
+  m_hasMoney: 0
+  m_CollectedItems: 
+  _AlbertPrefab: {fileID: 3175547867612132222, guid: 6868a9bb6290cb144b4fb953a5dfe7f6, type: 3}
+  _AlbertSpawPoint: {fileID: 0}
   _Log: 0
   _BreakableItems:
     _serializedList: []
@@ -246,6 +248,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 298039563014524117, guid: 700490468346f3b4b86837f861967597, type: 3}
   m_PrefabInstance: {fileID: 4814001857965006105}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6971197476360847910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2481604359507779391, guid: 700490468346f3b4b86837f861967597, type: 3}
+  m_PrefabInstance: {fileID: 4814001857965006105}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eba8c00d8224a5990b10baad16aaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8738551021416571057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,6 +290,26 @@ PrefabInstance:
     - target: {fileID: 121299418545588215, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 696601072508176495, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 696601072508176495, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.a
+      value: 0.90588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 696601072508176495, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.4745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 696601072508176495, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 696601072508176495, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.48235294
       objectReference: {fileID: 0}
     - target: {fileID: 1164685846921262984, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
       propertyPath: m_Name
@@ -320,6 +353,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1846030893588211769, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572824162096041325, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2695155575118226884, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
@@ -398,6 +435,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5097307550474575947, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
+      propertyPath: inputDevice
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097307550474575947, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
+      propertyPath: alwaysAutoFocus
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6844993054037602713, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.9523418
@@ -462,6 +507,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7434969250171287757, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
+      propertyPath: conversationEvents.onConversationStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6971197476360847910}
     - target: {fileID: 7734890725913089564, guid: bac58b7afc0604540a5a5db8078d5be0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0

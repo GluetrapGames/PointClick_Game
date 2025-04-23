@@ -1,42 +1,34 @@
+using GlueTrap;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class CourtCharacterAnimations : MonoBehaviour
 {
-    private SpriteRenderer image; 
-    private Animator animator; 
-    public string animationName = "PlayAnimation";
+	public string animationName = "PlayAnimation";
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-        image = GetComponent<SpriteRenderer>();
-    }
+	private Animator _Animator;
+	private VideoPlayer _VideoPlayer;
 
-    void Start()
-    {
-        // Ensure that the Image and Animator are properly set in the Inspector
-        if (image == null)
-        {
-            Debug.LogError("Image reference is not assigned!");
-        }
-        if (animator == null)
-        {
-            Debug.LogError("Animator reference is not assigned!");
-        }
-    }
+	private void Awake()
+	{
+		_Animator = GetComponent<Animator>();
+		// Ensure that the Animator is properly set in the Inspector
+		if (!_Animator) Debug.LogError("Animator reference is not assigned!");
+		_VideoPlayer = FindFirstObjectByType<TitleCard>()
+			.GetComponent<VideoPlayer>();
+	}
 
-    void Update()
-    {
-        // Detect Space key press
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Trigger the animation
-            if (animator != null)
-            {
-                animator.Play(animationName);
-                
-            }
-        }
-    }
+	private void Update()
+	{
+		// If non are true, try to continually grab them.
+		//if (!animator || !image || !_VideoPlayer) Awake();
+
+		//	On TitleCard end, play the desired animation if not already playing.
+		if (_VideoPlayer.targetCameraAlpha <= 0.001f && !_Animator
+			    .GetCurrentAnimatorStateInfo(0).IsName(animationName))
+		{
+			// Trigger the animation
+			_Animator.Play(animationName);
+		}
+	}
 }
