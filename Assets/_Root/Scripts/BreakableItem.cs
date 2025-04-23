@@ -138,16 +138,13 @@ public class BreakableItem : MonoBehaviour
 
 	private void DisableHighlighting()
 	{
-		// Try to get the highlighter to disable it.
-		var highlighter = GetComponent<Highlight>();
-
-		if (!highlighter)
+		// Attempt to get a Highlight component and disable it.
+		if (!TryGetComponent(out Highlight highlighter))
 		{
 			highlighter = GetComponentInChildren<Highlight>();
 			if (!highlighter)
 			{
-				Debug.LogWarning(
-					$"{this} Object has no Highlighter component!");
+				Debug.LogWarning($"{name} has no Highlighter component.");
 				return;
 			}
 		}
