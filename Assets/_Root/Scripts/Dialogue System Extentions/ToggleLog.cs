@@ -1,3 +1,4 @@
+using System;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,8 @@ public class ToggleLog : MonoBehaviour
 	private GameObject _ScreenPauseButton;
 	[Tooltip("The Log button on the screen"), SerializeField]
 	private GameObject _ScreenLogButton;
+	[Tooltip("The money counter on the screen"), SerializeField]
+	private GameObject _ScreenCounter;
 
 
 	// Changes the dialogue panel log button image but this may be removed
@@ -39,6 +42,16 @@ public class ToggleLog : MonoBehaviour
 
 	private bool toggleLog;
 
+	private void Start()
+	{
+		_ButtonImage = gameObject.GetComponent<Image>();
+		if (_ScreenCounter) return;
+		var search = GameObject.FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+		foreach (var thing in search)
+		{
+			if (thing.CompareTag("MoneyCounter")) _ScreenCounter = thing;
+		}
+	}
 
 	private void Update()
 	{
@@ -56,6 +69,7 @@ public class ToggleLog : MonoBehaviour
 		{
 			if (_ScreenLogButton != null) _ScreenLogButton.SetActive(false);
 			if (_ScreenPauseButton != null) _ScreenPauseButton.SetActive(false);
+			if (_ScreenCounter != null) _ScreenCounter.SetActive(false);
 
 			// Only do this if a conversation is open.
 			if (DialogueManager.IsConversationActive)
@@ -86,6 +100,7 @@ public class ToggleLog : MonoBehaviour
 		{
 			if (_ScreenLogButton != null) _ScreenLogButton.SetActive(true);
 			if (_ScreenPauseButton != null) _ScreenPauseButton.SetActive(true);
+			if (_ScreenCounter != null) _ScreenCounter.SetActive(true);
 
 			// Only do this if a conversation is open.
 			if (DialogueManager.IsConversationActive)

@@ -25,6 +25,18 @@ public class StorageRoomCutscene : MonoBehaviour
 		_GameManager = Utils.GetGameManager();
 	}
 
+	private void Start()
+	{
+		var playerNPC = _GameManager.m_Player.GetComponent<NPCMovement>();
+
+		if (!playerNPC.enabled)
+			playerNPC.enabled = true;
+
+		// Start the Player movement path.
+		playerNPC.UpdateCellPath();
+		playerNPC.Move();
+	}
+
 	private void Update()
 	{
 		if (!_GameManager.m_IsCutScene) return;

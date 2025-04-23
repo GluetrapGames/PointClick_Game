@@ -634,6 +634,20 @@ MonoBehaviour:
       value: Check if the player hides albert or leaves him.
       type: 0
       typeString: CustomFieldType_Text
+  - id: 27
+    fields:
+    - title: Name
+      value: Has_Record
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
   conversations:
   - id: 1
     fields:
@@ -14873,7 +14887,7 @@ MonoBehaviour:
         destinationConversationID: 34
         destinationDialogueID: 3
         isConnector: 0
-        priority: 2
+        priority: 4
       conditionsString: 
       userScript: 
       onExecute:
@@ -14986,7 +15000,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["Has_Record"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -15047,7 +15061,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["Has_Record"] == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -18272,12 +18286,14 @@ MonoBehaviour:
       - title: Sequence
         value: 'BlabAudio(thinking, speaker);
 
+          PlayJohnAnim(pos);
+
           AnimatorPlay(TalkAnim,speakerportrait);
 
           required
           AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
-          Delay(2)@Message(Typed)'
+          Delay(2)@Message(Typed);'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -21114,7 +21130,7 @@ MonoBehaviour:
           AnimatorPlay(Albert_Shocked,speakerportrait);
 
           required
-          AnimatorPlay(Albert_Shocked_Idle,speakerportrait)@Message(Typed)
+          AnimatorPlay(Albert_Shocked_Idle,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -21176,7 +21192,9 @@ MonoBehaviour:
           AnimatorPlay(Albert_Shocked,speakerportrait);
 
           required
-          AnimatorPlay(Albert_Shocked_Idle,speakerportrait)@Message(Typed)'
+          AnimatorPlay(Albert_Shocked_Idle,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -21953,7 +21971,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'PlayJohnAnim(unarmed);
+        value: '{{default}};
+
+          PlayJohnAnim(unarmed);
 
           PlayJohnAnim(al_fall)@0.2;'
         type: 0
@@ -21979,7 +21999,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1392
+        x: 1404
         y: 1740
         width: 160
         height: 30
@@ -22169,7 +22189,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'PlayJohnAnim(armed);
+        value: '{{default}};
+
+          PlayJohnAnim(armed);
 
           PlayJohnAnim(al_fall)@0.2;'
         type: 0
@@ -22200,8 +22222,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 570.7846, y: 837.4966}
-    canvasZoom: 0.6400025
+    canvasScrollPosition: {x: 905.5238, y: 1235.3657}
+    canvasZoom: 0.70000243
   - id: 48
     fields:
     - title: Title
@@ -25126,7 +25148,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["Final_Phonecall"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -25539,7 +25561,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 167.27234, y: 367.99908}
     canvasZoom: 0.5500014
   - id: 50
     fields:

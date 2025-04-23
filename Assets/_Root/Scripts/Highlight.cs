@@ -1,6 +1,9 @@
+using System;
 using EditorAttributes;
 using GlueTrap.Utilities;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using Void = EditorAttributes.Void;
 
 namespace GlueTrap
 {
@@ -20,6 +23,10 @@ public class Highlight : MonoBehaviour
 	[SerializeField,
 	 Tooltip("If the script should grab references from the object's parent.")]
 	private bool _OnParent;
+	[NonSerialized]
+	public bool _IsController;
+	[NonSerialized]
+	public bool _PlayerColliding;
 	[SerializeField, ReadOnly]
 	private Material _Material;
 	[SerializeField, ReadOnly, ColorUsage(true, true)]
@@ -71,11 +78,23 @@ public class Highlight : MonoBehaviour
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
 		var colliderComp = GetComponent<Collider2D>();
 
-		if (colliderComp.OverlapPoint(mousePos))
-			Show();
+		_IsController = Gamepad.current != null;
+		if (!_IsController)
+		{
+			if (colliderComp.OverlapPoint(mousePos))
+				Show();
+			else
+				Hide();
+		}
 		else
-			Hide();
+		{
+			if (_PlayerColliding)
+				Show();
+			else
+				Hide();
+		}
 	}
+		
 
 
 	public void GetReference()
