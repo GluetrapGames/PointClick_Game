@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<<< HEAD:Assets/_Root/Prefabs/Items/PickupPrefab.prefab
 --- !u!1 &6386859212625034328
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +109,9 @@ PolygonCollider2D:
       - {x: 0.51015353, y: 0.16472158}
   m_UseDelaunayMesh: 0
 --- !u!1 &8886572549212060879
+========
+--- !u!1 &1618446400223672480
+>>>>>>>> MergeBranch:Assets/_Root/Prefabs/Characters/Debbie.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,41 +119,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<<< HEAD:Assets/_Root/Prefabs/Items/PickupPrefab.prefab
   - component: {fileID: 5261773267661514526}
   - component: {fileID: 5456944970616690933}
   - component: {fileID: 108372546632361976}
   - component: {fileID: -6292723398293010150}
   - component: {fileID: 6196828713650799960}
+========
+  - component: {fileID: 556784039435291820}
+  - component: {fileID: 9145186509389221800}
+  - component: {fileID: 538943873373915767}
+  - component: {fileID: 4738695290877253213}
+  - component: {fileID: 8436009846819935845}
+>>>>>>>> MergeBranch:Assets/_Root/Prefabs/Characters/Debbie.prefab
   m_Layer: 0
-  m_Name: PickupPrefab
+  m_Name: Debbie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5261773267661514526
+--- !u!4 &556784039435291820
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8886572549212060879}
+  m_GameObject: {fileID: 1618446400223672480}
   serializedVersion: 2
+<<<<<<<< HEAD:Assets/_Root/Prefabs/Items/PickupPrefab.prefab
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 9.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
+========
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.337658, y: 1.7892694, z: -0.45156416}
+  m_LocalScale: {x: 0.5429624, y: 0.5429624, z: 0.5429624}
+>>>>>>>> MergeBranch:Assets/_Root/Prefabs/Characters/Debbie.prefab
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6860020934966580739}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5456944970616690933
+--- !u!212 &9145186509389221800
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8886572549212060879}
+  m_GameObject: {fileID: 1618446400223672480}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -185,30 +203,53 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 85301308, guid: a87bba0c8b6906d429c9f2e0ac872e0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7.68, y: 7.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &108372546632361976
+--- !u!95 &538943873373915767
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618446400223672480}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c8a80d444194a14491d69233a43e306, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4738695290877253213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8886572549212060879}
+  m_GameObject: {fileID: 1618446400223672480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b888eb15419677f48a99ee43d782f24e, type: 3}
+  m_Script: {fileID: 11500000, guid: ca672b84f33653f47a6a5c2ed843f03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<<< HEAD:Assets/_Root/Prefabs/Items/PickupPrefab.prefab
   m_Log: 0
   m_IsClicked: 0
   m_IsDropped: 0
@@ -239,47 +280,34 @@ MonoBehaviour:
   pickupType: 
 --- !u!61 &6196828713650799960
 BoxCollider2D:
+========
+  m_CurrentPathIndex: 0
+  m_IsMoving: 0
+  m_Path: []
+  _obstacleTags: []
+  _obstacles: []
+  _debug: 0
+  _obstacleBoundsOffset: 0.15
+--- !u!114 &8436009846819935845
+MonoBehaviour:
+>>>>>>>> MergeBranch:Assets/_Root/Prefabs/Characters/Debbie.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8886572549212060879}
+  m_GameObject: {fileID: 1618446400223672480}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.5, y: 1.5}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c9de5699db21d44ac538711706efc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsLooping: 0
+  m_MovementSpeed: 1.5
+  m_WaitTime: 0.1
+  m_Path:
+  - {x: -4.2, y: 1.75}
+  - {x: -2, y: -1.5}
+  _Debug: 0
+  _CellPath:
+  - {x: -5, y: 1, z: 0}
+  - {x: -2, y: -2, z: 0}

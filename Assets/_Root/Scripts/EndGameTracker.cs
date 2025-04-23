@@ -40,33 +40,6 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	private GameManager _GameManager;
 	private bool _moneySet;
 
-
-	private void OnEnable()
-	{
-		_GameManager.m_OnGameReset.AddListener(ResetGame);
-	}
-
-	private void OnDisable()
-	{
-		_GameManager.m_OnGameReset.RemoveListener(ResetGame);
-	}
-
-	private void ResetGame()
-	{
-		// Reset all tracking variables.
-		_IsGameOver = false;
-		m_hasMoney = false;
-		_albertSpawned = false;
-		_moneySet = false;
-		_cluesFound = 0;
-
-		// Mark all destroyed items as not destroyed.
-		var destroyedItems = _DestroyedItems.ToList();
-		foreach (var destroyedItem in destroyedItems)
-			_DestroyedItems[destroyedItem.Key] = false;
-
-	}
-
 	protected override void Awake()
 	{
 		base.Awake();
@@ -129,6 +102,17 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		_IsGameOver = true;
 	}
 
+
+	private void OnEnable()
+	{
+		_GameManager.m_OnGameReset.AddListener(ResetGame);
+	}
+
+	private void OnDisable()
+	{
+		_GameManager.m_OnGameReset.RemoveListener(ResetGame);
+	}
+
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
 	{
 		// Get breakable items and add/update the list.
@@ -166,6 +150,21 @@ public class EndGameTracker : Singleton<EndGameTracker>
 			GameObject albertObj = Instantiate(_AlbertPrefab,
 				_AlbertSpawPoint.position, quaternion.identity);
 		}
+	}
+
+	private void ResetGame()
+	{
+		// Reset all tracking variables.
+		_IsGameOver = false;
+		m_hasMoney = false;
+		_albertSpawned = false;
+		_moneySet = false;
+		_cluesFound = 0;
+
+		// Mark all destroyed items as not destroyed.
+		var destroyedItems = _DestroyedItems.ToList();
+		foreach (var destroyedItem in destroyedItems)
+			_DestroyedItems[destroyedItem.Key] = false;
 	}
 
 	private void TrackEndGameItems()
