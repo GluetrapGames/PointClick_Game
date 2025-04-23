@@ -29,6 +29,7 @@ public class InteractDialgoue : MonoBehaviour
 
 	private Vector3Int _CellPosition;
 	private CollideCheck _collideCheck;
+	private BoxCollider2D _Collider;
 	private GameManager _GameManager;
 	private bool _HasPlayedOnce;
 	private InputAction _InteractAction;
@@ -42,6 +43,7 @@ public class InteractDialgoue : MonoBehaviour
 		_GameManager = Utils.GetGameManager();
 		_ItemCollision = GetComponent<CollideCheck>();
 		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
+		_Collider = GetComponent<BoxCollider2D>();
 	}
 
 	private void Start()
@@ -72,6 +74,11 @@ public class InteractDialgoue : MonoBehaviour
 		// Don't allow interaction if in conversation or menus.
 		if (_GameManager.m_CurrentState is States.Talking or States.InMenus)
 			return;
+
+		// If there is no active conversation and the collider is disabled, re-enable it.
+		if (!DialogueManager.instance.isConversationActive &&
+		    !_Collider.enabled)
+			_Collider.enabled = true;
 
 		_isController = Gamepad.current != null;
 		MouseInteraction();
@@ -194,8 +201,7 @@ public class InteractDialgoue : MonoBehaviour
 					DialogueManager.StartConversation(_ConversationTitle);
 					m_Interacting = true;
 					StartCoroutine(resetInteracting());
-					var collider = GetComponent<BoxCollider2D>();
-					collider.enabled = false;
+					_Collider.enabled = false;
 					_HasPlayedOnce = true;
 				}
 			}
@@ -226,8 +232,7 @@ public class InteractDialgoue : MonoBehaviour
 				DialogueManager.StartConversation(_ConversationTitle);
 				m_Interacting = true;
 				StartCoroutine(resetInteracting());
-				var collider = GetComponent<BoxCollider2D>();
-				collider.enabled = false;
+				_Collider.enabled = false;
 				_HasPlayedOnce = true;
 			}
 		}
