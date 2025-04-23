@@ -634,6 +634,20 @@ MonoBehaviour:
       value: Check if the player hides albert or leaves him.
       type: 0
       typeString: CustomFieldType_Text
+  - id: 27
+    fields:
+    - title: Name
+      value: Has_Record
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
   conversations:
   - id: 1
     fields:
@@ -14873,7 +14887,7 @@ MonoBehaviour:
         destinationConversationID: 34
         destinationDialogueID: 3
         isConnector: 0
-        priority: 2
+        priority: 4
       conditionsString: 
       userScript: 
       onExecute:
@@ -14986,7 +15000,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["Has_Record"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -15047,7 +15061,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["Has_Record"] == true
       userScript: 
       onExecute:
         m_PersistentCalls:
