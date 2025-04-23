@@ -180,7 +180,12 @@ public class GameManager : Singleton<GameManager>
 			m_Player.GetComponent<PlayerInput>().enabled = false;
 		}
 		else
+		{ // Re-enable the player and components.
+			if (!m_Player.enabled)
+				m_Player.enabled = true;
 			m_Player.GetComponent<NPCMovement>().enabled = false;
+			m_Player.GetComponent<PlayerInput>().enabled = true;
+		}
 
 		// Make ignore gameplay logic if in a non-gameplay scene.
 		if (m_NoneGameplayScenes.Any(noneGameplayScene =>
