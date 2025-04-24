@@ -28,12 +28,12 @@ public class BackgroundMania : MonoBehaviour
             
             if (_EnvDM >= _EnvDMPrev + 2 || _DiaDMPrev >= _DiaDMPrev + 2)
             {
-                _BGImage.color -= new Color(0f, 0.03f, 0.03f, 0f);
+                _BGImage.color -= new Color(0f, 0.01f, 0.01f, 0f);
                 _EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
                 _DiaDMPrev = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
             } else if (_EnvDM <= _EnvDMPrev - 2 || _DiaDMPrev <= _DiaDMPrev - 2)
             {
-                _BGImage.color += new Color(0f, 0.03f, 0.03f, 0f);
+                _BGImage.color += new Color(0f, 0.01f, 0.01f, 0f);
                 _EnvDMPrev = DialogueLua.GetVariable("Env_DM_Meter").asInt;
                 _DiaDMPrev = DialogueLua.GetVariable("Dialogue_DM_Meter").asInt;
             }
@@ -42,7 +42,7 @@ public class BackgroundMania : MonoBehaviour
 
         public void updateAlpha()
         {
-            _BGImage.color += new Color(0f, 0f, 0f, 0.15f);
+            _BGImage.color += new Color(0f, 0f, 0f, 0.12f);
         }
         
     }
