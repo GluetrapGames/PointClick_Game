@@ -234,7 +234,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: NodeColor
-      value: '#00ffeeff'
+      value: '#00998fff'
       type: 0
       typeString: 
     portrait: {fileID: 2800000, guid: 0b79ba3698bdeb64b82bb0e7408e70c7, type: 3}
@@ -646,6 +646,20 @@ MonoBehaviour:
       typeString: CustomFieldType_Boolean
     - title: Description
       value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 28
+    fields:
+    - title: Name
+      value: Has_Hit_Bin
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: Flag to see if the player hit the bin in the flat.
       type: 0
       typeString: CustomFieldType_Text
   conversations:
@@ -22541,8 +22555,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 230
+        x: 163
+        y: 231
         width: 160
         height: 30
     - id: 5
@@ -22597,7 +22611,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 280
+        y: 281
         width: 160
         height: 30
     - id: 6
@@ -22706,8 +22720,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 380
+        x: 163
+        y: 383
         width: 160
         height: 30
     - id: 8
@@ -23104,7 +23118,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.94000006
   - id: 49
     fields:
     - title: Title
@@ -26003,8 +26017,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 19.467121, y: 0}
-    canvasZoom: 1.1199999
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.97
   - id: 51
     fields:
     - title: Title
@@ -26161,14 +26175,14 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["Has_Hit_Bin"] == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 180
+        x: 180.80646
         y: 84
         width: 160
         height: 30
@@ -27094,8 +27108,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.73000026
+    canvasScrollPosition: {x: 136.45387, y: 6.451599}
+    canvasZoom: 1.2399998
   - id: 52
     fields:
     - title: Title
