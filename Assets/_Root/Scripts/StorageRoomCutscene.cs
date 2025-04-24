@@ -12,12 +12,14 @@ public class StorageRoomCutscene : MonoBehaviour
 	private Transform _DebbieSpawner;
 	[SerializeField]
 	private SceneTransition _SceneTransition;
+
 	private bool _BitchMove = true;
 	private GameObject _Debbie;
+	private Animator _DebbieAnimator;
+	private GridMovement _DebbieGrid;
 	private bool _DebbieSpawned;
 	private DialogueEntry _DialogueEntry;
 	private int _DialogueID;
-
 	private GameManager _GameManager;
 
 	private void Awake()
@@ -57,24 +59,40 @@ public class StorageRoomCutscene : MonoBehaviour
 			{
 				_Debbie = Instantiate(_DebbiePrefab, _DebbieSpawner.position,
 					Quaternion.identity);
+				// Grab Debbie's components.
+				_DebbieGrid = _Debbie.GetComponent<GridMovement>();
+				_DebbieAnimator = _Debbie.GetComponent<Animator>();
+
 				_DebbieSpawned = true;
 				_BitchMove = false;
 			}
 		}
 
-		// Once Debbie has spawned and is meant to move, have here move.
-		if (!_BitchMove && _DebbieSpawned)
-		{
-			// Grab Debbie's components.
-			var debsMovement = _Debbie.GetComponent<NPCMovement>();
-			var debsGrid = _Debbie.GetComponent<GridMovement>();
-			var debsAnimator = _Debbie.GetComponent<Animator>();
 
-			// If Debbie is moving, change her animation to a moving one.
-			if (debsGrid.m_IsMoving)
-				debsAnimator.Play("Debbie_Walk_Front");
-			else
-				debsAnimator.Play("Idle");
+		// If the conversation has finished, transition to the last Court scene.
+		if (DialogueManager.lastConversationID == 66 &&
+		    !DialogueManager.IsConversationActive)
+			_SceneTransition.CallFromConversationEnd();
+
+		// Logic past here can only happen is Debbie has spawned in.
+		if (!_DebbieSpawned) return;
+
+		// If Debbie is moving, change her animation to a moving one.
+		if (_DebbieGrid.m_IsMoving)
+		{
+			Debug.Log("Playing Walkin");
+			_DebbieAnimator.Play("Debbie_Walk_Front");
+		}
+		else
+		{
+			Debug.Log("Playing Idel");
+			_DebbieAnimator.Play("Idle");
+		}
+
+		// Once Debbie has spawned and is meant to move, have here move.
+		if (!_BitchMove)
+		{
+			var debsMovement = _Debbie.GetComponent<NPCMovement>();
 
 			// Update her path and make her move.
 			debsMovement.UpdateCellPath();
@@ -82,11 +100,6 @@ public class StorageRoomCutscene : MonoBehaviour
 
 			_BitchMove = true;
 		}
-
-		// If the conversation has finished, transition to the last Court scene.
-		if (DialogueManager.lastConversationID == 66 &&
-		    !DialogueManager.IsConversationActive)
-			_SceneTransition.CallFromConversationEnd();
 	}
 }
 }
