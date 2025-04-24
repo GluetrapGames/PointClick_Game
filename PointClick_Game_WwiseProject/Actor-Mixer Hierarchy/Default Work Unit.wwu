@@ -612,6 +612,59 @@
 								<ActiveSource Name="track_menu" ID="{A6402FF1-5D0C-4C9B-AD11-890505193377}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="track_menu_record" ID="{218EF491-324C-4947-BD8C-521A57E11354}" ShortID="925037046">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings_01" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{173D270B-64AA-4F10-97B4-2C3EB8B23A96}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{553A720C-D615-4614-B680-BE71567AFF70}" WorkUnitID="{0D9603A0-8BEB-46DF-8E97-A26AF7E6AB6C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="track_menu" ID="{A937882F-37F0-4C86-A4F2-289A7EEA357A}">
+									<Language>SFX</Language>
+									<AudioFile>track_menu.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="73779194"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{E937D96E-5485-4A38-B7A8-7D6355CC8189}" ShortID="84232695">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Guitar Distortion (Custom)" ID="{16A2B3E5-ADC9-404D-966B-DC9D7528A9D7}" ShortID="527517990" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+																<PropertyList>
+																	<Property Name="DistortionDrive" Type="Real32" Value="5"/>
+																	<Property Name="DistortionTone" Type="Real32" Value="5"/>
+																	<Property Name="DistortionType" Type="int32" Value="1"/>
+																	<Property Name="WetDryMix" Type="Real32" Value="70"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="track_menu" ID="{A937882F-37F0-4C86-A4F2-289A7EEA357A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{23671A75-F7D6-433B-BF69-A0291BF83DC9}" ShortID="196889044">
