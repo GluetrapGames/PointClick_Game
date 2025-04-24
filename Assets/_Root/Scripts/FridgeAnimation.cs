@@ -11,7 +11,7 @@ public class FridgeAnimation : MonoBehaviour
 	[SerializeField]
 	private Sprite _CloseFridgeSprite;
 
-	private readonly Vector3 _ClosePosition = new(3.24f, 3.42f, 9.99f);
+	private readonly Vector3 _ClosePosition = new(3.24f, 3.42f, 0f);
 	private readonly Vector3 _OpenPosition = new(2.65f, 3.42f, 9.99f);
 
 	private Animator _Animator;
