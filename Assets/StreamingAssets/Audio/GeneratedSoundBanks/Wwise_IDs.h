@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID COURTHUM = 1112129076U;
         static const AkUniqueID DEBBIESCREAM = 2595546245U;
         static const AkUniqueID DOOROPEN = 1404805401U;
+        static const AkUniqueID DRINK = 2201969025U;
         static const AkUniqueID EXITWALK = 3585027902U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID FRIDGEOPEN = 627991214U;
