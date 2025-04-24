@@ -16,6 +16,8 @@ public class PlayerAnimator : MonoBehaviour
 	private static readonly int s_IsDrinking =
 		Animator.StringToHash("IsDrinking");
 
+	public bool m_UpdateFlip = true;
+
 	public AnimationComponents m_AnimationComponents;
 
 	[SerializeField, ReadOnly]
@@ -24,6 +26,7 @@ public class PlayerAnimator : MonoBehaviour
 	private bool _FlipHorizontalFlipping;
 
 	private GameManager _GameManager;
+	private bool _OldFlip;
 	private Vector3 _OldPlayerPosition;
 
 
@@ -37,6 +40,7 @@ public class PlayerAnimator : MonoBehaviour
 	{
 		_PlayerPosition = _GameManager.m_Player.transform.position;
 		_OldPlayerPosition = _PlayerPosition;
+		_OldFlip = m_AnimationComponents.m_SpriteRenderer.flipX;
 	}
 
 	private void Update()
@@ -49,6 +53,10 @@ public class PlayerAnimator : MonoBehaviour
 
 	private void AnimatePlayer()
 	{
+		if (m_UpdateFlip &&
+		    _OldFlip != m_AnimationComponents.m_SpriteRenderer.flipX)
+			m_AnimationComponents.m_SpriteRenderer.flipX = _OldFlip;
+
 		// Return if not moving.
 		if (!_GameManager.m_Player.m_Movement.m_IsMoving)
 		{
@@ -80,6 +88,8 @@ public class PlayerAnimator : MonoBehaviour
 
 		// Update the old position.
 		_OldPlayerPosition = _PlayerPosition;
+		// Update the old flip state.
+		_OldFlip = m_AnimationComponents.m_SpriteRenderer.flipX;
 	}
 
 

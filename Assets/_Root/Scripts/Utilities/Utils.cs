@@ -83,5 +83,29 @@ public static class Utils
 		boxCollider.offset = Vector2.zero;
 		return true;
 	}
+
+	/// <summary>
+	///     Returns whether a desired animation has finished playing or not.
+	/// </summary>
+	/// <param name="animator"></param>
+	/// <param name="stateName"></param>
+	/// <param name="layer"></param>
+	/// <returns></returns>
+	public static bool HasAnimationFinished(Animator animator, string stateName,
+		int layer = 0)
+	{
+		if (animator.IsInTransition(layer))
+			return false;
+
+		AnimatorStateInfo stateInfo =
+			animator.GetCurrentAnimatorStateInfo(layer);
+
+		// Check for animation completion, taking into account looping animations
+		var isFinished =
+			(stateInfo.IsName(stateName) && stateInfo.normalizedTime >= 1.0f) ||
+			stateInfo is { loop: true, normalizedTime: >= 1.0f };
+
+		return isFinished;
+	}
 }
 }
