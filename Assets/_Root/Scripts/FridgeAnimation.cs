@@ -61,8 +61,12 @@ public class FridgeAnimation : MonoBehaviour
 				_Player.transform.position = new Vector3(1.5f, 1.9f, 0.0f);
 
 				// Play the drinking animation
-				// Ensure correct facing direction.
-				_Player.GetComponentInChildren<SpriteRenderer>().flipX = true;
+				// Ensure correct facing direction and pattern visuals.
+				var playerRenderer =
+					_Player.GetComponentInChildren<SpriteRenderer>();
+				playerRenderer.flipX = true;
+				playerRenderer.material.SetTextureScale("_Pattern",
+					new Vector2(24f, 2f));
 				_Animator.Play("John_Drink_Beer");
 
 				// Prevent actions from happening again this frame.
