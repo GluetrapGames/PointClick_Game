@@ -104,6 +104,13 @@ public class EnvironmentSounds : MonoBehaviour
 				case 1:
 					AkSoundEngine.PostEvent("FridgeOpen", gameObject);
 					break;
+                case 3:
+                    AkSoundEngine.PostEvent("Drink", gameObject);
+                    break;
+                case 4:
+                    AkSoundEngine.PostEvent("FridgeOpen", gameObject);
+                    AkSoundEngine.PostEvent("Drink", gameObject);
+                    break;
 			}
         }
 

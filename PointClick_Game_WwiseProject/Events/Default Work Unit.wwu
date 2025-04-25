@@ -46,7 +46,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+											<ObjectRef Name="track_menu_record" ID="{218EF491-324C-4947-BD8C-521A57E11354}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -92,37 +92,37 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+											<ObjectRef Name="track_menu_record" ID="{218EF491-324C-4947-BD8C-521A57E11354}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 								<Action Name="" ID="{94861545-2149-4C90-88D8-D6EDD4F4C2BC}" ShortID="429784706">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="26"/>
-										<Property Name="Lowpass" Type="int16" Value="70"/>
+										<Property Name="Lowpass" Type="int16" Value="60"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+											<ObjectRef Name="track_menu_record" ID="{218EF491-324C-4947-BD8C-521A57E11354}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 								<Action Name="" ID="{6259CED7-5C14-4954-B801-0FFEB7B8ADB0}" ShortID="857799940">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="29"/>
-										<Property Name="Highpass" Type="int16" Value="44"/>
+										<Property Name="Highpass" Type="int16" Value="45"/>
 										<Property Name="Lowpass" Type="int16" Value="70"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+											<ObjectRef Name="track_menu_record" ID="{218EF491-324C-4947-BD8C-521A57E11354}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 								<Action Name="" ID="{4914B617-A506-45B9-A34F-B0ADEA24D8D5}" ShortID="606550665">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+											<ObjectRef Name="track_menu_record" ID="{218EF491-324C-4947-BD8C-521A57E11354}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -136,7 +136,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="track_menu" ID="{0B995BC9-66AE-488B-8465-34360D049F57}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+											<ObjectRef Name="track_menu_record" ID="{218EF491-324C-4947-BD8C-521A57E11354}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -402,6 +402,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="roomTransition" ID="{818BCEF2-10B5-4F8E-A15F-C71522C97FCE}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Drink" ID="{B2CD1F2A-64BC-4D2F-BE78-428BEB2D50FE}">
+							<ChildrenList>
+								<Action Name="" ID="{CFCD4AFE-6E7A-46BF-8269-B06F4D36F2CD}" ShortID="233530162">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="player_drink" ID="{32D02BC0-ECF0-4B11-902B-E0FC270E3292}" WorkUnitID="{8DF0E22A-C0BB-4EF9-A915-02D77FF4F8D9}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

@@ -15,6 +15,8 @@ namespace GlueTrap
 {
 public class BreakableItem : MonoBehaviour
 {
+	private static readonly int s_Hit = Animator.StringToHash("Hit");
+	private static readonly int s_HitArmed = Animator.StringToHash("HitArmed");
 	public ItemDamageStates m_DamageState => _DamageState;
 
 	public string m_PersistentID => _PersistentID;
@@ -46,11 +48,14 @@ public class BreakableItem : MonoBehaviour
 	private InputAction _breakableAction;
 	private EndGameTracker _EndGameTracker;
 	private GameManager _GameManager;
-	private Highlight _highlightRef;
-	private HighlightComposite _highlightCompRef;
 	private bool _hasAddedToCount;
+	private bool _HasHandledAnimation;
 	private ItemTypes _heldItemType;
+	private HighlightComposite _highlightCompRef;
+	private Highlight _highlightRef;
 	private CollideCheck _ItemCollision;
+	private bool _OldPlayerSpriteFlipX;
+	private PlayerAnimator _PlayerAnimator;
 	private HeldItemSlot _playerHeldItem;
 	private PlayerInput _PlayerInput;
 
@@ -59,9 +64,12 @@ public class BreakableItem : MonoBehaviour
 	{
 		// Obtain Game Manager.
 		_GameManager = Utils.GetGameManager();
+
 		_highlightCompRef = GetComponentInChildren<HighlightComposite>();
-		if(!_highlightCompRef) _highlightRef = GetComponentInChildren<Highlight>();
+		if (!_highlightCompRef)
+			_highlightRef = GetComponentInChildren<Highlight>();
 		_ItemCollision = GetComponent<CollideCheck>();
+		_PlayerAnimator = _GameManager.m_Player.GetComponent<PlayerAnimator>();
 	}
 
 	private void Start()
@@ -80,32 +88,77 @@ public class BreakableItem : MonoBehaviour
 		_itemHp = 0;
 		_DamageState = ItemDamageStates.Broken;
 		SpriteSwap(_DamageState);
-		
-		if(!_highlightRef) Debug.LogWarning("<" + name + "> Highlight has no highlight.");
-		if(!_highlightCompRef) Debug.LogWarning("<" + name + "> Highlight has no highlight Composite.");
-		
+
+		if (!_highlightRef)
+			Debug.LogWarning("<" + name + "> Highlight has no highlight.");
+		if (!_highlightCompRef)
+		{
+			Debug.LogWarning("<" + name +
+			                 "> Highlight has no highlight Composite.");
+		}
 	}
 
 	private void Update()
 	{
+		if (!_HasHandledAnimation && Utils.HasAnimationFinished(
+			    _PlayerAnimator.m_AnimationComponents.m_Animator,
+			    "John_Unarmed_Attack"))
+		{
+			Debug.Log("FINSHED!");
+			_PlayerAnimator.m_AnimationComponents.m_SpriteRenderer.flipX =
+				_OldPlayerSpriteFlipX;
+			_HasHandledAnimation = true;
+			_PlayerAnimator.m_UpdateFlip = true;
+		}
+
 		if (!_playerHeldItem) return;
 		if (_playerHeldItem.playerHeldItem != null)
 			_heldItemType = _playerHeldItem.playerHeldItem.m_Item.m_Type;
 
 		if (_ItemCollision.IsCollided)
 		{
-			if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = true;
-			else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = true;
+			if (_highlightRef && !_highlightCompRef)
+				_highlightRef._PlayerColliding = true;
+			else if (_highlightCompRef && !_highlightRef)
+				_highlightCompRef._PlayerColliding = true;
 		}
 		else
 		{
-			if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = false;
-			else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = false;
+			if (_highlightRef && !_highlightCompRef)
+				_highlightRef._PlayerColliding = false;
+			else if (_highlightCompRef && !_highlightRef)
+				_highlightCompRef._PlayerColliding = false;
 		}
-		
+
+		// Hit the object.
 		if (_breakableAction.WasPressedThisFrame() &&
 		    _ItemCollision.IsCollided && _itemHp > 0)
 		{
+			// Set animation tracking variables.
+			_OldPlayerSpriteFlipX = _PlayerAnimator.m_AnimationComponents
+				.m_SpriteRenderer.flipX;
+			_HasHandledAnimation = false;
+			_PlayerAnimator.m_UpdateFlip = false;
+
+			_PlayerAnimator.m_AnimationComponents.m_SpriteRenderer.material
+				.SetTextureScale("_Pattern", new Vector2(16f, 2f));
+
+			// Play corresponding attack animation.
+			if (_GameManager.m_hasCrowbar)
+			{
+				_PlayerAnimator.m_AnimationComponents.m_SpriteRenderer.flipX =
+					!_OldPlayerSpriteFlipX;
+				_PlayerAnimator.m_AnimationComponents.m_Animator.SetTrigger(
+					s_HitArmed);
+			}
+			else
+			{
+				_PlayerAnimator.m_AnimationComponents.m_SpriteRenderer.flipX =
+					!_OldPlayerSpriteFlipX;
+				_PlayerAnimator.m_AnimationComponents.m_Animator.SetTrigger(
+					s_Hit);
+			}
+
 			if (_Log) Debug.Log("Damage Called");
 			Damage();
 			AkSoundEngine.SetSwitch("BreakMaterial", _BreakMaterial.ToString(),
@@ -152,6 +205,11 @@ public class BreakableItem : MonoBehaviour
 			? ItemDamageStates.Broken
 			: ItemDamageStates.Damaged;
 		SpriteSwap(_DamageState);
+
+		/*// Reset animation triggers.
+		_PlayerAnimator.m_AnimationComponents.m_Animator.ResetTrigger(s_Hit);
+		_PlayerAnimator.m_AnimationComponents.m_Animator.ResetTrigger(
+			s_HitArmed);*/
 	}
 
 	private void DisableHighlighting()

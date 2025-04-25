@@ -1,88 +1,91 @@
-using GlueTrap.Utilities;
 using PixelCrushers.DialogueSystem;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace GlueTrap
 {
-    public class FridgeAnimation : MonoBehaviour
-    {
-        private bool _ConvoPlayed;
-        
-        private SpriteRenderer _FridgeSprite;
-        [SerializeField]
-        private Sprite _OpenFridgeSprite;
-        [SerializeField]
-        private Sprite _CloseFridgeSprite;
+public class FridgeAnimation : MonoBehaviour
+{
+	public bool isDrinking;
+	[SerializeField]
+	private Sprite _OpenFridgeSprite;
+	[SerializeField]
+	private Sprite _CloseFridgeSprite;
 
-        private Vector3 _ClosePosition = new Vector3(3.24f, 3.42f, 9.99f);
-        private Vector3 _OpenPosition = new Vector3(2.65f, 3.42f, 9.99f);
+	private readonly Vector3 _ClosePosition = new(3.24f, 3.42f, 0f);
+	private readonly Vector3 _OpenPosition = new(2.65f, 3.42f, 9.99f);
 
-        private GameObject _Player;
-        public bool isDrinking;
+	private Animator _Animator;
+	private bool _ConvoPlayed;
 
-        private Animator _Animator;
-        private Vector3 _OldPosition;
+	private DialogueEntry _DialogueEntry;
 
-        private DialogueEntry _DialogueEntry;
+	private SpriteRenderer _FridgeSprite;
+	private Vector3 _OldPosition;
 
-        void Awake()
-        {
-            _ConvoPlayed = false;
+	private GameObject _Player;
 
-            // Get the fridge's sprite component
-            _FridgeSprite = GetComponentInChildren<SpriteRenderer>();
+	private void Awake()
+	{
+		_ConvoPlayed = false;
 
-            _FridgeSprite.sprite = _CloseFridgeSprite;
+		// Get the fridge's sprite component
+		_FridgeSprite = GetComponentInChildren<SpriteRenderer>();
 
-            _Player = GameObject.FindGameObjectWithTag("Player");
-            _Animator = _Player.GetComponentInChildren<Animator>();
-        }
+		_FridgeSprite.sprite = _CloseFridgeSprite;
 
-        void Update()
-        {
-            // Is a conversation playing?
-            if (DialogueManager.IsConversationActive && DialogueManager.lastConversationID == 37)
-            {
-                // Get the current node ID of the conversation playing.
-                _DialogueEntry = DialogueManager.currentConversationState.subtitle.dialogueEntry;
-                var dialogueID = _DialogueEntry.id;
+		_Player = GameObject.FindGameObjectWithTag("Player");
+		_Animator = _Player.GetComponentInChildren<Animator>();
+	}
 
-                // Bring the fridge infront of the player.
-                _FridgeSprite.sortingOrder = 6;
+	private void Update()
+	{
+		// Is a conversation playing?
+		if (DialogueManager.IsConversationActive &&
+		    DialogueManager.lastConversationID == 37)
+		{
+			// Get the current node ID of the conversation playing.
+			_DialogueEntry = DialogueManager.currentConversationState.subtitle
+				.dialogueEntry;
+			var dialogueID = _DialogueEntry.id;
 
-                // Change the fridge sprite and position
-                _FridgeSprite.sprite = _OpenFridgeSprite;
-                gameObject.transform.position = _OpenPosition;
+			// Bring the fridge infront of the player.
+			_FridgeSprite.sortingOrder = 6;
 
-                // Check if the current conversation playing is the fridge convo
-                if (dialogueID >= 3 && !_ConvoPlayed)
-                {
-                    _Player.transform.position = new Vector3(1.5f, 1.9f, 0.0f);
+			// Change the fridge sprite and position
+			_FridgeSprite.sprite = _OpenFridgeSprite;
+			gameObject.transform.position = _OpenPosition;
 
-                    // Play the drinking animation
-                    _Animator.Play("John_Drink_Beer");
+			// Check if the current conversation playing is the fridge convo
+			if (dialogueID >= 3 && !_ConvoPlayed)
+			{
+				_Player.transform.position = new Vector3(1.5f, 1.9f, 0.0f);
 
-                    // Prevent actions from happening again this frame.
-                    _ConvoPlayed = true;
-                }
-            }
+				// Play the drinking animation
+				// Ensure correct facing direction and pattern visuals.
+				var playerRenderer =
+					_Player.GetComponentInChildren<SpriteRenderer>();
+				playerRenderer.flipX = true;
+				playerRenderer.material.SetTextureScale("_Pattern",
+					new Vector2(24f, 2f));
+				_Animator.Play("John_Drink_Beer");
 
-            // Reset convo flag and fridge sprite so that it can be played again.
-            if (!DialogueManager.isConversationActive)
-            {
-                // Set the fridge back to behind the player.
-                _FridgeSprite.sortingOrder = 1;
+				// Prevent actions from happening again this frame.
+				_ConvoPlayed = true;
+			}
+		}
 
-                // Reset fridge sprite and position
-                _FridgeSprite.sprite = _CloseFridgeSprite;
-                gameObject.transform.position = _ClosePosition;
+		// Reset convo flag and fridge sprite so that it can be played again.
+		if (!DialogueManager.isConversationActive)
+		{
+			// Set the fridge back to behind the player.
+			_FridgeSprite.sortingOrder = 1;
 
-                _ConvoPlayed = false; 
-            }
-        }
+			// Reset fridge sprite and position
+			_FridgeSprite.sprite = _CloseFridgeSprite;
+			gameObject.transform.position = _ClosePosition;
 
-    }
+			_ConvoPlayed = false;
+		}
+	}
+}
 }

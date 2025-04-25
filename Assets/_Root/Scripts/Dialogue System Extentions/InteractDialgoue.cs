@@ -28,12 +28,12 @@ public class InteractDialgoue : MonoBehaviour
 	private bool _calcCollisions = true;
 
 	private Vector3Int _CellPosition;
-	private bool _hasEnabledCollideCheck;
 	private BoxCollider2D _Collider;
 	private GameManager _GameManager;
-	private Highlight _highlightRef;
-	private HighlightComposite _highlightCompRef;
+	private bool _hasEnabledCollideCheck;
 	private bool _HasPlayedOnce;
+	private HighlightComposite _highlightCompRef;
+	private Highlight _highlightRef;
 	private InputAction _InteractAction;
 	private bool _isController;
 	private CollideCheck _ItemCollision;
@@ -47,7 +47,8 @@ public class InteractDialgoue : MonoBehaviour
 		_PlayerInput = _GameManager.m_Player.GetComponent<PlayerInput>();
 		_Collider = GetComponent<BoxCollider2D>();
 		_highlightCompRef = GetComponentInChildren<HighlightComposite>();
-		if(!_highlightCompRef) _highlightRef = GetComponentInChildren<Highlight>();
+		if (!_highlightCompRef)
+			_highlightRef = GetComponentInChildren<Highlight>();
 	}
 
 	private void Start()
@@ -68,15 +69,19 @@ public class InteractDialgoue : MonoBehaviour
 			}
 		}
 
-		if(!_highlightRef) Debug.LogWarning("<" + name + "> Highlight has no highlight.");
-		if(!_highlightCompRef) Debug.LogWarning("<" + name + "> Highlight has no highlight Composite.");
+		if (!_highlightRef)
+			Debug.LogWarning("<" + name + "> Highlight has no highlight.");
+		if (!_highlightCompRef)
+		{
+			Debug.LogWarning("<" + name +
+			                 "> Highlight has no highlight Composite.");
+		}
 
 		_InteractAction = _PlayerInput.actions["Interact"];
 	}
 
 	private void Update()
 	{
-		
 		// Don't allow interaction if in conversation or menus.
 		if (_GameManager.m_CurrentState is States.Talking or States.InMenus)
 			return;
@@ -92,7 +97,7 @@ public class InteractDialgoue : MonoBehaviour
 			ControllerInteraction();
 			return;
 		}
-		
+
 		MouseInteraction();
 
 		// Play the conversion once the Player has reached the object.
@@ -112,30 +117,13 @@ public class InteractDialgoue : MonoBehaviour
 		}
 
 		if (_ItemCollision.IsCollided)
-		{
 			ShowHighlight();
-		}
 		else
-		{
 			HideHighlight();
-		}
-		if(_ItemCollision.IsCollided && _InteractAction.WasPressedThisFrame()) PlayConversation();
+		if (_ItemCollision.IsCollided && _InteractAction.WasPressedThisFrame())
+			PlayConversation();
 	}
 
-	private void ShowHighlight()
-	{
-		if (!_highlightRef && !_highlightCompRef) Debug.LogWarning("<" + name + "> No Highlight!");
-		else if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = true;
-		else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = true;
-	}
-	
-	private void HideHighlight()
-	{
-		if (!_highlightRef && !_highlightCompRef) Debug.LogWarning("<" + name + "> No Highlight!");
-		else if(_highlightRef && !_highlightCompRef) _highlightRef._PlayerColliding = false;
-		else if (_highlightCompRef && !_highlightRef) _highlightCompRef._PlayerColliding = false;
-	}
-	
 	// Handle wall item functionality.
 	private void HandleWallFunction()
 	{
@@ -202,6 +190,16 @@ public class InteractDialgoue : MonoBehaviour
 		_ = _GameManager.m_Player.SetPlayerDestination(cellPosition);
 	}
 
+	private void HideHighlight()
+	{
+		if (!_highlightRef && !_highlightCompRef)
+			Debug.LogWarning("<" + name + "> No Highlight!");
+		else if (_highlightRef && !_highlightCompRef)
+			_highlightRef._PlayerColliding = false;
+		else if (_highlightCompRef && !_highlightRef)
+			_highlightCompRef._PlayerColliding = false;
+	}
+
 	private void MouseInteraction()
 	{
 		if (!Input.GetMouseButtonDown(0))
@@ -211,7 +209,8 @@ public class InteractDialgoue : MonoBehaviour
 			_GameManager.m_Camera.ScreenToWorldPoint(Input.mousePosition);
 
 		// Create a layer mask to ignore the "Player" & "Highlighter" layers.
-		var layerMask = ~LayerMask.GetMask("Player", "Highlighter");
+		var layerMask =
+			~LayerMask.GetMask("Player", "Highlighter", "Grid", "Level");
 
 		RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero,
 			Mathf.Infinity, layerMask);
@@ -285,6 +284,16 @@ public class InteractDialgoue : MonoBehaviour
 		yield return new WaitUntil(() =>
 			_GameManager.m_Player.m_Destination != _CellPosition);
 		_HasPlayedOnce = false;
+	}
+
+	private void ShowHighlight()
+	{
+		if (!_highlightRef && !_highlightCompRef)
+			Debug.LogWarning("<" + name + "> No Highlight!");
+		else if (_highlightRef && !_highlightCompRef)
+			_highlightRef._PlayerColliding = true;
+		else if (_highlightCompRef && !_highlightRef)
+			_highlightCompRef._PlayerColliding = true;
 	}
 }
 }
