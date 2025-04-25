@@ -308,7 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe468967567fbf4d8ab3789ec60f47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _AnimationComponents:
+  m_UpdateFlip: 1
+  m_AnimationComponents:
     m_Animator: {fileID: 0}
     m_SpriteRenderer: {fileID: 0}
   _PlayerPosition: {x: 0, y: 0, z: 0}
@@ -371,7 +372,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485669108317632510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4c9de5699db21d44ac538711706efc0, type: 3}
   m_Name: 
@@ -383,7 +384,9 @@ MonoBehaviour:
   - {x: -4.2, y: 1.5}
   - {x: 2.65, y: -1.75}
   _Debug: 0
-  _CellPath: []
+  _CellPath:
+  - {x: -5, y: 1, z: 0}
+  - {x: 2, y: -2, z: 0}
 --- !u!1 &9033717235172527478
 GameObject:
   m_ObjectHideFlags: 0

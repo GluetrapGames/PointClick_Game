@@ -156,7 +156,7 @@ MonoBehaviour:
     - title: Name
       value: Mark
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -172,11 +172,11 @@ MonoBehaviour:
     - title: Display Name
       value: Mark
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: NodeColor
       value: '#ff0000ff'
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     portrait: {fileID: 2800000, guid: 3a8384b6dfb941d4b8b6acc282f173c7, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
@@ -216,7 +216,7 @@ MonoBehaviour:
     - title: Name
       value: Jack
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -232,11 +232,11 @@ MonoBehaviour:
     - title: Display Name
       value: Jack
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: NodeColor
-      value: '#00ffeeff'
+      value: '#00998fff'
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     portrait: {fileID: 2800000, guid: 0b79ba3698bdeb64b82bb0e7408e70c7, type: 3}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
@@ -632,6 +632,48 @@ MonoBehaviour:
       typeString: CustomFieldType_Boolean
     - title: Description
       value: Check if the player hides albert or leaves him.
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 27
+    fields:
+    - title: Name
+      value: Has_Record
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 28
+    fields:
+    - title: Name
+      value: Has_Hit_Bin
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: Flag to see if the player hit the bin in the flat.
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 29
+    fields:
+    - title: Name
+      value: Fell_Asleep
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
       type: 0
       typeString: CustomFieldType_Text
   conversations:
@@ -2448,7 +2490,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Variable["BedPressed"] == 4
-      userScript: 
+      userScript: Variable["Fell_Asleep"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2459,8 +2501,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 16.98114, y: 0}
-    canvasZoom: 1.06
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.8971463
   - id: 5
     fields:
     - title: Title
@@ -7604,7 +7646,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
+        x: 160.68967
         y: 180
         width: 160
         height: 30
@@ -7717,7 +7759,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
+        x: 160.68967
         y: 280
         width: 160
         height: 30
@@ -7889,7 +7931,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 344.61536
-        y: 383.4066
+        y: 384.09625
         width: 160
         height: 30
     - id: 9
@@ -7945,8 +7987,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 343.73624
-        y: 330.5494
+        x: 344.4259
+        y: 331.92874
         width: 160
         height: 30
     - id: 10
@@ -7976,7 +8018,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(shock, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 23
@@ -7993,14 +8042,7 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: 'BlabAudio(shock, speaker);
-
-        AnimatorPlay(TalkAnim,speakerportrait);
-
-        required
-        AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-        Delay(2)@Message(Typed)'
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8093,7 +8135,14 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'BlabAudio(happy, speaker);
+
+          AnimatorPlay(TalkAnim,speakerportrait);
+
+          required
+          AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 23
@@ -8110,21 +8159,14 @@ MonoBehaviour:
         destinationDialogueID: 13
         isConnector: 0
         priority: 2
-      conditionsString: 'BlabAudio(happy, speaker);
-
-        AnimatorPlay(TalkAnim,speakerportrait);
-
-        required
-        AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
-
-        Delay(2)@Message(Typed)'
+      conditionsString: 
       userScript: Variable["Clues_Found"] = Variable["Clues_Found"] + 1
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 343.73633
+        x: 342.8889
         y: 178.13174
         width: 160
         height: 30
@@ -8187,7 +8229,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 343.73633
-        y: 128.7911
+        y: 113.89748
         width: 160
         height: 30
     - id: 14
@@ -8243,12 +8285,12 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 343.73633
-        y: 77.1382
+        y: 62.244568
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 28.813538, y: 6.65152}
+    canvasZoom: 1.1799998
   - id: 24
     fields:
     - title: Title
@@ -9280,8 +9322,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 180.62714, y: 47.111603}
+    canvasZoom: 1.2399998
   - id: 27
     fields:
     - title: Title
@@ -14873,7 +14915,7 @@ MonoBehaviour:
         destinationConversationID: 34
         destinationDialogueID: 3
         isConnector: 0
-        priority: 2
+        priority: 4
       conditionsString: 
       userScript: 
       onExecute:
@@ -14986,7 +15028,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["Has_Record"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -15047,7 +15089,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["Has_Record"] == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -18272,12 +18314,14 @@ MonoBehaviour:
       - title: Sequence
         value: 'BlabAudio(thinking, speaker);
 
+          PlayJohnAnim(pos);
+
           AnimatorPlay(TalkAnim,speakerportrait);
 
           required
           AnimatorPlay(IdleTalkAnim,speakerportrait)@Message(Typed);
 
-          Delay(2)@Message(Typed)'
+          Delay(2)@Message(Typed);'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -21114,7 +21158,7 @@ MonoBehaviour:
           AnimatorPlay(Albert_Shocked,speakerportrait);
 
           required
-          AnimatorPlay(Albert_Shocked_Idle,speakerportrait)@Message(Typed)
+          AnimatorPlay(Albert_Shocked_Idle,speakerportrait)@Message(Typed);
 
           Delay(2)@Message(Typed)'
         type: 0
@@ -21176,7 +21220,9 @@ MonoBehaviour:
           AnimatorPlay(Albert_Shocked,speakerportrait);
 
           required
-          AnimatorPlay(Albert_Shocked_Idle,speakerportrait)@Message(Typed)'
+          AnimatorPlay(Albert_Shocked_Idle,speakerportrait)@Message(Typed);
+
+          Delay(2)@Message(Typed)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 47
@@ -21949,11 +21995,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Ahhh
+        value: NO-
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'PlayJohnAnim(unarmed);
+        value: '{{default}};
+
+          PlayJohnAnim(unarmed);
 
           PlayJohnAnim(al_fall)@0.2;'
         type: 0
@@ -21979,7 +22027,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1392
+        x: 1404
         y: 1740
         width: 160
         height: 30
@@ -22165,11 +22213,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Ahhh
+        value: NO-
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'PlayJohnAnim(armed);
+        value: '{{default}};
+
+          PlayJohnAnim(armed);
 
           PlayJohnAnim(al_fall)@0.2;'
         type: 0
@@ -22200,8 +22250,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 383.2854, y: 853.1217}
-    canvasZoom: 0.6400025
+    canvasScrollPosition: {x: 905.5238, y: 1235.3657}
+    canvasZoom: 0.70000243
   - id: 48
     fields:
     - title: Title
@@ -22519,8 +22569,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 230
+        x: 163
+        y: 231
         width: 160
         height: 30
     - id: 5
@@ -22575,7 +22625,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 280
+        y: 281
         width: 160
         height: 30
     - id: 6
@@ -22684,8 +22734,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 380
+        x: 163
+        y: 383
         width: 160
         height: 30
     - id: 8
@@ -23082,7 +23132,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.94000006
   - id: 49
     fields:
     - title: Title
@@ -25126,7 +25176,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["Final_Phonecall"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -25539,8 +25589,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 810.12537}
-    canvasZoom: 0.79000115
+    canvasScrollPosition: {x: 138.1815, y: 47.99991}
+    canvasZoom: 0.5500014
   - id: 50
     fields:
     - title: Title
@@ -25981,8 +26031,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 19.467121, y: 0}
-    canvasZoom: 1.1199999
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.97
   - id: 51
     fields:
     - title: Title
@@ -26139,14 +26189,14 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["Has_Hit_Bin"] == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 180
+        x: 180.80646
         y: 84
         width: 160
         height: 30
@@ -27072,8 +27122,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.73000026
+    canvasScrollPosition: {x: 136.45387, y: 6.451599}
+    canvasZoom: 1.2399998
   - id: 52
     fields:
     - title: Title
@@ -28071,7 +28121,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 396
-        y: 192
+        y: 288.08218
         width: 160
         height: 30
     - id: 3
@@ -28128,7 +28178,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 396
-        y: 240
+        y: 336.08218
         width: 160
         height: 30
     - id: 4
@@ -28184,7 +28234,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 396
-        y: 288
+        y: 384.08218
         width: 160
         height: 30
     - id: 5
@@ -28245,7 +28295,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 396
-        y: 336
+        y: 432.08218
         width: 160
         height: 30
     - id: 6
@@ -28300,7 +28350,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 120
-        y: 540
+        y: 636.0819
         width: 160
         height: 30
     - id: 7
@@ -28349,7 +28399,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 420
-        y: 696
+        y: 792.0819
         width: 160
         height: 30
     - id: 8
@@ -28404,7 +28454,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 300
-        y: 540
+        y: 636.0819
         width: 160
         height: 30
     - id: 9
@@ -28460,7 +28510,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 492
-        y: 540
+        y: 636.0819
         width: 160
         height: 30
     - id: 10
@@ -28516,7 +28566,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 672
-        y: 540
+        y: 636.0819
         width: 160
         height: 30
     - id: 11
@@ -28571,7 +28621,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 312
-        y: 612
+        y: 708.0819
         width: 160
         height: 30
     - id: 12
@@ -28626,7 +28676,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 492
-        y: 612
+        y: 708.0819
         width: 160
         height: 30
     - id: 13
@@ -28652,8 +28702,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Stolen [var=Collected_Item_List], and broken [var=Items_Broken] assorted
-          pieces of property.
+        value: Stolen [var=Collected_Item_List]...
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -28671,7 +28720,7 @@ MonoBehaviour:
       - originConversationID: 53
         originDialogueID: 13
         destinationConversationID: 53
-        destinationDialogueID: 2
+        destinationDialogueID: 18
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -28747,7 +28796,13 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: Variable["Items_Broken"] >= 0
+      - originConversationID: 53
+        originDialogueID: 14
+        destinationConversationID: 53
+        destinationDialogueID: 17
+        isConnector: 0
+        priority: 3
+      conditionsString: Variable["Items_Broken"] >= 1
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -28755,7 +28810,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 505.09888
-        y: 396
+        y: 492.08215
         width: 160
         height: 30
     - id: 15
@@ -28820,6 +28875,12 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
+      - originConversationID: 53
+        originDialogueID: 15
+        destinationConversationID: 53
+        destinationDialogueID: 17
+        isConnector: 0
+        priority: 3
       conditionsString: Variable["Items_Broken"] == 0
       userScript: 
       onExecute:
@@ -28828,12 +28889,184 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 288
-        y: 396
+        y: 492.08215
+        width: 160
+        height: 30
+    - id: 16
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: After which, you decided the victims' bed was the right place to end
+          your twisted criminal actions.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 16
+        destinationConversationID: 53
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["Fell_Asleep"] == true
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 615.3481
+        y: 250.77234
+        width: 160
+        height: 30
+    - id: 17
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: and worst of all... You fell asleep in the victims' bed!
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 17
+        destinationConversationID: 53
+        destinationDialogueID: 12
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["Fell_Asleep"] == true
+      userScript: Variable["Sentence_Length"] = Variable["Sentence_Length"] + 10
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 856.44403
+        y: 636.73016
+        width: 160
+        height: 30
+    - id: 18
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: and broken [var=Items_Broken] assorted pieces of property.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 53
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Passthrough
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 53
+        originDialogueID: 18
+        destinationConversationID: 53
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 53
+        originDialogueID: 18
+        destinationConversationID: 53
+        destinationDialogueID: 16
+        isConnector: 0
+        priority: 3
+      conditionsString: Variable["Items_Broken"] > 0
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 396
+        y: 211.82056
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.7900002
+    canvasZoom: 0.5544639
   - id: 54
     fields:
     - title: Title
@@ -33854,7 +34087,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 66
@@ -34256,7 +34489,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 380
+        y: 381.36987
         width: 160
         height: 30
     - id: 8
@@ -34361,6 +34594,163 @@ MonoBehaviour:
         serializedVersion: 2
         x: 160
         y: 480
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 20.724045, y: 9.745591}
+    canvasZoom: 0.73
+  - id: 67
+    fields:
+    - title: Title
+      value: Taxidermy_Key
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Actor
+      value: 7
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: -1
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: 
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      emTagForOldResponses: 0
+      emTagForInvalidResponses: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+      cancelConversation:
+        key: 27
+        buttonName: 
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      conversationID: 67
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 67
+        originDialogueID: 0
+        destinationConversationID: 67
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 30
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Ooohh! I wonder what this unlocks? Maybe there'll be more money!
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 67
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 80
         width: 160
         height: 30
     entryGroups: []

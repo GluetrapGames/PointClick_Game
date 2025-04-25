@@ -1,6 +1,7 @@
 using System;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace GlueTrap
@@ -45,14 +46,73 @@ public class ToggleLog : MonoBehaviour
 	private void Start()
 	{
 		_ButtonImage = gameObject.GetComponent<Image>();
-		if (_ScreenCounter) return;
-		var search = GameObject.FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-		foreach (var thing in search)
+		SceneManager.sceneLoaded += OnSceneChange;
+		
+		if (!_ScreenCounter)
 		{
-			if (thing.CompareTag("MoneyCounter")) _ScreenCounter = thing;
+			var search =
+				GameObject.FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+			foreach (var thing in search)
+			{
+				if (thing.CompareTag("MoneyCounter")) _ScreenCounter = thing;
+			}
 		}
+
+		if (!_ScreenLogButton)
+		{
+			var search =
+				GameObject.FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+			foreach (var thing in search)
+			{
+				if (thing.CompareTag("OnScreenLog")) _ScreenLogButton = thing;
+			}
+		}
+
+		if (!_ScreenPauseButton)
+		{
+			var search =
+				GameObject.FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+			foreach (var thing in search)
+			{
+				if (thing.CompareTag("PauseButton")) _ScreenPauseButton = thing;
+			}
+		}
+		
 	}
 
+	private void OnSceneChange(Scene scene, LoadSceneMode mode)
+	{
+		if (!_ScreenCounter)
+		{
+			var search =
+				GameObject.FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+			foreach (var thing in search)
+			{
+				if (thing.CompareTag("MoneyCounter")) _ScreenCounter = thing;
+			}
+		}
+
+		if (!_ScreenLogButton)
+		{
+			var search =
+				GameObject.FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+			foreach (var thing in search)
+			{
+				if (thing.CompareTag("OnScreenLog")) _ScreenLogButton = thing;
+			}
+		}
+
+		if (!_ScreenPauseButton)
+		{
+			var search =
+				GameObject.FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+			foreach (var thing in search)
+			{
+				if (thing.CompareTag("PauseButton")) _ScreenPauseButton = thing;
+			}
+		}
+	}
+	
 	private void Update()
 	{
 		// Current fix - If autoplay is active and log panel opens, current subtitle still hides at the end
@@ -124,7 +184,7 @@ public class ToggleLog : MonoBehaviour
 			_LogWindow.SetActive(false);
 		}
 	}
-
+	
 	private void OnConversationLine(Subtitle subtitle)
 	{
 		// Check if the player is the listener on the current subtitle.
