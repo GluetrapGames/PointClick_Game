@@ -13,7 +13,7 @@ public class StorageRoomCutscene : MonoBehaviour
 	[SerializeField]
 	private SceneTransition _SceneTransition;
 
-	private bool _BitchMove = true;
+	private bool _DebbieMove = true;
 	private GameObject _Debbie;
 	private Animator _DebbieAnimator;
 	private GridMovement _DebbieGrid;
@@ -53,7 +53,7 @@ public class StorageRoomCutscene : MonoBehaviour
 
 
 		// On a specific conversation node, spawn debbie if she hasn't spawned yet.
-		if (DialogueManager.lastConversationID == 66 && _DialogueID == 5)
+		if (DialogueManager.lastConversationID == 66 && _DialogueID == 2)
 		{
 			if (!_DebbieSpawned)
 			{
@@ -64,7 +64,7 @@ public class StorageRoomCutscene : MonoBehaviour
 				_DebbieAnimator = _Debbie.GetComponent<Animator>();
 
 				_DebbieSpawned = true;
-				_BitchMove = false;
+				_DebbieMove = false;
 			}
 		}
 
@@ -90,7 +90,7 @@ public class StorageRoomCutscene : MonoBehaviour
 		}
 
 		// Once Debbie has spawned and is meant to move, have here move.
-		if (!_BitchMove)
+		if (!_DebbieMove)
 		{
 			var debsMovement = _Debbie.GetComponent<NPCMovement>();
 
@@ -98,7 +98,7 @@ public class StorageRoomCutscene : MonoBehaviour
 			debsMovement.UpdateCellPath();
 			debsMovement.Move();
 
-			_BitchMove = true;
+			_DebbieMove = true;
 		}
 	}
 }
