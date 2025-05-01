@@ -9,20 +9,20 @@ namespace GlueTrap
 {
 public class InventoryManager : Singleton<InventoryManager>
 {
+	public DropHeldItem m_DropHeldItem { get; private set; }
+	public HeldItemSlot m_HeldItemSlot { get; private set; }
+	public List<Transform> m_InventorySlots { get; } = new();
+	public Transform m_Inventory { get; private set; }
 	[SerializeField]
 	public bool m_Log;
+
+	public Dictionary<string, InventoryItemData> m_InventoryItems = new();
 	[SerializeField]
 	private GameObject _InventoryPrefab;
 	[SerializeField]
 	private GameObject _ItemPrefab;
 
 	private GameManager _GameManager;
-
-	public Dictionary<string, InventoryItemData> m_InventoryItems = new();
-	public HeldItemSlot m_HeldItemSlot { get; private set; }
-	public DropHeldItem m_DropHeldItem { get; private set; }
-	public Transform m_Inventory { get; private set; }
-	public List<Transform> m_InventorySlots { get; } = new();
 
 
 	protected override void Awake()
@@ -43,6 +43,44 @@ public class InventoryManager : Singleton<InventoryManager>
 
 		m_Inventory = inventoryObject.transform;
 		GetInventory();
+	}
+
+	private void OnEnable()
+	{
+		_GameManager.m_OnGameReset.AddListener(OnGameReset);
+	}
+
+	private void OnDisable()
+	{
+		_GameManager.m_OnGameReset.RemoveListener(OnGameReset);
+	}
+
+	public bool CollectItem(ItemData itemData)
+	{
+		var inventoryItemData =
+			new InventoryItemData(itemData, false, false, null);
+
+		var slotFound = false;
+		// Try to find a available inventory slot.
+		if (m_Log) Debug.Log("Finding Slot...");
+		foreach (Transform itemSlot in m_InventorySlots.Where(itemSlot =>
+			         itemSlot.childCount == 0))
+		{
+			if (m_Log) Debug.Log("Found a Slot!");
+			inventoryItemData.m_Slot =
+				itemSlot.GetComponent<InventorySlot>();
+			slotFound = true;
+			break;
+		}
+
+		if (!slotFound)
+		{
+			if (m_Log) Debug.Log("Failed to find a Slot!");
+			return false;
+		}
+
+		if (m_Log) Debug.Log("Added an Item to the Inventory!");
+		return SetItem(inventoryItemData);
 	}
 
 	public override void OnSceneChange(Scene scene, LoadSceneMode mode)
@@ -91,32 +129,34 @@ public class InventoryManager : Singleton<InventoryManager>
 		if (slotToRemove != null) m_InventorySlots.Remove(slotToRemove);
 	}
 
-	public bool CollectItem(ItemData itemData)
+	private void OnGameReset()
 	{
-		var inventoryItemData =
-			new InventoryItemData(itemData, false, false, null);
+		Transform slotTransform;
 
-		var slotFound = false;
-		// Try to find a available inventory slot.
-		if (m_Log) Debug.Log("Finding Slot...");
-		foreach (Transform itemSlot in m_InventorySlots.Where(itemSlot =>
-			         itemSlot.childCount == 0))
+		// Clear the inventory.
+		foreach ((var key, InventoryItemData value) in m_InventoryItems)
 		{
-			if (m_Log) Debug.Log("Found a Slot!");
-			inventoryItemData.m_Slot =
-				itemSlot.GetComponent<InventorySlot>();
-			slotFound = true;
-			break;
+			value.m_IsCollected = false;
+			value.m_Item = null;
+			value.m_Slot.item = null;
+			value.m_IsEquipped = false;
+
+			// Remove all children from the slot.
+			slotTransform = value.m_Slot.transform;
+			for (var i = slotTransform.childCount - 1; i >= 0; i--)
+				Destroy(slotTransform.GetChild(i).gameObject);
 		}
 
-		if (!slotFound)
-		{
-			if (m_Log) Debug.Log("Failed to find a Slot!");
-			return false;
-		}
+		// Clear the held item slot.
+		m_HeldItemSlot.playerHeldItem.m_Item = null;
+		m_HeldItemSlot.playerHeldItem.m_IsCollected = false;
+		m_HeldItemSlot.playerHeldItem.m_IsEquipped = false;
+		m_HeldItemSlot.playerHeldItem.m_Slot.item = null;
 
-		if (m_Log) Debug.Log("Added an Item to the Inventory!");
-		return SetItem(inventoryItemData);
+		// Remove all children from the slot.
+		slotTransform = m_HeldItemSlot.transform;
+		for (var i = slotTransform.childCount - 1; i >= 0; i--)
+			Destroy(slotTransform.GetChild(i).gameObject);
 	}
 
 	private bool SetItem(InventoryItemData data)

@@ -35,10 +35,10 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	[SerializeField, ReadOnly]
 	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
 	private bool _albertSpawned;
-	private int _cluesFound;
+	private bool _moneySet;
 
 	private GameManager _GameManager;
-	private bool _moneySet;
+	private int _cluesFound;
 
 	protected override void Awake()
 	{
@@ -183,7 +183,7 @@ public class EndGameTracker : Singleton<EndGameTracker>
 		foreach ((var itemName, InventoryItemData data) in _GameManager
 			         .m_InventoryManager.m_InventoryItems)
 		foreach ((ItemTypes type, var isCollected) in m_EndItemTypes)
-			if (data.m_Item.m_Type == type)
+			if (data.m_Item != null && data.m_Item.m_Type == type)
 			{
 				if (_Log) Debug.Log($"{type}: {isCollected}");
 				keysToUpdate[type] = data.m_IsCollected;
