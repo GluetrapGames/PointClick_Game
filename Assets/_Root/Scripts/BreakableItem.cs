@@ -44,19 +44,19 @@ public class BreakableItem : MonoBehaviour
 	private BreakMaterialTypes _BreakMaterial;
 	[SerializeField]
 	private bool _isTV;
-
-	private InputAction _breakableAction;
-	private EndGameTracker _EndGameTracker;
-	private GameManager _GameManager;
 	private bool _hasAddedToCount;
 	private bool _HasHandledAnimation;
-	private ItemTypes _heldItemType;
-	private HighlightComposite _highlightCompRef;
-	private Highlight _highlightRef;
-	private CollideCheck _ItemCollision;
 	private bool _OldPlayerSpriteFlipX;
-	private PlayerAnimator _PlayerAnimator;
+	private CollideCheck _ItemCollision;
+	private EndGameTracker _EndGameTracker;
+	private GameManager _GameManager;
 	private HeldItemSlot _playerHeldItem;
+	private Highlight _highlightRef;
+	private HighlightComposite _highlightCompRef;
+
+	private InputAction _breakableAction;
+	private ItemTypes _heldItemType;
+	private PlayerAnimator _PlayerAnimator;
 	private PlayerInput _PlayerInput;
 
 
@@ -112,7 +112,7 @@ public class BreakableItem : MonoBehaviour
 		}
 
 		if (!_playerHeldItem) return;
-		if (_playerHeldItem.playerHeldItem != null)
+		if (_playerHeldItem.playerHeldItem is { m_Item: not null })
 			_heldItemType = _playerHeldItem.playerHeldItem.m_Item.m_Type;
 
 		if (_ItemCollision.IsCollided)
