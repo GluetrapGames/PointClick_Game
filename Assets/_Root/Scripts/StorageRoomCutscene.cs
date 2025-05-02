@@ -12,15 +12,15 @@ public class StorageRoomCutscene : MonoBehaviour
 	private Transform _DebbieSpawner;
 	[SerializeField]
 	private SceneTransition _SceneTransition;
+	private Animator _DebbieAnimator;
 
 	private bool _DebbieMove = true;
-	private GameObject _Debbie;
-	private Animator _DebbieAnimator;
-	private GridMovement _DebbieGrid;
 	private bool _DebbieSpawned;
 	private DialogueEntry _DialogueEntry;
-	private int _DialogueID;
 	private GameManager _GameManager;
+	private GameObject _Debbie;
+	private GridMovement _DebbieGrid;
+	private int _DialogueID;
 
 	private void Awake()
 	{
@@ -51,14 +51,15 @@ public class StorageRoomCutscene : MonoBehaviour
 			_DialogueID = _DialogueEntry.id;
 		}
 
-
 		// On a specific conversation node, spawn debbie if she hasn't spawned yet.
-		if (DialogueManager.lastConversationID == 66 && _DialogueID == 2)
+		if (DialogueManager.lastConversationID == 66 && _DialogueID == 3)
 		{
 			if (!_DebbieSpawned)
 			{
 				_Debbie = Instantiate(_DebbiePrefab, _DebbieSpawner.position,
 					Quaternion.identity);
+				Debug.Log($"{_Debbie} has spawned!");
+
 				// Grab Debbie's components.
 				_DebbieGrid = _Debbie.GetComponent<GridMovement>();
 				_DebbieAnimator = _Debbie.GetComponent<Animator>();
