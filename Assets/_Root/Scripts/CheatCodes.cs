@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,17 +19,17 @@ public class CheatCodes : MonoBehaviour
 		if (Input.GetKeyUp(KeyCode.G))
 		{
 			SceneManager.LoadScene("Hallway1");
-            AkSoundEngine.StopAll();
-        }
+			AkSoundEngine.StopAll();
+		}
 
 		if (Input.GetKeyUp(KeyCode.H))
 		{
 			GameObject egt = GameObject.Find("EndGameTracker");
 			var egts = egt.GetComponent<EndGameTracker>();
 			egts._IsGameOver = true;
-            AkSoundEngine.StopAll();
+			AkSoundEngine.StopAll();
 
-            if (SceneManager.GetActiveScene().name != "DownstairsHallway")
+			if (SceneManager.GetActiveScene().name != "DownstairsHallway")
 				SceneManager.LoadScene("DownstairsHallway");
 		}
 
@@ -38,8 +39,9 @@ public class CheatCodes : MonoBehaviour
 			DialogueLua.SetVariable("Money_Collected", true);
 			SceneManager.LoadScene("DownstairsHallway");
 			DialogueManager.StartConversation("Jack_PhoneCall");
-            AkSoundEngine.StopAll();
-        }
+			AkSoundEngine.StopAll();
+		}
 	}
 }
 }
+#endif

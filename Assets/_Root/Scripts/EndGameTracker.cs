@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using AYellowpaper.SerializedCollections;
 using EditorAttributes;
 using GlueTrap.Utilities;
@@ -34,10 +35,10 @@ public class EndGameTracker : Singleton<EndGameTracker>
 	[SerializeField, ReadOnly]
 	private SerializedDictionary<string, BreakableItem> _BreakableItems = new();
 	private bool _albertSpawned;
-	private int _cluesFound;
+	private bool _moneySet;
 
 	private GameManager _GameManager;
-	private bool _moneySet;
+	private int _cluesFound;
 
 	protected override void Awake()
 	{
