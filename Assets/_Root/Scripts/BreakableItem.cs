@@ -105,10 +105,8 @@ public class BreakableItem : MonoBehaviour
 			    "John_Unarmed_Attack"))
 		{
 			Debug.Log("FINSHED!");
-			_PlayerAnimator.m_AnimationComponents.m_SpriteRenderer.flipX =
-				_OldPlayerSpriteFlipX;
 			_HasHandledAnimation = true;
-			_PlayerAnimator.m_UpdateFlip = true;
+			//_PlayerAnimator.m_UpdateFlip = true;
 		}
 
 		if (!_playerHeldItem) return;

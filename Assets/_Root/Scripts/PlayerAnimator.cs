@@ -53,9 +53,9 @@ public class PlayerAnimator : MonoBehaviour
 
 	private void AnimatePlayer()
 	{
-		if (m_UpdateFlip &&
+		/*if (m_UpdateFlip &&
 		    _OldFlip != m_AnimationComponents.m_SpriteRenderer.flipX)
-			m_AnimationComponents.m_SpriteRenderer.flipX = _OldFlip;
+			m_AnimationComponents.m_SpriteRenderer.flipX = _OldFlip;*/
 
 		// Return if not moving.
 		if (!_GameManager.m_Player.m_Movement.m_IsMoving)

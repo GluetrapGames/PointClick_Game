@@ -148,6 +148,7 @@ public class InventoryManager : Singleton<InventoryManager>
 		}
 
 		// Clear the held item slot.
+		if (m_HeldItemSlot.playerHeldItem == null) return;
 		m_HeldItemSlot.playerHeldItem.m_Item = null;
 		m_HeldItemSlot.playerHeldItem.m_IsCollected = false;
 		m_HeldItemSlot.playerHeldItem.m_IsEquipped = false;
